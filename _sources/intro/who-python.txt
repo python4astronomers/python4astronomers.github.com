@@ -1,10 +1,10 @@
 Who is using Python
 ===================
 
-*Sometimes the middle of the herd is a good place to be.*
+*"Sometimes the middle of the herd is a good place to be."*
 
-Heard at a CXC Users Committee meeting in response to
-"Why spend time migrating to Python?"
+(At a CXC Users Committee meeting in response to
+"Why spend time migrating to Python?")
 
 That was several years ago and in the interim the momentum toward Python in astronomy has
 only grown.  The ease of interfacing C / C++ / FORTRAN means many organizations
