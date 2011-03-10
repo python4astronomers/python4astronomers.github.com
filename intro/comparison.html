@@ -1,0 +1,198 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Comparison to SM and IDL &mdash; Python4Astronomers v1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Python4Astronomers v1.0 documentation" href="../index.html" />
+    <link rel="up" title="Practical Python for Astronomers" href="intro.html" />
+    <link rel="next" title="Python requirements" href="python-requirements.html" />
+    <link rel="prev" title="Logistics and open discussion" href="wrapup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="python-requirements.html" title="Python requirements"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="wrapup.html" title="Logistics and open discussion"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Python4Astronomers v1.0 documentation</a> &raquo;</li>
+          <li><a href="intro.html" accesskey="U">Practical Python for Astronomers</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body">
+            
+  <div class="section" id="comparison-to-sm-and-idl">
+<span id="comparison-sm-idl"></span><h1>Comparison to SM and IDL<a class="headerlink" href="#comparison-to-sm-and-idl" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="sm">
+<h2>SM<a class="headerlink" href="#sm" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://www.astro.princeton.edu/~rhl/sm">SM</a> is now over 20 years old and
+continues to be actively used in the astronomy community even among the younger
+generation.  As of this writing there are much better options.</p>
+<div class="section" id="pros">
+<h3>Pros<a class="headerlink" href="#pros" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Very easy to learn for simple plotting</li>
+<li>High-quality output (relative to what astronomers expect)</li>
+<li>Lightweight, no installation hassles</li>
+<li>Can be called from Python (!)</li>
+</ul>
+</div>
+<div class="section" id="cons">
+<h3>Cons<a class="headerlink" href="#cons" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Not free: you have to pay a modest fee and nobody else can see, fix, or develop the source</li>
+<li>Fully supports only 1-d vectors, limited 2-d image and no N-d arrays</li>
+<li>Primitive scripting capabilities</li>
+<li>Confusing and ugly distinction between vector variables and string
+variables (when to use SET vs. DEFINE etc)</li>
+<li>Limited input data format: ASCII tables (space/tab separated or via
+hard-coded C scanf format)</li>
+<li>Limited output formats, basically X11 and Postscript, and a number of dead formats
+(e.g. OS/2, VAX/VMS)</li>
+<li>Not actively developed (last release 2007, closed source, two authors?)</li>
+</ul>
+</div>
+<div class="section" id="set-define-print-weirdness">
+<h3>SET / DEFINE / PRINT weirdness<a class="headerlink" href="#set-define-print-weirdness" title="Permalink to this headline">¶</a></h3>
+<p>Or why SM was a fleeting phase:</p>
+<div class="highlight-python"><pre>DEFINE v 12            # string "12"
+SET x = 10             # 1-element vector 10 20
+SET y = $v + x*12      # Add strings and vectors (well... PERL does this too)
+DEFINE y $v+x*12       # Syntax error, why?
+DEFINE y &lt;$v+x*12&gt;     # String "10+x*12"
+DEFINE y ($v+x*12)     # String "130"
+
+PRINT x                # FAIL
+PRINT {x}              # prints x vector
+PRINT {x[0]}           # FAIL
+WRITE STANDARD $(x[0]) # OK</pre>
+</div>
+<p>Python:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">v</span> <span class="o">=</span> <span class="s">&quot;12&quot;</span>               <span class="c"># v is a string</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">12</span>         <span class="c"># FAIL: Python refuses to add a string and a number</span>
+<span class="n">v</span> <span class="o">=</span> <span class="mi">12</span>                 <span class="c"># Make v a number</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">12</span>         <span class="c"># OK</span>
+<span class="n">y</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot;+x*12&quot;</span>   <span class="c"># Two strings can be added (concatenated)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="o">+</span><span class="n">x</span><span class="o">*</span><span class="mi">12</span><span class="p">)</span>        <span class="c"># Make a string from the number</span>
+<span class="k">print</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">v</span>          <span class="c"># print x, y and v.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="idl">
+<h2>IDL<a class="headerlink" href="#idl" title="Permalink to this headline">¶</a></h2>
+<p>Switching away from IDL is more difficult case to make and there are long
+lists of pros and cons in this case.  The starting point for this discussion
+is the comprehensive comparison in Appendix B of
+<a class="reference external" href="http://stsdas.stsci.edu/perry/pydatatut.pdf">Using Python for Interactive Data Analysis</a>.  Some of the points have
+been updated since that 2007 document and are available in the
+<a class="reference external" href="http://www.astrobetter.com/wiki/tiki-index.php?page=idl_vs_python">IDL vs. Python wiki</a>.</p>
+<p>Here we present an abridged version of the comparison, showing points where
+there is a significant distinction for the average astronomer.</p>
+<div class="section" id="id2">
+<h3>Pros<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Many mature numerical and astronomical libraries available. e.g.,
+<a class="reference external" href="http://idlastro.gsfc.nasa.gov/contents.html">Astro Library</a></li>
+<li>Wide astronomical user base</li>
+<li>Many local users with deep experience</li>
+<li>Easier installation</li>
+<li>Good, unified documentation</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h3>Cons<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Narrow applicability, not well suited to general programming</li>
+<li>Table support poor</li>
+<li>Limited ability to extend using C or Fortran</li>
+<li>Expensive</li>
+<li>Closed source (only RSI can fix bugs)</li>
+<li>Very awkward to integrate with IRAF / CIAO / XXXX tasks</li>
+</ul>
+</div>
+</div>
+<div class="section" id="python">
+<h2>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h3>Pros<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Very general and powerful programming language, yet easy to learn.</li>
+<li>Very large user and developer community, very extensive and broad library base.</li>
+<li>Very extensible with C, C++, or Fortran, portable distribution mechanisms available</li>
+<li>Free; non-restrictive license; Open Source</li>
+<li>Becoming the standard scripting language for astronomy</li>
+<li>Easy to use with IRAF tasks: PyRAF</li>
+<li>Many books and on-line documentation resources available (for the language and its libraries)</li>
+<li>Better support for table structures</li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h3>Cons<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>More items to install separately, installation can be difficult.</li>
+<li>Not as widely adopted in astronomical community (but support clearly growing)</li>
+<li>Scientific libraries not as mature:</li>
+<li>Documentation not as complete, not as unified</li>
+<li>Not as deep in astronomical libraries and utilities (but clearly improving)</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="python-requirements.html" title="Python requirements"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="wrapup.html" title="Logistics and open discussion"
+             >previous</a> |</li>
+        <li><a href="../index.html">Python4Astronomers v1.0 documentation</a> &raquo;</li>
+          <li><a href="intro.html" >Practical Python for Astronomers</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Smithsonian Astrophysical Observatory.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
+    </div>
+  </body>
+</html>
