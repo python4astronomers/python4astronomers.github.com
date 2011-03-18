@@ -1,0 +1,195 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Linux self-managed machine &mdash; Python4Astronomers v1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Python4Astronomers v1.0 documentation" href="../index.html" />
+    <link rel="up" title="Installing Scientific Python" href="installation.html" />
+    <link rel="next" title="Linux on HEAD or CF network" href="linux-network.html" />
+    <link rel="prev" title="Mac OSX" href="macosx.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="linux-network.html" title="Linux on HEAD or CF network"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="macosx.html" title="Mac OSX"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Python4Astronomers v1.0 documentation</a> &raquo;</li>
+          <li><a href="installation.html" accesskey="U">Installing Scientific Python</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="linux-self-managed-machine">
+<h1>Linux self-managed machine<a class="headerlink" href="#linux-self-managed-machine" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="system-install-with-root">
+<h2>System install with root<a class="headerlink" href="#system-install-with-root" title="Permalink to this headline">¶</a></h2>
+<p>For a modern linux installation such as Ubuntu 10, the system Python version
+will be 2.6 or newer and all of the required core packages are available as
+Synaptic package installs.  The instructions below have been developed and tested with
+Ubuntu 10.  Corresponding packages for recent Fedora are probably available but
+this has not been verified.</p>
+<p>The benefit of using a root install via the system package manager is that it
+is simple and all dependencies are managed for you.  The downside is that the
+package versions tend to be a bit old and so you don&#8217;t keep up with the latest
+code development.  In Ubuntu 10 the core packages (NumPy, Matplotlib) are a
+year or so out of date.  This is not a problem and one of us (TLA) mostly uses
+these older versions for stability reasons.</p>
+<div class="section" id="core-installation">
+<h3>Core installation<a class="headerlink" href="#core-installation" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>sudo apt-get install python-dev
+sudo apt-get install ipython
+sudo apt-get install python-numpy
+sudo apt-get install python-scipy
+sudo apt-get install python-matplotlib
+sudo apt-get install python-setuptools</pre>
+</div>
+</div>
+<div class="section" id="astro-required-and-useful">
+<h3>Astro: required and useful<a class="headerlink" href="#astro-required-and-useful" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>sudo easy_install asciitable
+sudo easy_install http://www.stsci.edu/resources/software_hardware/pyfits/pyfits-2.4.0.tar.gz
+sudo easy_install http://stsdas.stsci.edu/astrolib/pywcs-1.9-4.4.4.tar.gz
+sudo easy_install atpy
+sudo easy_install aplpy
+sudo easy_install http://stsdas.stsci.edu/astrolib/vo-0.6.tar.gz
+sudo easy_install http://stsdas.stsci.edu/astrolib/coords-0.37.tar.gz
+sudo easy_install pyparsing
+sudo easy_install pyregion</pre>
+</div>
+</div>
+</div>
+<div class="section" id="user-install-without-root">
+<h2>User install without root<a class="headerlink" href="#user-install-without-root" title="Permalink to this headline">¶</a></h2>
+<p>First download the appropriate Linux EPD installer from the <a class="reference external" href="http://cxc.cfa.harvard.edu/contrib/python4astronomers">EPD downloads</a> page.  The user name
+and password were emailed to the pythonusers mailing list</p>
+<p>The follow the instructions for <a class="reference external" href="http://www.enthought.com/products/epdgetstart.php?platform=linux">Getting Started with EPD</a> for
+Linux.</p>
+<p>Once installed then follow the Getting Started page and look at Pylab and plain
+Python.</p>
+<p>Next you need to edit the appropriate shell startup file (e.g. <tt class="docutils literal"><span class="pre">~/.cshrc</span></tt> or
+<tt class="docutils literal"><span class="pre">~/.bash_profile</span></tt>) and update your path to include the EPD path.  For
+instance if you specified to install EPD in <tt class="docutils literal"><span class="pre">/home/me/epd7.0</span></tt> then the
+following will work:</p>
+<div class="highlight-python"><pre>export PATH=/home/me/epd7.0/bin:$PATH  # bash
+set path=(/home/me/epd7.0/bin $path)   # csh or tcsh</pre>
+</div>
+<div class="section" id="id1">
+<h3>Astro: required and useful<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Now install additional packages:</p>
+<div class="highlight-python"><pre>easy_install --user asciitable
+easy_install --user http://www.stsci.edu/resources/software_hardware/pyfits/pyfits-2.4.0.tar.gz
+easy_install --user http://stsdas.stsci.edu/astrolib/pywcs-1.9-4.4.4.tar.gz
+easy_install --user atpy
+easy_install --user aplpy
+easy_install --user http://stsdas.stsci.edu/astrolib/vo-0.6.tar.gz
+easy_install --user http://stsdas.stsci.edu/astrolib/coords-0.37.tar.gz
+easy_install --user pyparsing
+easy_install --user pyregion</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Linux self-managed machine</a><ul>
+<li><a class="reference internal" href="#system-install-with-root">System install with root</a><ul>
+<li><a class="reference internal" href="#core-installation">Core installation</a></li>
+<li><a class="reference internal" href="#astro-required-and-useful">Astro: required and useful</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#user-install-without-root">User install without root</a><ul>
+<li><a class="reference internal" href="#id1">Astro: required and useful</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="macosx.html"
+                        title="previous chapter">Mac OSX</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="linux-network.html"
+                        title="next chapter">Linux on HEAD or CF network</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/installation/linux-self.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="linux-network.html" title="Linux on HEAD or CF network"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="macosx.html" title="Mac OSX"
+             >previous</a> |</li>
+        <li><a href="../index.html">Python4Astronomers v1.0 documentation</a> &raquo;</li>
+          <li><a href="installation.html" >Installing Scientific Python</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Smithsonian Astrophysical Observatory.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
+    </div>
+  </body>
+</html>
