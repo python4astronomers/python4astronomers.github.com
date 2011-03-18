@@ -58,11 +58,16 @@
 The user name and password were emailed to the pythonusers mailing list.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">If you are using MacOS X 10.5 or 10.6 on an Intel Mac, we
-recommend that you install EPD 7.0.2 64-bit
-(<tt class="docutils literal"><span class="pre">epd-7.0-2-macosx-x86_64.dmg</span></tt>). If you are using a PPC or
-Intel Mac with MacOS X 10.4, you will need to download an older
-32-bit version (<tt class="docutils literal"><span class="pre">epd_py25-4.2.30201-macosx-u.dmg</span></tt>).</p>
+<p class="last">If you are using MacOS X 10.5 or 10.6 on an Intel Mac, you can
+either install the 32-bit or 64-bit version of EPD 7.0.2. To
+determine whether you have a 32-bit or 64-bit processor, see
+<a class="reference external" href="http://support.apple.com/kb/ht3696">this page</a>. If you have a
+64-bit processor, we strongly recommend that you install the
+64-bit version of EPD (<tt class="docutils literal"><span class="pre">epd-7.0-2-macosx-x86_64.dmg</span></tt>).
+Otherwise, you will need the 32-bit version
+(<tt class="docutils literal"><span class="pre">epd-7.0-2-macosx-i386.dmg</span></tt>). If you are using a PPC or Intel
+Mac with MacOS X 10.4, you will need to download an older 32-bit
+version (<tt class="docutils literal"><span class="pre">epd_py25-4.2.30201-macosx-u.dmg</span></tt>).</p>
 </div>
 <p>After downloading the disk image, open it, then double-click on
 <tt class="docutils literal"><span class="pre">EPD.mpkg</span></tt> and follow the prompts to install. Choose all the defaults for
@@ -79,15 +84,28 @@ installed, try typing <tt class="docutils literal"><span class="pre">gcc</span><
 i686-apple-darwin10-gcc-4.2.1: no input files</pre>
 </div>
 <p>If you get <tt class="docutils literal"><span class="pre">gcc:</span> <span class="pre">command</span> <span class="pre">not</span> <span class="pre">found</span></tt> then you need to install the
-developer tools. If you already have the developer tools installed, you can
-proceed to the next section.</p>
+developer tools. <strong>If you already have the developer tools installed, you can
+proceed to the next section</strong>.</p>
 <p>There are several ways to install XCode:</p>
 <ul class="simple">
 <li>The developer tools should be present on one of the installation DVDs
 that came with your Mac. Often, this can be found on DVD 2 rather than on
 the main DVD.</li>
-<li>You can <a class="reference external" href="http://developer.apple.com/programs/register/">register</a> for
-free as an Apple Developer, which will give you access to XCode 3.</li>
+<li>If you don&#8217;t have the original installation DVDs, you can <a class="reference external" href="http://developer.apple.com/programs/register/">register</a> for free as an Apple
+Developer, which will give you access to XCode 2 or 3:<ul>
+<li>If you are using MacOS 10.6 you should be able to download XCode 3.2.6
+once you are logged in to the <a class="reference external" href="http://developer.apple.com/devcenter/mac/index.action">Mac Dev Center</a>. Then, run
+the installer (<tt class="docutils literal"><span class="pre">Xcode</span> <span class="pre">and</span> <span class="pre">iOS</span> <span class="pre">SDK</span></tt>).</li>
+<li>If you are using MacOS 10.5, first log in to the <a class="reference external" href="http://developer.apple.com/devcenter/mac/index.action">Mac Dev Center</a>, then go
+<a class="reference external" href="http://connect.apple.com/cgi-bin/WebObjects/MemberSite.woa/wa/downloads">here</a>.
+Click on <cite>Developer Tools</cite>, and download <cite>Xcode 3.1.4 Developer DVD
+(Disk Image)</cite>, then run the installer (<tt class="docutils literal"><span class="pre">XcodeTools.mpkg</span></tt>).</li>
+<li>If you are using MacOS 10.4, first log in to the <a class="reference external" href="http://developer.apple.com/devcenter/mac/index.action">Mac Dev Center</a>, then go
+<a class="reference external" href="http://connect.apple.com/cgi-bin/WebObjects/MemberSite.woa/wa/downloads">here</a>.
+Click on <cite>Developer Tools</cite>, and download <cite>Xcode 2.5 Developer Tools
+(Disk Image)</cite>, then run the installer (<tt class="docutils literal"><span class="pre">XcodeTools.mpkg</span></tt>).</li>
+</ul>
+</li>
 <li>If you like to live on the bleeding edge, have MacOS X 10.6.6, and don&#8217;t
 mind shelling out $4.99, go to the App Store (<tt class="docutils literal"><span class="pre">/Applications/App</span>
 <span class="pre">Store.app</span></tt>) and buy XCode 4. Note that while this should work, we have
@@ -100,7 +118,7 @@ the Enthought Python Distribution.</li>
 <p>You may at some point come across packages which require a Fortran
 compiler, or you may want to interface Fortran and Python code. If not, you
 can proceed to the next section.</p>
-<p>The prefered compiler to interface Fortran and Python code is <tt class="docutils literal"><span class="pre">gfortran</span></tt>.
+<p>The preferred compiler to interface Fortran and Python code is <tt class="docutils literal"><span class="pre">gfortran</span></tt>.
 Other compilers <cite>should</cite> work, but if you want to be on the safe side, you
 can download a one-click installer for gfortran 4.2.3 from <a class="reference external" href="http://r.research.att.com/tools/">this page</a>. Once you have installed it, make sure
 that typing <tt class="docutils literal"><span class="pre">gfortran</span></tt> gives something like this:</p>
@@ -110,12 +128,12 @@ i686-apple-darwin8-gfortran-4.2: no input files</pre>
 <p>If you get <tt class="docutils literal"><span class="pre">gfortran:</span> <span class="pre">command</span> <span class="pre">not</span> <span class="pre">found</span></tt>, then <tt class="docutils literal"><span class="pre">gfortran</span></tt> did not
 install correctly.</p>
 </div>
-<div class="section" id="additional-packages">
-<h2>Additional Packages<a class="headerlink" href="#additional-packages" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="astro-required-and-useful">
+<h2>Astro: required and useful<a class="headerlink" href="#astro-required-and-useful" title="Permalink to this headline">¶</a></h2>
 <p>Next open a terminal window and do the following:</p>
 <div class="highlight-python"><pre>easy_install asciitable
 easy_install http://www.stsci.edu/resources/software_hardware/pyfits/pyfits-2.4.0.tar.gz
-easy_install http://stsdas.stsci.edu/astrolib/pywcs-1.9-4.4.4.tar.gz
+easy_install pywcs
 easy_install atpy
 easy_install aplpy
 easy_install http://stsdas.stsci.edu/astrolib/vo-0.6.tar.gz
@@ -123,7 +141,22 @@ easy_install http://stsdas.stsci.edu/astrolib/coords-0.37.tar.gz
 easy_install pyparsing
 easy_install pyregion</pre>
 </div>
-<p>Now go back to the <a class="reference internal" href="installation.html#installation-test"><em>Test</em></a> section to verify everything is working.</p>
+<p>Now go back to the <a class="reference internal" href="installation.html#installation-test"><em>Tests</em></a> section to verify everything is working.</p>
+</div>
+<div class="section" id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
+<p>If you get the following error when attempting to start up <tt class="docutils literal"><span class="pre">python</span></tt>:</p>
+<div class="highlight-python"><pre>$ python
+-bash: /Library/Frameworks/EPD64.framework/Versions/Current/bin/python: Bad CPU type in executable</pre>
+</div>
+<p>then this means that your processor does not support 64-bit binaries. Start
+by uninstalling EPD:</p>
+<div class="highlight-python"><pre>cd /Library/Frameworks/EPD64.framework/Versions
+sudo rm -rf 7.0
+cd /Applications
+sudo rm -rf Enthought</pre>
+</div>
+<p>then download and install EPD 7.0.2 32-bit (<tt class="docutils literal"><span class="pre">epd-7.0-2-macosx-i386.dmg</span></tt>).</p>
 </div>
 </div>
 
@@ -139,7 +172,8 @@ easy_install pyregion</pre>
 <li><a class="reference internal" href="#enthought-python-distribution-epd">Enthought Python Distribution (EPD)</a></li>
 <li><a class="reference internal" href="#macos-x-developer-tools">MacOS X Developer Tools</a></li>
 <li><a class="reference internal" href="#fortran-optional">Fortran (Optional)</a></li>
-<li><a class="reference internal" href="#additional-packages">Additional Packages</a></li>
+<li><a class="reference internal" href="#astro-required-and-useful">Astro: required and useful</a></li>
+<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
 </ul>
 </li>
 </ul>

@@ -57,22 +57,22 @@ HEAD or CF networks.</p>
 <div class="section" id="path-configuration">
 <h2>Path configuration<a class="headerlink" href="#path-configuration" title="Permalink to this headline">¶</a></h2>
 <p>The main configuration that is needed is to set up your path to use the
-correct Python version.  First make a directory and some links:</p>
+correct Python version.</p>
+<p>For the HEAD network (but <em>not</em> the CF network) you need to make a local bin directory with links to
+three executables that are found in <tt class="docutils literal"><span class="pre">/usr/local/bin</span></tt>.  Do the following:</p>
 <div class="highlight-python"><pre>mkdir -p ~/.local/bin
-cd ~/.local/bin</pre>
-</div>
-<div class="section" id="head-network">
-<h3>HEAD network<a class="headerlink" href="#head-network" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><pre>ln -s /usr/local/bin/python ./
+cd ~/.local/bin
+ln -s /usr/local/bin/python ./
 ln -s /usr/local/bin/ipython ./
 ln -s /usr/local/bin/easy_install ./</pre>
 </div>
-</div>
-<div class="section" id="cf-network">
-<h3>CF network<a class="headerlink" href="#cf-network" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><pre>ln -s /data/astropy/bin/python ./
-ln -s /data/astropy/bin/ipython ./
-ln -s /data/astropy/bin/easy_install ./</pre>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You might ask why not just put
+<tt class="docutils literal"><span class="pre">/usr/local/bin</span></tt> at the head of your PATH?  The answer is that there are
+many executables in /usr/local/bin that will override their counterparts
+in <tt class="docutils literal"><span class="pre">/usr/bin</span></tt>.  Given current setup on the HEAD network this can
+have unpredictable consequences and it is not recommended.</p>
 </div>
 <p>Next you need to edit the appropriate shell startup file and insert
 this corresponding command near the end:</p>
@@ -81,7 +81,7 @@ this corresponding command near the end:</p>
 <col width="11%" />
 <col width="8%" />
 <col width="20%" />
-<col width="61%" />
+<col width="62%" />
 </colgroup>
 <thead valign="bottom">
 <tr><th class="head">Network</th>
@@ -94,38 +94,42 @@ this corresponding command near the end:</p>
 <tr><td>HEAD</td>
 <td>csh</td>
 <td>~/.cshrc.user</td>
-<td>set path=($HOME/.local/bin $path)</td>
+<td><tt class="docutils literal"><span class="pre">set</span> <span class="pre">path=($HOME/.local/bin</span> <span class="pre">$path)</span></tt></td>
+</tr>
+<tr><td>HEAD</td>
+<td>bash</td>
+<td>~/.bashrc</td>
+<td><tt class="docutils literal"><span class="pre">export</span> <span class="pre">PATH=$HOME/.local/bin:$PATH</span></tt></td>
 </tr>
 <tr><td>CF</td>
 <td>csh</td>
 <td>~/.myrc</td>
-<td>set path=($HOME/.local/bin $path)</td>
+<td><tt class="docutils literal"><span class="pre">set</span> <span class="pre">path=(/data/astropy/bin</span> <span class="pre">$path)</span></tt></td>
 </tr>
-<tr><td>HEAD/CF</td>
+<tr><td>CF</td>
 <td>bash</td>
 <td>~/.bashrc</td>
-<td>export PATH=$HOME/.local/bin:$PATH</td>
+<td><tt class="docutils literal"><span class="pre">export</span> <span class="pre">PATH=/data/astropy/bin:$PATH</span></tt></td>
 </tr>
 </tbody>
 </table>
-</div>
 </div>
 <div class="section" id="packages">
 <h2>Packages<a class="headerlink" href="#packages" title="Permalink to this headline">¶</a></h2>
 <p>Now install a few extra packages into your local area (<tt class="docutils literal"><span class="pre">~/.local/lib/python2.6/site-packages</span></tt>):</p>
 <div class="section" id="astro-required-and-useful">
 <h3>Astro: required and useful<a class="headerlink" href="#astro-required-and-useful" title="Permalink to this headline">¶</a></h3>
-<blockquote>
-easy_install &#8211;user asciitable
-easy_install &#8211;user <a class="reference external" href="http://www.stsci.edu/resources/software_hardware/pyfits/pyfits-2.4.0.tar.gz">http://www.stsci.edu/resources/software_hardware/pyfits/pyfits-2.4.0.tar.gz</a>
-easy_install &#8211;user <a class="reference external" href="http://stsdas.stsci.edu/astrolib/pywcs-1.9-4.4.4.tar.gz">http://stsdas.stsci.edu/astrolib/pywcs-1.9-4.4.4.tar.gz</a>
-easy_install &#8211;user atpy
-easy_install &#8211;user aplpy
-easy_install &#8211;user <a class="reference external" href="http://stsdas.stsci.edu/astrolib/vo-0.6.tar.gz">http://stsdas.stsci.edu/astrolib/vo-0.6.tar.gz</a>
-easy_install &#8211;user <a class="reference external" href="http://stsdas.stsci.edu/astrolib/coords-0.37.tar.gz">http://stsdas.stsci.edu/astrolib/coords-0.37.tar.gz</a>
-easy_install &#8211;user pyparsing
-easy_install &#8211;user pyregion</blockquote>
-<p>Now go back to the <a class="reference internal" href="installation.html#installation-test"><em>Test</em></a> section to verify everything is working.</p>
+<div class="highlight-python"><pre>easy_install --user asciitable
+easy_install --user http://www.stsci.edu/resources/software_hardware/pyfits/pyfits-2.4.0.tar.gz
+easy_install --user pywcs
+easy_install --user atpy
+easy_install --user aplpy
+easy_install --user http://stsdas.stsci.edu/astrolib/vo-0.6.tar.gz
+easy_install --user http://stsdas.stsci.edu/astrolib/coords-0.37.tar.gz
+easy_install --user pyparsing
+easy_install --user pyregion</pre>
+</div>
+<p>Now go back to the <a class="reference internal" href="installation.html#installation-test"><em>Tests</em></a> section to verify everything is working.</p>
 </div>
 </div>
 </div>
@@ -139,11 +143,7 @@ easy_install &#8211;user pyregion</blockquote>
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Linux on HEAD or CF network</a><ul>
-<li><a class="reference internal" href="#path-configuration">Path configuration</a><ul>
-<li><a class="reference internal" href="#head-network">HEAD network</a></li>
-<li><a class="reference internal" href="#cf-network">CF network</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#path-configuration">Path configuration</a></li>
 <li><a class="reference internal" href="#packages">Packages</a><ul>
 <li><a class="reference internal" href="#astro-required-and-useful">Astro: required and useful</a></li>
 </ul>

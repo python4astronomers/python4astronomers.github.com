@@ -79,16 +79,57 @@ from Enthought, all tutorial participants are allowed use the Academic EPD
 downloads we are providing.</em></p>
 <p>However, please do not distribute these files to others without express permission.</p>
 </div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>In order to follow along with the examples to be presented in the workshops
+your Python installation will need to meet the <a class="reference internal" href="#python-requirements">Python requirements</a>.  The aim
+of this workshop is to get this set up correctly. Once you have followed the
+installation instructions in the next section for your platform then go to the
+<a class="reference internal" href="#tests">Tests</a> section to see if everything is OK</p>
+<p>The installation process is particular to each platform.  For all options
+except &#8220;Linux on HEAD or CF network&#8221; you will need the EPD download as
+discussed in the next section.</p>
+<div class="section" id="epd-downloads">
+<h3>EPD downloads<a class="headerlink" href="#epd-downloads" title="Permalink to this headline">¶</a></h3>
+<p>For workshop participants the Enthought Python Distribution download files have been
+mirrored to the <a class="reference external" href="http://cxc.cfa.harvard.edu/contrib/python4astronomers">EPD downloads</a> page.  The user name
+and password were emailed to the pythonusers mailing list on March 18.</p>
+</div>
+<div class="section" id="instructions">
+<h3>Instructions<a class="headerlink" href="#instructions" title="Permalink to this headline">¶</a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="macosx.html">Mac OSX</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="macosx.html#enthought-python-distribution-epd">Enthought Python Distribution (EPD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="macosx.html#macos-x-developer-tools">MacOS X Developer Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="macosx.html#fortran-optional">Fortran (Optional)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="macosx.html#astro-required-and-useful">Astro: required and useful</a></li>
+<li class="toctree-l2"><a class="reference internal" href="macosx.html#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="linux-self.html">Linux self-managed machine</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="linux-self.html#system-install-with-root">System install with root</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux-self.html#user-install-without-root">User install without root</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="linux-network.html">Linux on HEAD or CF network</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="linux-network.html#path-configuration">Path configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux-network.html#packages">Packages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="windows.html">Windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package-basics.html">Basics of Python Packages</a></li>
+</ul>
+</div>
+</div>
+</div>
 <div class="section" id="python-requirements">
 <h2>Python requirements<a class="headerlink" href="#python-requirements" title="Permalink to this headline">¶</a></h2>
-<p>In order to follow along with the examples to be presented in the workshops
-your must have at least the following installed in your working environment.
-Once you have followed the installation instructions in the next section for
-your platform then run the tests below to see if everything is OK.</p>
+<p>Following are a list of required and optional (but useful) packages for the workshops.</p>
 <div class="section" id="core">
 <h3>Core<a class="headerlink" href="#core" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>Python 2.6 or 2.7 <a class="footnote-reference" href="#id3" id="id2">[1]</a></li>
+<li>Python 2.6 or 2.7 (not Python 3.x <a class="footnote-reference" href="#id4" id="id3">[1]</a>)</li>
 <li>IPython &gt;= 0.10</li>
 <li>NumPy &gt;= 1.3</li>
 <li>SciPy &gt;= 0.7.2</li>
@@ -117,8 +158,8 @@ your platform then run the tests below to see if everything is OK.</p>
 <li><a class="reference external" href="http://montage.ipac.caltech.edu/">Montage</a> (compiled application and library)</li>
 </ul>
 </div>
-<div class="section" id="test">
-<span id="installation-test"></span><h3>Test<a class="headerlink" href="#test" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="tests">
+<span id="installation-test"></span><h3>Tests<a class="headerlink" href="#tests" title="Permalink to this headline">¶</a></h3>
 <p>To do a very basic test whether you meet the requirements and have a functioning
 core scientific Python installation, do the following and check version numbers:</p>
 <div class="highlight-python"><pre>% python -V
@@ -146,51 +187,13 @@ meet the requirements, and finally you should see a plot of a sine wave.</p>
 <span class="kn">import</span> <span class="nn">aplpy</span>
 </pre></div>
 </div>
-<table class="docutils footnote" frame="void" id="id3" rules="none">
+<table class="docutils footnote" frame="void" id="id4" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td>Python 3.x is the &#8220;next generation&#8221; Python but for astronomy analysis
+<tr><td class="label"><a class="fn-backref" href="#id3">[1]</a></td><td>Python 3.x is the &#8220;next generation&#8221; Python but for astronomy analysis
 Python 2.x is still the best choice.</td></tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="section" id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<p>The installation process is particular to each platform.  For all options
-except &#8220;Linux on HEAD or CF network&#8221; you will need the EPD download as
-discussed in the next section.</p>
-<div class="section" id="epd-downloads">
-<h3>EPD downloads<a class="headerlink" href="#epd-downloads" title="Permalink to this headline">¶</a></h3>
-<p>For workshop participants the Enthought Python Distribution download files have been
-mirrored to the <a class="reference external" href="http://cxc.cfa.harvard.edu/contrib/python4astronomers">EPD downloads</a> page.  The user name
-and password were emailed to the pythonusers mailing list on March 18.</p>
-</div>
-<div class="section" id="instructions">
-<h3>Instructions<a class="headerlink" href="#instructions" title="Permalink to this headline">¶</a></h3>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="macosx.html">Mac OSX</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="macosx.html#enthought-python-distribution-epd">Enthought Python Distribution (EPD)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="macosx.html#macos-x-developer-tools">MacOS X Developer Tools</a></li>
-<li class="toctree-l2"><a class="reference internal" href="macosx.html#fortran-optional">Fortran (Optional)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="macosx.html#additional-packages">Additional Packages</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="linux-self.html">Linux self-managed machine</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="linux-self.html#system-install-with-root">System install with root</a></li>
-<li class="toctree-l2"><a class="reference internal" href="linux-self.html#user-install-without-root">User install without root</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="linux-network.html">Linux on HEAD or CF network</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="linux-network.html#path-configuration">Path configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="linux-network.html#packages">Packages</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="windows.html">Windows</a></li>
-<li class="toctree-l1"><a class="reference internal" href="package-basics.html">Basics of Python Packages</a></li>
-</ul>
-</div>
 </div>
 </div>
 </div>
@@ -205,18 +208,18 @@ and password were emailed to the pythonusers mailing list on March 18.</p>
   <ul>
 <li><a class="reference internal" href="#">Installing Scientific Python</a><ul>
 <li><a class="reference internal" href="#enthought-python-distribution">Enthought Python Distribution</a></li>
-<li><a class="reference internal" href="#python-requirements">Python requirements</a><ul>
-<li><a class="reference internal" href="#core">Core</a></li>
-<li><a class="reference internal" href="#astro-required">Astro: required</a></li>
-<li><a class="reference internal" href="#astro-useful">Astro: useful</a></li>
-<li><a class="reference internal" href="#test">Test</a></li>
-</ul>
-</li>
 <li><a class="reference internal" href="#installation">Installation</a><ul>
 <li><a class="reference internal" href="#epd-downloads">EPD downloads</a></li>
 <li><a class="reference internal" href="#instructions">Instructions</a><ul>
 </ul>
 </li>
+</ul>
+</li>
+<li><a class="reference internal" href="#python-requirements">Python requirements</a><ul>
+<li><a class="reference internal" href="#core">Core</a></li>
+<li><a class="reference internal" href="#astro-required">Astro: required</a></li>
+<li><a class="reference internal" href="#astro-useful">Astro: useful</a></li>
+<li><a class="reference internal" href="#tests">Tests</a></li>
 </ul>
 </li>
 </ul>
