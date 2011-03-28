@@ -145,6 +145,24 @@ easy_install pyregion</pre>
 </div>
 <div class="section" id="troubleshooting">
 <h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="path">
+<h3>Path<a class="headerlink" href="#path" title="Permalink to this headline">¶</a></h3>
+<p>If EPD installed successfully and you can start <tt class="docutils literal"><span class="pre">python</span></tt> but not <tt class="docutils literal"><span class="pre">ipython</span></tt> (error message
+like <tt class="docutils literal"><span class="pre">ipython:</span> <span class="pre">command</span> <span class="pre">not</span> <span class="pre">found</span></tt>) then there is likely a problem with your PATH.</p>
+<p>First, determine if you are running csh/tcsh or bash with the following command:</p>
+<div class="highlight-python"><pre>echo $SHELL</pre>
+</div>
+<p>For <tt class="docutils literal"><span class="pre">/bin/csh</span></tt> or <tt class="docutils literal"><span class="pre">/bin/tcsh</span></tt> you should edit the file <tt class="docutils literal"><span class="pre">~/.cshrc</span></tt> and add the following lines at the end:</p>
+<div class="highlight-python"><pre># Setting PATH for Enthough Python Distribution
+set path=(/Library/Frameworks/EPD64.framework/Versions/Current/bin $path)</pre>
+</div>
+<p>For <tt class="docutils literal"><span class="pre">/bin/bash</span></tt> you should edit the file <tt class="docutils literal"><span class="pre">~/.bash_profile</span></tt> and add the following lines at the end:</p>
+<div class="highlight-python"><pre># Setting PATH for Enthough Python Distribution
+export PATH=/Library/Frameworks/EPD64.framework/Versions/Current/bin:$PATH</pre>
+</div>
+</div>
+<div class="section" id="vs-64-bit">
+<h3>32 vs. 64 bit<a class="headerlink" href="#vs-64-bit" title="Permalink to this headline">¶</a></h3>
 <p>If you get the following error when attempting to start up <tt class="docutils literal"><span class="pre">python</span></tt>:</p>
 <div class="highlight-python"><pre>$ python
 -bash: /Library/Frameworks/EPD64.framework/Versions/Current/bin/python: Bad CPU type in executable</pre>
@@ -157,6 +175,7 @@ cd /Applications
 sudo rm -rf Enthought</pre>
 </div>
 <p>then download and install EPD 7.0.2 32-bit (<tt class="docutils literal"><span class="pre">epd-7.0-2-macosx-i386.dmg</span></tt>).</p>
+</div>
 </div>
 </div>
 
@@ -173,7 +192,11 @@ sudo rm -rf Enthought</pre>
 <li><a class="reference internal" href="#macos-x-developer-tools">MacOS X Developer Tools</a></li>
 <li><a class="reference internal" href="#fortran-optional">Fortran (Optional)</a></li>
 <li><a class="reference internal" href="#additional-packages">Additional packages</a></li>
-<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li><a class="reference internal" href="#path">Path</a></li>
+<li><a class="reference internal" href="#vs-64-bit">32 vs. 64 bit</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
