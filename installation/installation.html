@@ -64,31 +64,22 @@
 </li>
 <li><a class="reference internal" href="#try-it-out">Try it out!</a><ul>
 <li><a class="reference internal" href="#setup">Setup</a></li>
-<li><a class="reference internal" href="#exercise-read-a-table-and-examine-it"><em>Exercise</em>: Read a table and examine it</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#modules-packages-and-all-that">Modules, Packages, and all that</a><ul>
-<li><a class="reference internal" href="#exercise-import-a-package-module-and-learn-about-it"><em>Exercise</em>: Import a package module and learn about it</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#modules-packages-and-all-that">Modules, Packages, and all that</a></li>
 <li><a class="reference internal" href="#finding-and-installing-other-packages">Finding and installing other packages</a><ul>
 <li><a class="reference internal" href="#package-resources">Package resources</a></li>
-<li><a class="reference internal" href="#exercise-find-packages-for-coordinate-manipulations"><em>Exercise</em>: find packages for coordinate manipulations</a></li>
 <li><a class="reference internal" href="#package-installation">Package installation</a></li>
 <li><a class="reference internal" href="#where-to-packages-get-installed">Where to packages get installed?</a><ul>
-<li><a class="reference internal" href="#with-user">WITH &#8211;user</a></li>
-<li><a class="reference internal" href="#without-user">WITHOUT &#8211;user</a></li>
+<li><a class="reference internal" href="#with-user">WITH <tt class="docutils literal"><span class="pre">--user</span></tt></a></li>
+<li><a class="reference internal" href="#without-user">WITHOUT <tt class="docutils literal"><span class="pre">--user</span></tt></a></li>
 <li><a class="reference internal" href="#how-do-i-find-a-package-once-installed">How do I find a package once installed?</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#uninstalling-packages">Uninstalling packages</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#final-exercises">Final exercises</a><ul>
-<li><a class="reference internal" href="#exercise-intermediate-fully-install-aplpy">Exercise [intermediate]: Fully install APLpy</a></li>
-<li><a class="reference internal" href="#exercise-expert-install-scipy-and-all-dependencies-from-source">Exercise [expert]: Install SciPy and all dependencies from source</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#final-exercises">Final exercises</a></li>
 </ul>
 </li>
 </ul>
@@ -263,7 +254,7 @@ print scipy.linalg.eig([[1,2],[3,4]])</pre>
 </div>
 <p>The commands above should succeed with no errors.  The version numbers should
 meet the requirements, and finally you should see a plot of a sine wave.</p>
-<p>To check the other required packages do the following from within ipython:</p>
+<p>To check the other required packages, do the following from within ipython:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">asciitable</span>
 <span class="kn">import</span> <span class="nn">pyfits</span>
 <span class="kn">import</span> <span class="nn">pywcs</span>
@@ -277,15 +268,16 @@ meet the requirements, and finally you should see a plot of a sine wave.</p>
 <h2>Try it out!<a class="headerlink" href="#try-it-out" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="setup">
 <h3>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h3>
-<p>First download the <a class="reference external" href="install_examples.tar">install_examples.tar</a> tar file which has example data files.
+<p>First download the <a class="reference external" href="install_examples.tar">install_examples.tar</a> tar file which has example data
+files that will be used in subsequent exercises.
 Then change to a working directory, untar the file, and start up IPython:</p>
 <div class="highlight-python"><pre>tar xvf ~/Downloads/install_examples.tar   # or wherever your browser puts downloads
 cd py4ast/install
 ls
 ipython -pylab</pre>
 </div>
-<div class="admonition hint">
-<p class="first admonition-title">Hint</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
 <p>For all of the workshops you should always start Python using the command:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">ipython</span> <span class="o">-</span><span class="n">pylab</span>  <span class="c"># (for Windows start the Pylab application)</span>
 </pre></div>
@@ -298,23 +290,19 @@ math functions and array utilities from <a class="reference external" href="http
 <div class="last highlight-python"><pre>alias pylab "ipython -pylab"</pre>
 </div>
 </div>
-</div>
-<div class="section" id="exercise-read-a-table-and-examine-it">
-<h3><em>Exercise</em>: Read a table and examine it<a class="headerlink" href="#exercise-read-a-table-and-examine-it" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-exercise-read-a-table-and-examine-it admonition ">
+<p class="first admonition-title">Exercise: Read a table and examine it</p>
 <p>Look at the documentation for the <a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable/#reading-tables">asciitable.read()</a> function in
 <a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable">asciitable</a>.  Follow the very first example and use the <tt class="docutils literal"><span class="pre">read()</span></tt> function
 to read the data in the file <tt class="docutils literal"><span class="pre">table1.dat</span></tt> into the variable named <tt class="docutils literal"><span class="pre">data</span></tt>.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">This table is in the &#8220;ApJ machine-readable format&#8221; (which is actually a bit
+<p>This table is in the &#8220;ApJ machine-readable format&#8221; (which is actually a bit
 tricky for machines to read).  This is very similar to the table format used
 by CDS / Vizier for input and storage of tables in astronomy.</p>
-</div>
 <p>Once you have read the table into the variable <tt class="docutils literal"><span class="pre">data</span></tt> then print the table,
-print the column <tt class="docutils literal"><span class="pre">RAdeg</span></tt>, and print the 3rd row..</p>
-<div class="admonition hint">
-<p class="first admonition-title">Hint</p>
-<ul class="last">
+print the column <tt class="docutils literal"><span class="pre">RAdeg</span></tt>, and print the 3rd row.</p>
+<p>Hints:</p>
+<blockquote>
+<ul>
 <li><p class="first">You can print a <tt class="docutils literal"><span class="pre">&lt;variable&gt;</span></tt> by just typing <tt class="docutils literal"><span class="pre">print</span> <span class="pre">&lt;variable&gt;</span></tt> at the command line, for example <tt class="docutils literal"><span class="pre">print</span> <span class="pre">data</span></tt>.</p>
 </li>
 <li><p class="first">You can get tons of useful information about a variable with <tt class="docutils literal"><span class="pre">help</span></tt> or <tt class="docutils literal"><span class="pre">?</span></tt>:</p>
@@ -324,6 +312,8 @@ print the column <tt class="docutils literal"><span class="pre">RAdeg</span></tt
 <li><tt class="docutils literal"><span class="pre">?</span> <span class="pre">&lt;variable&gt;</span></tt></li>
 </ul>
 </blockquote>
+<p>These two commands are pretty similar except that <tt class="docutils literal"><span class="pre">?</span></tt> gives a little bit more information
+and in a more raw form.</p>
 </li>
 <li><p class="first">The object returned by <tt class="docutils literal"><span class="pre">asciitable.read()</span></tt> is a NumPy record array,
 which is just a fancy way of saying a table where you can access rows or columns of data.</p>
@@ -332,14 +322,15 @@ which is just a fancy way of saying a table where you can access rows or columns
 </li>
 <li><p class="first">To print a column of data use <tt class="docutils literal"><span class="pre">print</span> <span class="pre">data[&quot;&lt;column_name&gt;&quot;]</span></tt>, for example <tt class="docutils literal"><span class="pre">print</span> <span class="pre">data[&quot;Name&quot;]</span></tt></p>
 </li>
-<li><p class="first">To print a row of data use <tt class="docutils literal"><span class="pre">print</span> <span class="pre">data[3]</span></tt></p>
+<li><p class="first">To print a row of data use <tt class="docutils literal"><span class="pre">print</span> <span class="pre">data[&lt;row_number&gt;]</span></tt></p>
 </li>
 </ul>
-</div>
-<p>Optional: use the <a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib.pyplot.plot">plot</a> and
+</blockquote>
+<p class="last">Optional: use the <a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib.pyplot.plot">plot</a> and
 <a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib.pyplot.hist">hist</a> functions to
 examine the data graphically.  For instance plot RAdeg versus DEdeg.  Look at the <tt class="docutils literal"><span class="pre">table1.dat</span></tt> file itself for
 detailed column descriptions.</p>
+</div>
 </div>
 </div>
 <div class="section" id="modules-packages-and-all-that">
@@ -370,8 +361,8 @@ why do I need to do this?</dd>
 <tt class="docutils literal"><span class="pre">&lt;module&gt;.&lt;function&gt;(...)</span></tt> syntax there would be no way to know which one
 to call.</dd>
 </dl>
-<div class="admonition hint">
-<p class="first admonition-title">Hint</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
 <p>Sometimes it is convenient to make an end-run around the <tt class="docutils literal"><span class="pre">&lt;module&gt;.</span></tt>
 prefixing.  For instance when you run <tt class="docutils literal"><span class="pre">ipython</span> <span class="pre">-pylab</span></tt> the interpreter
 does some startup processing so that a number of functions
@@ -436,9 +427,9 @@ of sub-packages available within <a class="reference external" href="http://scip
 </tr>
 </tbody>
 </table>
-<div class="section" id="exercise-import-a-package-module-and-learn-about-it">
-<h3><em>Exercise</em>: Import a package module and learn about it<a class="headerlink" href="#exercise-import-a-package-module-and-learn-about-it" title="Permalink to this headline">¶</a></h3>
-<p>Import the Linear algebra module from the SciPy package and find out what
+<div class="admonition-exercise-import-a-package-module-and-learn-about-it admonition ">
+<p class="first admonition-title">Exercise: Import a package module and learn about it</p>
+<p class="last">Import the Linear algebra module from the SciPy package and find out what
 functions it provides.</p>
 </div>
 </div>
@@ -482,12 +473,12 @@ An increasing number of <a class="reference external" href="http://pypi.python.o
 are available on PyPI, but this list misses a lot of available options.</p>
 <p>The advantage of being on PyPI is the ease of installation using
 <tt class="docutils literal"><span class="pre">easy_install</span> <span class="pre">&lt;package_name&gt;</span></tt>.</p>
-</div>
-<div class="section" id="exercise-find-packages-for-coordinate-manipulations">
-<h3><em>Exercise</em>: find packages for coordinate manipulations<a class="headerlink" href="#exercise-find-packages-for-coordinate-manipulations" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-exercise-find-packages-for-coordinate-manipulations admonition ">
+<p class="first admonition-title">Exercise: Find packages for coordinate manipulations</p>
 <p>Find one or more Python packages that will transform coordinates from Galactic to FK5 ecliptic.</p>
-<p><em>Hint</em>: tags are helpful at astropython.org and don&#8217;t forget the &#8220;next&#8221; button at
+<p class="last"><em>Hint</em>: tags are helpful at astropython.org and don&#8217;t forget the &#8220;next&#8221; button at
 the bottom.</p>
+</div>
 </div>
 <div class="section" id="package-installation">
 <h3>Package installation<a class="headerlink" href="#package-installation" title="Permalink to this headline">¶</a></h3>
@@ -557,12 +548,21 @@ someone help?&#8221;</p>
 files.  We&#8217;ve seen the <tt class="docutils literal"><span class="pre">--user</span></tt> option in <tt class="docutils literal"><span class="pre">easy_install</span></tt> and <tt class="docutils literal"><span class="pre">python</span>
 <span class="pre">setup.py</span> <span class="pre">install</span></tt>.  What&#8217;s up with that?</p>
 <div class="section" id="with-user">
-<h4>WITH &#8211;user<a class="headerlink" href="#with-user" title="Permalink to this headline">¶</a></h4>
+<h4>WITH <tt class="docutils literal"><span class="pre">--user</span></tt><a class="headerlink" href="#with-user" title="Permalink to this headline">¶</a></h4>
 <p>This option is generally a good idea and will work in all cases.  Packages get
 installed in a local user-owned directory when you do something like either of
 the following:</p>
 <div class="highlight-python"><pre>easy_install --user asciitable
 python setup.py install --user</pre>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>If you installed Python with a distribution <em>other</em> than EPD, then you might get an error using
+<tt class="docutils literal"><span class="pre">easy_install</span> <span class="pre">--user</span></tt>.  There is an older (deprecated) version of easy_install
+in some Python distributions which does not support <tt class="docutils literal"><span class="pre">--user</span></tt>.  You should be able
+to get the latest <tt class="docutils literal"><span class="pre">easy_install</span></tt> with:</p>
+<div class="last highlight-python"><pre>easy_install distribute  # maybe need "sudo" in front</pre>
+</div>
 </div>
 <p>This puts the packages into:</p>
 <table border="1" class="docutils">
@@ -584,6 +584,12 @@ python setup.py install --user</pre>
 </table>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
+<p class="last">On Mac if you did not use the EPD Python Framework then you may see user
+packages within <tt class="docutils literal"><span class="pre">~/.local/lib</span></tt> as for linux.  This depends on whether Python
+is installed as a MacOS Framework or not.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
 <p class="last">As a side benefit of always installing with <tt class="docutils literal"><span class="pre">--user</span></tt>, if you use multiple
 Python installations (for instance PyRaf, CASA, and CIAO), <em>each</em> of those will
 provide its own version of Python which is essentially its own universe as far
@@ -593,17 +599,17 @@ case, for instance Python 2.6 will not always play with Python 2.7).</p>
 </div>
 </div>
 <div class="section" id="without-user">
-<h4>WITHOUT &#8211;user<a class="headerlink" href="#without-user" title="Permalink to this headline">¶</a></h4>
+<h4>WITHOUT <tt class="docutils literal"><span class="pre">--user</span></tt><a class="headerlink" href="#without-user" title="Permalink to this headline">¶</a></h4>
 <p>This option requires root or admin privilege because the package will be
 installed in the system area instead of your own local directories.</p>
-<p>Installing has the benefit of making the package available for all users of the
+<p>Installing this way has the benefit of making the package available for all users of the
 Python installation, but has the downside of possibly breaking things in a way
 that is difficult to repair (see next topic).</p>
 </div>
 <div class="section" id="how-do-i-find-a-package-once-installed">
 <h4>How do I find a package once installed?<a class="headerlink" href="#how-do-i-find-a-package-once-installed" title="Permalink to this headline">¶</a></h4>
-<p>Finding the file associated with a package or module is simple, just use the ?
-function in IPython:</p>
+<p>Finding the file associated with a package or module is simple, just use the <tt class="docutils literal"><span class="pre">help</span></tt>
+command in IPython:</p>
 <div class="highlight-python"><pre>import scipy
 help scipy</pre>
 </div>
@@ -631,20 +637,32 @@ DESCRIPTION
 </div>
 <div class="section" id="final-exercises">
 <h2>Final exercises<a class="headerlink" href="#final-exercises" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="exercise-intermediate-fully-install-aplpy">
-<h3>Exercise [intermediate]: Fully install APLpy<a class="headerlink" href="#exercise-intermediate-fully-install-aplpy" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-exercise-intermediate-fully-install-aplpy admonition ">
+<p class="first admonition-title">Exercise [intermediate]: Fully install APLpy</p>
 <p>Go to the <a class="reference external" href="http://aplpy.github.com/install.html">APLpy install page</a> and
 read the instructions.  Manually install all of the Python package dependencies with the
-<tt class="docutils literal"><span class="pre">--user</span></tt> option.</p>
-<p>For extra credit install the <a class="reference external" href="http://montage.ipac.caltech.edu/">Montage</a> C library as discussed on the APLpy
+<tt class="docutils literal"><span class="pre">--user</span></tt> option or try the auto-install script available there.</p>
+<p class="last">For extra credit install the <a class="reference external" href="http://montage.ipac.caltech.edu/">Montage</a> C library as discussed on the APLpy
 install page.  Then try to run the example <a class="reference external" href="../intro/quick-tour.html#making-a-publication-quality-image">Making a publication quality plot</a> that was shown
-in the introductory talk.</p>
+in the introductory talk.  The necessary input files are in the
+<tt class="docutils literal"><span class="pre">install_examples.tar</span></tt> file.</p>
 </div>
-<div class="section" id="exercise-expert-install-scipy-and-all-dependencies-from-source">
-<h3>Exercise [expert]: Install SciPy and all dependencies from source<a class="headerlink" href="#exercise-expert-install-scipy-and-all-dependencies-from-source" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-exercise-intermediate-install-hdf5-and-pytables admonition ">
+<p class="first admonition-title">Exercise [intermediate]: Install HDF5 and PyTables</p>
+<p class="last">Install <a class="reference external" href="http://www.hdfgroup.org/HDF5/">HDF5</a> and
+<a class="reference external" href="http://www.pytables.org/moin">PyTables</a>.  This will let you read HDF5 tables
+in Python.  HDF5 is a data file format which can store and manipulate extremely
+large or complex datasets in a scalable manner.  It is the baseline for some data-heavy
+facilities such as LOFAR.</p>
+</div>
+<div class="admonition-exercise-expert-install-scipy-and-all-dependencies-from-source admonition ">
+<p class="first admonition-title">Exercise [expert]: Install SciPy and all dependencies from source</p>
 <p>Attempt to follow the instructions for building from source in the <a class="reference external" href="http://www.scipy.org/Installing_SciPy">Installing
 SciPy</a> page.  (No binary downloads!).
-If you can do this then consider yourself an expert on Python installation.</p>
+This will be useful if you want to use the very latest development version of
+Python or else want to use the system-dependent build optimization so your
+numerical libraries are the fastest possible.  For most people this is not needed.</p>
+<p class="last">If you can do this then consider yourself an expert on Python installation.</p>
 </div>
 </div>
 </div>
