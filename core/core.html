@@ -293,7 +293,7 @@ display:none;
 <p>Before getting started you need to get the example data and script files for
 the workshop.  Now that you have a working Python installation we can do this
 without worrying about details of the platform (e.g. linux has wget,
-Mac has curl, Windows does not have tar, etc etc).</p>
+Mac has curl, Windows might not have tar, etc etc).</p>
 <p>Change to your main Python for Astronomers working directory, start IPython
 (&#8220;ipython -pylab&#8221;) and enter:</p>
 <div class="highlight-python"><pre>import urllib2, tarfile
@@ -485,12 +485,18 @@ work for you?</p>
 </div>
 <a class="reference internal image-reference" href="../_images/imgview_err.png"><img alt="../_images/imgview_err.png" src="../_images/imgview_err.png" style="width: 406.0px; height: 306.0px;" /></a>
 <a class="reference internal image-reference" href="../_images/imgview_dq.png"><img alt="../_images/imgview_dq.png" src="../_images/imgview_dq.png" style="width: 406.0px; height: 306.0px;" /></a>
-</div> <p class="flip1">Click to Show/Hide Solution</p><p>Now discover a little bit about the images you have read in:</p>
-<div class="highlight-python"><pre>img?
-help img
-img.shape  # Get the shape of img
-img.min()  # Call object method min with no arguments
-img.argmax(axis=0)</pre>
+</div> <p class="flip1">Click to Show/Hide Solution</p><p>Now discover a little bit about the images you have read in, first with <tt class="docutils literal"><span class="pre">?</span></tt>:</p>
+<div class="highlight-python"><pre>img?</pre>
+</div>
+<p>Next use <tt class="docutils literal"><span class="pre">help</span></tt> and note the slightly different information that you get:</p>
+<div class="highlight-python"><pre>help img</pre>
+</div>
+<p>Finally find the shape of the image, its minimum value, and a list of the
+maximum value in each column:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">img</span><span class="o">.</span><span class="n">shape</span>  <span class="c"># Get the shape of img</span>
+<span class="n">img</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>  <span class="c"># Call object method min with no arguments</span>
+<span class="n">maxes</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
 </div>
 </div>
 <div class="section" id="numpy-basics">
@@ -578,7 +584,7 @@ Use ImgView to display the image of <tt class="docutils literal"><span class="pr
 <span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">z</span> <span class="o">=</span> <span class="n">cos</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">r</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span>
-<span class="n">imgview</span><span class="o">.</span><span class="n">ImgView</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+<span class="n">ImgView</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../_images/ripple.png"><img alt="../_images/ripple.png" src="../_images/ripple.png" style="width: 406.0px; height: 306.0px;" /></a>
@@ -699,17 +705,17 @@ need a copy of an array then use the copy() method as shown.</p>
 <p><strong>BEWARE</strong> of one common pitfall: NumPy &#8220;basic&#8221; slicing like <tt class="docutils literal"><span class="pre">a[3:6]</span></tt>
 does NOT make a copy:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
-<span class="k">print</span> <span class="n">b</span>
+<span class="n">b</span>
 <span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="k">print</span> <span class="n">a</span>
+<span class="n">a</span>
 </pre></div>
 </div>
 <p>However if you do arithmetic or boolean mask then a copy is always made:</p>
 <div class="last highlight-python"><div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">**</span><span class="mi">2</span>
 <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="k">print</span> <span class="n">a</span>
-<span class="k">print</span> <span class="n">b</span>    <span class="c"># Still as expected after changing &quot;a&quot;</span>
+<span class="n">a</span>
+<span class="n">b</span>    <span class="c"># Still as expected after changing &quot;a&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -732,9 +738,9 @@ image which includes the source region.</p>
 </div>
 <a class="reference internal image-reference" href="../_images/bkg_fit0.png"><img alt="../_images/bkg_fit0.png" src="../_images/bkg_fit0.png" style="width: 406.0px; height: 306.0px;" /></a>
 <p>Now do this for every column and store the results in a background image:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">xrows</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="n">img_bkg</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>         <span class="c"># Array from 0 .. N_rows-1</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">xrows</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="n">img_cr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>          <span class="c"># Array from 0 .. N_rows-1</span>
 <span class="n">bkg</span> <span class="o">=</span> <span class="n">zeros_like</span><span class="p">(</span><span class="n">img_cr</span><span class="p">)</span>                 <span class="c"># Empty image for background fits</span>
-<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">arange</span><span class="p">(</span><span class="n">img_bkg</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>     <span class="c"># Iterate over columns</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">arange</span><span class="p">(</span><span class="n">img_cr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>      <span class="c"># Iterate over columns</span>
     <span class="n">pfit</span> <span class="o">=</span> <span class="n">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">img_cr</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">col</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span> <span class="c"># Fit poly over bkg rows for col</span>
     <span class="n">bkg</span><span class="p">[:,</span> <span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">polyval</span><span class="p">(</span><span class="n">pfit</span><span class="p">,</span> <span class="n">xrows</span><span class="p">)</span>   <span class="c"># Eval poly at ALL row positions</span>
 
