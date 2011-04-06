@@ -285,11 +285,6 @@ display:none;
 <li>Documentation and tutorials for further work</li>
 </ul>
 </li>
-<li>Python objects<ul>
-<li>Understand the basic concept</li>
-<li>Know how to inspect an object and discover what it can do</li>
-</ul>
-</li>
 <li>Develop a script that extracts a 1-d spectrum from a 2-d longslit image</li>
 <li>Gain familiarity with tools available within the SciPy package</li>
 </ul>
@@ -315,26 +310,14 @@ the file at a URL and untar it.  Google on &#8220;python urllib2&#8221; and &#82
 tarfile&#8221; to find the relevant module docs.  Figure out how you would
 use the <tt class="docutils literal"><span class="pre">tarfile</span></tt> module to create a tarfile.</p>
 </div>
-<div class="panel0"><p>One of the most useful features of IPython is the ability to edit and navigate
-you command line history.  This lets you quickly re-do commands, perhaps with a
-slight variation based on seeing the last result.  Try cut-n-pasting the above
-lines in an IPython session.  This should bring up a plot of a sine wave.:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">this</span>
-<span class="n">cool</span> <span class="o">=</span> <span class="n">this</span><span class="o">.</span><span class="n">that</span>
-</pre></div>
-</div>
-</div>
-<p class="flip0">Click to Show/Hide Solution</p><div class="panel1"><p>As we saw in the Introduction and Installation workshops, for interactive data
-analysis IPython has a special <tt class="docutils literal"><span class="pre">-pylab</span></tt> command line option which
-automatically imports elements of the NumPy and the Matplotlib environments.
-This provides a Matlab-like environment allowing very simple and direct
-commands like:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">this</span><span class="o">,</span> <span class="nn">also</span>
-<span class="n">cool</span> <span class="o">=</span> <span class="n">this</span><span class="o">.</span><span class="n">that</span><span class="o">.</span><span class="n">other</span>
-</pre></div>
-</div>
-</div>
-<p class="flip1">Click to Show/Hide Solution</p></div>
+<div class="panel0"><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">urllib2.urlopen(url)</span></tt> opens the URL as a streaming file-like object</li>
+<li><tt class="docutils literal"><span class="pre">mode='r|'</span> <span class="pre">means</span> <span class="pre">``tarfile</span></tt> is expecting a streaming file-like object
+with no ability to seek in the file</li>
+<li><tt class="docutils literal"><span class="pre">tarfile.open(..).extractall</span></tt> then extracts the tar archive</li>
+</ul>
+<p>Creating a tarfile is left for the reader to solve.</p>
+</div> <p class="flip0">Click to Show/Hide Solution</p></div>
 <div class="section" id="ipython">
 <h2>IPython<a class="headerlink" href="#ipython" title="Permalink to this headline">¶</a></h2>
 <p>As we saw in the Introduction and Installation workshops, for interactive data
@@ -394,6 +377,27 @@ complete file names and to inspect python objects.  As an example do:</p>
 <p>This will list everything in your home directory.  You can continue
 this way searching through files or hit Return to complete the command.</p>
 </div>
+<div class="section" id="showing-data-values">
+<h3>Showing data values<a class="headerlink" href="#showing-data-values" title="Permalink to this headline">¶</a></h3>
+<p>So far we typed <tt class="docutils literal"><span class="pre">print</span> <span class="pre">x</span></tt> to look at the value of <tt class="docutils literal"><span class="pre">x</span></tt>.  However,
+most of the time for interactive analysis it is faster and better to simply
+type <tt class="docutils literal"><span class="pre">x</span></tt> (or whatever the object name) followed by &lt;Return&gt;.  This returns
+the &#8220;representation&#8221; of the object which is often a cleaner and more
+informative than the &#8220;string&#8221; version that gets returned with <tt class="docutils literal"><span class="pre">print</span></tt>.  In
+many cases the &#8220;representation&#8221; of an object the same as Python
+code to create that object.</p>
+<blockquote>
+<p>Try:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">y</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="s">&#39;value is </span><span class="si">%d</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">y</span>
+<span class="k">print</span> <span class="n">y</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>       <span class="c"># Array with 5 elements starting at 0 and counting up by 1</span>
+<span class="n">x</span>
+<span class="k">print</span> <span class="n">x</span>
+</pre></div>
+</div>
+</blockquote>
+</div>
 <div class="section" id="further-resources">
 <h3>Further resources<a class="headerlink" href="#further-resources" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
@@ -418,46 +422,47 @@ workshop, but on its own it&#8217;s a bit dry for the impatient astronomer.</p>
 <ul class="simple">
 <li>Read in the 2-d image</li>
 <li>Plot the spatial profile and raw spectrum</li>
-<li>Fit and subtract the background from each wavelength column</li>
+<li>Filter cosmic rays from the background</li>
+<li>Fit for the background and subtract</li>
 <li>Sum the source signal</li>
-<li>Filter bad pixels  (SKIP?)</li>
-<li>Calculate errors</li>
 </ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="51%" />
+<col width="49%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head"><strong>2-d longslit image</strong></th>
+<th class="head"><strong>Final 1-d spectrum</strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><a class="first last reference internal image-reference" href="../_images/3c120.png"><img alt="../_images/3c120.png" src="../_images/3c120.png" style="width: 378.0px; height: 290.5px;" /></a>
+</td>
+<td><a class="first last reference internal image-reference" href="../_images/3c120_spec.gif"><img alt="../_images/3c120_spec.gif" src="../_images/3c120_spec.gif" style="width: 382.5px; height: 306.0px;" /></a>
+</td>
+</tr>
+</tbody>
+</table>
 <div class="section" id="read-in-the-2-d-image">
 <h3>Read in the 2-d image<a class="headerlink" href="#read-in-the-2-d-image" title="Permalink to this headline">¶</a></h3>
 <p>First read in the long-slit spectrum data.  The standard file format available
-for download from MAST is a FITS file with three identically sized images
-providing the 2-d spectral intensity, error values, and data quality for each
-pixel.  The slit direction is along the rows (up and down) and wavelength is in
-columns (left to right).</p>
+for download from <a class="reference external" href="http://archive.stsci.edu/hst/">MAST</a> is a FITS file with
+three identically sized images providing the 2-d spectral intensity, error
+values, and data quality for each pixel.  The slit direction is along the rows
+(up and down) and wavelength is in columns (left to right).</p>
 <div class="highlight-python"><pre>import pyfits
 hdus = pyfits.open('3c120_stis.fits.gz')
 hdus?
 hdus</pre>
 </div>
-<div class="admonition-digression-print-x-versus-plain-x admonition ">
-<p class="first admonition-title">Digression: <tt class="docutils literal"><span class="pre">print</span> <span class="pre">x</span></tt> versus plain <tt class="docutils literal"><span class="pre">x</span></tt></p>
-<p>So far we typed <tt class="docutils literal"><span class="pre">print</span> <span class="pre">x</span></tt> to look at the value of <tt class="docutils literal"><span class="pre">x</span></tt>.  However,
-most of the time for interactive analysis it is faster and better to simply
-type <tt class="docutils literal"><span class="pre">x</span></tt> (or whatever the object name) followed by &lt;Return&gt;.  This returns
-the &#8220;representation&#8221; of the object which is often a cleaner and more
-informative than the &#8220;string&#8221; version that gets returned with <tt class="docutils literal"><span class="pre">print</span></tt>.  In
-many cases the &#8220;representation&#8221; of an object the same as Python
-code to create that object.</p>
-<p>Try:</p>
-<div class="last highlight-python"><div class="highlight"><pre><span class="k">print</span> <span class="n">hdus</span>
-<span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
 <p>Now give meaningful names to each of the three images that are available in the
 FITS HDU list.  You can access element <tt class="docutils literal"><span class="pre">n</span></tt> in a list with the index <tt class="docutils literal"><span class="pre">[n]</span></tt>,
 where the count starts from 0:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">primary</span> <span class="o">=</span> <span class="n">hdus</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
-<span class="n">img</span> <span class="o">=</span> <span class="n">hdus</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
-<span class="n">err</span> <span class="o">=</span> <span class="n">hdus</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
-<span class="n">dq</span> <span class="o">=</span> <span class="n">hdus</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">primary</span> <span class="o">=</span> <span class="n">hdus</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>  <span class="c"># Primary (NULL) header data unit</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">hdus</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>      <span class="c"># Intensity data</span>
+<span class="n">err</span> <span class="o">=</span> <span class="n">hdus</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>      <span class="c"># Error per pixel</span>
+<span class="n">dq</span> <span class="o">=</span> <span class="n">hdus</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>       <span class="c"># Data quality per pixel</span>
 </pre></div>
 </div>
 <p>Next have a look at the images using a super-simple image viewer that I wrote in
@@ -466,6 +471,7 @@ about 50 lines of Python:</p>
 <span class="n">ImgView</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
 </pre></div>
 </div>
+<a class="reference internal image-reference" href="../_images/imgview_img.png"><img alt="../_images/imgview_img.png" src="../_images/imgview_img.png" style="width: 406.0px; height: 306.0px;" /></a>
 <div class="admonition-exercise-view-the-error-and-data-quality-images admonition ">
 <p class="first admonition-title">Exercise: View the error and data quality images</p>
 <p class="last">Bring up a viewer window for the other two images.  Play with the toolbar
@@ -473,75 +479,34 @@ buttons on the lower-left (hint: try the four on the right first, then
 imagine a web browser for the three on the left).  Does the save button
 work for you?</p>
 </div>
-<p>Now discover a little bit about the images you have read in:</p>
+<div class="panel1"><div class="highlight-python"><div class="highlight"><pre><span class="n">ImgView</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+<span class="n">ImgView</span><span class="p">(</span><span class="n">dq</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/imgview_err.png"><img alt="../_images/imgview_err.png" src="../_images/imgview_err.png" style="width: 406.0px; height: 306.0px;" /></a>
+<a class="reference internal image-reference" href="../_images/imgview_dq.png"><img alt="../_images/imgview_dq.png" src="../_images/imgview_dq.png" style="width: 406.0px; height: 306.0px;" /></a>
+</div> <p class="flip1">Click to Show/Hide Solution</p><p>Now discover a little bit about the images you have read in:</p>
 <div class="highlight-python"><pre>img?
 help img
 img.shape  # Get the shape of img
 img.min()  # Call object method min with no arguments
 img.argmax(axis=0)</pre>
 </div>
-<div class="admonition-digression-python-objects-or-what-s-with-the-periods-everywhere admonition ">
-<p class="first admonition-title">Digression: Python Objects - or what&#8217;s with the
-periods everywhere?</p>
-<p>Most things in Python are objects.  What does that mean?  What is an object?</p>
-<p>Every constant, variable, or function in Python is actually a object with a
-type and associated attributes and methods.  An <em>attribute</em> a property of
-the object that you get or set by giving the &lt;object_name&gt; + dot +
-&lt;attribute_name&gt;, for example <tt class="docutils literal"><span class="pre">img.shape</span></tt>.  A <em>method</em> is a function
-that the object provides, for example <tt class="docutils literal"><span class="pre">img.argmax(axis=0)</span></tt> or <tt class="docutils literal"><span class="pre">img.min()</span></tt>.</p>
-<p>Use tab completion in IPython to inspect objects and start to understand
-attributes and methods.  To start off create a list of 4 numbers:</p>
-<div class="highlight-python"><pre>a = [3, 1, 2, 1]
-a.&lt;TAB&gt;</pre>
-</div>
-<p>This will show the available attributes and methods for the Python list <tt class="docutils literal"><span class="pre">a</span></tt>:</p>
-<div class="highlight-python"><pre>In [17]: a.&lt;TAB&gt;
-a.__add__           a.__ge__            a.__iter__          a.__repr__          a.append
-a.__class__         a.__getattribute__  a.__le__            a.__reversed__      a.count
-a.__contains__      a.__getitem__       a.__len__           a.__rmul__          a.extend
-a.__delattr__       a.__getslice__      a.__lt__            a.__setattr__       a.index
-a.__delitem__       a.__gt__            a.__mul__           a.__setitem__       a.insert
-a.__delslice__      a.__hash__          a.__ne__            a.__setslice__      a.pop
-a.__doc__           a.__iadd__          a.__new__           a.__sizeof__        a.remove
-a.__eq__            a.__imul__          a.__reduce__        a.__str__           a.reverse
-a.__format__        a.__init__          a.__reduce_ex__     a.__subclasshook__  a.sort</pre>
-</div>
-<p>For the most part you can ignore all the ones that begin with <tt class="docutils literal"><span class="pre">__</span></tt> since
-they are generally are internal methods that are not called directly.  At
-the end you see useful looking functions like <tt class="docutils literal"><span class="pre">append</span></tt> or <tt class="docutils literal"><span class="pre">sort</span></tt> which
-you can get help for and use:</p>
-<div class="highlight-python"><pre>a.sort
-a.sort?
-a.sort()
-a</pre>
-</div>
-<dl class="last docutils">
-<dt><em>Question</em>:</dt>
-<dd>How do you tell the difference between an attribute and a
-callable method?  How can you find all attributes or methods?</dd>
-<dt><em>Answer</em>:</dt>
-<dd><p class="first">Use the <tt class="docutils literal"><span class="pre">callable</span></tt> function:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="nb">callable</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">sort</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>To list all the &#8220;interesting&#8221; callable methods do:</p>
-<div class="last highlight-python"><div class="highlight"><pre><span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">x</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&#39;__&#39;</span><span class="p">)]</span>
-</pre></div>
-</div>
-</dd>
-</dl>
-</div>
 </div>
 <div class="section" id="numpy-basics">
 <h3>NumPy basics<a class="headerlink" href="#numpy-basics" title="Permalink to this headline">¶</a></h3>
+<p>Before going further on the spectral extraction project we need to learn about
+a few key features of NumPy.</p>
 <div class="section" id="slicing">
 <h4>Slicing<a class="headerlink" href="#slicing" title="Permalink to this headline">¶</a></h4>
 <p>NumPy provides powerful methods for accessing particular subsets of an array,
 e.g. the 4th column or every other row.  This is called slicing.  As a first
 example plot column 300 of the longslit image to look at the spatial profile:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">clf</span><span class="p">();</span> <span class="n">plot</span><span class="p">(</span><span class="n">img</span><span class="p">[:,</span> <span class="mi">300</span><span class="p">])</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">figure</span><span class="p">()</span>             <span class="c"># Clear the existing plot -- by default matplotlib overplots.</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">img</span><span class="p">[:,</span> <span class="mi">300</span><span class="p">])</span>
 </pre></div>
 </div>
+<a class="reference internal image-reference" href="../_images/img_col300.png"><img alt="../_images/img_col300.png" src="../_images/img_col300.png" style="width: 406.0px; height: 306.0px;" /></a>
 <p>The &#8221;:&#8221; in the first axis means to select all elements in that axis (i.e. all
 rows).  This is a short form for the full slicing syntax:</p>
 <div class="highlight-python"><pre>i0 : i1 : step</pre>
@@ -555,11 +520,21 @@ rows).  This is a short form for the full slicing syntax:</p>
 <p class="first admonition-title">Exercise: Slice the error array</p>
 <ul class="last simple">
 <li>For row 254 of the error array <tt class="docutils literal"><span class="pre">err</span></tt> plot columns 10 to 200 stepping by 3.</li>
-<li>Print a rectangular region slice with rows 251 to 253 (inclusive) and columns 101 to
+<li>Print a rectangular region slice of the data quality with rows 251 to 253 (inclusive) and columns 101 to
 104 (inclusive).  What did you learn about the index upper bound value?</li>
 </ul>
 </div>
+<div class="panel2"><div class="highlight-python"><div class="highlight"><pre><span class="n">clf</span><span class="p">()</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">err</span><span class="p">[</span><span class="mi">254</span><span class="p">,</span> <span class="mi">10</span><span class="p">:</span><span class="mi">200</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">dq</span><span class="p">[</span><span class="mi">251</span><span class="p">:</span><span class="mi">254</span><span class="p">,</span> <span class="mi">101</span><span class="p">:</span><span class="mi">105</span><span class="p">]</span>
+</pre></div>
 </div>
+<p>The index upper bound <tt class="docutils literal"><span class="pre">i1</span></tt> is one more than the final index that gets
+included in the slice.  In other words the slice includes everything up to,
+<em>but not including</em>, the index upper bound <tt class="docutils literal"><span class="pre">i1</span></tt>.  There are good reasons for
+this, but for now just accept and learn it.</p>
+<a class="reference internal image-reference" href="../_images/err_row254.png"><img alt="../_images/err_row254.png" src="../_images/err_row254.png" style="width: 406.0px; height: 306.0px;" /></a>
+</div> <p class="flip2">Click to Show/Hide Solution</p></div>
 <div class="section" id="making-arrays">
 <h4>Making arrays<a class="headerlink" href="#making-arrays" title="Permalink to this headline">¶</a></h4>
 <p>Arrays can be created in different ways:</p>
@@ -599,13 +574,21 @@ rows).  This is a short form for the full slicing syntax:</p>
 Make <tt class="docutils literal"><span class="pre">y</span></tt> the same as <tt class="docutils literal"><span class="pre">x</span></tt> but &#8220;transposed&#8221; using the <tt class="docutils literal"><span class="pre">reshape</span></tt> trick above.
 Use ImgView to display the image of <tt class="docutils literal"><span class="pre">z</span></tt>.</p>
 </div>
+<div class="panel3"><div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">cos</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">r</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">imgview</span><span class="o">.</span><span class="n">ImgView</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+</pre></div>
 </div>
+<a class="reference internal image-reference" href="../_images/ripple.png"><img alt="../_images/ripple.png" src="../_images/ripple.png" style="width: 406.0px; height: 306.0px;" /></a>
+</div> <p class="flip3">Click to Show/Hide Solution</p></div>
 </div>
 <div class="section" id="plot-the-spatial-profile-and-raw-spectrum">
 <h3>Plot the spatial profile and raw spectrum<a class="headerlink" href="#plot-the-spatial-profile-and-raw-spectrum" title="Permalink to this headline">¶</a></h3>
 <p>Plot the spatial profile by summing along the wavelength direction:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">profile</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">figure</span><span class="p">()</span>
+<span class="n">clf</span><span class="p">()</span>
 <span class="n">plot</span><span class="p">(</span><span class="n">profile</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -617,20 +600,29 @@ Use ImgView to display the image of <tt class="docutils literal"><span class="pr
 </div>
 <p>Since most of the sum is in the background region there is a lot of noise and
 cosmic-ray contamination.</p>
+<a class="reference internal image-reference" href="../_images/profile.png"><img alt="../_images/profile.png" src="../_images/profile.png" style="width: 406.0px; height: 306.0px;" /></a>
+<a class="reference internal image-reference" href="../_images/spectrum_noisy.png"><img alt="../_images/spectrum_noisy.png" src="../_images/spectrum_noisy.png" style="width: 406.0px; height: 306.0px;" /></a>
 <div class="admonition-exercise-use-slicing-to-make-a-better-spectrum-plot admonition ">
 <p class="first admonition-title">Exercise: Use slicing to make a better spectrum plot</p>
 <p class="last">Use slicing to do the spectrum sum using only the rows in the image where
 there is a signal from the source.
 Hint: zoom into the profile plot to find the right row range.</p>
 </div>
+<div class="panel4"><div class="highlight-python"><div class="highlight"><pre><span class="n">spectrum</span> <span class="o">=</span> <span class="n">img</span><span class="p">[</span><span class="mi">250</span><span class="p">:</span><span class="mi">260</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">clf</span><span class="p">()</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span>
+</pre></div>
 </div>
-<div class="section" id="fit-and-subtract-the-background-from-each-wavelength-column">
-<h3>Fit and subtract the background from each wavelength column<a class="headerlink" href="#fit-and-subtract-the-background-from-each-wavelength-column" title="Permalink to this headline">¶</a></h3>
+<a class="reference internal image-reference" href="../_images/spectrum_clean.png"><img alt="../_images/spectrum_clean.png" src="../_images/spectrum_clean.png" style="width: 406.0px; height: 306.0px;" /></a>
+</div> <p class="flip4">Click to Show/Hide Solution</p></div>
+<div class="section" id="filter-cosmic-rays-from-the-background">
+<h3>Filter cosmic rays from the background<a class="headerlink" href="#filter-cosmic-rays-from-the-background" title="Permalink to this headline">¶</a></h3>
 <p>Plot five columns (wavelength) from the spectrum image as follows:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">clf</span><span class="p">()</span>
 <span class="n">plot</span><span class="p">(</span><span class="n">img</span><span class="p">[:,</span> <span class="mi">254</span><span class="p">:</span><span class="mi">259</span><span class="p">])</span>
 </pre></div>
 </div>
+<a class="reference internal image-reference" href="../_images/img_row254_noisy.png"><img alt="../_images/img_row254_noisy.png" src="../_images/img_row254_noisy.png" style="width: 406.0px; height: 306.0px;" /></a>
 <p>The basic idea in spectral extraction is to subtract out the background and sum
 over rows with the source signal.</p>
 <p>It&#8217;s evident that there are significant cosmic ray defects in the data.  In
@@ -654,6 +646,7 @@ image.</p>
 <span class="n">plot</span><span class="p">(</span><span class="n">img_cr</span><span class="p">[:,</span> <span class="mi">254</span><span class="p">:</span><span class="mi">259</span><span class="p">])</span>
 </pre></div>
 </div>
+<a class="reference internal image-reference" href="../_images/img_row254_clean.png"><img alt="../_images/img_row254_clean.png" src="../_images/img_row254_clean.png" style="width: 406.0px; height: 306.0px;" /></a>
 <p>This introduces the important concept of slicing with a boolean mask.  Let&#8217;s
 look at a smaller example:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">])</span>
@@ -668,8 +661,20 @@ and that you can compose logical expressions:</p>
 <span class="n">a</span><span class="p">[</span><span class="o">~</span><span class="n">ok</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>                  <span class="c"># Note the &quot;logical not&quot; operator</span>
 </pre></div>
 </div>
-<div class="admonition-digression-copy-versus-reference admonition ">
-<p class="first admonition-title">Digression: copy versus reference</p>
+<div class="admonition-exercise-intermediate-circular-region-slicing admonition ">
+<p class="first admonition-title">Exercise [intermediate]: circular region slicing</p>
+<p class="last">Remember the surface <tt class="docutils literal"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">cos(r)</span> <span class="pre">/</span> <span class="pre">(r</span> <span class="pre">+</span> <span class="pre">5)</span></tt> that you made previously.  Set
+<tt class="docutils literal"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">0</span></tt> for every pixel of <tt class="docutils literal"><span class="pre">z</span></tt> that is within 10 pixels of (x,y) = (10, 15).</p>
+</div>
+<div class="panel5"><div class="highlight-python"><div class="highlight"><pre><span class="n">dist</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">((</span><span class="n">x</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="mi">15</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">dist</span> <span class="o">&lt;</span> <span class="mi">10</span>
+<span class="n">z</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">ImgView</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/ripple_masked.png"><img alt="../_images/ripple_masked.png" src="../_images/ripple_masked.png" style="width: 406.0px; height: 306.0px;" /></a>
+</div> <p class="flip5">Click to Show/Hide Solution</p><div class="admonition-detour-copy-versus-reference admonition ">
+<p class="first admonition-title">Detour: copy versus reference</p>
 <dl class="docutils">
 <dt><strong>Question</strong></dt>
 <dd>In the median filtering commands above we wrote <tt class="docutils literal"><span class="pre">img_cr</span> <span class="pre">=</span> <span class="pre">img.copy()</span></tt>.  Why
@@ -678,12 +683,12 @@ was that needed instead of just <tt class="docutils literal"><span class="pre">i
 <dd>Because the statement <tt class="docutils literal"><span class="pre">img_cr</span> <span class="pre">=</span> <span class="pre">img</span></tt> would just create another reference
 pointing to the underlying N-d array object that <tt class="docutils literal"><span class="pre">img</span></tt> references.</dd>
 </dl>
-<p>Remember that the variable names are just pointers to the actual Python
+<p>Variable names in Python are just pointers to the actual Python
 object.  To see this clearly do the following:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
-<span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>     <span class="c"># Unique identifier for the object referred to by &quot;a&quot;: arange(8)</span>
+<span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>     <span class="c"># Unique identifier for the object referred to by &quot;b&quot;: same ^^</span>
 <span class="n">b</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10</span>
 <span class="k">print</span> <span class="n">a</span>
 </pre></div>
@@ -708,40 +713,111 @@ does NOT make a copy:</p>
 </pre></div>
 </div>
 </div>
-<p>Fit the background for a single column:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="n">append</span><span class="p">(</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="n">arange</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">480</span><span class="p">))</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">img_bkg</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
-<span class="n">clf</span><span class="p">()</span>
+</div>
+<div class="section" id="fit-the-background">
+<h3>Fit the background<a class="headerlink" href="#fit-the-background" title="Permalink to this headline">¶</a></h3>
+<p>To subtract the background signal from the source region we want to fit a
+quadratic to the background pixels and subtract that quadratic from the entire
+image which includes the source region.</p>
+<p>Let&#8217;s tackle a simpler problem first and fit the background for a single column:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="n">append</span><span class="p">(</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="n">arange</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">480</span><span class="p">))</span>  <span class="c"># Background rows</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">img_cr</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>         <span class="c"># Background rows of column 10 of cleaned image</span>
+<span class="n">figure</span><span class="p">()</span>
 <span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="n">pfit</span> <span class="o">=</span> <span class="n">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">yfit</span> <span class="o">=</span> <span class="n">polyval</span><span class="p">(</span><span class="n">pfit</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="n">pfit</span> <span class="o">=</span> <span class="n">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>   <span class="c"># Fit a 2nd order polynomial to (x, y) data</span>
+<span class="n">yfit</span> <span class="o">=</span> <span class="n">polyval</span><span class="p">(</span><span class="n">pfit</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>   <span class="c"># Evaluate the polynomial at x</span>
 <span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">yfit</span><span class="p">)</span>
+<span class="n">grid</span><span class="p">()</span>
 </pre></div>
 </div>
+<a class="reference internal image-reference" href="../_images/bkg_fit0.png"><img alt="../_images/bkg_fit0.png" src="../_images/bkg_fit0.png" style="width: 406.0px; height: 306.0px;" /></a>
 <p>Now do this for every column and store the results in a background image:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">xrows</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="n">img_bkg</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">bkg</span> <span class="o">=</span> <span class="n">zeros_like</span><span class="p">(</span><span class="n">img_cr</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">img_bkg</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
-    <span class="n">pfit</span> <span class="o">=</span> <span class="n">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">img_cr</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">col</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span>
-    <span class="n">bkg</span><span class="p">[:,</span> <span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">polyval</span><span class="p">(</span><span class="n">pfit</span><span class="p">,</span> <span class="n">xrows</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">xrows</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="n">img_bkg</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>         <span class="c"># Array from 0 .. N_rows-1</span>
+<span class="n">bkg</span> <span class="o">=</span> <span class="n">zeros_like</span><span class="p">(</span><span class="n">img_cr</span><span class="p">)</span>                 <span class="c"># Empty image for background fits</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">arange</span><span class="p">(</span><span class="n">img_bkg</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>     <span class="c"># Iterate over columns</span>
+    <span class="n">pfit</span> <span class="o">=</span> <span class="n">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">img_cr</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">col</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span> <span class="c"># Fit poly over bkg rows for col</span>
+    <span class="n">bkg</span><span class="p">[:,</span> <span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">polyval</span><span class="p">(</span><span class="n">pfit</span><span class="p">,</span> <span class="n">xrows</span><span class="p">)</span>   <span class="c"># Eval poly at ALL row positions</span>
 
 <span class="n">ImgView</span><span class="p">(</span><span class="n">bkg</span><span class="p">)</span>
 </pre></div>
 </div>
+<a class="reference internal image-reference" href="../_images/bkg_fit1.png"><img alt="../_images/bkg_fit1.png" src="../_images/bkg_fit1.png" style="width: 406.0px; height: 306.0px;" /></a>
 <p>Finally subtract this background and see if it worked:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">img_bkg</span> <span class="o">=</span> <span class="n">img_cr</span> <span class="o">-</span> <span class="n">bkg</span>
 <span class="n">ImgView</span><span class="p">(</span><span class="n">img_bkg</span><span class="p">)</span>
 </pre></div>
 </div>
+<table border="1" class="docutils">
+<colgroup>
+<col width="51%" />
+<col width="49%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head"><strong>Background subtracted</strong></th>
+<th class="head"><strong>Original</strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><a class="first last reference internal image-reference" href="../_images/bkg_fit2.png"><img alt="../_images/bkg_fit2.png" src="../_images/bkg_fit2.png" style="width: 406.0px; height: 306.0px;" /></a>
+</td>
+<td><a class="first last reference internal image-reference" href="../_images/imgview_img.png"><img alt="../_images/imgview_img.png" src="../_images/imgview_img.png" style="width: 406.0px; height: 306.0px;" /></a>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition-detour-vector-operations-versus-looping admonition ">
+<p class="first admonition-title">Detour: vector operations versus looping</p>
+<p>If you are used to C or Fortran you might be wondering why jump through these
+hoops with slicing and making sure everything is vectorized.  The answer is
+that pure Python is an interpreted dynamic language and hence doing loops is
+<em>slow</em>.   Try the following:</p>
+<div class="highlight-python"><pre>size = 1000000
+x = arange(size)
+a = zeros(size)
+time for i in x: a[i] = x[i] / 2.0</pre>
+</div>
+<p>Now compare to the vectorized NumPy solution:</p>
+<div class="highlight-python"><pre>x = arange(size)
+time a = x / 2</pre>
+</div>
+<p class="last">Sometimes doing things in a vectorized way is not possible or just too
+confusing.  There is an art here and the basic answer is that if it runs
+fast enough then you are good to go.  Otherwise things need to be vectorized
+or maybe coded in C or Fortran.</p>
+</div>
 </div>
 <div class="section" id="sum-the-source-signal">
 <h3>Sum the source signal<a class="headerlink" href="#sum-the-source-signal" title="Permalink to this headline">¶</a></h3>
 <p>Now the final step is easy and is left as an exercise.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="51%" />
+<col width="49%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head"><strong>Python for Astronomers Spectrum</strong></th>
+<th class="head"><strong>HST official spectrum</strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><a class="first last reference internal image-reference" href="../_images/spectrum_final.png"><img alt="../_images/spectrum_final.png" src="../_images/spectrum_final.png" style="width: 406.0px; height: 306.0px;" /></a>
+</td>
+<td><a class="first last reference internal image-reference" href="../_images/3c120_spec.gif"><img alt="../_images/3c120_spec.gif" src="../_images/3c120_spec.gif" style="width: 382.5px; height: 306.0px;" /></a>
+</td>
+</tr>
+</tbody>
+</table>
 <div class="admonition-exercise-make-the-final-spectrum admonition ">
 <p class="first admonition-title">Exercise: Make the final spectrum</p>
 <p class="last">Sum the rows of the background subtracted spectrum and plot.  Hint: you
 already did it once in a previous exercise.</p>
 </div>
+<div class="panel6"><div class="highlight-python"><div class="highlight"><pre><span class="n">spectrum</span> <span class="o">=</span> <span class="n">img_bkg</span><span class="p">[</span><span class="mi">250</span><span class="p">:</span><span class="mi">260</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">clf</span><span class="p">()</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span>
+</pre></div>
+</div>
+</div> <p class="flip6">Click to Show/Hide Solution</p><p><strong>To do</strong>: flux calibration and wavelength calibration!</p>
 </div>
 </div>
 <div class="section" id="scipy">
@@ -765,6 +841,43 @@ functionality that isn&#8217;t in NumPy: there is a good chance it is in SciPy:<
 <li>File IO (scipy.io)</li>
 <li>Weave</li>
 </ul>
+</div>
+<div class="section" id="survey">
+<h2>Survey<a class="headerlink" href="#survey" title="Permalink to this headline">¶</a></h2>
+<p>How was the pacing and information level today?</p>
+<ul class="simple">
+<li>Could be a bit slower</li>
+<li>About right</li>
+<li>Would like some harder exercises</li>
+</ul>
+</div>
+<div class="section" id="upcoming-schedule">
+<h2>Upcoming Schedule<a class="headerlink" href="#upcoming-schedule" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="59%" />
+<col width="30%" />
+</colgroup>
+<tbody valign="top">
+<tr><td>April 15</td>
+<td>Plotting and images</td>
+<td>Phillips 1:30pm</td>
+</tr>
+<tr><td>April 22</td>
+<td>Data file I/O, process control (csh)</td>
+<td>Phillips <strong>3pm</strong></td>
+</tr>
+<tr><td>April 29</td>
+<td>Fitting and modeling 1-d and 2-d data</td>
+<td>Phillips <strong>11:30am</strong></td>
+</tr>
+<tr><td>May 6</td>
+<td>VO and online astronomy</td>
+<td>Phillips 1:30pm</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 
