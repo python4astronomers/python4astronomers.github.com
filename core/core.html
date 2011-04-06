@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Core packages for analysis &mdash; Python4Astronomers v1.0 documentation</title>
+    <title>Core packages for analysis: IPython, NumPy, and SciPy &mdash; Python4Astronomers v1.0 documentation</title>
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -22,7 +22,239 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Python4Astronomers v1.0 documentation" href="../index.html" /> 
+    <link rel="top" title="Python4Astronomers v1.0 documentation" href="../index.html" />
+    <link rel="prev" title="Basics of Python Packages" href="../installation/package-basics.html" />
+ 
+<script type="text/javascript"> 
+$(document).ready(function(){
+
+$(".flip0").click(function(){
+    $(".panel0").slideToggle("normal");
+  });
+
+$(".flip1").click(function(){
+    $(".panel1").slideToggle("normal");
+  });
+
+$(".flip2").click(function(){
+    $(".panel2").slideToggle("normal");
+  });
+
+$(".flip3").click(function(){
+    $(".panel3").slideToggle("normal");
+  });
+
+$(".flip4").click(function(){
+    $(".panel4").slideToggle("normal");
+  });
+
+$(".flip5").click(function(){
+    $(".panel5").slideToggle("normal");
+  });
+
+$(".flip6").click(function(){
+    $(".panel6").slideToggle("normal");
+  });
+
+$(".flip7").click(function(){
+    $(".panel7").slideToggle("normal");
+  });
+
+$(".flip8").click(function(){
+    $(".panel8").slideToggle("normal");
+  });
+
+$(".flip9").click(function(){
+    $(".panel9").slideToggle("normal");
+  });
+
+});
+</script>
+ 
+<style type="text/css"> 
+
+div.panel0,p.flip0
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip0
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel0
+{
+display:none;
+}
+
+div.panel1,p.flip1
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip1
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel1
+{
+display:none;
+}
+
+div.panel2,p.flip2
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip2
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel2
+{
+display:none;
+}
+
+div.panel3,p.flip3
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip3
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel3
+{
+display:none;
+}
+
+div.panel4,p.flip4
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip4
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel4
+{
+display:none;
+}
+
+div.panel5,p.flip5
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip5
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel5
+{
+display:none;
+}
+
+div.panel6,p.flip6
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip6
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel6
+{
+display:none;
+}
+
+div.panel7,p.flip7
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip7
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel7
+{
+display:none;
+}
+
+div.panel8,p.flip8
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip8
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel8
+{
+display:none;
+}
+
+div.panel9,p.flip9
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip9
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel9
+{
+display:none;
+}
+
+</style>
+
   </head>
   <body>
     <div class="related">
@@ -31,65 +263,90 @@
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../installation/package-basics.html" title="Basics of Python Packages"
+             accesskey="P">previous</a> |</li>
         <li><a href="../index.html">Python4Astronomers v1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Core packages for analysis</a><ul>
-<li><a class="reference internal" href="#ipython">IPython</a><ul>
-<li><a class="reference internal" href="#keyboard-navigation-and-history">Keyboard navigation and history</a></li>
-<li><a class="reference internal" href="#linux-and-shell-commands">Linux and shell commands</a></li>
-<li><a class="reference internal" href="#tab-completion">Tab completion</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#numpy">NumPy</a></li>
-</ul>
-</li>
-</ul>
-
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/core/core.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" size="18" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
 
     <div class="document">
       <div class="documentwrapper">
-        <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="core-packages-for-analysis">
-<h1>Core packages for analysis<a class="headerlink" href="#core-packages-for-analysis" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="core-packages-for-analysis-ipython-numpy-and-scipy">
+<h1>Core packages for analysis: IPython, NumPy, and SciPy<a class="headerlink" href="#core-packages-for-analysis-ipython-numpy-and-scipy" title="Permalink to this headline">¶</a></h1>
+<p>Workshop goals:</p>
+<ul class="simple">
+<li>Learn the key features of IPython for interactive analysis</li>
+<li>NumPy arrays<ul>
+<li>Define arrays and perform common manipulations</li>
+<li>Basic array slicing</li>
+<li>Documentation and tutorials for further work</li>
+</ul>
+</li>
+<li>Python objects<ul>
+<li>Understand the basic concept</li>
+<li>Know how to inspect an object and discover what it can do</li>
+</ul>
+</li>
+<li>Develop a script that extracts a 1-d spectrum from a 2-d longslit image</li>
+<li>Gain familiarity with tools available within the SciPy package</li>
+</ul>
+<div class="section" id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<p>Before getting started you need to get the example data and script files for
+the workshop.  Now that you have a working Python installation we can do this
+without worrying about details of the platform (e.g. linux has wget,
+Mac has curl, Windows does not have tar, etc etc).</p>
+<p>Change to your main Python for Astronomers working directory, start IPython
+(&#8220;ipython -pylab&#8221;) and enter:</p>
+<div class="highlight-python"><pre>import urllib2, tarfile
+url = 'http://python4astronomers.github.com/core/core_examples.tar'
+tarfile.open(fileobj=urllib2.urlopen(url), mode='r|').extractall()
+cd py4ast/core
+ls</pre>
+</div>
+<p>Leave this IPython session open for the rest of the workshop.</p>
+<div class="admonition-exercise-for-the-interested-reader-how-did-that-code-above-work admonition ">
+<p class="first admonition-title">Exercise (for the interested reader): How did that code above work?</p>
+<p class="last">Explain what&#8217;s happening in each part of the previous code snippet to grab
+the file at a URL and untar it.  Google on &#8220;python urllib2&#8221; and &#8220;python
+tarfile&#8221; to find the relevant module docs.  Figure out how you would
+use the <tt class="docutils literal"><span class="pre">tarfile</span></tt> module to create a tarfile.</p>
+</div>
+<div class="panel0"><p>One of the most useful features of IPython is the ability to edit and navigate
+you command line history.  This lets you quickly re-do commands, perhaps with a
+slight variation based on seeing the last result.  Try cut-n-pasting the above
+lines in an IPython session.  This should bring up a plot of a sine wave.:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">this</span>
+<span class="n">cool</span> <span class="o">=</span> <span class="n">this</span><span class="o">.</span><span class="n">that</span>
+</pre></div>
+</div>
+</div>
+<p class="flip0">Click to Show/Hide Solution</p><div class="panel1"><p>As we saw in the Introduction and Installation workshops, for interactive data
+analysis IPython has a special <tt class="docutils literal"><span class="pre">-pylab</span></tt> command line option which
+automatically imports elements of the NumPy and the Matplotlib environments.
+This provides a Matlab-like environment allowing very simple and direct
+commands like:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">this</span><span class="o">,</span> <span class="nn">also</span>
+<span class="n">cool</span> <span class="o">=</span> <span class="n">this</span><span class="o">.</span><span class="n">that</span><span class="o">.</span><span class="n">other</span>
+</pre></div>
+</div>
+</div>
+<p class="flip1">Click to Show/Hide Solution</p></div>
 <div class="section" id="ipython">
 <h2>IPython<a class="headerlink" href="#ipython" title="Permalink to this headline">¶</a></h2>
-<p>For interactive data analysis IPython has a special <tt class="docutils literal"><span class="pre">-pylab</span></tt> command line
-option which automatically imports elements of the Numpy and the Matplotlib
-environments.  This provides a Matlab-like environment allowing very simple
-and direct commands like:</p>
-<div class="highlight-python"><pre>% ipython -pylab
-
-x = arange(0, 10, 0.2)
-y = sin(x)
-print x
-plot(x, y)</pre>
+<p>As we saw in the Introduction and Installation workshops, for interactive data
+analysis IPython has a special <tt class="docutils literal"><span class="pre">-pylab</span></tt> command line option which
+automatically imports elements of the NumPy and the Matplotlib environments.
+This provides a Matlab-like environment allowing very simple and direct
+commands like:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">x</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
 </div>
 <div class="section" id="keyboard-navigation-and-history">
 <h3>Keyboard navigation and history<a class="headerlink" href="#keyboard-navigation-and-history" title="Permalink to this headline">¶</a></h3>
@@ -131,19 +388,113 @@ can be executed by preceding it with an exclamation point &#8221;!&#8221;.</p>
 <div class="section" id="tab-completion">
 <h3>Tab completion<a class="headerlink" href="#tab-completion" title="Permalink to this headline">¶</a></h3>
 <p>IPython has a very useful tab completion feature that can be used both to
-complete file names and to inspect python objects.  As a first example do:</p>
-<div class="highlight-python"><pre>ls /proj/sot/ska/&lt;TAB&gt;</pre>
+complete file names and to inspect python objects.  As an example do:</p>
+<div class="highlight-python"><pre>ls ~/&lt;TAB&gt;</pre>
 </div>
-<p>This will list everything that matches <tt class="docutils literal"><span class="pre">/proj/sot/ska</span></tt>.  You can continue
+<p>This will list everything in your home directory.  You can continue
 this way searching through files or hit Return to complete the command.</p>
-<p>Tab completion also works to inspect object attributes.  Every variable or
-constant in python is actually a object with a type and associated attributes
-and methods.  For instance try to create a list of 3 numbers:</p>
-<div class="highlight-python"><pre>a = [3, 1, 2, 4, 1]
-print a
+</div>
+<div class="section" id="further-resources">
+<h3>Further resources<a class="headerlink" href="#further-resources" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="http://ipython.github.com/ipython-doc/stable/html/index.html">IPython docs page</a></li>
+<li><a class="reference external" href="http://ipython.scipy.org/doc/rel-0.9.1/html/config/customization.html">IPython customization</a> :
+E.g. to always import certain modules read <a class="reference external" href="http://ipython.scipy.org/doc/rel-0.9.1/html/config/customization.html#the-ipythonrc-approach">The ipythonrc approach</a>
+which explains editing <tt class="docutils literal"><span class="pre">~/.ipython/ipythonrc</span></tt> and setting the
+<tt class="docutils literal"><span class="pre">import_mod</span></tt> configuration.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="numpy">
+<h2>NumPy<a class="headerlink" href="#numpy" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="#numpy">NumPy</a> is at the core of nearly every scientific Python application or
+module since it provides a fast N-d array datatype that can be manipulated in a
+vectorized form.  This will be familiar to users of IDL or Matlab.</p>
+<p>NumPy has a good and systematic <a class="reference external" href="http://www.scipy.org/Tentative_NumPy_Tutorial">basic tutorial</a> available.  It is highly
+recommended that you read this tutorial to fill in the gaps left by this
+workshop, but on its own it&#8217;s a bit dry for the impatient astronomer.</p>
+<p>Here we&#8217;ll learn NumPy by performing a very simple reduction of a
+2-dimensional long slit spectrum (3C120 from HST/STIS):</p>
+<ul class="simple">
+<li>Read in the 2-d image</li>
+<li>Plot the spatial profile and raw spectrum</li>
+<li>Fit and subtract the background from each wavelength column</li>
+<li>Sum the source signal</li>
+<li>Filter bad pixels  (SKIP?)</li>
+<li>Calculate errors</li>
+</ul>
+<div class="section" id="read-in-the-2-d-image">
+<h3>Read in the 2-d image<a class="headerlink" href="#read-in-the-2-d-image" title="Permalink to this headline">¶</a></h3>
+<p>First read in the long-slit spectrum data.  The standard file format available
+for download from MAST is a FITS file with three identically sized images
+providing the 2-d spectral intensity, error values, and data quality for each
+pixel.  The slit direction is along the rows (up and down) and wavelength is in
+columns (left to right).</p>
+<div class="highlight-python"><pre>import pyfits
+hdus = pyfits.open('3c120_stis.fits.gz')
+hdus?
+hdus</pre>
+</div>
+<div class="admonition-digression-print-x-versus-plain-x admonition ">
+<p class="first admonition-title">Digression: <tt class="docutils literal"><span class="pre">print</span> <span class="pre">x</span></tt> versus plain <tt class="docutils literal"><span class="pre">x</span></tt></p>
+<p>So far we typed <tt class="docutils literal"><span class="pre">print</span> <span class="pre">x</span></tt> to look at the value of <tt class="docutils literal"><span class="pre">x</span></tt>.  However,
+most of the time for interactive analysis it is faster and better to simply
+type <tt class="docutils literal"><span class="pre">x</span></tt> (or whatever the object name) followed by &lt;Return&gt;.  This returns
+the &#8220;representation&#8221; of the object which is often a cleaner and more
+informative than the &#8220;string&#8221; version that gets returned with <tt class="docutils literal"><span class="pre">print</span></tt>.  In
+many cases the &#8220;representation&#8221; of an object the same as Python
+code to create that object.</p>
+<p>Try:</p>
+<div class="last highlight-python"><div class="highlight"><pre><span class="k">print</span> <span class="n">hdus</span>
+<span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Now give meaningful names to each of the three images that are available in the
+FITS HDU list.  You can access element <tt class="docutils literal"><span class="pre">n</span></tt> in a list with the index <tt class="docutils literal"><span class="pre">[n]</span></tt>,
+where the count starts from 0:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">primary</span> <span class="o">=</span> <span class="n">hdus</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">hdus</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+<span class="n">err</span> <span class="o">=</span> <span class="n">hdus</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+<span class="n">dq</span> <span class="o">=</span> <span class="n">hdus</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+</div>
+<p>Next have a look at the images using a super-simple image viewer that I wrote in
+about 50 lines of Python:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">imgview</span> <span class="kn">import</span> <span class="n">ImgView</span>
+<span class="n">ImgView</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition-exercise-view-the-error-and-data-quality-images admonition ">
+<p class="first admonition-title">Exercise: View the error and data quality images</p>
+<p class="last">Bring up a viewer window for the other two images.  Play with the toolbar
+buttons on the lower-left (hint: try the four on the right first, then
+imagine a web browser for the three on the left).  Does the save button
+work for you?</p>
+</div>
+<p>Now discover a little bit about the images you have read in:</p>
+<div class="highlight-python"><pre>img?
+help img
+img.shape  # Get the shape of img
+img.min()  # Call object method min with no arguments
+img.argmax(axis=0)</pre>
+</div>
+<div class="admonition-digression-python-objects-or-what-s-with-the-periods-everywhere admonition ">
+<p class="first admonition-title">Digression: Python Objects - or what&#8217;s with the
+periods everywhere?</p>
+<p>Most things in Python are objects.  What does that mean?  What is an object?</p>
+<p>Every constant, variable, or function in Python is actually a object with a
+type and associated attributes and methods.  An <em>attribute</em> a property of
+the object that you get or set by giving the &lt;object_name&gt; + dot +
+&lt;attribute_name&gt;, for example <tt class="docutils literal"><span class="pre">img.shape</span></tt>.  A <em>method</em> is a function
+that the object provides, for example <tt class="docutils literal"><span class="pre">img.argmax(axis=0)</span></tt> or <tt class="docutils literal"><span class="pre">img.min()</span></tt>.</p>
+<p>Use tab completion in IPython to inspect objects and start to understand
+attributes and methods.  To start off create a list of 4 numbers:</p>
+<div class="highlight-python"><pre>a = [3, 1, 2, 1]
 a.&lt;TAB&gt;</pre>
 </div>
-<p>This will show the available methods for <tt class="docutils literal"><span class="pre">a</span></tt>:</p>
+<p>This will show the available attributes and methods for the Python list <tt class="docutils literal"><span class="pre">a</span></tt>:</p>
 <div class="highlight-python"><pre>In [17]: a.&lt;TAB&gt;
 a.__add__           a.__ge__            a.__iter__          a.__repr__          a.append
 a.__class__         a.__getattribute__  a.__le__            a.__reversed__      a.count
@@ -155,109 +506,270 @@ a.__doc__           a.__iadd__          a.__new__           a.__sizeof__        
 a.__eq__            a.__imul__          a.__reduce__        a.__str__           a.reverse
 a.__format__        a.__init__          a.__reduce_ex__     a.__subclasshook__  a.sort</pre>
 </div>
-<p>In general you can ignore all the ones that begin with <tt class="docutils literal"><span class="pre">__</span></tt> since these are
-internal methods that are not usually called directly.  However at the end you
-see useful looking functions like <tt class="docutils literal"><span class="pre">append</span></tt> or <tt class="docutils literal"><span class="pre">sort</span></tt> which you can get help
-for and use:</p>
-<div class="highlight-python"><pre>help a.sort
+<p>For the most part you can ignore all the ones that begin with <tt class="docutils literal"><span class="pre">__</span></tt> since
+they are generally are internal methods that are not called directly.  At
+the end you see useful looking functions like <tt class="docutils literal"><span class="pre">append</span></tt> or <tt class="docutils literal"><span class="pre">sort</span></tt> which
+you can get help for and use:</p>
+<div class="highlight-python"><pre>a.sort
+a.sort?
 a.sort()
-print a</pre>
+a</pre>
 </div>
-<p>To make it even easier you don&#8217;t usually have to use <tt class="docutils literal"><span class="pre">print</span></tt>.  Try the
-following:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">a</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<dl class="last docutils">
+<dt><em>Question</em>:</dt>
+<dd>How do you tell the difference between an attribute and a
+callable method?  How can you find all attributes or methods?</dd>
+<dt><em>Answer</em>:</dt>
+<dd><p class="first">Use the <tt class="docutils literal"><span class="pre">callable</span></tt> function:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="nb">callable</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">sort</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Don&#8217;t be scared to try printing an array value (e.g. <tt class="docutils literal"><span class="pre">tephin.vals</span></tt>) even if
-it is a billion elements long.  Numpy will only print an abbreviated version if
-it is too long.  But beware that this applies to Numpy arrays which as we&#8217;ll
-see are a special version of generic python lists.  If you print a
-billion-element python list you&#8217;ll be waiting for a while.</p>
+<p>To list all the &#8220;interesting&#8221; callable methods do:</p>
+<div class="last highlight-python"><div class="highlight"><pre><span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">x</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&#39;__&#39;</span><span class="p">)]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
 </div>
 </div>
-<div class="section" id="numpy">
-<h2>NumPy<a class="headerlink" href="#numpy" title="Permalink to this headline">¶</a></h2>
-<p><strong>UNDER CONSTRUCTION</strong></p>
-<p>NumPy has an excellent <a class="reference external" href="http://www.scipy.org/Tentative_NumPy_Tutorial">basic tutorial</a> available.  Here I just copy
-the Quick Tour from that tutorial but you should read the rest as well.  In
-these examples the python prompt is shown as &#8220;&gt;&gt;&gt;&#8221; in order to distinguish the
-input from the outputs.</p>
+<div class="section" id="numpy-basics">
+<h3>NumPy basics<a class="headerlink" href="#numpy-basics" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="slicing">
+<h4>Slicing<a class="headerlink" href="#slicing" title="Permalink to this headline">¶</a></h4>
+<p>NumPy provides powerful methods for accessing particular subsets of an array,
+e.g. the 4th column or every other row.  This is called slicing.  As a first
+example plot column 300 of the longslit image to look at the spatial profile:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">clf</span><span class="p">();</span> <span class="n">plot</span><span class="p">(</span><span class="n">img</span><span class="p">[:,</span> <span class="mi">300</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>The &#8221;:&#8221; in the first axis means to select all elements in that axis (i.e. all
+rows).  This is a short form for the full slicing syntax:</p>
+<div class="highlight-python"><pre>i0 : i1 : step</pre>
+</div>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">i0</span></tt> is the first index value (default is zero if not provided)</li>
+<li><tt class="docutils literal"><span class="pre">i1</span></tt> is the index upper bound (default is last element index + 1)</li>
+<li><tt class="docutils literal"><span class="pre">step</span></tt> is the step size (default is one).  When <tt class="docutils literal"><span class="pre">step</span></tt> is not specified then the final &#8221;:&#8221; is not required.</li>
+</ul>
+<div class="admonition-exercise-slice-the-error-array admonition ">
+<p class="first admonition-title">Exercise: Slice the error array</p>
+<ul class="last simple">
+<li>For row 254 of the error array <tt class="docutils literal"><span class="pre">err</span></tt> plot columns 10 to 200 stepping by 3.</li>
+<li>Print a rectangular region slice with rows 251 to 253 (inclusive) and columns 101 to
+104 (inclusive).  What did you learn about the index upper bound value?</li>
+</ul>
+</div>
+</div>
+<div class="section" id="making-arrays">
+<h4>Making arrays<a class="headerlink" href="#making-arrays" title="Permalink to this headline">¶</a></h4>
 <p>Arrays can be created in different ways:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span> <span class="p">]</span> <span class="p">)</span>   <span class="c"># create an array out of a list</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
-<span class="go">array([10, 20, 30, 40])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span> <span class="mi">4</span> <span class="p">)</span>                   <span class="c"># create an array of 4 integers, from 0 to 3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span>
-<span class="go">array([0, 1, 2, 3])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">pi</span><span class="p">,</span><span class="n">pi</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>            <span class="c"># create an array of 3 evenly spaced samples from -pi to pi</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span>
-<span class="go">array([-3.14159265,  0.        ,  3.14159265])</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">array</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">])</span>   <span class="c"># create an array from a list of values</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>                 <span class="c"># create an array of 4 integers, from 0 to 3</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>    <span class="c"># create a float array from 0 to 100 stepping by 0.1</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">pi</span><span class="p">,</span> <span class="n">pi</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>      <span class="c"># create an array of 5 evenly spaced samples from -pi to pi</span>
 </pre></div>
 </div>
 <p>New arrays can be obtained by operating with existing arrays:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">**</span><span class="mi">2</span>                        <span class="c"># elementwise operations</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span>
-<span class="go">array([10, 21, 34, 49])</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">e</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">**</span><span class="mi">2</span>            <span class="c"># elementwise operations</span>
 </pre></div>
 </div>
 <p>Arrays may have more than one dimension:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">ones</span><span class="p">(</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
-<span class="go">array([[1., 1., 1., 1.],</span>
-<span class="go">       [1., 1., 1., 1.],</span>
-<span class="go">       [1., 1., 1., 1.]])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">shape</span>                            <span class="c"># a tuple with the dimensions</span>
-<span class="go">(3, 4)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">f</span> <span class="o">=</span> <span class="n">ones</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>                 <span class="c"># 3 x 4 float array of ones</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>  <span class="c"># 3 x 4 x 5 int array of zeros</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">ones_like</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>                 <span class="c"># array of ones with same shape/type as f</span>
+<span class="n">i</span> <span class="o">=</span> <span class="n">zeros_like</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>                <span class="c"># array of zeros with same shape/type as f</span>
 </pre></div>
 </div>
-<p>and you can change the dimensions of existing arrays:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
-<span class="go">array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span><span class="mi">4</span>              <span class="c"># does not modify the total number of elements</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
-<span class="go">array([[ 0,  1,  2,  3],</span>
-<span class="go">       [ 4,  5,  6,  7],</span>
-<span class="go">     [ 8,  9, 10, 11]])</span>
+<p>You can change the dimensions of existing arrays:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">w</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">w</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>       <span class="c"># does not modify the total number of elements</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>   <span class="c"># Numpy determines the right value for &quot;-1&quot; axis</span>
 </pre></div>
 </div>
 <p>It is possible to operate with arrays of different dimensions as long as they fit well (broadcasting):</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span><span class="o">*</span><span class="n">a</span>                                <span class="c"># multiply each element of a by 3</span>
-<span class="go">array([ 30,  60,  90, 120])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">+</span><span class="n">y</span>                                <span class="c"># sum a to each row of y</span>
-<span class="go">array([[10, 21, 32, 43],</span>
-<span class="go">       [14, 25, 36, 47],</span>
-<span class="go">       [18, 29, 40, 51]])</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">*</span> <span class="mi">10</span>
 </pre></div>
 </div>
-<p>Similar to Python lists, arrays can be indexed, sliced and iterated over:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">7</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span>                     <span class="c"># modify last two elements of a</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>                        <span class="c"># iterate over a</span>
-<span class="gp">... </span>    <span class="k">print</span> <span class="n">i</span>
-<span class="gp">...</span>
-<span class="go">10</span>
-<span class="go">20</span>
-<span class="go">-7</span>
-<span class="go">-3</span>
+<div class="admonition-exercise-make-a-ripple admonition ">
+<p class="first admonition-title">Exercise: Make a ripple</p>
+<p class="last">Calculate a surface <tt class="docutils literal"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">cos(r)</span> <span class="pre">/</span> <span class="pre">(r</span> <span class="pre">+</span> <span class="pre">5)</span></tt> where <tt class="docutils literal"><span class="pre">r</span> <span class="pre">=</span> <span class="pre">sqrt(x**2</span> <span class="pre">+</span>
+<span class="pre">y**2)</span></tt>.  Set <tt class="docutils literal"><span class="pre">x</span></tt> to an array that goes from -20 to 20 stepping by 0.25
+Make <tt class="docutils literal"><span class="pre">y</span></tt> the same as <tt class="docutils literal"><span class="pre">x</span></tt> but &#8220;transposed&#8221; using the <tt class="docutils literal"><span class="pre">reshape</span></tt> trick above.
+Use ImgView to display the image of <tt class="docutils literal"><span class="pre">z</span></tt>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="plot-the-spatial-profile-and-raw-spectrum">
+<h3>Plot the spatial profile and raw spectrum<a class="headerlink" href="#plot-the-spatial-profile-and-raw-spectrum" title="Permalink to this headline">¶</a></h3>
+<p>Plot the spatial profile by summing along the wavelength direction:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">profile</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">figure</span><span class="p">()</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">profile</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>When indexing more than one dimension, indices are separated by commas:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">20</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span>                             <span class="c"># x&#39;s second row</span>
-<span class="go">array([ 1,  1, 20,  1])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span>                           <span class="c"># change first row of x</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
-<span class="go">array([[10, 20, -7, -3],</span>
-<span class="go">       [ 1,  1, 20,  1],</span>
-<span class="go">       [ 1,  1,  1,  1]])</span>
+<p>Now plot the spectrum by summing along the spatial direction:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">spectrum</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">figure</span><span class="p">()</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>Since most of the sum is in the background region there is a lot of noise and
+cosmic-ray contamination.</p>
+<div class="admonition-exercise-use-slicing-to-make-a-better-spectrum-plot admonition ">
+<p class="first admonition-title">Exercise: Use slicing to make a better spectrum plot</p>
+<p class="last">Use slicing to do the spectrum sum using only the rows in the image where
+there is a signal from the source.
+Hint: zoom into the profile plot to find the right row range.</p>
+</div>
+</div>
+<div class="section" id="fit-and-subtract-the-background-from-each-wavelength-column">
+<h3>Fit and subtract the background from each wavelength column<a class="headerlink" href="#fit-and-subtract-the-background-from-each-wavelength-column" title="Permalink to this headline">¶</a></h3>
+<p>Plot five columns (wavelength) from the spectrum image as follows:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">clf</span><span class="p">()</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">img</span><span class="p">[:,</span> <span class="mi">254</span><span class="p">:</span><span class="mi">259</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>The basic idea in spectral extraction is to subtract out the background and sum
+over rows with the source signal.</p>
+<p>It&#8217;s evident that there are significant cosmic ray defects in the data.  In
+order to do a good job of subtracting the background we need to filter them
+out.  Doing this correctly in general is difficult and in reality one would
+just use the answers already provided by STSci.</p>
+<p><strong>Strategy</strong>: Use a median filter to smooth out single-pixel deviations.  Then
+use sigma-clipping to remove large variations between the actual and smoothed
+image.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">scipy.signal</span>
+<span class="n">img_sm</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">medfilt</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="n">median</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+<span class="n">bad</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">img</span> <span class="o">-</span> <span class="n">img_sm</span><span class="p">)</span> <span class="o">/</span> <span class="n">sigma</span> <span class="o">&gt;</span> <span class="mf">8.0</span>
+<span class="n">img_cr</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">img_cr</span><span class="p">[</span><span class="n">bad</span><span class="p">]</span> <span class="o">=</span> <span class="n">img_sm</span><span class="p">[</span><span class="n">bad</span><span class="p">]</span>
+<span class="n">img_cr</span><span class="p">[</span><span class="mi">230</span><span class="p">:</span><span class="mi">280</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">img</span><span class="p">[</span><span class="mi">230</span><span class="p">:</span><span class="mi">280</span><span class="p">,:]</span>  <span class="c"># Filter only for background</span>
+</pre></div>
+</div>
+<p>Check if it worked:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">clf</span><span class="p">()</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">img_cr</span><span class="p">[:,</span> <span class="mi">254</span><span class="p">:</span><span class="mi">259</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>This introduces the important concept of slicing with a boolean mask.  Let&#8217;s
+look at a smaller example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">])</span>
+<span class="n">neg</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>    <span class="c"># Parentheses here for clarity but are not required</span>
+<span class="n">a</span><span class="p">[</span><span class="n">neg</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>A slightly more complex example shows that this works the same on N-d arrays
+and that you can compose logical expressions:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">ok</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="mi">6</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">17</span><span class="p">)</span>     <span class="c"># &quot;ok = a &gt; 6 &amp; a &lt; 17&quot; will FAIL!</span>
+<span class="n">a</span><span class="p">[</span><span class="o">~</span><span class="n">ok</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>                  <span class="c"># Note the &quot;logical not&quot; operator</span>
+</pre></div>
+</div>
+<div class="admonition-digression-copy-versus-reference admonition ">
+<p class="first admonition-title">Digression: copy versus reference</p>
+<dl class="docutils">
+<dt><strong>Question</strong></dt>
+<dd>In the median filtering commands above we wrote <tt class="docutils literal"><span class="pre">img_cr</span> <span class="pre">=</span> <span class="pre">img.copy()</span></tt>.  Why
+was that needed instead of just <tt class="docutils literal"><span class="pre">img_cr</span> <span class="pre">=</span> <span class="pre">img</span></tt>?</dd>
+<dt><strong>Answer</strong></dt>
+<dd>Because the statement <tt class="docutils literal"><span class="pre">img_cr</span> <span class="pre">=</span> <span class="pre">img</span></tt> would just create another reference
+pointing to the underlying N-d array object that <tt class="docutils literal"><span class="pre">img</span></tt> references.</dd>
+</dl>
+<p>Remember that the variable names are just pointers to the actual Python
+object.  To see this clearly do the following:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+<span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="n">b</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10</span>
+<span class="k">print</span> <span class="n">a</span>
+</pre></div>
+</div>
+<p>After getting over the initial confusion this behavior is actually a good
+thing because it is efficient and consistent within Python.  If you really
+need a copy of an array then use the copy() method as shown.</p>
+<p><strong>BEWARE</strong> of one common pitfall: NumPy &#8220;basic&#8221; slicing like <tt class="docutils literal"><span class="pre">a[3:6]</span></tt>
+does NOT make a copy:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
+<span class="k">print</span> <span class="n">b</span>
+<span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="k">print</span> <span class="n">a</span>
+</pre></div>
+</div>
+<p>However if you do arithmetic or boolean mask then a copy is always made:</p>
+<div class="last highlight-python"><div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="k">print</span> <span class="n">a</span>
+<span class="k">print</span> <span class="n">b</span>    <span class="c"># Still as expected after changing &quot;a&quot;</span>
+</pre></div>
+</div>
+</div>
+<p>Fit the background for a single column:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="n">append</span><span class="p">(</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="n">arange</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">480</span><span class="p">))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">img_bkg</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="n">clf</span><span class="p">()</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">pfit</span> <span class="o">=</span> <span class="n">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">yfit</span> <span class="o">=</span> <span class="n">polyval</span><span class="p">(</span><span class="n">pfit</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">yfit</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now do this for every column and store the results in a background image:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">xrows</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="n">img_bkg</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">bkg</span> <span class="o">=</span> <span class="n">zeros_like</span><span class="p">(</span><span class="n">img_cr</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">img_bkg</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+    <span class="n">pfit</span> <span class="o">=</span> <span class="n">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">img_cr</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">col</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">bkg</span><span class="p">[:,</span> <span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">polyval</span><span class="p">(</span><span class="n">pfit</span><span class="p">,</span> <span class="n">xrows</span><span class="p">)</span>
+
+<span class="n">ImgView</span><span class="p">(</span><span class="n">bkg</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Finally subtract this background and see if it worked:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">img_bkg</span> <span class="o">=</span> <span class="n">img_cr</span> <span class="o">-</span> <span class="n">bkg</span>
+<span class="n">ImgView</span><span class="p">(</span><span class="n">img_bkg</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sum-the-source-signal">
+<h3>Sum the source signal<a class="headerlink" href="#sum-the-source-signal" title="Permalink to this headline">¶</a></h3>
+<p>Now the final step is easy and is left as an exercise.</p>
+<div class="admonition-exercise-make-the-final-spectrum admonition ">
+<p class="first admonition-title">Exercise: Make the final spectrum</p>
+<p class="last">Sum the rows of the background subtracted spectrum and plot.  Hint: you
+already did it once in a previous exercise.</p>
+</div>
+</div>
+</div>
+<div class="section" id="scipy">
+<h2>SciPy<a class="headerlink" href="#scipy" title="Permalink to this headline">¶</a></h2>
+<p>It is impossible to do justice to the full contents of the <a class="reference internal" href="#scipy">SciPy</a> package: is
+entirely too large!  What is left as homework for the reader is to
+click through to the main <a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/">SciPy Reference Manual</a> and skim the <a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/tutorial/index.html">tutorial</a>.  Keep
+this repository of functionality in mind whenever you need some numerical
+functionality that isn&#8217;t in NumPy: there is a good chance it is in SciPy:</p>
+<ul class="simple">
+<li>Basic functions in Numpy (and top-level scipy)</li>
+<li>Special functions (scipy.special)</li>
+<li>Integration (scipy.integrate)</li>
+<li>Optimization (optimize)</li>
+<li>Interpolation (scipy.interpolate)</li>
+<li>Fourier Transforms (scipy.fftpack)</li>
+<li>Signal Processing (signal)</li>
+<li>Linear Algebra</li>
+<li>Statistics</li>
+<li>Multi-dimensional image processing (ndimage)</li>
+<li>File IO (scipy.io)</li>
+<li>Weave</li>
+</ul>
 </div>
 </div>
 
 
           </div>
-        </div>
       </div>
       <div class="clearer"></div>
     </div>
@@ -267,6 +779,9 @@ input from the outputs.</p>
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              >index</a></li>
+        <li class="right" >
+          <a href="../installation/package-basics.html" title="Basics of Python Packages"
+             >previous</a> |</li>
         <li><a href="../index.html">Python4Astronomers v1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
