@@ -262,12 +262,14 @@ Next use ``help`` and note the slightly different information that you get::
 
   help img
 
-Finally find the shape of the image, its minimum value, and a list of the
-maximum value in each column::
+Use tab completion to see all the methods in short form::
+
+  img.<TAB>
+
+Finally find the shape of the image and its minimum value::
 
   img.shape  # Get the shape of img
   img.min()  # Call object method min with no arguments
-  maxes = img.max(axis=0) 
 
 NumPy basics
 ^^^^^^^^^^^^
@@ -334,10 +336,12 @@ Arrays can be created in different ways::
   b = arange(4)                 # create an array of 4 integers, from 0 to 3
   c = arange(0.0, 10.0, 0.1)    # create a float array from 0 to 100 stepping by 0.1
   d = linspace(-pi, pi, 5)      # create an array of 5 evenly spaced samples from -pi to pi
+  a, b, c, d
 
 New arrays can be obtained by operating with existing arrays::
 
   e = a + b**2            # elementwise operations
+  e
 
 Arrays may have more than one dimension::
 
@@ -345,6 +349,7 @@ Arrays may have more than one dimension::
   g = zeros([2, 3, 4], dtype=int)  # 3 x 4 x 5 int array of zeros
   h = ones_like(f)                 # array of ones with same shape/type as f
   i = zeros_like(f)                # array of zeros with same shape/type as f
+  f, g, h, i
 
 You can change the dimensions of existing arrays::
 
@@ -353,10 +358,12 @@ You can change the dimensions of existing arrays::
   x = arange(5)
   y = x.reshape(5, 1)
   y = x.reshape(-1, 1)   # Numpy determines the right value for "-1" axis
+  w, x, y
 
 It is possible to operate with arrays of different dimensions as long as they fit well (broadcasting)::
 
   z = x + y * 10
+  z
 
 .. admonition:: Exercise: Make a ripple
 
@@ -391,7 +398,7 @@ Plot the spatial profile and raw spectrum
 Plot the spatial profile by summing along the wavelength direction::
 
   profile = img.sum(axis=1)
-  clf()
+  figure()
   plot(profile)
 
 Now plot the spectrum by summing along the spatial direction::
@@ -482,6 +489,7 @@ look at a smaller example::
    a = array([1, 4, -2, 4, -5])
    neg = (a < 0)    # Parentheses here for clarity but are not required
    a[neg] = 0
+   a
 
 A slightly more complex example shows that this works the same on N-d arrays
 and that you can compose logical expressions::
@@ -489,6 +497,7 @@ and that you can compose logical expressions::
    a = arange(25).reshape(5,5)
    ok = (a > 6) & (a < 17)     # "ok = a > 6 & a < 17" will FAIL!
    a[~ok] = 0                  # Note the "logical not" operator
+   a
 
 .. admonition:: Exercise [intermediate]: circular region slicing
 
@@ -531,7 +540,7 @@ and that you can compose logical expressions::
      id(a)     # Unique identifier for the object referred to by "a": arange(8)
      id(b)     # Unique identifier for the object referred to by "b": same ^^
      b[3] = -10
-     print a
+     a
     
    After getting over the initial confusion this behavior is actually a good
    thing because it is efficient and consistent within Python.  If you really

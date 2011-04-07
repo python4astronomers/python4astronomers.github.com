@@ -492,11 +492,12 @@ work for you?</p>
 <p>Next use <tt class="docutils literal"><span class="pre">help</span></tt> and note the slightly different information that you get:</p>
 <div class="highlight-python"><pre>help img</pre>
 </div>
-<p>Finally find the shape of the image, its minimum value, and a list of the
-maximum value in each column:</p>
+<p>Use tab completion to see all the methods in short form:</p>
+<div class="highlight-python"><pre>img.&lt;TAB&gt;</pre>
+</div>
+<p>Finally find the shape of the image and its minimum value:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">img</span><span class="o">.</span><span class="n">shape</span>  <span class="c"># Get the shape of img</span>
 <span class="n">img</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>  <span class="c"># Call object method min with no arguments</span>
-<span class="n">maxes</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -549,10 +550,12 @@ this, but for now just accept and learn it.</p>
 <span class="n">b</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>                 <span class="c"># create an array of 4 integers, from 0 to 3</span>
 <span class="n">c</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>    <span class="c"># create a float array from 0 to 100 stepping by 0.1</span>
 <span class="n">d</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">pi</span><span class="p">,</span> <span class="n">pi</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>      <span class="c"># create an array of 5 evenly spaced samples from -pi to pi</span>
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span>
 </pre></div>
 </div>
 <p>New arrays can be obtained by operating with existing arrays:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">e</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">**</span><span class="mi">2</span>            <span class="c"># elementwise operations</span>
+<span class="n">e</span>
 </pre></div>
 </div>
 <p>Arrays may have more than one dimension:</p>
@@ -560,6 +563,7 @@ this, but for now just accept and learn it.</p>
 <span class="n">g</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>  <span class="c"># 3 x 4 x 5 int array of zeros</span>
 <span class="n">h</span> <span class="o">=</span> <span class="n">ones_like</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>                 <span class="c"># array of ones with same shape/type as f</span>
 <span class="n">i</span> <span class="o">=</span> <span class="n">zeros_like</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>                <span class="c"># array of zeros with same shape/type as f</span>
+<span class="n">f</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">i</span>
 </pre></div>
 </div>
 <p>You can change the dimensions of existing arrays:</p>
@@ -568,10 +572,12 @@ this, but for now just accept and learn it.</p>
 <span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>   <span class="c"># Numpy determines the right value for &quot;-1&quot; axis</span>
+<span class="n">w</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
 </pre></div>
 </div>
 <p>It is possible to operate with arrays of different dimensions as long as they fit well (broadcasting):</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">*</span> <span class="mi">10</span>
+<span class="n">z</span>
 </pre></div>
 </div>
 <div class="admonition-exercise-make-a-ripple admonition ">
@@ -595,7 +601,7 @@ Use ImgView to display the image of <tt class="docutils literal"><span class="pr
 <h3>Plot the spatial profile and raw spectrum<a class="headerlink" href="#plot-the-spatial-profile-and-raw-spectrum" title="Permalink to this headline">¶</a></h3>
 <p>Plot the spatial profile by summing along the wavelength direction:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">profile</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">clf</span><span class="p">()</span>
+<span class="n">figure</span><span class="p">()</span>
 <span class="n">plot</span><span class="p">(</span><span class="n">profile</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -659,6 +665,7 @@ look at a smaller example:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">])</span>
 <span class="n">neg</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>    <span class="c"># Parentheses here for clarity but are not required</span>
 <span class="n">a</span><span class="p">[</span><span class="n">neg</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">a</span>
 </pre></div>
 </div>
 <p>A slightly more complex example shows that this works the same on N-d arrays
@@ -666,6 +673,7 @@ and that you can compose logical expressions:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">ok</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="mi">6</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">17</span><span class="p">)</span>     <span class="c"># &quot;ok = a &gt; 6 &amp; a &lt; 17&quot; will FAIL!</span>
 <span class="n">a</span><span class="p">[</span><span class="o">~</span><span class="n">ok</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>                  <span class="c"># Note the &quot;logical not&quot; operator</span>
+<span class="n">a</span>
 </pre></div>
 </div>
 <div class="admonition-exercise-intermediate-circular-region-slicing admonition ">
@@ -697,7 +705,7 @@ object.  To see this clearly do the following:</p>
 <span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>     <span class="c"># Unique identifier for the object referred to by &quot;a&quot;: arange(8)</span>
 <span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>     <span class="c"># Unique identifier for the object referred to by &quot;b&quot;: same ^^</span>
 <span class="n">b</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10</span>
-<span class="k">print</span> <span class="n">a</span>
+<span class="n">a</span>
 </pre></div>
 </div>
 <p>After getting over the initial confusion this behavior is actually a good
