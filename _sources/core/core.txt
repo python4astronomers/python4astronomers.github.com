@@ -133,14 +133,18 @@ informative than the "string" version that gets returned with ``print``.  In
 many cases the "representation" of an object the same as Python
 code to create that object.
 
-  Try::
+Try::
 
-    y = dict((x, 'value is %d' % x**2) for x in range(10))
-    y
-    print y
-    x = arange(5)       # Array with 5 elements starting at 0 and counting up by 1
-    x
-    print x
+  y = dict((x, 'value is %d' % x**2) for x in range(10))
+  y
+  print y
+
+
+And then::
+
+  x = arange(5)       # Array with 5 elements starting at 0 and counting up by 1
+  x
+  print x
 
 Further resources
 ^^^^^^^^^^^^^^^^^^
