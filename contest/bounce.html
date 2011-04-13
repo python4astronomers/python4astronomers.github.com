@@ -1,0 +1,384 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>CONTEST: Make a fun bouncing balls demo &mdash; Python4Astronomers v1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Python4Astronomers v1.0 documentation" href="../index.html" />
+    <link rel="prev" title="APLpy" href="../plotting/aplpy.html" />
+ 
+<script type="text/javascript"> 
+$(document).ready(function(){
+
+$(".flip0").click(function(){
+    $(".panel0").slideToggle("normal");
+  });
+
+$(".flip1").click(function(){
+    $(".panel1").slideToggle("normal");
+  });
+
+$(".flip2").click(function(){
+    $(".panel2").slideToggle("normal");
+  });
+
+$(".flip3").click(function(){
+    $(".panel3").slideToggle("normal");
+  });
+
+$(".flip4").click(function(){
+    $(".panel4").slideToggle("normal");
+  });
+
+$(".flip5").click(function(){
+    $(".panel5").slideToggle("normal");
+  });
+
+$(".flip6").click(function(){
+    $(".panel6").slideToggle("normal");
+  });
+
+$(".flip7").click(function(){
+    $(".panel7").slideToggle("normal");
+  });
+
+$(".flip8").click(function(){
+    $(".panel8").slideToggle("normal");
+  });
+
+$(".flip9").click(function(){
+    $(".panel9").slideToggle("normal");
+  });
+
+});
+</script>
+ 
+<style type="text/css"> 
+
+div.panel0,p.flip0
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip0
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel0
+{
+display:none;
+}
+
+div.panel1,p.flip1
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip1
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel1
+{
+display:none;
+}
+
+div.panel2,p.flip2
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip2
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel2
+{
+display:none;
+}
+
+div.panel3,p.flip3
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip3
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel3
+{
+display:none;
+}
+
+div.panel4,p.flip4
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip4
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel4
+{
+display:none;
+}
+
+div.panel5,p.flip5
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip5
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel5
+{
+display:none;
+}
+
+div.panel6,p.flip6
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip6
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel6
+{
+display:none;
+}
+
+div.panel7,p.flip7
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip7
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel7
+{
+display:none;
+}
+
+div.panel8,p.flip8
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip8
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel8
+{
+display:none;
+}
+
+div.panel9,p.flip9
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip9
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel9
+{
+display:none;
+}
+
+</style>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../plotting/aplpy.html" title="APLpy"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Python4Astronomers v1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body">
+            
+  <div class="section" id="contest-make-a-fun-bouncing-balls-demo">
+<h1>CONTEST: Make a fun bouncing balls demo<a class="headerlink" href="#contest-make-a-fun-bouncing-balls-demo" title="Permalink to this headline">¶</a></h1>
+<dl class="docutils">
+<dt><strong>Contest</strong>:</dt>
+<dd>Make the bouncing balls script more interesting.</dd>
+<dt><strong>Judging</strong>:</dt>
+<dd>Submitted entries will be run during the Workshop and everyone will vote for the winner.</dd>
+<dt><strong>Prize</strong>:</dt>
+<dd>One-year subscription to Wired Magazine or other geeky magazine of your choice (up to US$20 value).</dd>
+<dt><strong>Submission</strong>:</dt>
+<dd>Email your script as an attachment to <a class="reference external" href="mailto:aldcroft&#37;&#52;&#48;head&#46;cfa&#46;harvard&#46;edu">aldcroft<span>&#64;</span>head<span>&#46;</span>cfa<span>&#46;</span>harvard<span>&#46;</span>edu</a>.  To make
+life easier please rename the script &#8220;bounce_&lt;yourname&gt;.py.txt&#8221; before
+attaching.</dd>
+<dt><strong>Deadline</strong>:</dt>
+<dd>The deadline for submission is Noon on Friday.</dd>
+</dl>
+<div class="section" id="bouncing-balls">
+<h2>Bouncing balls<a class="headerlink" href="#bouncing-balls" title="Permalink to this headline">¶</a></h2>
+<p>The script below shows a simple example of making an animation using
+matplotlib.  The key feature is the <a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html?highlight=pyplot.draw#matplotlib.pyplot.draw">draw()</a> command which re-draws the plot
+window.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">clf</span><span class="p">()</span>
+<span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+
+<span class="c"># Define properties of the &quot;bouncing balls&quot;</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="mi">20</span> <span class="o">*</span> <span class="n">random</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">vel</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.3</span> <span class="o">*</span> <span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="o">*</span><span class="mi">2</span><span class="p">))</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">sizes</span> <span class="o">=</span> <span class="n">normal</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+
+<span class="c"># Colors where each row is (Red, Green, Blue, Alpha).  Each can go</span>
+<span class="c"># from 0 to 1.  Alpha is the transparency.</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="n">random</span><span class="p">([</span><span class="n">n</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+
+<span class="c"># Draw all the circles and return an object ``circles`` that allows</span>
+<span class="c"># manipulation of the plotted circles.</span>
+<span class="n">circles</span> <span class="o">=</span> <span class="n">scatter</span><span class="p">(</span><span class="n">pos</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">pos</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s">&#39;o&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">sizes</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colors</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="n">pos</span> <span class="o">=</span> <span class="n">pos</span> <span class="o">+</span> <span class="n">vel</span>
+    <span class="n">bounce</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">10</span>      <span class="c"># Find balls that are outside walls</span>
+    <span class="n">vel</span><span class="p">[</span><span class="n">bounce</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">vel</span><span class="p">[</span><span class="n">bounce</span><span class="p">]</span>  <span class="c"># Bounce if outside the walls</span>
+    <span class="n">circles</span><span class="o">.</span><span class="n">set_offsets</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span>    <span class="c"># Change the positions</span>
+    <span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>In order to run this you should copy the lines above into a file
+called <tt class="docutils literal"><span class="pre">bounce.py</span></tt> in your working directory.  Then start IPthon as usual
+with <tt class="docutils literal"><span class="pre">ipython</span> <span class="pre">-pylab</span></tt> or with the Pylab application and enter the following:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="nb">execfile</span><span class="p">(</span><span class="s">&quot;bounce.py&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This command essentially runs the lines of the file as if you had entered them
+by hand, but this now allows for longer scripts.  This has the convenient
+property that all the variables defined within the script are available at the
+command line once the script finishes execution.  Use this to examine key
+variables like <tt class="docutils literal"><span class="pre">pos</span></tt>, <tt class="docutils literal"><span class="pre">sizes</span></tt>, <tt class="docutils literal"><span class="pre">colors</span></tt> to understand how the script is
+working.</p>
+<p>The key plot routine being called is <a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html?highlight=pyplot.scatter#matplotlib.pyplot.scatter">scatter()</a>.
+Read the documentation and understand how it is called.</p>
+<p>Examine the <tt class="docutils literal"><span class="pre">circles</span></tt> object with <tt class="docutils literal"><span class="pre">help</span></tt> and <tt class="docutils literal"><span class="pre">?</span></tt>.  Look for &#8220;set_*&#8221;
+methods (<tt class="docutils literal"><span class="pre">circles.set_&lt;TAB&gt;</span></tt>) that will let you set something and then get
+help on those as well to learn how to use them.  There are corresponding &#8220;get_*&#8221;
+methods that let you examine the existing values.</p>
+</div>
+<div class="section" id="contest">
+<h2>Contest<a class="headerlink" href="#contest" title="Permalink to this headline">¶</a></h2>
+<p>Make the example script more interesting and visually stimulating!
+Possibilities include:</p>
+<ul class="simple">
+<li>Change the colors and/or sizes dynamically</li>
+<li>Use other shapes and make them spin</li>
+<li>Add a lot more balls (at what point do things break?)</li>
+<li>Put in animated text with the <a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html?highlight=pyplot.scatter#matplotlib.pyplot.text">text()</a>
+command.  You&#8217;ll need to do something like
+<tt class="docutils literal"><span class="pre">mytext</span> <span class="pre">=</span> <span class="pre">text(...)</span></tt> and then figure out how to change the properties of
+the text (e.g. rotation angle) using <tt class="docutils literal"><span class="pre">mytext.get_&lt;TAB&gt;</span></tt> and <tt class="docutils literal"><span class="pre">mytext.set_&lt;TAB&gt;</span></tt> and <tt class="docutils literal"><span class="pre">help</span> <span class="pre">mytext</span></tt>.</li>
+<li>Do silly things like make the tick labels change colors and/or spin following the
+example code at the end of the <a class="reference external" href="http://matplotlib.sourceforge.net/users/artists.html#axis-containers">Axis containers</a> documentation.</li>
+<li>Put in physics, like making the balls bounce off each other, including gravity, or ???</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../plotting/aplpy.html" title="APLpy"
+             >previous</a> |</li>
+        <li><a href="../index.html">Python4Astronomers v1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Smithsonian Astrophysical Observatory.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
+    </div>
+  </body>
+</html>
