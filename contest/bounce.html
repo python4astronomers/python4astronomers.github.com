@@ -295,20 +295,19 @@ attaching.</dd>
 <p>The script below shows a simple example of making an animation using
 matplotlib.  The key feature is the <a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html?highlight=pyplot.draw#matplotlib.pyplot.draw">draw()</a> command which re-draws the plot
 window.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">random</span><span class="p">,</span> <span class="n">normal</span>
-<span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">clf</span><span class="p">()</span>
 <span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
 
 <span class="c"># Define properties of the &quot;bouncing balls&quot;</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="mi">20</span> <span class="o">*</span> <span class="n">random</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="mi">20</span> <span class="o">*</span> <span class="n">random_sample</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">vel</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.3</span> <span class="o">*</span> <span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="o">*</span><span class="mi">2</span><span class="p">))</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">sizes</span> <span class="o">=</span> <span class="n">normal</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+<span class="n">sizes</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">random_sample</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="mi">100</span>
 
 <span class="c"># Colors where each row is (Red, Green, Blue, Alpha).  Each can go</span>
 <span class="c"># from 0 to 1.  Alpha is the transparency.</span>
-<span class="n">colors</span> <span class="o">=</span> <span class="n">random</span><span class="p">([</span><span class="n">n</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="n">random_sample</span><span class="p">([</span><span class="n">n</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
 
 <span class="c"># Draw all the circles and return an object ``circles`` that allows</span>
 <span class="c"># manipulation of the plotted circles.</span>
