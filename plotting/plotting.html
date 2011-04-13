@@ -23,6 +23,8 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Python4Astronomers v1.0 documentation" href="../index.html" />
+    <link rel="next" title="Matplotlib" href="matplotlib.html" />
+    <link rel="prev" title="Core packages for analysis: IPython, NumPy, and SciPy" href="../core/core.html" />
  
 <script type="text/javascript"> 
 $(document).ready(function(){
@@ -262,6 +264,12 @@ display:none;
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="matplotlib.html" title="Matplotlib"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../core/core.html" title="Core packages for analysis: IPython, NumPy, and SciPy"
+             accesskey="P">previous</a> |</li>
         <li><a href="../index.html">Python4Astronomers v1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
@@ -274,57 +282,30 @@ display:none;
 <h1>Plotting and images<a class="headerlink" href="#plotting-and-images" title="Permalink to this headline">¶</a></h1>
 <p>Workshop goals:</p>
 <ul class="simple">
-<li>Learn the key features of Matplotlib</li>
+<li>Learn the key features of Matplotlib for 1-d, 2-d and 3-d plotting</li>
+<li>Gain familiarity with the hierarchy of objects that comprise a plot</li>
+<li>Know the basic options for customizing plot elements</li>
 <li>Python objects<ul>
 <li>Understand the basic concept</li>
 <li>Know how to inspect an object and discover what it can do</li>
 </ul>
 </li>
 </ul>
-<p><strong>UNDER CONSTRUCTION</strong></p>
-<div class="admonition-digression-python-objects-or-what-s-with-the-periods-everywhere admonition ">
-<p class="first admonition-title">Digression: Python Objects - or what&#8217;s with the
-periods everywhere?</p>
-<p>Most things in Python are objects.  But what is an object?</p>
-<p>Every constant, variable, or function in Python is actually a object with a
-type and associated attributes and methods.  An <em>attribute</em> a property of
-the object that you get or set by giving the &lt;object_name&gt; + dot +
-&lt;attribute_name&gt;, for example <tt class="docutils literal"><span class="pre">img.shape</span></tt>.  A <em>method</em> is a function
-that the object provides, for example <tt class="docutils literal"><span class="pre">img.argmax(axis=0)</span></tt> or <tt class="docutils literal"><span class="pre">img.min()</span></tt>.</p>
-<p>Use tab completion in IPython to inspect objects and start to understand
-attributes and methods.  To start off create a list of 4 numbers:</p>
-<div class="highlight-python"><pre>a = [3, 1, 2, 1]
-a.&lt;TAB&gt;</pre>
-</div>
-<p>This will show the available attributes and methods for the Python list
-<tt class="docutils literal"><span class="pre">a</span></tt>.  <strong>Using &lt;TAB&gt;-completion and help is a very efficient way to learn and later
-remember object methods!</strong></p>
-<div class="highlight-python"><pre>In [17]: a.&lt;TAB&gt;
-a.__add__           a.__ge__            a.__iter__          a.__repr__          a.append
-a.__class__         a.__getattribute__  a.__le__            a.__reversed__      a.count
-a.__contains__      a.__getitem__       a.__len__           a.__rmul__          a.extend
-a.__delattr__       a.__getslice__      a.__lt__            a.__setattr__       a.index
-a.__delitem__       a.__gt__            a.__mul__           a.__setitem__       a.insert
-a.__delslice__      a.__hash__          a.__ne__            a.__setslice__      a.pop
-a.__doc__           a.__iadd__          a.__new__           a.__sizeof__        a.remove
-a.__eq__            a.__imul__          a.__reduce__        a.__str__           a.reverse
-a.__format__        a.__init__          a.__reduce_ex__     a.__subclasshook__  a.sort</pre>
-</div>
-<p>For the most part you can ignore all the ones that begin with <tt class="docutils literal"><span class="pre">__</span></tt> since
-they are generally are internal methods that are not called directly.  At
-the end you see useful looking functions like <tt class="docutils literal"><span class="pre">append</span></tt> or <tt class="docutils literal"><span class="pre">sort</span></tt> which
-you can get help for and use:</p>
-<div class="highlight-python"><pre>a.sort
-a.sort?
-a.sort()
-a</pre>
-</div>
-<p>You can tell the difference between an attribute and a callable method with
-the callable function:</p>
-<div class="last highlight-python"><div class="highlight"><pre><span class="nb">callable</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">sort</span><span class="p">)</span>
-<span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">x</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&#39;__&#39;</span><span class="p">)]</span>
-</pre></div>
-</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matplotlib.html">Matplotlib</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="matplotlib.html#documentation">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matplotlib.html#plotting-1-d-data">Plotting 1-d data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matplotlib.html#working-with-multiple-figures-and-axes">Working with multiple figures and axes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matplotlib.html#working-with-text">Working with text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matplotlib.html#using-mathematical-expressions-in-text">Using mathematical expressions in text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matplotlib.html#annotating-text">Annotating text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matplotlib.html#plotting-2-d-image-data">Plotting 2-d image data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matplotlib.html#plotting-3-d-data">Plotting 3-d data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aplpy.html">APLpy</a></li>
+</ul>
 </div>
 </div>
 
@@ -339,6 +320,12 @@ the callable function:</p>
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              >index</a></li>
+        <li class="right" >
+          <a href="matplotlib.html" title="Matplotlib"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../core/core.html" title="Core packages for analysis: IPython, NumPy, and SciPy"
+             >previous</a> |</li>
         <li><a href="../index.html">Python4Astronomers v1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
