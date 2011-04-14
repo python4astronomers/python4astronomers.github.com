@@ -23,8 +23,6 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Python4Astronomers v1.0 documentation" href="../index.html" />
-    <link rel="up" title="Plotting and images" href="plotting.html" />
-    <link rel="prev" title="Matplotlib" href="matplotlib.html" />
  
 <script type="text/javascript"> 
 $(document).ready(function(){
@@ -264,11 +262,7 @@ display:none;
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="matplotlib.html" title="Matplotlib"
-             accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers v1.0 documentation</a> &raquo;</li>
-          <li><a href="plotting.html" accesskey="U">Plotting and images</a> &raquo;</li> 
+        <li><a href="../index.html">Python4Astronomers v1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
 
@@ -278,6 +272,82 @@ display:none;
             
   <div class="section" id="aplpy">
 <h1>APLpy<a class="headerlink" href="#aplpy" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="http://aplpy.github.com">APLpy</a> (the Astronomical Plotting Library in Python) is a Python module aimed at producing publication-quality plots of astronomical imaging data in FITS format. It effectively provides a layer on top of Matplotlib to enable plotting of Astronomical images, and allows users to:</p>
+<ul class="simple">
+<li>Make plots interactively or using scripts</li>
+<li>Show grayscale, colorscale, and 3-color RGB images of FITS files</li>
+<li>Generate co-aligned FITS cubes to make 3-color RGB images</li>
+<li>Overlay any number of contour sets</li>
+<li>Overlay markers with fully customizable symbols</li>
+<li>Plot customizable shapes like circles, ellipses, and rectangles</li>
+<li>Overlay ds9 region files</li>
+<li>Overlay coordinate grids</li>
+<li>Show colorbars, scalebars, and beams</li>
+<li>Easily customize the appearance of labels and ticks</li>
+<li>Hide, show, and remove different contour and marker layers</li>
+<li>Pan, zoom, and save any view as a full publication-quality plot</li>
+<li>Save plots as EPS, PDF, PS, PNG, and SVG</li>
+</ul>
+<div class="section" id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
+<p>The APLpy <a class="reference external" href="http://aplpy.github.com/documentation/index.html">Documentation</a> contains all the information needed to run APLpy successfully. The most important page is the <a class="reference external" href="http://aplpy.github.com/documentation/quick_reference.html">Quick Reference Guide</a> which provides concise instructions for all of the APLpy functions.</p>
+</div>
+<div class="section" id="when-things-go-wrong">
+<h2>When things go wrong<a class="headerlink" href="#when-things-go-wrong" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>If you have issues with the installation, either send an email to a mailing list (e.g. astropy or pythonusers for CfA astronomers), or contact the authors directly at <a class="reference external" href="mailto:astropython&#37;&#52;&#48;gmail&#46;com">astropython<span>&#64;</span>gmail<span>&#46;</span>com</a>.</li>
+<li>If you run into what you believe is a bug, please report it at the GitHub <a class="reference external" href="https://github.com/aplpy/aplpy/issues">Issue Tracker</a>.</li>
+</ul>
+</div>
+<div class="section" id="getting-started">
+<h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>Start off by downloading <a class="reference download internal" href="../_downloads/APLpy-example.tgz"><tt class="xref download docutils literal"><span class="pre">this</span> <span class="pre">tar</span> <span class="pre">file</span></tt></a>, expand it, and go to the <tt class="docutils literal"><span class="pre">APLpy-example</span></tt> directory on the command line. Then, launch pylab:</p>
+<div class="highlight-python"><pre>$ ipython -pylab</pre>
+</div>
+<p>Import the <tt class="docutils literal"><span class="pre">aplpy</span></tt> module (note the lowercase module name):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">aplpy</span>
+</pre></div>
+</div>
+<p>And create a new figure to plot the FITS file with:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">f</span> <span class="o">=</span> <span class="n">aplpy</span><span class="o">.</span><span class="n">FITSFigure</span><span class="p">(</span><span class="s">&#39;ngc2264_cutout.fits&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This should open up a matplotlib window and will show an empty set of axes with coordinates. From now on, you will interact with the figure by calling methods associated with <tt class="docutils literal"><span class="pre">f</span></tt>. For example, show the image as a grayscale:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">f</span><span class="o">.</span><span class="n">show_grayscale</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The automatic settings for the stretch should be decent, but there are of course options to allow custom min/max levels. You can now try panning around and zooming in like you would do in Matplotlib, and you will notice the coordinates updating. Press the Home button to reset the view.</p>
+<p>Next, let&#8217;s overlay a set of contours from a different image:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">f</span><span class="o">.</span><span class="n">show_contour</span><span class="p">(</span><span class="s">&#39;ngc2264_cutout_mips.fits&#39;</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We can also add a coordinate grid:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">f</span><span class="o">.</span><span class="n">add_grid</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>And finally let&#8217;s add a scalebar to make the plot look sciency:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">f</span><span class="o">.</span><span class="n">add_scalebar</span><span class="p">(</span><span class="mf">0.03</span><span class="p">,</span> <span class="s">&#39;0.5pc&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;white&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We can now save our masterpiece either by clicking on the Save icon in the matplotlib window, or doing:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">f</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">&#39;my_first_plot.eps&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The latter is recommended because it will automatically figure out the best resolution with which to output your plot. Your plot should look something like this:</p>
+<img alt="../_images/aplpy_example.png" src="../_images/aplpy_example.png" />
+</div>
+<div class="section" id="exercise-1">
+<h2>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">¶</a></h2>
+<p>Use the  <tt class="docutils literal"><span class="pre">help</span></tt> or <tt class="docutils literal"><span class="pre">?</span></tt> functionality in <tt class="docutils literal"><span class="pre">ipython</span></tt> to figure out how to set the min/max levels on the grayscale manually, and to change the stretch function to a square-root stretch. Also use the Use the <a class="reference external" href="http://aplpy.github.com/documentation/quick_reference.html">Quick Reference Guide</a> to figure out how to change the grayscale to a colorscale.</p>
+</div>
+<div class="section" id="exercise-2">
+<h2>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this headline">¶</a></h2>
+<p>Use the <a class="reference external" href="http://aplpy.github.com/documentation/quick_reference.html">Quick Reference Guide</a> to manually set the tick spacing on both axes. In the default view for the example FITS file above, the arcseconds in the declination are not useful (they are always zero). Try and change the format of the y axis labels so that they only include degrees and arcminutes.</p>
+</div>
+<div class="section" id="exercise-3">
+<h2>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this headline">¶</a></h2>
+<p>Use APLpy to plot one of your own FITS images!</p>
+</div>
 </div>
 
 
@@ -291,11 +361,7 @@ display:none;
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              >index</a></li>
-        <li class="right" >
-          <a href="matplotlib.html" title="Matplotlib"
-             >previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers v1.0 documentation</a> &raquo;</li>
-          <li><a href="plotting.html" >Plotting and images</a> &raquo;</li> 
+        <li><a href="../index.html">Python4Astronomers v1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
