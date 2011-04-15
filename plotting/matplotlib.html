@@ -454,7 +454,7 @@ drawn with &#8220;markers&#8221; and the connections between points can be drawn
 various styles of line (including no connecting line at all).</p>
 </div>
 <p>Lines have many attributes that you can set: linewidth, dash style,
-antialiased, etc; see <tt class="xref py py-class docutils literal"><span class="pre">matplotlib.lines.Line2D</span></tt>.   There are several ways to set line
+antialiased, etc; see <a class="reference external" href="http://matplotlib.sourceforge.net/api/artist_api.html#matplotlib.lines.Line2D">Line2D</a>.   There are several ways to set line
 properties</p>
 <ul>
 <li><p class="first">Use keyword args:</p>
@@ -484,10 +484,10 @@ line, = plot(x, y, '-')
 line.set_&lt;TAB&gt;</pre>
 </div>
 <p>Now change the line color, noting that in this case you need to explicitly redraw:</p>
-<blockquote>
-<p>line.set_color(&#8216;m&#8217;) # change color
-draw()</p>
-</blockquote>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">line</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s">&#39;m&#39;</span><span class="p">)</span> <span class="c"># change color</span>
+<span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
 </li>
 </ul>
 <div class="admonition important">
@@ -626,6 +626,7 @@ objects and classes.</p>
 </div>
 <div class="section" id="some-useful-functions-for-controlling-plotting">
 <span id="id5"></span><h2>Some useful functions for controlling plotting<a class="headerlink" href="#some-useful-functions-for-controlling-plotting" title="Permalink to this headline">¶</a></h2>
+<p>Here are a few useful functions:</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="21%" />
