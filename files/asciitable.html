@@ -294,7 +294,8 @@ into independent base class elements so that new formats can be accomodated
 by modifying the underlying class methods as needed.</p>
 <div class="section" id="reading-tables">
 <h2>Reading tables<a class="headerlink" href="#reading-tables" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">table</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">asciitable</span>
+<span class="n">table</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;</span>
 <span class="s">col1 col2 col3</span>
 <span class="s">1    2    &quot;hi there&quot;</span>
 <span class="s">3    4.2  world&quot;&quot;&quot;</span>
@@ -401,10 +402,10 @@ as space-delimited:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">asciitable</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">Writer</span><span class="o">=</span><span class="n">asciitable</span><span class="o">.</span><span class="n">CommentedHeader</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>As a final example, imagine you&#8217;ve done a computation and have four columns of
-data you want to write to an ASCII table.  You could just use pure Python file I/O as
-shown earlier, but then you may need to be careful about quoting (and why
-rewrite the same code every time when it is already done!):</p>
+<p>As a final example, imagine you&#8217;ve gathered basic information about 5 galaxies
+which you want to write as an ASCII table.  You could just use pure Python file I/O as
+shown earlier, but then you may need to be careful about quoting and formatting (and why
+rewrite the same code every time when it is already done!).  Instead just use <a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable">asciitable</a>:</p>
 <div class="highlight-python"><pre>types = ['barred spiral', 'spiral', 'peculiar (ring)', 'elliptical', 'elliptical']
 redshifts = array([0.024221, 0.132, 0.22, 0.34, 0.45])
 lums = array([1e40, 1.2e40, 2e40, 3e40, 4e40])
@@ -416,13 +417,14 @@ cat galaxies.dat</pre>
 <div class="admonition-exercise-scraping-table-data-from-the-web admonition ">
 <p class="first admonition-title">Exercise: scraping table data from the web</p>
 <p>To do this exercise you must first install the <a class="reference external" href="http://www.crummy.com/software/BeautifulSoup/">BeautifulSoup</a> package which will parse
-HTML pages into nice data structures.  From the command line do:</p>
+HTML pages into nice data structures.  <strong>QUIT</strong> your IPython session and from the command line do:</p>
 <div class="highlight-python"><pre>easy_install [--user] BeautifulSoup</pre>
 </div>
-<p>Use the &#8211;user flag if you prefer to install the package into your local
+<p>Use the <tt class="docutils literal"><span class="pre">--user</span></tt> flag if you prefer to install the package into your local
 user area instead of within the system Python installation.</p>
-<p>Now define the following function which converts an HTML table to a list
-of lines with tab-separated values (this will be more clear in the next part):</p>
+<p>Now start IPython again and define the following function which converts an
+HTML table to a list of lines with tab-separated values (this will be more
+clear in the next part):</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">BeautifulSoup</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
 <span class="k">def</span> <span class="nf">html2tsv</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Parse the index&#39;th HTML table in ``html``.  Return table as a list of</span>
@@ -446,16 +448,18 @@ start with:</p>
 <span class="n">lines</span> <span class="o">=</span> <span class="n">html2tsv</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>   <span class="c"># Parse the number 5 table in the web page</span>
 </pre></div>
 </div>
-<p class="last">Now examine the <tt class="docutils literal"><span class="pre">lines</span></tt> and understand where is the header line and where
-the valid data lines start and end.  Then adjust the <a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable/#commonly-used-parameters-for-read">table parameters for
-reading</a> accordingly to read the lines using <a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable/#reading-tables">asciitable.read()</a>.</p>
+<p class="last">Now examine the <tt class="docutils literal"><span class="pre">lines</span></tt> and understand the delimiter, where is the header
+line, and where the valid data lines start and end.  Then adjust the <a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable/#commonly-used-parameters-for-read">table
+parameters for reading</a> accordingly to read the lines using
+<a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable/#reading-tables">asciitable.read()</a>.</p>
 </div>
-<p class="flip9">Click to Show/Hide Solution</p> <div class="panel9"><p>The first and last data lines are garbage and there is no header (column)
-information in the way that we parsed the HTML table.  It turns out this page
-put the table header column names (&#8220;Mark&#8221; &#8220;Dataset&#8221; &#8220;Target Name&#8221; ...) in a
-separate element.  The table can still be read, however, by indicating that
-there is no header line with <tt class="docutils literal"><span class="pre">header_start=None</span></tt>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">dat</span> <span class="o">=</span> <span class="n">asciitable</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">lines</span><span class="p">,</span> <span class="n">data_start</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">data_end</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">header_start</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<p class="flip9">Click to Show/Hide Solution</p> <div class="panel9"><p>The delimiter is the tab character <cite>&#8220;t&#8221;</cite>.  The first and last data lines are
+garbage and there is no header (column) information in the way that we parsed
+the HTML table.  It turns out this page put the table header column names
+(&#8220;Mark&#8221; &#8220;Dataset&#8221; &#8220;Target Name&#8221; ...) in a separate element.  The table can
+still be read, however, by indicating that there is no header line with
+<tt class="docutils literal"><span class="pre">header_start=None</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">dat</span> <span class="o">=</span> <span class="n">asciitable</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">lines</span><span class="p">,</span> <span class="n">data_start</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">data_end</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">header_start</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s">&#39;</span><span class="se">\t</span><span class="s">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div></div>
