@@ -23,6 +23,7 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Python4Astronomers v1.0 documentation" href="../index.html" />
+    <link rel="prev" title="CONTEST: Make a fun bouncing balls demo" href="../contest/bounce.html" />
  
 <script type="text/javascript"> 
 $(document).ready(function(){
@@ -262,6 +263,9 @@ display:none;
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../contest/bounce.html" title="CONTEST: Make a fun bouncing balls demo"
+             accesskey="P">previous</a> |</li>
         <li><a href="../index.html">Python4Astronomers v1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
@@ -272,7 +276,177 @@ display:none;
             
   <div class="section" id="fitting-and-modeling-data">
 <h1>Fitting and modeling data<a class="headerlink" href="#fitting-and-modeling-data" title="Permalink to this headline">¶</a></h1>
-<p><strong>UNDER CONSTRUCTION</strong></p>
+<div class="section" id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<p>In order to follow along with the Sherpa examples presented in the workshop on
+April 29, your Python installation will need the following dependencies and
+Sherpa version 4.3.0.</p>
+<ul class="simple">
+<li>Sherpa Dependencies<ul>
+<li>Python 2.6 or 2.7 (not Python 3.x)</li>
+<li>NumPy &gt;= 1.3</li>
+<li>Matplotlib &gt;= 0.99</li>
+<li>pyFITS &gt;= 1.3</li>
+<li>DS9 &gt;= 5</li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">EPD users, you have already statisfied the installation requirements
+above.  Continue with the installation Notes below.  If you have been to
+previous workshops and are able to complete the examples, your installation is
+most likely sufficient.  See the Sherpa installation notes below to install
+Sherpa version 4.3.0.</p>
+</div>
+<div class="section" id="users-interested-in-maintaining-their-own-python-installation">
+<h3>Users Interested in Maintaining their own Python Installation<a class="headerlink" href="#users-interested-in-maintaining-their-own-python-installation" title="Permalink to this headline">¶</a></h3>
+<p>Built Python binaries of Sherpa can be found here</p>
+<ul class="simple">
+<li><a class="reference external" href="http://cxc.cfa.harvard.edu/contrib/sherpa/downloads/">Download Sherpa</a>:
+Sherpa binaries for Mac and Ubuntu</li>
+</ul>
+</div>
+<div class="section" id="install-notes-for-epd-mac-users">
+<h3>Install Notes for EPD Mac Users<a class="headerlink" href="#install-notes-for-epd-mac-users" title="Permalink to this headline">¶</a></h3>
+<p>Install the Enthought EPD 7.0 at <a class="reference external" href="http://cxc.cfa.harvard.edu/contrib/python4astronomers">EPD downloads</a></p>
+<blockquote>
+<p><a class="reference external" href="http://www.enthought.com">Enthought</a> is the company which leads most of the
+development of <a class="reference external" href="http://numpy.scipy.org/">NumPy</a> and <a class="reference external" href="http://scipy.org/">SciPy</a>.  They provide a bundled binary
+distribution of Python with a large set of useful packages built in.  The
+<a class="reference external" href="http://www.enthought.com/products/edudownload.php">Academic version</a> of EPD
+is free for use by students or employees of a degree-granting institution
+(i.e. Harvard but not SAO) as specified in the <a class="reference external" href="http://www.enthought.com/EPDAcademicTerms.html">license terms</a>.</p>
+<p><em>By special permission from Enthought, all tutorial participants are allowed
+use the Academic EPD downloads we are providing.</em></p>
+<p>However, please do not distribute these files to others without express
+permission.  The user name and password were emailed to the pythonusers
+mailing list on March 18.</p>
+</blockquote>
+<p>Download the appropriate Sherpa disk image for your version of OSX</p>
+<blockquote>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="33%" />
+<col width="43%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">OSX</th>
+<th class="head">EPD disk image</th>
+<th class="head">Sherpa disk image</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>Leopard 10.5</td>
+<td>epd-7.0-2-macosx-i386.dmg</td>
+<td><a class="reference external" href="http://cxc.cfa.harvard.edu/contrib/sherpa/downloads/sherpa-4.3.0-EPD-7.0-i386.dmg">sherpa-4.3.0-EPD-7.0-i386.dmg</a></td>
+</tr>
+<tr><td>Snow Leopard 10.6</td>
+<td>epd-7.0-2-macosx-x86_64.dmg</td>
+<td><a class="reference external" href="http://cxc.cfa.harvard.edu/contrib/sherpa/downloads/sherpa-4.3.0-EPD-7.0-x86_64.dmg">sherpa-4.3.0-EPD-7.0-x86_64.dmg</a></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>Double-click on the disk image and follow the instructions in the install wizard.</p>
+</div>
+<div class="section" id="install-notes-for-ubuntu-users">
+<h3>Install Notes for Ubuntu Users<a class="headerlink" href="#install-notes-for-ubuntu-users" title="Permalink to this headline">¶</a></h3>
+<p>Users who use <tt class="docutils literal"><span class="pre">apt-get</span></tt> to manage their Python distribution can
+download the appropriate Ubuntu package for their operating system.</p>
+<blockquote>
+<ul class="simple">
+<li><a class="reference external" href="http://cxc.cfa.harvard.edu/contrib/sherpa/downloads/sherpa_4.3.0-1_amd64.deb">sherpa_4.3.0-1_amd64.deb</a></li>
+<li><a class="reference external" href="http://cxc.cfa.harvard.edu/contrib/sherpa/downloads/sherpa_4.3.0-1_i386.deb">sherpa_4.3.0-1_i386.deb</a></li>
+</ul>
+</blockquote>
+<p>Double-click on the Debian package file (.deb) and follow the instructions in
+the install wizard.</p>
+</div>
+<div class="section" id="install-notes-for-epd-linux-users">
+<h3>Install Notes for EPD Linux Users<a class="headerlink" href="#install-notes-for-epd-linux-users" title="Permalink to this headline">¶</a></h3>
+<p>Install the EPD on Linux by following the instructions <a class="reference external" href="http://python4astronomers.github.com/installation/linux-self.html#user-install-without-root">here.</a></p>
+<p>Download the appropriate Sherpa egg for your Linux architecture</p>
+<blockquote>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="28%" />
+<col width="47%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Architecture</th>
+<th class="head">EPD Linux installer</th>
+<th class="head">Sherpa egg</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>Linux i686   (32-bit)</td>
+<td>epd-7.0-2-rh5-x86.sh</td>
+<td><a class="reference external" href="http://cxc.cfa.harvard.edu/contrib/sherpa/downloads/sherpa-4.3.0-EPD-7.0-linux-x86.egg">sherpa-4.3.0-EPD-7.0-linux-x86.egg</a></td>
+</tr>
+<tr><td>Linux x86_64 (64-bit)</td>
+<td>epd-7.0-2-rh5-x86_64.sh</td>
+<td><a class="reference external" href="http://cxc.cfa.harvard.edu/contrib/sherpa/downloads/sherpa-4.3.0-EPD-7.0-linux-x86_64.egg">sherpa-4.3.0-EPD-7.0-linux-x86_64.egg</a></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>Install Sherpa into your EPD installation using easy_install:</p>
+<div class="highlight-python"><pre>easy_install sherpa-4.3.0-EPD-7.0-linux-x86.egg</pre>
+</div>
+</div>
+<div class="section" id="install-notes-for-linux-users-using-head-network-installation">
+<h3>Install Notes for Linux Users using HEAD network installation<a class="headerlink" href="#install-notes-for-linux-users-using-head-network-installation" title="Permalink to this headline">¶</a></h3>
+<p>Users relying on the Python located in /usr/local/bin accessible from their CfA
+HEAD managed Linux machine can install Sherpa as an egg to their own directory</p>
+<p>Download the Sherpa egg</p>
+<p><a class="reference external" href="http://cxc.cfa.harvard.edu/contrib/sherpa/downloads/sherpa-4.3.0-py2.6-rh5-x86_64.egg">sherpa-4.3.0-py2.6-rh5-x86_64.egg</a></p>
+<p>Install Sherpa into your own directory using easy_install:</p>
+<div class="highlight-python"><pre>easy_install --user sherpa-4.3.0-py2.6-rh5-x86_64.egg</pre>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The Sherpa installation includes a number of XSPEC spectral FITS tables, so
+consider storage of ~= 250MB for Sherpa in your home directory.</p>
+</div>
+</div>
+</div>
+<div class="section" id="try-it-out">
+<h2>Try It Out<a class="headerlink" href="#try-it-out" title="Permalink to this headline">¶</a></h2>
+<p>Try importing the Sherpa high level UI with:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">sherpa.astro.ui</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>If you see the following error messages</p>
+<p>WARNING: failed to import sherpa.plot.chips_backend; plotting routines will
+not be available</p>
+<p>WARNING: failed to import sherpa.astro.io; FITS I/O routines will not be available</p>
+<p>Be sure to edit your ~/.sherpa.rc file and indicate</p>
+<p>plot_pkg : pylab</p>
+<p>io_pkg : pyfits</p>
+<p class="last">If you continue to see these messages, you should install pyFITS and
+matplotlib.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>If you see the following error message, your installation of XSPEC may be
+incomplete.</p>
+<p class="last">WARNING: failed to import sherpa.astro.xspec; XSPEC models will not be
+available</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>The following error message indicates that Sherpa is unable to find your DS9 or
+XPA.</p>
+<p class="last">WARNING: imaging routines will not be available, failed to import
+sherpa.image.ds9_backend due to &#8216;RuntimeErr: DS9Win unusable: Could not find ds9
+on your PATH&#8217;</p>
+</div>
+</div>
 </div>
 
 
@@ -286,6 +460,9 @@ display:none;
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              >index</a></li>
+        <li class="right" >
+          <a href="../contest/bounce.html" title="CONTEST: Make a fun bouncing balls demo"
+             >previous</a> |</li>
         <li><a href="../index.html">Python4Astronomers v1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>

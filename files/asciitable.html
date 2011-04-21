@@ -1,0 +1,483 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Asciitable &mdash; Python4Astronomers v1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Python4Astronomers v1.0 documentation" href="../index.html" />
+ 
+<script type="text/javascript"> 
+$(document).ready(function(){
+
+$(".flip0").click(function(){
+    $(".panel0").slideToggle("normal");
+  });
+
+$(".flip1").click(function(){
+    $(".panel1").slideToggle("normal");
+  });
+
+$(".flip2").click(function(){
+    $(".panel2").slideToggle("normal");
+  });
+
+$(".flip3").click(function(){
+    $(".panel3").slideToggle("normal");
+  });
+
+$(".flip4").click(function(){
+    $(".panel4").slideToggle("normal");
+  });
+
+$(".flip5").click(function(){
+    $(".panel5").slideToggle("normal");
+  });
+
+$(".flip6").click(function(){
+    $(".panel6").slideToggle("normal");
+  });
+
+$(".flip7").click(function(){
+    $(".panel7").slideToggle("normal");
+  });
+
+$(".flip8").click(function(){
+    $(".panel8").slideToggle("normal");
+  });
+
+$(".flip9").click(function(){
+    $(".panel9").slideToggle("normal");
+  });
+
+});
+</script>
+ 
+<style type="text/css"> 
+
+div.panel0,p.flip0
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip0
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel0
+{
+display:none;
+}
+
+div.panel1,p.flip1
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip1
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel1
+{
+display:none;
+}
+
+div.panel2,p.flip2
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip2
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel2
+{
+display:none;
+}
+
+div.panel3,p.flip3
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip3
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel3
+{
+display:none;
+}
+
+div.panel4,p.flip4
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip4
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel4
+{
+display:none;
+}
+
+div.panel5,p.flip5
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip5
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel5
+{
+display:none;
+}
+
+div.panel6,p.flip6
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip6
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel6
+{
+display:none;
+}
+
+div.panel7,p.flip7
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip7
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel7
+{
+display:none;
+}
+
+div.panel8,p.flip8
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip8
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel8
+{
+display:none;
+}
+
+div.panel9,p.flip9
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip9
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel9
+{
+display:none;
+}
+
+</style>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="../index.html">Python4Astronomers v1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body">
+            
+  <div class="section" id="id1">
+<h1>Asciitable<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Astronomers love storing tabular data in human-readable ASCII tables.
+Unfortunately there is very little agreement on a standard way to do this,
+unlike e.g. FITS.</p>
+<p>The <a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable">asciitable</a> module is an extensible ASCII table reader and writer that is
+designed to handle most formats you will encounter in the wild:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable/#asciitable.Basic">asciitable.Basic</a>: basic table with customizable delimiters and header configurations</li>
+<li><a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable/#asciitable.Cds">asciitable.Cds</a>: <a class="reference external" href="http://vizier.u-strasbg.fr/doc/catstd.htx">CDS format table</a> (also Vizier and ApJ machine readable tables)</li>
+<li><a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable/#asciitable.CommentedHeader">asciitable.CommentedHeader</a>: column names given in a line that begins with the comment character</li>
+<li><a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable/#asciitable.Daophot">asciitable.Daophot</a>: table from the IRAF DAOphot package</li>
+<li><a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable/#asciitable.Ipac">asciitable.Ipac</a>: <a class="reference external" href="http://irsa.ipac.caltech.edu/applications/DDGEN/Doc/ipac_tbl.html">IPAC format table</a></li>
+<li><a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable/#asciitable.Memory">asciitable.Memory</a>: table already in memory (list of lists, dict of lists, etc)</li>
+<li><a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable/#asciitable.NoHeader">asciitable.NoHeader</a>: basic table with no header where columns are auto-named</li>
+<li><a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable/#asciitable.Rdb">asciitable.Rdb</a>: tab-separated values with an extra line after the column definition line</li>
+<li><a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable/#asciitable.Tab">asciitable.Tab</a>: tab-separated values</li>
+</ul>
+<p><a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable">Asciitable</a> is built on a modular and extensible class structure.  The
+basic functionality required for reading or writing a table is largely broken
+into independent base class elements so that new formats can be accomodated
+by modifying the underlying class methods as needed.</p>
+<div class="section" id="reading-tables">
+<h2>Reading tables<a class="headerlink" href="#reading-tables" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">table</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;</span>
+<span class="s">col1 col2 col3</span>
+<span class="s">1    2    &quot;hi there&quot;</span>
+<span class="s">3    4.2  world&quot;&quot;&quot;</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">asciitable</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Examine what was returned:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">data</span>
+<span class="n">data</span><span class="o">.</span><span class="n">dtype</span>
+<span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">data</span><span class="p">[</span><span class="s">&#39;col2&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>The first and most important argument to the <tt class="docutils literal"><span class="pre">asciitable.read()</span></tt> function is
+the table input.  There is some flexibility here and you can supply any of the following:</p>
+<blockquote>
+<ul class="simple">
+<li>Name of a file (string)</li>
+<li>Single string containing all table lines separated by newlines</li>
+<li>File-like object with a callable read() method</li>
+<li>List of strings where each list element is a table line</li>
+</ul>
+</blockquote>
+<div class="section" id="guessing">
+<h3>Guessing<a class="headerlink" href="#guessing" title="Permalink to this headline">¶</a></h3>
+<p>Even though it seems obvious to a human, parsing this table to get the right
+column names, data values and data types is not trivial.  <a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable">Asciitable</a> needed
+to figure out (or guess):</p>
+<ul class="simple">
+<li>Overall table format (DAOphot, CDS, RDB, Basic, etc)</li>
+<li>Column delimiter, e.g. space, comma, tab, vertical bar, etc.</li>
+<li>Column names (which row, maybe preceded by #)</li>
+<li>Quote character (single or double quote)</li>
+</ul>
+<p>By default <a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable">asciitable</a> will try each format it knows and use the first one
+that gives a &#8220;reasonable&#8221; answer.  The details are in the <a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable/#guess-table-format">Guess table format</a> section.
+Sometimes it will fail, e.g.:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">table</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;</span>
+<span class="s">col1 &amp; col2</span>
+<span class="s">  1  &amp; hi there</span>
+<span class="s">  3  &amp; world</span>
+<span class="s">&quot;&quot;&quot;</span>
+<span class="n">asciitable</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This gives an ominous looking stack trace, but actually all that happened is
+that <a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable">asciitable</a> guessed every format it knows and nothing worked.  The
+standard set of column delimiters is space, comma, tab, and the vertical bar.
+In this case you simply need to give it some help:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">asciitable</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s">&quot;&amp;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The full list of <a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable/#commonly-used-parameters-for-read">table parameters for reading</a> includes common options like
+<tt class="docutils literal"><span class="pre">Reader</span></tt>, <tt class="docutils literal"><span class="pre">delimiter</span></tt>, <tt class="docutils literal"><span class="pre">quote_char</span></tt>, and <tt class="docutils literal"><span class="pre">comment</span></tt>.</p>
+<p>The <tt class="docutils literal"><span class="pre">Reader</span></tt> option specifies the overall class of table format as documented
+in the <a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable/#extension-reader-classes">Extension Reader Classes</a> section.</p>
+</div>
+<div class="section" id="no-guessing">
+<h3>No guessing<a class="headerlink" href="#no-guessing" title="Permalink to this headline">¶</a></h3>
+<p>For some tricky tables you will want to disable guessing and explicitly provide
+the relevant table format information to the <a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable/#reading-tables">asciitable.read()</a> function.
+A big advantage in this strategy is that <a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable">asciitable</a> can then provide more
+detailed information if it still fails to parse the table, e.g.:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">asciitable</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">guess</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">Reader</span><span class="o">=</span><span class="n">asciitable</span><span class="o">.</span><span class="n">Basic</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This produces a message (after the stacktrace) that should be a pretty good
+clue that <a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable">asciitable</a> is using the wrong column delimiter:</p>
+<div class="highlight-python"><pre>InconsistentTableError: Number of header columns (3) inconsistent with data columns (4) at data line 0
+Header values: ['col1', '&amp;', 'col2']
+Data values: ['1', '&amp;', 'hi', 'there']</pre>
+</div>
+</div>
+</div>
+<div class="section" id="writing">
+<h2>Writing<a class="headerlink" href="#writing" title="Permalink to this headline">¶</a></h2>
+<p>You can write ASCII tables using the <a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable/#writing-tables">asciitable.write()</a> function.  There is
+a lot of flexibility in the format of the <a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable/#input-data-formats">input data</a> to be
+written:</p>
+<ul class="simple">
+<li>Existing ASCII table with metadata</li>
+<li>Data from asciitable.read()</li>
+<li>NumPy structured array or record array</li>
+<li>Sequence of sequences</li>
+<li>Dict of sequences</li>
+</ul>
+<p>As a first simple example, read a comma-delimited table and then write it out
+as space-delimited:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">table</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;</span>
+<span class="s">col1,col2,col3</span>
+<span class="s">1,hello world,2.5</span>
+<span class="s">3,again,5.0&quot;&quot;&quot;</span>
+<span class="n">dat</span> <span class="o">=</span> <span class="n">asciitable</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">asciitable</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>  <span class="c"># print to terminal instead of to file</span>
+</pre></div>
+</div>
+<p>We can use a different column delimiter:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">asciitable</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s">&#39;|&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>or a different table writer class:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">asciitable</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">Writer</span><span class="o">=</span><span class="n">asciitable</span><span class="o">.</span><span class="n">CommentedHeader</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>As a final example, imagine you&#8217;ve done a computation and have four columns of
+data you want to write to an ASCII table.  You could just use pure Python file I/O as
+shown earlier, but then you may need to be careful about quoting (and why
+rewrite the same code every time when it is already done!):</p>
+<div class="highlight-python"><pre>types = ['barred spiral', 'spiral', 'peculiar (ring)', 'elliptical', 'elliptical']
+redshifts = array([0.024221, 0.132, 0.22, 0.34, 0.45])
+lums = array([1e40, 1.2e40, 2e40, 3e40, 4e40])
+table = {'type': types, 'redshift': redshifts, 'lum': lums}
+
+asciitable.write(table, 'galaxies.dat', formats={'redshift': '%.5f', 'lum': '%.2e'})
+cat galaxies.dat</pre>
+</div>
+<div class="admonition-exercise-scraping-table-data-from-the-web admonition ">
+<p class="first admonition-title">Exercise: scraping table data from the web</p>
+<p>To do this exercise you must first install the <a class="reference external" href="http://www.crummy.com/software/BeautifulSoup/">BeautifulSoup</a> package which will parse
+HTML pages into nice data structures.  From the command line do:</p>
+<div class="highlight-python"><pre>easy_install [--user] BeautifulSoup</pre>
+</div>
+<p>Use the &#8211;user flag if you prefer to install the package into your local
+user area instead of within the system Python installation.</p>
+<p>Now define the following function which converts an HTML table to a list
+of lines with tab-separated values (this will be more clear in the next part):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">BeautifulSoup</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="k">def</span> <span class="nf">html2tsv</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Parse the index&#39;th HTML table in ``html``.  Return table as a list of</span>
+<span class="sd">    tab-separated ASCII table lines&quot;&quot;&quot;</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+    <span class="n">tables</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s">&#39;table&#39;</span><span class="p">)</span>
+    <span class="n">table</span> <span class="o">=</span> <span class="n">tables</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">table</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s">&#39;tr&#39;</span><span class="p">):</span>
+        <span class="n">colvals</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span><span class="o">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">row</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s">&#39;td&#39;</span><span class="p">)]</span>
+        <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\t</span><span class="s">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">colvals</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">out</span>
+</pre></div>
+</div>
+<p>Now the exercise is to grab the table data from this <a class="reference external" href="http://goo.gl/fNafv">HST Search for 3c273
+data</a> into a Python data structure.  You&#8217;ll want to
+start with:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">urllib2</span>
+<span class="kn">import</span> <span class="nn">asciitable</span>
+<span class="n">html</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s">&#39;http://goo.gl/fNafv&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>  <span class="c"># Get web page as string</span>
+<span class="n">lines</span> <span class="o">=</span> <span class="n">html2tsv</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>   <span class="c"># Parse the number 5 table in the web page</span>
+</pre></div>
+</div>
+<p class="last">Now examine the <tt class="docutils literal"><span class="pre">lines</span></tt> and understand where is the header line and where
+the valid data lines start and end.  Then adjust the <a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable/#commonly-used-parameters-for-read">table parameters for
+reading</a> accordingly to read the lines using <a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable/#reading-tables">asciitable.read()</a>.</p>
+</div>
+<p class="flip9">Click to Show/Hide Solution</p> <div class="panel9"><p>The first and last data lines are garbage and there is no header (column)
+information in the way that we parsed the HTML table.  It turns out this page
+put the table header column names (&#8220;Mark&#8221; &#8220;Dataset&#8221; &#8220;Target Name&#8221; ...) in a
+separate element.  The table can still be read, however, by indicating that
+there is no header line with <tt class="docutils literal"><span class="pre">header_start=None</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">dat</span> <span class="o">=</span> <span class="n">asciitable</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">lines</span><span class="p">,</span> <span class="n">data_start</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">data_end</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">header_start</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="../index.html">Python4Astronomers v1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Smithsonian Astrophysical Observatory.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
+    </div>
+  </body>
+</html>
