@@ -23,8 +23,9 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Python4Astronomers v1.0 documentation" href="../index.html" />
-    <link rel="next" title="Reading and Writing files" href="../files/files.html" />
-    <link rel="prev" title="CONTEST: Make a fun bouncing balls demo" href="../contest/bounce.html" />
+    <link rel="up" title="Reading and Writing files" href="../files/files.html" />
+    <link rel="next" title="Reading and Writing files in Pure Python" href="../files/pure_python.html" />
+    <link rel="prev" title="Reading and Writing files" href="../files/files.html" />
  
 <script type="text/javascript"> 
 $(document).ready(function(){
@@ -265,12 +266,13 @@ display:none;
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="../files/files.html" title="Reading and Writing files"
+          <a href="../files/pure_python.html" title="Reading and Writing files in Pure Python"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="../contest/bounce.html" title="CONTEST: Make a fun bouncing balls demo"
+          <a href="../files/files.html" title="Reading and Writing files"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers v1.0 documentation</a> &raquo;</li> 
+        <li><a href="../index.html">Python4Astronomers v1.0 documentation</a> &raquo;</li>
+          <li><a href="../files/files.html" accesskey="U">Reading and Writing files</a> &raquo;</li> 
       </ul>
     </div>
 
@@ -280,29 +282,28 @@ display:none;
             
   <div class="section" id="python-built-in-types-and-operations">
 <span id="id1"></span><h1>Python Built-in Types and Operations<a class="headerlink" href="#python-built-in-types-and-operations" title="Permalink to this headline">¶</a></h1>
-<p>Let&#8217;s discuss <a class="reference external" href="http://docs.python.org/library/stdtypes.html">Python Built-in Types and Operations</a>.</p>
 <p>Python supports a number of built-in types and operations. This tutorial covers the most common types, but information about additional types is available <a class="reference external" href="http://docs.python.org/library/stdtypes.html">here</a></p>
 <div class="section" id="basic-numeric-types">
 <h2>Basic numeric types<a class="headerlink" href="#basic-numeric-types" title="Permalink to this headline">¶</a></h2>
 <p>The basic data numeric types are similar to those found in other languages, including:</p>
 <ul>
-<li><p class="first">Integers:</p>
+<li><p class="first">Integers (<tt class="docutils literal"><span class="pre">int</span></tt>):</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Floating point values:</p>
+<li><p class="first">Floating point values (<tt class="docutils literal"><span class="pre">float</span></tt>):</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="mf">4.3</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Complex values:</p>
+<li><p class="first">Complex values (<tt class="docutils literal"><span class="pre">complex</span></tt>):</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">(</span><span class="mf">4.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">)</span>
 </pre></div>
 </div>
 </li>
 </ul>
-<p>Manipulating numbers behaves the way you would expect, so an operation (<tt class="docutils literal"><span class="pre">+</span></tt>, <tt class="docutils literal"><span class="pre">-</span></tt>, <tt class="docutils literal"><span class="pre">/</span></tt>, <tt class="docutils literal"><span class="pre">*</span></tt>, <tt class="docutils literal"><span class="pre">**</span></tt>, etc.) on two values of the same type produces another value of the same type, while an operation on two values with different types produces a value of the more &#8216;advanced&#8217; type:</p>
+<p>Manipulating these behaves the way you would expect, so an operation (<tt class="docutils literal"><span class="pre">+</span></tt>, <tt class="docutils literal"><span class="pre">-</span></tt>, <tt class="docutils literal"><span class="pre">/</span></tt>, <tt class="docutils literal"><span class="pre">*</span></tt>, <tt class="docutils literal"><span class="pre">**</span></tt>, etc.) on two values of the same type produces another value of the same type, while an operation on two values with different types produces a value of the more &#8216;advanced&#8217; type:</p>
 <ul>
 <li><p class="first">Adding two integers gives an integer:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">+</span> <span class="mi">3</span>
@@ -368,7 +369,7 @@ display:none;
 <h2>Lists, tuples, and sets<a class="headerlink" href="#lists-tuples-and-sets" title="Permalink to this headline">¶</a></h2>
 <p>There are two types of sequences that appear similar at first glance, both of which can contain inhomogeneous data types:</p>
 <ul>
-<li><p class="first">Lists:</p>
+<li><p class="first">Lists (<tt class="docutils literal"><span class="pre">list</span></tt>):</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">,</span> <span class="s">&quot;spam&quot;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="go">4</span>
@@ -379,7 +380,7 @@ display:none;
 </pre></div>
 </div>
 </li>
-<li><p class="first">Tuples:</p>
+<li><p class="first">Tuples (<tt class="docutils literal"><span class="pre">tuple</span></tt>):</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">,</span> <span class="s">&quot;spam&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="go">4</span>
@@ -433,7 +434,7 @@ display:none;
 </li>
 </ul>
 </div>
-<p>Sets are a third type of sequence which you can make from a tuple or a list:</p>
+<p>Sets (<tt class="docutils literal"><span class="pre">set</span></tt>) are a third type of sequence which you can make from a tuple or a list:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&#39;spam&#39;</span><span class="p">,</span> <span class="s">&#39;egg&#39;</span><span class="p">,</span> <span class="s">&#39;spam&#39;</span><span class="p">])</span>
 <span class="go">set([1, 2, 3, &#39;egg&#39;, &#39;spam&#39;])</span>
 </pre></div>
@@ -452,7 +453,7 @@ display:none;
 </div>
 <div class="section" id="strings">
 <h2>Strings<a class="headerlink" href="#strings" title="Permalink to this headline">¶</a></h2>
-<p>Strings will be familiar from other programming languages:</p>
+<p>Strings (<tt class="docutils literal"><span class="pre">str</span></tt>) will be familiar from other programming languages:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s">&quot;Spam egg spam spam&quot;</span>
 </pre></div>
 </div>
@@ -506,8 +507,8 @@ display:none;
 </div>
 <div class="section" id="dictionaries">
 <h2>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this headline">¶</a></h2>
-<p>One of the remaining types are dictionaries which you can think of as look-up
-tables:</p>
+<p>One of the remaining types are dictionaries (<tt class="docutils literal"><span class="pre">dict</span></tt>) which you can think of
+as look-up tables:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;name&#39;</span><span class="p">:</span><span class="s">&#39;m31&#39;</span><span class="p">,</span> <span class="s">&#39;ra&#39;</span><span class="p">:</span><span class="mf">10.68</span><span class="p">,</span> <span class="s">&#39;dec&#39;</span><span class="p">:</span><span class="mf">41.27</span><span class="p">}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="p">[</span><span class="s">&#39;name&#39;</span><span class="p">]</span>
 <span class="go">&#39;m31&#39;</span>
@@ -568,12 +569,13 @@ a</pre>
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="../files/files.html" title="Reading and Writing files"
+          <a href="../files/pure_python.html" title="Reading and Writing files in Pure Python"
              >next</a> |</li>
         <li class="right" >
-          <a href="../contest/bounce.html" title="CONTEST: Make a fun bouncing balls demo"
+          <a href="../files/files.html" title="Reading and Writing files"
              >previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers v1.0 documentation</a> &raquo;</li> 
+        <li><a href="../index.html">Python4Astronomers v1.0 documentation</a> &raquo;</li>
+          <li><a href="../files/files.html" >Reading and Writing files</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
