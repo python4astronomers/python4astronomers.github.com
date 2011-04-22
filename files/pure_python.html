@@ -335,12 +335,12 @@ there are more types that we did not speak about. One of these is the
 </div>
 <p>But what we&#8217;d really like to do is read the file line by line. There are several ways to do this, the simplest of which is to use a <tt class="docutils literal"><span class="pre">for</span></tt> loop in the following way:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;data.txt&#39;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">():</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
     <span class="k">print</span> <span class="nb">repr</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Notice the indent before <tt class="docutils literal"><span class="pre">print</span></tt>, which is necessary to indicate that we are inside the loop (there is no <tt class="docutils literal"><span class="pre">end</span> <span class="pre">for</span></tt> in Python). Note that we are using <tt class="docutils literal"><span class="pre">repr()</span></tt> to show any invisible characters (this will be useful in a minute). The output should now look something like this:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">():</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
 <span class="go">        print repr(line)</span>
 
 <span class="go">&#39;RAJ        DEJ                          Jmag   e_Jmag\n&#39;</span>
@@ -356,6 +356,24 @@ there are more types that we did not speak about. One of these is the
 </pre></div>
 </div>
 <p>Each line is being returned as a string. Notice the <tt class="docutils literal"><span class="pre">\n</span></tt> at the end of each line - this is a line return character, which indicates the end of a line.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>You may also come across the following way to read files line by
+line:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">():</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<p><tt class="docutils literal"><span class="pre">f.readlines()</span></tt> actually reads in the whole file and splits it
+into a list of lines, so for large files this can be memory
+intensive. Using:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<p class="last">instead is more memory efficient because it only reads one line
+at a time.</p>
+</div>
 <p>Now we&#8217;re reading in a file line by line, what would be really nice would be to get some values out of it.  Let&#8217;s examine the last line in detail. If we just type <tt class="docutils literal"><span class="pre">line</span></tt> we should see the last line that was printed in the loop:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">line</span>
 <span class="go">&#39;010.685270 +41.267124 00424446+4116016  12.070  0.035\n&#39;</span>
@@ -402,7 +420,7 @@ there are more types that we did not speak about. One of these is the
 <span class="n">header3</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
 
 <span class="c"># Loop over lines and extract variables of interest</span>
-<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">():</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
     <span class="n">columns</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
     <span class="n">name</span> <span class="o">=</span> <span class="n">columns</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
@@ -427,7 +445,7 @@ there are more types that we did not speak about. One of these is the
 <span class="n">header2</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
 <span class="n">header3</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
 <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">():</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
     <span class="n">columns</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
     <span class="n">source</span> <span class="o">=</span> <span class="p">{}</span>
