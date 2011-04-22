@@ -1,0 +1,434 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>ATpy &mdash; Python4Astronomers v1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Python4Astronomers v1.0 documentation" href="../index.html" />
+    <link rel="up" title="Reading and Writing files" href="files.html" />
+    <link rel="next" title="Fitting and modeling data" href="../fitting/fitting.html" />
+    <link rel="prev" title="Asciitable" href="asciitable.html" />
+ 
+<script type="text/javascript"> 
+$(document).ready(function(){
+
+$(".flip0").click(function(){
+    $(".panel0").slideToggle("normal");
+  });
+
+$(".flip1").click(function(){
+    $(".panel1").slideToggle("normal");
+  });
+
+$(".flip2").click(function(){
+    $(".panel2").slideToggle("normal");
+  });
+
+$(".flip3").click(function(){
+    $(".panel3").slideToggle("normal");
+  });
+
+$(".flip4").click(function(){
+    $(".panel4").slideToggle("normal");
+  });
+
+$(".flip5").click(function(){
+    $(".panel5").slideToggle("normal");
+  });
+
+$(".flip6").click(function(){
+    $(".panel6").slideToggle("normal");
+  });
+
+$(".flip7").click(function(){
+    $(".panel7").slideToggle("normal");
+  });
+
+$(".flip8").click(function(){
+    $(".panel8").slideToggle("normal");
+  });
+
+$(".flip9").click(function(){
+    $(".panel9").slideToggle("normal");
+  });
+
+});
+</script>
+ 
+<style type="text/css"> 
+
+div.panel0,p.flip0
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip0
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel0
+{
+display:none;
+}
+
+div.panel1,p.flip1
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip1
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel1
+{
+display:none;
+}
+
+div.panel2,p.flip2
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip2
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel2
+{
+display:none;
+}
+
+div.panel3,p.flip3
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip3
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel3
+{
+display:none;
+}
+
+div.panel4,p.flip4
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip4
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel4
+{
+display:none;
+}
+
+div.panel5,p.flip5
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip5
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel5
+{
+display:none;
+}
+
+div.panel6,p.flip6
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip6
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel6
+{
+display:none;
+}
+
+div.panel7,p.flip7
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip7
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel7
+{
+display:none;
+}
+
+div.panel8,p.flip8
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip8
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel8
+{
+display:none;
+}
+
+div.panel9,p.flip9
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip9
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel9
+{
+display:none;
+}
+
+</style>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../fitting/fitting.html" title="Fitting and modeling data"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="asciitable.html" title="Asciitable"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Python4Astronomers v1.0 documentation</a> &raquo;</li>
+          <li><a href="files.html" accesskey="U">Reading and Writing files</a> &raquo;</li> 
+      </ul>
+    </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body">
+            
+  <div class="section" id="atpy">
+<h1>ATpy<a class="headerlink" href="#atpy" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="http://atpy.github.com">ATpy</a> is a high-level Python package providing a way to manipulate tables of astronomical data in a uniform way. The two main features of ATpy are:</p>
+<ul class="simple">
+<li>It provides an abstract Table object that contains tabular data along with
+meta-data to describe the columns, and methods to manipulate the table (e.g.
+adding/removing/renaming columns, selecting rows, changing values, sorting,
+...).</li>
+<li>It provides built-in support for reading and writing to several common
+file/database formats, including FITS, VO, HDF5, and ASCII tables, as well
+as SQLite, MySQL and PostgreSQL databases, with a very simple interface.</li>
+</ul>
+<div class="section" id="reading-in-an-existing-table">
+<h2>Reading in an existing table<a class="headerlink" href="#reading-in-an-existing-table" title="Permalink to this headline">¶</a></h2>
+<p>First, download <a class="reference download internal" href="../_downloads/catalog.fits.gz"><tt class="xref download docutils literal"><span class="pre">this</span></tt></a> FITS table, then launch IPython in the directory where you have the file:</p>
+<div class="highlight-python"><pre>$ ipython -pylab</pre>
+</div>
+<p>If you have trouble downloading the file, then start up IPython (<tt class="docutils literal"><span class="pre">ipython</span> <span class="pre">-pylab</span></tt>) and enter:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">urllib2</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">&#39;http://python4astronomers.github.com/_downloads/catalog.fits.gz&#39;</span>
+<span class="nb">open</span><span class="p">(</span><span class="s">&#39;catalog.fits.gz&#39;</span><span class="p">,</span> <span class="s">&#39;wb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span class="n">ls</span>
+</pre></div>
+</div>
+<p>Then import <tt class="docutils literal"><span class="pre">atpy</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">atpy</span>
+</pre></div>
+</div>
+<p>and read in the table:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">t</span> <span class="o">=</span> <span class="n">atpy</span><span class="o">.</span><span class="n">Table</span><span class="p">(</span><span class="s">&#39;catalog.fits.gz&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We can now see what columns are available in the table:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<span class="go">Table : MY CATALOG</span>
+<span class="go">--------------------------------------</span>
+<span class="go">|     Name |    Unit | Type | Format |</span>
+<span class="go">--------------------------------------</span>
+<span class="go">| SOURCEID |         | |S20 |    68s |</span>
+<span class="go">|       RA | RADIANS |  &gt;f8 | 25.17e |</span>
+<span class="go">|      DEC | RADIANS |  &gt;f8 | 25.17e |</span>
+<span class="go">|    EPOCH |         |  &gt;f8 | 25.17e |</span>
+<span class="go">|   LAMBDA |         |  &gt;f8 | 25.17e |</span>
+<span class="go">|      ETA |         |  &gt;f8 | 25.17e |</span>
+<span class="go">| DISTANCE |         |  &gt;f8 | 25.17e |</span>
+<span class="go">--------------------------------------</span>
+</pre></div>
+</div>
+<p>and how many lines there are:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="go">1002</span>
+</pre></div>
+</div>
+<p>To access a particular column, use:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="p">[</span><span class="s">&#39;RA&#39;</span><span class="p">]</span>
+<span class="go">array([ 4.64681193,  4.64686867,  4.64682644, ...,  4.64694334,</span>
+<span class="go">        4.64690389,  4.64698136])</span>
+</pre></div>
+</div>
+<p>As you can see, a single column is returned as a Numpy array, so any Numpy operation will work on this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="p">[</span><span class="s">&#39;RA&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+<span class="go">4.6465723005143351</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="p">[</span><span class="s">&#39;RA&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="go">4.6472357622326737</span>
+</pre></div>
+</div>
+<p>and you can then specify a particular row to access a single value:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="p">[</span><span class="s">&#39;RA&#39;</span><span class="p">][</span><span class="mi">4</span><span class="p">]</span>
+<span class="go">4.6467757499903897</span>
+</pre></div>
+</div>
+<p>Let&#8217;s select a subset of the table:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">tsub</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="s">&#39;RA&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">4.647</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">tsub</span><span class="p">)</span>
+<span class="go">742</span>
+</pre></div>
+</div>
+<p>And we can also remove the <tt class="docutils literal"><span class="pre">'DISTANCE'</span></tt> column which we don&#8217;t care about:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">tsub</span><span class="o">.</span><span class="n">remove_columns</span><span class="p">(</span><span class="s">&#39;DISTANCE&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>As you can see, the column is no longer there:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">tsub</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<span class="go">Table : MY CATALOG</span>
+<span class="go">--------------------------------------</span>
+<span class="go">|     Name |    Unit | Type | Format |</span>
+<span class="go">--------------------------------------</span>
+<span class="go">| SOURCEID |         | |S20 |    68s |</span>
+<span class="go">|       RA | RADIANS |  &gt;f8 | 25.17e |</span>
+<span class="go">|      DEC | RADIANS |  &gt;f8 | 25.17e |</span>
+<span class="go">|    EPOCH |         |  &gt;f8 | 25.17e |</span>
+<span class="go">|   LAMBDA |         |  &gt;f8 | 25.17e |</span>
+<span class="go">|      ETA |         |  &gt;f8 | 25.17e |</span>
+<span class="go">--------------------------------------</span>
+</pre></div>
+</div>
+<p>We can sort the table by Declination:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">tsub</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s">&#39;DEC&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Finally, let&#8217;s write out this sub-table as an IPAC table:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">tsub</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;subset.tbl&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="creating-a-table-from-scratch">
+<h2>Creating a table from scratch<a class="headerlink" href="#creating-a-table-from-scratch" title="Permalink to this headline">¶</a></h2>
+<p>Making a table from scratch is also very easy:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">t</span> <span class="o">=</span> <span class="n">atpy</span><span class="o">.</span><span class="n">Table</span><span class="p">()</span>
+<span class="n">t</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="s">&#39;time&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">t</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="s">&#39;flux&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mf">7.2</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">5.9</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>and you can then write this out to e.g. a FITS file:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">t</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;simple.fits&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="and-much-more">
+<h2>And much more!<a class="headerlink" href="#and-much-more" title="Permalink to this headline">¶</a></h2>
+<p>For more information on how to use ATpy, see the <a class="reference external" href="http://atpy.github.com/#documentation">Documentation</a>.</p>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../fitting/fitting.html" title="Fitting and modeling data"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="asciitable.html" title="Asciitable"
+             >previous</a> |</li>
+        <li><a href="../index.html">Python4Astronomers v1.0 documentation</a> &raquo;</li>
+          <li><a href="files.html" >Reading and Writing files</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Smithsonian Astrophysical Observatory.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
+    </div>
+  </body>
+</html>
