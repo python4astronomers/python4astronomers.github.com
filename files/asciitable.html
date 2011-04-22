@@ -314,12 +314,18 @@ by modifying the underlying class methods as needed.</p>
 </div>
 <p>Examine what was returned:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">data</span>
-<span class="n">data</span><span class="o">.</span><span class="n">dtype</span>
+</pre></div>
+</div>
+<p>This is an instance of the NumPy <a class="reference external" href="http://docs.scipy.org/doc/numpy/user/basics.rec.html#module-numpy.doc.structured_arrays">structured array</a>
+type, which is an efficient way to manipulate records of tabular data.  It stores
+columns of typed data and you can access either a column of data or a row of
+data at once:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">data</span><span class="o">.</span><span class="n">dtype</span>
 <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">data</span><span class="p">[</span><span class="s">&#39;col2&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>The first and most important argument to the <tt class="docutils literal"><span class="pre">asciitable.read()</span></tt> function is
+<p>The first and most important argument to the <a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable/#reading-tables">asciitable.read()</a> function is
 the table input.  There is some flexibility here and you can supply any of the following:</p>
 <blockquote>
 <ul class="simple">
@@ -449,29 +455,31 @@ clear in the next part):</p>
     <span class="k">return</span> <span class="n">out</span>
 </pre></div>
 </div>
-<p>Now the exercise is to grab the table data from this <a class="reference external" href="http://goo.gl/fNafv">HST Search for 3c273
-data</a> into a Python data structure.  You&#8217;ll want to
-start with:</p>
+<p>Now the exercise is to grab the table data from the <a class="reference external" href="http://hea-www.harvard.edu/XJET/">XJET catalog page</a> into a Python data structure.  You&#8217;ll
+want to start with:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">urllib2</span>
 <span class="kn">import</span> <span class="nn">asciitable</span>
-<span class="n">html</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s">&#39;http://goo.gl/fNafv&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>  <span class="c"># Get web page as string</span>
-<span class="n">lines</span> <span class="o">=</span> <span class="n">html2tsv</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>   <span class="c"># Parse the number 5 table in the web page</span>
+<span class="n">html</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s">&#39;http://hea-www.harvard.edu/XJET/&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>  <span class="c"># Get web page as string</span>
+<span class="n">table1</span> <span class="o">=</span> <span class="n">html2tsv</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>   <span class="c"># Parse the first table in the web page</span>
+<span class="n">table2</span> <span class="o">=</span> <span class="n">html2tsv</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>   <span class="c"># Parse the second table</span>
+<span class="n">table3</span> <span class="o">=</span> <span class="n">html2tsv</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>   <span class="c"># Parse the third table</span>
 </pre></div>
 </div>
-<p class="last">Now examine the <tt class="docutils literal"><span class="pre">lines</span></tt> and understand the delimiter, where is the header
-line, and where the valid data lines start and end.  Then adjust the <a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable/#commonly-used-parameters-for-read">table
-parameters for reading</a> accordingly to read the lines using
-<a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable/#reading-tables">asciitable.read()</a>.</p>
+<p>Now examine what you got in the <tt class="docutils literal"><span class="pre">table</span></tt> variables and use
+<a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable/#reading-tables">asciitable.read()</a> to parse the right one into a table.  Then plot a
+histogram of the redshift distribution in this sample.</p>
+<p class="last"><strong>HINT</strong>: the table has missing values so include <tt class="docutils literal"><span class="pre">fill_values=('',</span> <span class="pre">'-1')</span></tt> in
+the call to <a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable/#reading-tables">asciitable.read()</a>.  <a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable">Asciitable</a> has robust functionality to <a class="reference external" href="http://cxc.cfa.harvard.edu/contrib/asciitable/#replace-bad-or-missing-values">replace bad or
+missing values</a>.</p>
 </div>
-<p class="flip9">Click to Show/Hide Solution</p> <div class="panel9"><p>The delimiter is the tab character <cite>&#8220;\t&#8221;</cite>.  The first and last data lines are
-garbage and there is no header (column) information in the way that we parsed
-the HTML table.  It turns out this page put the table header column names
-(&#8220;Mark&#8221; &#8220;Dataset&#8221; &#8220;Target Name&#8221; ...) in a separate element.  The table can
-still be read, however, by indicating that there is no header line with
-<tt class="docutils literal"><span class="pre">header_start=None</span></tt>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">dat</span> <span class="o">=</span> <span class="n">asciitable</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">lines</span><span class="p">,</span> <span class="n">data_start</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">data_end</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">header_start</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s">&#39;</span><span class="se">\t</span><span class="s">&#39;</span><span class="p">)</span>
+<p class="flip9">Click to Show/Hide Solution</p> <div class="panel9"><p>The data are in the second table, so do:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">dat</span> <span class="o">=</span> <span class="n">asciitable</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">table2</span><span class="p">,</span> <span class="n">fill_values</span><span class="o">=</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="s">&#39;-1&#39;</span><span class="p">))</span>
+<span class="n">dat</span><span class="o">.</span><span class="n">dtype</span>
+<span class="n">dat</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">names</span>
+<span class="n">hist</span><span class="p">(</span><span class="n">dat</span><span class="p">[</span><span class="s">&#39;z&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 </pre></div>
 </div>
+<a class="reference internal image-reference" href="../_images/xjet_hist.png"><img alt="../_images/xjet_hist.png" src="../_images/xjet_hist.png" style="width: 406.0px; height: 306.0px;" /></a>
 </div></div>
 </div>
 
