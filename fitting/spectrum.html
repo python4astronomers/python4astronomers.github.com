@@ -1,0 +1,429 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>1-D Fitting in Sherpa &mdash; Python4Astronomers v1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Python4Astronomers v1.0 documentation" href="../index.html" />
+    <link rel="up" title="Fitting and Modeling 1-D and 2-D Data" href="fitting.html" />
+    <link rel="next" title="2-D Fitting in Sherpa" href="image.html" />
+    <link rel="prev" title="Sherpa" href="sherpa.html" />
+ 
+<script type="text/javascript"> 
+$(document).ready(function(){
+
+$(".flip0").click(function(){
+    $(".panel0").slideToggle("normal");
+  });
+
+$(".flip1").click(function(){
+    $(".panel1").slideToggle("normal");
+  });
+
+$(".flip2").click(function(){
+    $(".panel2").slideToggle("normal");
+  });
+
+$(".flip3").click(function(){
+    $(".panel3").slideToggle("normal");
+  });
+
+$(".flip4").click(function(){
+    $(".panel4").slideToggle("normal");
+  });
+
+$(".flip5").click(function(){
+    $(".panel5").slideToggle("normal");
+  });
+
+$(".flip6").click(function(){
+    $(".panel6").slideToggle("normal");
+  });
+
+$(".flip7").click(function(){
+    $(".panel7").slideToggle("normal");
+  });
+
+$(".flip8").click(function(){
+    $(".panel8").slideToggle("normal");
+  });
+
+$(".flip9").click(function(){
+    $(".panel9").slideToggle("normal");
+  });
+
+});
+</script>
+ 
+<style type="text/css"> 
+
+div.panel0,p.flip0
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip0
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel0
+{
+display:none;
+}
+
+div.panel1,p.flip1
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip1
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel1
+{
+display:none;
+}
+
+div.panel2,p.flip2
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip2
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel2
+{
+display:none;
+}
+
+div.panel3,p.flip3
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip3
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel3
+{
+display:none;
+}
+
+div.panel4,p.flip4
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip4
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel4
+{
+display:none;
+}
+
+div.panel5,p.flip5
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip5
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel5
+{
+display:none;
+}
+
+div.panel6,p.flip6
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip6
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel6
+{
+display:none;
+}
+
+div.panel7,p.flip7
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip7
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel7
+{
+display:none;
+}
+
+div.panel8,p.flip8
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip8
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel8
+{
+display:none;
+}
+
+div.panel9,p.flip9
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip9
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel9
+{
+display:none;
+}
+
+</style>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="image.html" title="2-D Fitting in Sherpa"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="sherpa.html" title="Sherpa"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Python4Astronomers v1.0 documentation</a> &raquo;</li>
+          <li><a href="fitting.html" accesskey="U">Fitting and Modeling 1-D and 2-D Data</a> &raquo;</li> 
+      </ul>
+    </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body">
+            
+  <div class="section" id="d-fitting-in-sherpa">
+<h1>1-D Fitting in Sherpa<a class="headerlink" href="#d-fitting-in-sherpa" title="Permalink to this headline">¶</a></h1>
+<p>Enough of the low-level API.  Sherpa includes a set of high-level procedural
+functions that manipulate the API-level objects underneath.</p>
+<p>We will start over with our 3C 273 spectrum using the Sherpa high-level UI:</p>
+<div class="highlight-python"><pre>$ ipython -pylab</pre>
+</div>
+<p>Begin by importing <tt class="docutils literal"><span class="pre">pyfits</span></tt> and then import the Sherpa UI module into a
+namespace named <tt class="docutils literal"><span class="pre">ui</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">pyfits</span>
+<span class="kn">import</span> <span class="nn">sherpa.ui</span> <span class="kn">as</span> <span class="nn">ui</span>
+</pre></div>
+</div>
+<p>Read in the columns from the FITS file and load the arrays into a Sherpa data
+set:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">dat</span> <span class="o">=</span> <span class="n">pyfits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;3c273.fits&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+<span class="n">ui</span><span class="o">.</span><span class="n">load_arrays</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">dat</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="s">&#39;WAVELENGTH&#39;</span><span class="p">),</span> <span class="n">dat</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="s">&#39;FLUX&#39;</span><span class="p">)</span><span class="o">*</span><span class="mf">1e14</span><span class="p">,</span> <span class="n">dat</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="s">&#39;FLUX&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.02e14</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Filter the spectral coordinates from 3000 to 5700 Angstroms and plot the
+spectrum using Sherpa&#8217;s high level plotting interface to matplotlib:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ui</span><span class="o">.</span><span class="n">notice</span><span class="p">(</span><span class="mi">3000</span><span class="p">,</span> <span class="mi">5700</span><span class="p">)</span>
+<span class="n">ui</span><span class="o">.</span><span class="n">plot_data</span><span class="p">()</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/3c273_data_mast_noticed.png"><img alt="../_images/3c273_data_mast_noticed.png" src="../_images/3c273_data_mast_noticed.png" style="width: 609.0px; height: 459.0px;" /></a>
+<p>Define a power-law to start.  Notice the compact syntax for efficiently defining
+model instances inline.  <tt class="docutils literal"><span class="pre">powlaw1d</span></tt> acts as a factory function that will
+create new power-law model instance by simply accessing an attribute using a
+choosen model identifier.  <tt class="docutils literal"><span class="pre">pow1</span></tt> is now a power-law model accessible in
+scope:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ui</span><span class="o">.</span><span class="n">set_model</span><span class="p">(</span><span class="n">ui</span><span class="o">.</span><span class="n">powlaw1d</span><span class="o">.</span><span class="n">pow1</span><span class="p">)</span>
+<span class="n">pow1</span><span class="o">.</span><span class="n">ref</span> <span class="o">=</span> <span class="mf">4000.</span>      <span class="c"># Set power-law reference to 4000 Angstroms</span>
+<span class="k">print</span> <span class="n">ui</span><span class="o">.</span><span class="n">get_model</span><span class="p">()</span>  <span class="c"># or ui.show_model() for interactive use</span>
+</pre></div>
+</div>
+<p>Fit the filtered continuum using <tt class="docutils literal"><span class="pre">pow1</span></tt> and plot the fitted model atop the
+data.  The default fit statistic is chi-squared with Gehrels variance and the
+default optimization method is least squares (Levenberg-Marquardt):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ui</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">ui</span><span class="o">.</span><span class="n">plot_fit</span><span class="p">()</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/3c273_fit_mast_noticed.png"><img alt="../_images/3c273_fit_mast_noticed.png" src="../_images/3c273_fit_mast_noticed.png" style="width: 609.0px; height: 459.0px;" /></a>
+<p>Quickly access Sherpa fit information using <tt class="docutils literal"><span class="pre">get_fit_results</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">results</span> <span class="o">=</span> <span class="n">ui</span><span class="o">.</span><span class="n">get_fit_results</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">results</span>
+</pre></div>
+</div>
+<p>Display fit session information using <tt class="docutils literal"><span class="pre">show_all</span></tt>.  This will open the <cite>less</cite>
+program to display the fit information.  Quit <cite>less</cite> by pressing <cite>q</cite>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ui</span><span class="o">.</span><span class="n">show_all</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>OK.  Time to fit the spectral lines.  We will build on the power-law model by
+adding four Gaussian models in an arithmetic expression.  Notice how the model
+definition instaniates and returns each instance.  Each instance also supports
+the special <tt class="docutils literal"><span class="pre">__add__</span></tt> operator to combine the expression into a composite
+model that is finally passed as a single argument to <tt class="docutils literal"><span class="pre">set_model</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># Add four Gaussian models, using cursor interactively to get</span>
+<span class="c"># decent starting wavelength values</span>
+<span class="n">ui</span><span class="o">.</span><span class="n">set_model</span><span class="p">(</span><span class="n">pow1</span> <span class="o">+</span> <span class="n">ui</span><span class="o">.</span><span class="n">gauss1d</span><span class="o">.</span><span class="n">g1</span> <span class="o">+</span> <span class="n">ui</span><span class="o">.</span><span class="n">gauss1d</span><span class="o">.</span><span class="n">g2</span> <span class="o">+</span> <span class="n">ui</span><span class="o">.</span><span class="n">gauss1d</span><span class="o">.</span><span class="n">g3</span> <span class="o">+</span> <span class="n">ui</span><span class="o">.</span><span class="n">gauss1d</span><span class="o">.</span><span class="n">g4</span><span class="p">)</span>
+<span class="n">g1</span><span class="o">.</span><span class="n">pos</span> <span class="o">=</span> <span class="mi">3250</span>
+<span class="n">g2</span><span class="o">.</span><span class="n">pos</span> <span class="o">=</span> <span class="mi">5000</span>
+<span class="n">g3</span><span class="o">.</span><span class="n">pos</span> <span class="o">=</span> <span class="mi">5260</span>
+<span class="n">g4</span><span class="o">.</span><span class="n">pos</span> <span class="o">=</span> <span class="mi">5600</span>
+<span class="n">g1</span><span class="o">.</span><span class="n">fwhm</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">g2</span><span class="o">.</span><span class="n">fwhm</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">g3</span><span class="o">.</span><span class="n">fwhm</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">g4</span><span class="o">.</span><span class="n">fwhm</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="k">print</span> <span class="n">ui</span><span class="o">.</span><span class="n">get_model</span><span class="p">()</span>  <span class="c"># or ui.show_model() for interactive use</span>
+</pre></div>
+</div>
+<p>Now fit with the four Gaussian lines plus the continuum and plot the results
+with the spectrum:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># Fit and plot</span>
+<span class="n">ui</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">ui</span><span class="o">.</span><span class="n">plot_fit</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">ui</span><span class="o">.</span><span class="n">get_model</span><span class="p">()</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/3c273_fit_mast_lines.png"><img alt="../_images/3c273_fit_mast_lines.png" src="../_images/3c273_fit_mast_lines.png" style="width: 609.0px; height: 459.0px;" /></a>
+<p>Next, we will add a broad line component to the first line.  Notice that the model
+components previously defined are referenced using the identifier.  Also, we will
+link the Gaussian positions together and define the broad line FWHM to be four
+times the FHWM of the narrow line:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ui</span><span class="o">.</span><span class="n">set_model</span><span class="p">(</span><span class="n">pow1</span> <span class="o">+</span> <span class="n">g1</span> <span class="o">+</span> <span class="n">g2</span> <span class="o">+</span> <span class="n">g3</span> <span class="o">+</span> <span class="n">g4</span> <span class="o">+</span> <span class="n">ui</span><span class="o">.</span><span class="n">gauss1d</span><span class="o">.</span><span class="n">g1_broad</span><span class="p">)</span>
+<span class="n">g1_broad</span><span class="o">.</span><span class="n">pos</span> <span class="o">=</span> <span class="n">g1</span><span class="o">.</span><span class="n">pos</span>         <span class="c"># Force broad line to same wavelength as narrow</span>
+<span class="n">g1_broad</span><span class="o">.</span><span class="n">fwhm</span> <span class="o">=</span> <span class="n">g1</span><span class="o">.</span><span class="n">fwhm</span> <span class="o">*</span> <span class="mi">4</span>   <span class="c"># Link with algebraic expression</span>
+</pre></div>
+</div>
+<p>The link expressions for the position and FWHM can be seen in the model display
+information:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span> <span class="n">ui</span><span class="o">.</span><span class="n">get_model</span><span class="p">()</span> <span class="c"># or ui.show_model() for interactive use</span>
+</pre></div>
+</div>
+<p>Freeze the Gaussian lines at the red end of the spectrum at their current
+best-fit parameter values:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ui</span><span class="o">.</span><span class="n">freeze</span><span class="p">(</span><span class="n">g2</span><span class="p">,</span> <span class="n">g3</span><span class="p">,</span> <span class="n">g4</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Add an additional filter to ignore the Fe complex and other lines during
+fitting:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ui</span><span class="o">.</span><span class="n">ignore</span><span class="p">(</span><span class="mi">3360</span><span class="p">,</span> <span class="mi">4100</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Fit, then notice the full wavelength range to plot the fit:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ui</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">ui</span><span class="o">.</span><span class="n">notice</span><span class="p">(</span><span class="mi">3000</span><span class="p">,</span> <span class="mi">5700</span><span class="p">)</span>
+<span class="n">ui</span><span class="o">.</span><span class="n">plot_fit</span><span class="p">()</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/3c273_fit_mast_lines_broad.png"><img alt="../_images/3c273_fit_mast_lines_broad.png" src="../_images/3c273_fit_mast_lines_broad.png" style="width: 609.0px; height: 459.0px;" /></a>
+<p>Finally, overlay the power-law component atop the fit plot:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ui</span><span class="o">.</span><span class="n">plot_model_component</span><span class="p">(</span><span class="n">pow1</span><span class="p">,</span> <span class="n">overplot</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/3c273_fit_mast_final.png"><img alt="../_images/3c273_fit_mast_final.png" src="../_images/3c273_fit_mast_final.png" style="width: 609.0px; height: 459.0px;" /></a>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="image.html" title="2-D Fitting in Sherpa"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="sherpa.html" title="Sherpa"
+             >previous</a> |</li>
+        <li><a href="../index.html">Python4Astronomers v1.0 documentation</a> &raquo;</li>
+          <li><a href="fitting.html" >Fitting and Modeling 1-D and 2-D Data</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Smithsonian Astrophysical Observatory.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
+    </div>
+  </body>
+</html>
