@@ -318,6 +318,14 @@ threads, and AHELP pages that describe each Sherpa function:</p>
 and start IPython:</p>
 <div class="highlight-python"><pre>$ ipython -pylab</pre>
 </div>
+<p>If you have trouble accessing the spectrum you can download it straight away
+using Python:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">urllib2</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">&#39;http://python4astronomers.github.com/_downloads/3c273.fits&#39;</span>
+<span class="nb">open</span><span class="p">(</span><span class="s">&#39;3c273.fits&#39;</span><span class="p">,</span> <span class="s">&#39;wb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span class="n">ls</span>
+</pre></div>
+</div>
 <p>Import a few Sherpa classes needed to characterize a fit:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">sherpa.data</span> <span class="kn">import</span> <span class="n">Data1D</span>
 <span class="kn">from</span> <span class="nn">sherpa.models</span> <span class="kn">import</span> <span class="n">PowLaw1D</span>
@@ -347,43 +355,44 @@ uncertainties of 2% of the flux:</p>
 </pre></div>
 </div>
 <p>Array access:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span> <span class="n">data</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">staterror</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span> <span class="s">&#39;x&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">x</span>
+<span class="k">print</span> <span class="s">&#39;y&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">y</span>
+<span class="k">print</span> <span class="s">&#39;err&#39;</span><span class="p">,</span>  <span class="n">data</span><span class="o">.</span><span class="n">staterror</span>
 </pre></div>
 </div>
-<p>Define a a convenience function <tt class="docutils literal"><span class="pre">plot_data</span></tt> that calls the matplotlib functions
+<p>Define a convenience function <tt class="docutils literal"><span class="pre">plot_data</span></tt> that calls the matplotlib functions
 <tt class="docutils literal"><span class="pre">plot</span></tt> and <tt class="docutils literal"><span class="pre">errorbar</span></tt> according to certain criteria.  Plot the <tt class="docutils literal"><span class="pre">x</span></tt> and
-<tt class="docutils literal"><span class="pre">y</span></tt> arrays using the format specified in the optional argument, <tt class="docutils literal"><span class="pre">fmt</span></tt>.  Clear
-the plot if the <tt class="docutils literal"><span class="pre">clear</span></tt> argument is <tt class="xref docutils literal"><span class="pre">True</span></tt>.  Add the plot errorbars if the
-<tt class="docutils literal"><span class="pre">err</span></tt> array is present:</p>
+<tt class="docutils literal"><span class="pre">y</span></tt> arrays using the format specified in the optional argument, <tt class="docutils literal"><span class="pre">fmt</span></tt>.
+Clear the plot if the <tt class="docutils literal"><span class="pre">clear</span></tt> argument is <tt class="xref docutils literal"><span class="pre">True</span></tt>.  Add the plot errorbars if
+the <tt class="docutils literal"><span class="pre">err</span></tt> array is present.  Plot the spectrum by accessing the NumPy arrays
+in the Sherpa data set using our new function and its default arguments:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">plot_data</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">err</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s">&#39;.&#39;</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">clear</span><span class="p">:</span>
         <span class="n">clf</span><span class="p">()</span>
     <span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">fmt</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">err</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
         <span class="n">errorbar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">err</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ecolor</span><span class="o">=</span><span class="s">&#39;b&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Plot the spectrum by accessing the NumPy arrays in the Sherpa data set using the
-default arguments:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">plot_data</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">staterror</span><span class="p">)</span>
+
+<span class="n">plot_data</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">staterror</span><span class="p">)</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../_images/3c273_data_mast.png"><img alt="../_images/3c273_data_mast.png" src="../_images/3c273_data_mast.png" style="width: 609.0px; height: 459.0px;" /></a>
 <p>Create a Sherpa power-law model <tt class="docutils literal"><span class="pre">pl</span></tt>.  All Sherpa models maintain a tuple of
 parameters in <tt class="docutils literal"><span class="pre">pars</span></tt>.  Access each of the model&#8217;s parameter objects and print
 the <tt class="docutils literal"><span class="pre">name</span></tt> and <tt class="docutils literal"><span class="pre">val</span></tt> attributes:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">pl</span> <span class="o">=</span> <span class="n">PowLaw1D</span><span class="p">(</span><span class="s">&#39;powlaw1d.pl&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">pl</span> <span class="o">=</span> <span class="n">PowLaw1D</span><span class="p">(</span><span class="s">&#39;pl&#39;</span><span class="p">)</span>
 <span class="n">pl</span><span class="o">.</span><span class="n">pars</span>
 <span class="k">for</span> <span class="n">par</span> <span class="ow">in</span> <span class="n">pl</span><span class="o">.</span><span class="n">pars</span><span class="p">:</span>
     <span class="k">print</span> <span class="n">par</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">par</span><span class="o">.</span><span class="n">val</span>
+
+<span class="k">print</span> <span class="n">pl</span>
 </pre></div>
 </div>
-<p>Print out the <tt class="docutils literal"><span class="pre">PowLaw1D</span></tt> object and its parameter information.  Set the
-power-law reference to be 4000 Angstroms.  Each model parameter is accessible as
-an attribute its model.  For example, the power-law amplitude is referenced
-with <tt class="docutils literal"><span class="pre">pl.ampl</span></tt>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span> <span class="n">pl</span>
-<span class="n">pl</span><span class="o">.</span><span class="n">ref</span> <span class="o">=</span> <span class="mf">4000.</span>
+<p>Set the power-law reference to be 4000 Angstroms and print out the <tt class="docutils literal"><span class="pre">PowLaw1D</span></tt>
+object and its parameter information.  Each model parameter is accessible as an
+attribute its model.  For example, the power-law amplitude is referenced with
+<tt class="docutils literal"><span class="pre">pl.ampl</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">pl</span><span class="o">.</span><span class="n">ref</span> <span class="o">=</span> <span class="mf">4000.</span>
 <span class="k">print</span> <span class="n">pl</span>
 </pre></div>
 </div>
@@ -400,24 +409,30 @@ float and a <tt class="docutils literal"><span class="pre">Parameter</span></tt>
 special setter method <tt class="docutils literal"><span class="pre">__setattr__()</span></tt> that updates the pl.ref.val attribute
 underneath.  The <tt class="docutils literal"><span class="pre">property</span></tt> function defines custom getter and setter
 functions for a particular class attribute:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Parameter</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">_get_val</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span>
-    <span class="k">def</span> <span class="nf">_set_val</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_value</span> <span class="o">=</span> <span class="n">val</span>
-    <span class="c"># setup a &#39;val&#39; attribute</span>
-    <span class="n">val</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">_get_val</span><span class="p">,</span> <span class="n">_set_val</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Parameter</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c"># private attribute intended to be reference as &#39;val&#39;.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_value</span> <span class="o">=</span> <span class="mf">1.0</span>
 
+    <span class="k">def</span> <span class="nf">_get_val</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span>
+    <span class="k">def</span> <span class="nf">_set_val</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="c"># setup a &#39;val&#39; attribute</span>
+    <span class="n">val</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">_get_val</span><span class="p">,</span> <span class="n">_set_val</span><span class="p">)</span>
 
 <span class="k">class</span> <span class="nc">Model</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
-        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">),</span> <span class="n">Parameter</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="bp">None</span><span class="p">),</span> <span class="n">Parameter</span><span class="p">):</span>
             <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">val</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">object</span><span class="o">.</span><span class="n">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ref</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">()</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">Model</span><span class="p">()</span>
+<span class="n">m</span><span class="o">.</span><span class="n">ref</span>
+<span class="n">m</span><span class="o">.</span><span class="n">ref</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">m</span><span class="o">.</span><span class="n">ref</span>
+<span class="n">m</span><span class="o">.</span><span class="n">ref</span><span class="o">.</span><span class="n">val</span>
 </pre></div>
 </div>
 </div> <p class="flip0">Click to Show/Hide Solution</p><p>Create a <tt class="docutils literal"><span class="pre">Fit</span></tt> object made up of a Sherpa data set, model, fit statistic, and

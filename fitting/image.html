@@ -283,6 +283,14 @@ source model.  First, download the FITS image of <a class="reference download in
 and start IPython:</p>
 <div class="highlight-python"><pre>$ ipython -pylab</pre>
 </div>
+<p>If you have trouble accessing the image you can download it straight away using
+Python:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">urllib2</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">&quot;http://python4astronomers.github.com/_downloads/image2.fits&quot;</span>
+<span class="nb">open</span><span class="p">(</span><span class="s">&quot;image2.fits&quot;</span><span class="p">,</span> <span class="s">&quot;wb&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span class="n">ls</span>
+</pre></div>
+</div>
 <p>Import the Sherpa&#8217;s high-level UI with added routines for astronomy:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">sherpa.astro.ui</span> <span class="kn">import</span> <span class="o">*</span>
 </pre></div>
@@ -505,7 +513,7 @@ Sherpa supports?</p>
 ERF(sigma/SQRT(2)).  We can invert this operation using the inverse
 error-function found in SciPy in the special functions module:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">scipy.special</span>
-<span class="k">print</span> <span class="n">scipy</span><span class="o">.</span><span class="n">special</span><span class="o">.</span><span class="n">erfinv</span><span class="p">(</span><span class="mf">0.90</span><span class="p">)</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">scipy</span><span class="o">.</span><span class="n">special</span><span class="o">.</span><span class="n">erfinv</span><span class="p">(</span><span class="mf">0.90</span><span class="p">)</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div> <p class="flip0">Click to Show/Hide Solution</p><p>Notice how the parameter confidence limits are displayed as soon as they are

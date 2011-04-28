@@ -312,8 +312,11 @@ create new power-law model instance by simply accessing an attribute using a
 choosen model identifier.  <tt class="docutils literal"><span class="pre">pow1</span></tt> is now a power-law model accessible in
 scope:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">ui</span><span class="o">.</span><span class="n">set_model</span><span class="p">(</span><span class="n">ui</span><span class="o">.</span><span class="n">powlaw1d</span><span class="o">.</span><span class="n">pow1</span><span class="p">)</span>
-<span class="n">pow1</span><span class="o">.</span><span class="n">ref</span> <span class="o">=</span> <span class="mf">4000.</span>      <span class="c"># Set power-law reference to 4000 Angstroms</span>
-<span class="k">print</span> <span class="n">ui</span><span class="o">.</span><span class="n">get_model</span><span class="p">()</span>  <span class="c"># or ui.show_model() for interactive use</span>
+<span class="c"># Set power-law reference to 4000 Angstroms</span>
+<span class="n">pow1</span><span class="o">.</span><span class="n">ref</span> <span class="o">=</span> <span class="mf">4000.</span>
+
+<span class="c"># or ui.show_model() for interactive use</span>
+<span class="k">print</span> <span class="n">ui</span><span class="o">.</span><span class="n">get_model</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Fit the filtered continuum using <tt class="docutils literal"><span class="pre">pow1</span></tt> and plot the fitted model atop the
@@ -350,7 +353,9 @@ model that is finally passed as a single argument to <tt class="docutils literal
 <span class="n">g2</span><span class="o">.</span><span class="n">fwhm</span> <span class="o">=</span> <span class="mi">50</span>
 <span class="n">g3</span><span class="o">.</span><span class="n">fwhm</span> <span class="o">=</span> <span class="mi">50</span>
 <span class="n">g4</span><span class="o">.</span><span class="n">fwhm</span> <span class="o">=</span> <span class="mi">50</span>
-<span class="k">print</span> <span class="n">ui</span><span class="o">.</span><span class="n">get_model</span><span class="p">()</span>  <span class="c"># or ui.show_model() for interactive use</span>
+
+<span class="c"># or ui.show_model() for interactive use</span>
+<span class="k">print</span> <span class="n">ui</span><span class="o">.</span><span class="n">get_model</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Now fit with the four Gaussian lines plus the continuum and plot the results
@@ -373,7 +378,8 @@ times the FHWM of the narrow line:</p>
 </div>
 <p>The link expressions for the position and FWHM can be seen in the model display
 information:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span> <span class="n">ui</span><span class="o">.</span><span class="n">get_model</span><span class="p">()</span> <span class="c"># or ui.show_model() for interactive use</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># or ui.show_model() for interactive use</span>
+<span class="k">print</span> <span class="n">ui</span><span class="o">.</span><span class="n">get_model</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Freeze the Gaussian lines at the red end of the spectrum at their current

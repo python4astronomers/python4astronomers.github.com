@@ -284,10 +284,15 @@ display:none;
 <h1>Python Classes<a class="headerlink" href="#python-classes" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="basics">
 <h2>Basics<a class="headerlink" href="#basics" title="Permalink to this headline">¶</a></h2>
+<p>Begin by starting IPython with pylab:</p>
+<div class="highlight-python"><pre>$ ipython -pylab</pre>
+</div>
 <p>Classes definitions include the <tt class="docutils literal"><span class="pre">class</span></tt> declaration, an identifier, and a
 colon:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
     <span class="k">pass</span>
+
+<span class="n">h</span> <span class="o">=</span> <span class="n">MyClass</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>This class <tt class="docutils literal"><span class="pre">MyClass</span></tt> isn&#8217;t very interesting since it does not contain any
@@ -295,8 +300,7 @@ methods or attributes.  The <tt class="docutils literal"><span class="pre">pass<
 declaration indicating a no-op.</p>
 <p>Class instances are mutable, meaning that attributes and functions can be added
 after instantiation:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">h</span> <span class="o">=</span> <span class="n">MyClass</span><span class="p">()</span>
-<span class="k">print</span> <span class="n">h</span><span class="o">.</span><span class="n">msg</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span> <span class="n">h</span><span class="o">.</span><span class="n">msg</span>
 </pre></div>
 </div>
 <p>There is no attribute <tt class="docutils literal"><span class="pre">msg</span></tt>, so add one:</p>
@@ -361,8 +365,7 @@ return the attribute <tt class="docutils literal"><span class="pre">msg3</span><
 </pre></div>
 </div>
 <p>Class <tt class="docutils literal"><span class="pre">HelloWorld</span></tt> is of type <tt class="docutils literal"><span class="pre">Hello</span></tt>, <tt class="docutils literal"><span class="pre">World</span></tt>, and <tt class="docutils literal"><span class="pre">HelloWorld</span></tt>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="nb">type</span><span class="p">(</span><span class="n">hw</span><span class="p">)</span>
-<span class="nb">isinstance</span><span class="p">(</span><span class="n">hw</span><span class="p">,</span> <span class="n">Hello</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="nb">isinstance</span><span class="p">(</span><span class="n">hw</span><span class="p">,</span> <span class="n">Hello</span><span class="p">)</span>
 <span class="nb">isinstance</span><span class="p">(</span><span class="n">hw</span><span class="p">,</span> <span class="n">World</span><span class="p">)</span>
 <span class="nb">isinstance</span><span class="p">(</span><span class="n">hw</span><span class="p">,</span> <span class="n">HelloWorld</span><span class="p">)</span>
 <span class="nb">isinstance</span><span class="p">(</span><span class="n">hw</span><span class="p">,</span> <span class="n">MyClass</span><span class="p">)</span>
@@ -422,6 +425,9 @@ NumPy array object.  <tt class="docutils literal"><span class="pre">calc</span><
          <span class="bp">self</span><span class="o">.</span><span class="n">norm</span> <span class="o">=</span> <span class="n">norm</span>
     <span class="k">def</span> <span class="nf">calc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wave</span><span class="p">):</span>
          <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">norm</span><span class="o">*</span><span class="p">(</span><span class="n">wave</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">Powlaw</span><span class="p">()</span>
+<span class="n">p</span><span class="o">.</span><span class="n">calc</span><span class="p">(</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]))</span>
 </pre></div>
 </div>
 </div> <p class="flip0">Click to Show/Hide Solution</p></div>
