@@ -1,0 +1,454 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Virtual Observatory &mdash; Python4Astronomers v1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Python4Astronomers v1.0 documentation" href="../index.html" />
+    <link rel="up" title="Online Astronomy and the virtual observatory" href="vo.html" />
+    <link rel="next" title="Workshop series wrapup" href="../wrapup/wrapup.html" />
+    <link rel="prev" title="Core Modules" href="webmodules.html" />
+ 
+<script type="text/javascript"> 
+$(document).ready(function(){
+
+$(".flip0").click(function(){
+    $(".panel0").slideToggle("normal");
+  });
+
+$(".flip1").click(function(){
+    $(".panel1").slideToggle("normal");
+  });
+
+$(".flip2").click(function(){
+    $(".panel2").slideToggle("normal");
+  });
+
+$(".flip3").click(function(){
+    $(".panel3").slideToggle("normal");
+  });
+
+$(".flip4").click(function(){
+    $(".panel4").slideToggle("normal");
+  });
+
+$(".flip5").click(function(){
+    $(".panel5").slideToggle("normal");
+  });
+
+$(".flip6").click(function(){
+    $(".panel6").slideToggle("normal");
+  });
+
+$(".flip7").click(function(){
+    $(".panel7").slideToggle("normal");
+  });
+
+$(".flip8").click(function(){
+    $(".panel8").slideToggle("normal");
+  });
+
+$(".flip9").click(function(){
+    $(".panel9").slideToggle("normal");
+  });
+
+});
+</script>
+ 
+<style type="text/css"> 
+
+div.panel0,p.flip0
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip0
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel0
+{
+display:none;
+}
+
+div.panel1,p.flip1
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip1
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel1
+{
+display:none;
+}
+
+div.panel2,p.flip2
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip2
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel2
+{
+display:none;
+}
+
+div.panel3,p.flip3
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip3
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel3
+{
+display:none;
+}
+
+div.panel4,p.flip4
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip4
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel4
+{
+display:none;
+}
+
+div.panel5,p.flip5
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip5
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel5
+{
+display:none;
+}
+
+div.panel6,p.flip6
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip6
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel6
+{
+display:none;
+}
+
+div.panel7,p.flip7
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip7
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel7
+{
+display:none;
+}
+
+div.panel8,p.flip8
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip8
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel8
+{
+display:none;
+}
+
+div.panel9,p.flip9
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip9
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel9
+{
+display:none;
+}
+
+</style>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../wrapup/wrapup.html" title="Workshop series wrapup"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="webmodules.html" title="Core Modules"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Python4Astronomers v1.0 documentation</a> &raquo;</li>
+          <li><a href="vo.html" accesskey="U">Online Astronomy and the virtual observatory</a> &raquo;</li> 
+      </ul>
+    </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body">
+            
+  <div class="section" id="virtual-observatory">
+<h1>Virtual Observatory<a class="headerlink" href="#virtual-observatory" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference external" href="https://github.com/python4vo/coatpy">COATpy</a> wrapping of <a class="reference external" href="https://code.google.com/p/pyvolib">pyvolib</a> exposes a number of different virtual
+observatory tools. We will go over each of these in turn.</p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#sesame-name-resolver" id="id1">Sesame Name Resolver</a></li>
+<li><a class="reference internal" href="#conesearch" id="id2">ConeSearch</a></li>
+<li><a class="reference internal" href="#siap-image-search" id="id3">Siap Image Search</a></li>
+</ul>
+</div>
+<div class="section" id="sesame-name-resolver">
+<h2><a class="toc-backref" href="#id1">Sesame Name Resolver</a><a class="headerlink" href="#sesame-name-resolver" title="Permalink to this headline">¶</a></h2>
+<p>This is a basic name resolver that returns the position of objects as a
+tuple.  You can specify which service you wish to use:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">coatpy</span> <span class="kn">import</span> <span class="n">Sesame</span>
+
+<span class="n">simbad</span> <span class="o">=</span> <span class="n">Sesame</span><span class="p">(</span><span class="n">opt</span><span class="o">=</span><span class="s">&#39;S&#39;</span><span class="p">)</span>
+
+<span class="n">ned</span> <span class="o">=</span> <span class="n">Sesame</span><span class="p">(</span><span class="n">opt</span><span class="o">=</span><span class="s">&#39;N&#39;</span><span class="p">)</span>
+
+<span class="n">ned</span><span class="o">.</span><span class="n">resolve</span><span class="p">(</span><span class="s">&#39;M51&#39;</span><span class="p">)</span>
+
+<span class="c"># the services do not agree</span>
+<span class="k">assert</span> <span class="n">simbad</span><span class="o">.</span><span class="n">resolve</span><span class="p">(</span><span class="s">&#39;IC348&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="n">ned</span><span class="o">.</span><span class="n">resolve</span><span class="p">(</span><span class="s">&#39;IC348&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Presently the &#8220;names&#8221; of things have to be URL encoded or the tool
+will not resolve.  Use <tt class="docutils literal"><span class="pre">IC+348</span></tt> or <tt class="docutils literal"><span class="pre">IC348</span></tt> instead of <tt class="docutils literal"><span class="pre">IC</span> <span class="pre">348</span></tt></p>
+</div>
+</div>
+<div class="section" id="conesearch">
+<h2><a class="toc-backref" href="#id2">ConeSearch</a><a class="headerlink" href="#conesearch" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">ConeSearch</span></tt> tool is a standardized interface to one of hundreds
+of catalogs. The necessary parameters are:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">RA</span></tt>: decimal degrees</li>
+<li><tt class="docutils literal"><span class="pre">DEC</span></tt>: decimal degrees</li>
+<li><tt class="docutils literal"><span class="pre">SR</span></tt>: cone radius in decimal degrees</li>
+</ul>
+<p>An optional parameter <tt class="docutils literal"><span class="pre">VERB</span></tt> varies the verbosity of the query response.
+Only <tt class="docutils literal"><span class="pre">VERB=1</span></tt> is standardized across all catalogs and returns only the
+positions of objects in the queried catalog.</p>
+<p>As with the web queries you can wrap up the parameters in a
+dictionary and pass these to the query handler:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">coatpy</span> <span class="kn">import</span> <span class="n">ConeSearch</span>
+
+<span class="n">params</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">params</span><span class="p">[</span><span class="s">&#39;RA&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">simbad</span><span class="o">.</span><span class="n">resolve</span><span class="p">(</span><span class="s">&quot;IC348&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">params</span><span class="p">[</span><span class="s">&#39;DEC&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">simbad</span><span class="o">.</span><span class="n">resolve</span><span class="p">(</span><span class="s">&quot;IC348&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">params</span><span class="p">[</span><span class="s">&#39;SR&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">/</span><span class="mf">60.</span>
+<span class="n">params</span><span class="p">[</span><span class="s">&#39;VERB&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">At this point the system breaks down a little bit as we are not
+providing a programmatic tool for discovering catalogs. You have to
+search an online <a class="reference external" href="http://nvo.stsci.edu/vor10/index.aspx">Directory</a> to find the catalogs you might want.
+There are work arounds but a handler that wraps this up would be valuable!</p>
+</div>
+<p>With the query URL for the Chandra Source Catalog you create a catalog handler
+that wraps the query tools:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">url</span> <span class="o">=</span> <span class="s">&quot;http://heasarc.gsfc.nasa.gov/cgi-bin/vo/cone/coneGet.pl?table=ic348cxo&amp;&quot;</span>
+<span class="n">csc</span> <span class="o">=</span> <span class="n">ConeSearch</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;csc.xml&#39;</span><span class="p">,</span><span class="s">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">csc</span><span class="o">.</span><span class="n">getRaw</span><span class="p">(</span><span class="o">**</span><span class="n">params</span><span class="p">))</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">atpy</span><span class="o">.</span><span class="n">Table</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="nb">type</span><span class="o">=</span><span class="s">&#39;vo&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="siap-image-search">
+<h2><a class="toc-backref" href="#id3">Siap Image Search</a><a class="headerlink" href="#siap-image-search" title="Permalink to this headline">¶</a></h2>
+<p>The tool for querying image services is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">coatpy</span> <span class="kn">import</span> <span class="n">Siap</span>
+</pre></div>
+</div>
+<p>The <tt class="docutils literal"><span class="pre">Siap</span></tt> tool stands for <em>Simple Image Access Protocol</em> and as with
+<tt class="docutils literal"><span class="pre">ConeSearch</span></tt> the inputs are fairly simple:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">RA</span></tt>: Decimal Degrees</li>
+<li><tt class="docutils literal"><span class="pre">DEC</span></tt>: Decimal Degrees</li>
+<li><tt class="docutils literal"><span class="pre">SIZE</span></tt>: An image size in degrees</li>
+<li><tt class="docutils literal"><span class="pre">FORMAT</span></tt>:  [Optional] default: image/fits (or image/jpeg)</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Various image archives have appended other query parameters onto
+the SIAP standard to provide additional initial filtering of the images
+returned.   A good example is the <a class="reference external" href="http://irsa.ipac.caltech.edu/applications/2MASS/IM/docs/siahelp.html">IRSA 2MASS</a>
+service.  The <tt class="docutils literal"><span class="pre">Siap</span></tt> tool currently throws Exceptions on extra parameters.</p>
+</div>
+<div class="admonition-exercise-find-hst-images-of-a-young-cluster admonition ">
+<p class="first admonition-title">Exercise: find HST images of a young cluster</p>
+<p>In this exercise we will go through the steps necessary for downloading
+images with <tt class="docutils literal"><span class="pre">Siap</span></tt> from the Hubble Legacy Archive.</p>
+<p>The first step is to set up the query, which is nearly identical to the
+previous examples.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">urllib2</span>
+<span class="kn">from</span> <span class="nn">coatpy</span> <span class="kn">import</span> <span class="n">Siap</span><span class="p">,</span> <span class="n">Sesame</span>
+<span class="kn">import</span> <span class="nn">vo</span>
+
+<span class="n">simbad</span> <span class="o">=</span> <span class="n">Sesame</span><span class="p">(</span><span class="n">opt</span><span class="o">=</span><span class="s">&quot;S&quot;</span><span class="p">)</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">&quot; http://hla.stsci.edu/cgi-bin/acsSIAP.cgi?strict=1&quot;</span>
+
+<span class="n">hla</span> <span class="o">=</span> <span class="n">Siap</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+<span class="n">params</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">position</span> <span class="o">=</span> <span class="n">simbad</span><span class="o">.</span><span class="n">resolve</span><span class="p">(</span><span class="s">&#39;IC348&#39;</span><span class="p">)</span>
+<span class="n">params</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">zip</span><span class="p">((</span><span class="s">&#39;RA&#39;</span><span class="p">,</span> <span class="s">&#39;DEC&#39;</span><span class="p">),</span> <span class="n">position</span><span class="p">))</span>
+<span class="n">params</span><span class="p">[</span><span class="s">&#39;SIZE&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">/</span><span class="mf">60.</span>
+<span class="n">params</span><span class="p">[</span><span class="s">&#39;FORMAT&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;image/fits&#39;</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;hla_ic348_images.xml&#39;</span><span class="p">,</span><span class="s">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">hla</span><span class="o">.</span><span class="n">getRaw</span><span class="p">(</span><span class="o">**</span><span class="n">params</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>The main difference between a catalog and an image query is that an
+image query results in a series of <strong>pointers</strong> to the image files
+that can be examined and filtered before they are downloaded. We use
+the <a class="reference external" href="http://stsdas.stsci.edu/astrolib/vo/html/">vo</a> to parse the
+results, extracting the table of images that satisfy our query.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">vot</span> <span class="o">=</span> <span class="n">vo</span><span class="o">.</span><span class="n">table</span><span class="o">.</span><span class="n">parse_single_table</span><span class="p">(</span><span class="s">&#39;hla_ic348_images.xml&#39;</span><span class="p">)</span>
+<span class="n">image_table</span> <span class="o">=</span> <span class="n">vot</span><span class="o">.</span><span class="n">array</span>
+</pre></div>
+</div>
+<p>The returned array contains <strong>66</strong> fields! But if all we want is the
+actual data then the important column is <strong>URL</strong>.</p>
+<div class="last highlight-python"><div class="highlight"><pre><span class="c"># just grab the first image returned</span>
+<span class="n">image_url</span> <span class="o">=</span> <span class="n">image_table</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;URL&#39;</span><span class="p">]</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;image.fits&#39;</span><span class="p">,</span><span class="s">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">image_file</span><span class="p">:</span>
+    <span class="n">image_handler</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">image_url</span><span class="p">)</span>
+    <span class="n">image_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">image_handler</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+    <span class="n">image_handler</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../wrapup/wrapup.html" title="Workshop series wrapup"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="webmodules.html" title="Core Modules"
+             >previous</a> |</li>
+        <li><a href="../index.html">Python4Astronomers v1.0 documentation</a> &raquo;</li>
+          <li><a href="vo.html" >Online Astronomy and the virtual observatory</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Smithsonian Astrophysical Observatory.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
+    </div>
+  </body>
+</html>

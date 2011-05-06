@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Python requirements &mdash; Python4Astronomers v1.0 documentation</title>
+    <title>atpy &mdash; Python4Astronomers v1.0 documentation</title>
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -23,9 +23,9 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Python4Astronomers v1.0 documentation" href="../index.html" />
-    <link rel="up" title="Practical Python for Astronomers" href="intro.html" />
-    <link rel="next" title="Installing Scientific Python" href="../installation/installation.html" />
-    <link rel="prev" title="Comparison to SM and IDL" href="comparison.html" />
+    <link rel="up" title="Online Astronomy and the virtual observatory" href="vo.html" />
+    <link rel="next" title="virtual observatory" href="votools.html" />
+    <link rel="prev" title="Core Python Modules" href="webmodules.html" />
  
 <script type="text/javascript"> 
 $(document).ready(function(){
@@ -266,13 +266,13 @@ display:none;
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="../installation/installation.html" title="Installing Scientific Python"
+          <a href="votools.html" title="virtual observatory"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="comparison.html" title="Comparison to SM and IDL"
+          <a href="webmodules.html" title="Core Python Modules"
              accesskey="P">previous</a> |</li>
         <li><a href="../index.html">Python4Astronomers v1.0 documentation</a> &raquo;</li>
-          <li><a href="intro.html" accesskey="U">Practical Python for Astronomers</a> &raquo;</li> 
+          <li><a href="vo.html" accesskey="U">Online Astronomy and the virtual observatory</a> &raquo;</li> 
       </ul>
     </div>
 
@@ -280,77 +280,8 @@ display:none;
       <div class="documentwrapper">
           <div class="body">
             
-  <div class="section" id="python-requirements">
-<span id="id1"></span><h1>Python requirements<a class="headerlink" href="#python-requirements" title="Permalink to this headline">¶</a></h1>
-<p>In order to follow along with the examples to be presented in the workshops
-your must have at least the following installed in your working environment.</p>
-<div class="section" id="core">
-<h2>Core<a class="headerlink" href="#core" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li>Python 2.6 or 2.7 <a class="footnote-reference" href="#id3" id="id2">[1]</a></li>
-<li>IPython &gt;= 0.10</li>
-<li>NumPy &gt;= 1.3</li>
-<li>SciPy &gt;= 0.7.2</li>
-<li>Matplotlib &gt;= 0.99</li>
-<li>setuptools &gt;= 0.6c11</li>
-</ul>
-</div>
-<div class="section" id="astro-required">
-<h2>Astro: required<a class="headerlink" href="#astro-required" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable">asciitable</a> &gt;= 0.5.0</li>
-<li><a class="reference external" href="http://www.stsci.edu/resources/software_hardware/pyfits">pyfits</a> &gt;= 2.3.0</li>
-<li><a class="reference external" href="https://trac6.assembla.com/astrolib">pywcs</a> &gt;= 1.9 ()</li>
-<li><a class="reference external" href="http://atpy.github.com">ATpy</a> &gt;= 0.9.4</li>
-<li><a class="reference external" href="http://aplpy.github.com">APLpy</a> &gt;= 0.9.5 (pyparsing, pyregion, PIL, montage are optional but useful)</li>
-</ul>
-</div>
-<div class="section" id="astro-useful">
-<h2>Astro: useful<a class="headerlink" href="#astro-useful" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><a class="reference external" href="https://trac6.assembla.com/astrolib">coords</a></li>
-<li><a class="reference external" href="https://trac6.assembla.com/astrolib">vo.table</a></li>
-<li><a class="reference external" href="http://pyparsing.wikispaces.com/">pyparsing</a></li>
-<li><a class="reference external" href="http://leejjoon.github.com/pyregion/">pyregion</a></li>
-<li><a class="reference external" href="http://www.pythonware.com/products/pil">PIL</a></li>
-<li><a class="reference external" href="http://montage.ipac.caltech.edu/">Montage</a> (compiled application and library)</li>
-</ul>
-</div>
-<div class="section" id="test">
-<h2>Test<a class="headerlink" href="#test" title="Permalink to this headline">¶</a></h2>
-<p>To do a very basic test whether you meet the requirements and have a functioning
-core scientific Python installation, do the following and check version numbers:</p>
-<div class="highlight-python"><pre>% python -V
-% ipython -V
-% ipython -pylab
-import numpy
-import scipy
-import scipy.linalg
-
-print numpy.__version__
-print scipy.__version__
-print matplotlib.__version__
-
-x = numpy.linspace(0, 20, 100)
-plot(x, sin(x))
-print scipy.linalg.eig([[1,2],[3,4]])</pre>
-</div>
-<p>The to check the other required packages do the following from within ipython:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">asciitable</span>
-<span class="kn">import</span> <span class="nn">pyfits</span>
-<span class="kn">import</span> <span class="nn">pywcs</span>
-<span class="kn">import</span> <span class="nn">atpy</span>
-<span class="kn">import</span> <span class="nn">aplpy</span>
-</pre></div>
-</div>
-<table class="docutils footnote" frame="void" id="id3" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td>Python 3.x is the &#8220;next generation&#8221; Python but for astronomy analysis
-Python 2.x is still the best choice.</td></tr>
-</tbody>
-</table>
-</div>
+  <div class="section" id="atpy">
+<h1>atpy<a class="headerlink" href="#atpy" title="Permalink to this headline">¶</a></h1>
 </div>
 
 
@@ -365,13 +296,13 @@ Python 2.x is still the best choice.</td></tr>
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="../installation/installation.html" title="Installing Scientific Python"
+          <a href="votools.html" title="virtual observatory"
              >next</a> |</li>
         <li class="right" >
-          <a href="comparison.html" title="Comparison to SM and IDL"
+          <a href="webmodules.html" title="Core Python Modules"
              >previous</a> |</li>
         <li><a href="../index.html">Python4Astronomers v1.0 documentation</a> &raquo;</li>
-          <li><a href="intro.html" >Practical Python for Astronomers</a> &raquo;</li> 
+          <li><a href="vo.html" >Online Astronomy and the virtual observatory</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
