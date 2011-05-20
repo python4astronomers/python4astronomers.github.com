@@ -1,0 +1,622 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Installing Scientific Python &mdash; Python4Astronomers v1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Python4Astronomers v1.0 documentation" href="../index.html" />
+    <link rel="up" title="Python Installation and Understanding Packages" href="installation.html" />
+    <link rel="next" title="Modules, Packages, and all that" href="packages.html" />
+    <link rel="prev" title="Python Installation and Understanding Packages" href="installation.html" />
+ 
+<script type="text/javascript"> 
+$(document).ready(function(){
+
+$(".flip0").click(function(){
+    $(".panel0").slideToggle("normal");
+  });
+
+$(".flip1").click(function(){
+    $(".panel1").slideToggle("normal");
+  });
+
+$(".flip2").click(function(){
+    $(".panel2").slideToggle("normal");
+  });
+
+$(".flip3").click(function(){
+    $(".panel3").slideToggle("normal");
+  });
+
+$(".flip4").click(function(){
+    $(".panel4").slideToggle("normal");
+  });
+
+$(".flip5").click(function(){
+    $(".panel5").slideToggle("normal");
+  });
+
+$(".flip6").click(function(){
+    $(".panel6").slideToggle("normal");
+  });
+
+$(".flip7").click(function(){
+    $(".panel7").slideToggle("normal");
+  });
+
+$(".flip8").click(function(){
+    $(".panel8").slideToggle("normal");
+  });
+
+$(".flip9").click(function(){
+    $(".panel9").slideToggle("normal");
+  });
+
+});
+</script>
+ 
+<style type="text/css"> 
+
+div.panel0,p.flip0
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip0
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel0
+{
+display:none;
+}
+
+div.panel1,p.flip1
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip1
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel1
+{
+display:none;
+}
+
+div.panel2,p.flip2
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip2
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel2
+{
+display:none;
+}
+
+div.panel3,p.flip3
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip3
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel3
+{
+display:none;
+}
+
+div.panel4,p.flip4
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip4
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel4
+{
+display:none;
+}
+
+div.panel5,p.flip5
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip5
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel5
+{
+display:none;
+}
+
+div.panel6,p.flip6
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip6
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel6
+{
+display:none;
+}
+
+div.panel7,p.flip7
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip7
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel7
+{
+display:none;
+}
+
+div.panel8,p.flip8
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip8
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel8
+{
+display:none;
+}
+
+div.panel9,p.flip9
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip9
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel9
+{
+display:none;
+}
+
+</style>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="packages.html" title="Modules, Packages, and all that"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="installation.html" title="Python Installation and Understanding Packages"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Python4Astronomers v1.0 documentation</a> &raquo;</li>
+          <li><a href="installation.html" accesskey="U">Python Installation and Understanding Packages</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Installing Scientific Python</a><ul>
+<li><a class="reference internal" href="#installation-steps">Installation steps</a></li>
+<li><a class="reference internal" href="#try-it-out">Try it out!</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="installation.html"
+                        title="previous chapter">Python Installation and Understanding Packages</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="packages.html"
+                        title="next chapter">Modules, Packages, and all that</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/installation/python_install.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="installing-scientific-python">
+<span id="id1"></span><h1>Installing Scientific Python<a class="headerlink" href="#installing-scientific-python" title="Permalink to this headline">¶</a></h1>
+<p>Unless you are confident with (and enjoy) tracking down compiler errors and
+other issues related to package incompatibilities, we strongly recommend using
+a pre-built binary Python distribution.  For MacOS in particular there are a
+whole slew of options for Python which don&#8217;t play well together.  Even if you
+already have an installation on your system you will probably save time in
+the long run by starting fresh with a binary Python distribution.  There are
+two main options that we have experience installing:</p>
+<p><strong>Enthought Python Distribution</strong></p>
+<p>For Windows, MacOS and linux non-root installation, <strong>the easiest option for
+academics</strong> is to use the <a class="reference external" href="http://www.enthought.com/products/epd.php">Enthought Python Distribution</a> (EPD).  For the Python for
+Astronomers workshop series held at the Harvard Center for Astrophysics in
+2011, over 50 astronomers successfully installed and used EPD on a variety of
+platforms (including Windows).  <em>All the installation instructions that follow
+are written assuming this option.</em></p>
+<p><a class="reference external" href="http://www.enthought.com">Enthought</a> is the company which leads most of the
+development of <a class="reference external" href="http://numpy.scipy.org/">NumPy</a> and <a class="reference external" href="http://scipy.org/">SciPy</a>.  EPD is a bundled binary
+distribution of Python with a <em>large</em> set of useful packages built in.  The
+<a class="reference external" href="http://www.enthought.com/products/edudownload.php">Academic version</a> of EPD
+is free for use by students or employees of a degree-granting institution as
+specified in the <a class="reference external" href="http://www.enthought.com/EPDAcademicTerms.html">license terms</a>.</p>
+<p>If you do not meet the academic license requirements but are using Python for
+research in astronomy (e.g. observatory staff scientist), we recommend
+contacting Enthought directly and requesting permission.</p>
+<p><strong>ActiveState Community Python Distribution</strong></p>
+<p>A second option is to use the <a class="reference external" href="http://www.activestate.com/activepython/downloads">ActiveState Community Python Distribution</a>,
+a.k.a. ActivePython.  This has no license requirements and is freely
+available.  Features of ActivePython include:</p>
+<ul class="simple">
+<li>The initial distribution is much smaller, consisting mostly of Python and
+some utilities.</li>
+<li>Packages can be added with a customized package manager <tt class="docutils literal"><span class="pre">pypm</span></tt> toolf which
+installs from the <a class="reference external" href="http://code.activestate.com/pypm/">ActiveState PyPM repository</a>.  This
+handles the &#8220;difficult&#8221; packages like NumPy and SciPy with support for
+dependency resolution, and also includes most packages from <a href="#id2"><span class="problematic" id="id3">`PyPI`_</span></a>.</li>
+</ul>
+<p>Two tests of installing ActivePython on MacOS (snow leopard) and a linux
+CentOS-5 system were successful and were simple to perform.  Although we don&#8217;t
+provide detailed instructions here, this option seems to be reasonable.</p>
+<div class="section" id="installation-steps">
+<h2>Installation steps<a class="headerlink" href="#installation-steps" title="Permalink to this headline">¶</a></h2>
+<p>In order to follow along with the examples to be presented in the workshops
+your Python installation will need to meet the <a class="reference internal" href="requirements.html#python-pkg-requirements"><em>Python requirements</em></a>.  The aim
+of this workshop is to get this set up correctly.  This will proceed in three
+steps:</p>
+<ul class="simple">
+<li>Download the appropriate Enthought Python Distribution (EPD) installer</li>
+<li>Install EPD as the core Python installation</li>
+<li>Install additional packages which are used in the workshops</li>
+<li>Test the installation</li>
+</ul>
+<p>The installation process is particular to each platform.  For all options
+except &#8220;Linux on HEAD or CF network&#8221; you will need the EPD download as
+discussed in the next section.</p>
+<div class="section" id="download-epd">
+<h3>Download EPD<a class="headerlink" href="#download-epd" title="Permalink to this headline">¶</a></h3>
+<p>To download EPD go to the <a class="reference external" href="http://www.enthought.com/products/edudownload.php">EPD Academic Download</a> page.</p>
+<p>Here you immediately need to make a decision: 32-bit or 64-bit download?  First
+you need to establish whether your computer has a 32-bit or 64-bit processor.
+If you have a 32-bit processor then your decision is easy (32-bit) but if you
+have a 64-bit processor then either 32 or 64 will work.  See below if you don&#8217;t
+know your processor architecture:</p>
+<ul class="simple">
+<li>MacOSX: Follow <a class="reference external" href="http://support.apple.com/kb/ht3696">the MacOS instructions</a></li>
+<li>Linux: Type <tt class="docutils literal"><span class="pre">uname</span> <span class="pre">-mpi</span></tt> at the command line.  If you see <tt class="docutils literal"><span class="pre">x86_64</span> <span class="pre">x86_64</span>
+<span class="pre">x86_64</span></tt> you have a 64-bit machine and OS.  If you see one or more <tt class="docutils literal"><span class="pre">i686</span></tt>
+or <tt class="docutils literal"><span class="pre">i386</span></tt> you are running a 32-bit OS.</li>
+<li>Windows:  Follow <a class="reference external" href="http://windows.microsoft.com/en-US/windows-vista/32-bit-and-64-bit-Windows-frequently-asked-questions">the Windows instructions</a>.</li>
+</ul>
+<p><strong>64-bit</strong></p>
+<ul class="simple">
+<li><em>Pro</em>: Faster for data- and compute-intensive applications</li>
+<li><em>Con</em>: Have to submit an email address and wait for the download link in response</li>
+</ul>
+<p><strong>32-bit</strong></p>
+<ul class="simple">
+<li><em>Pro</em>: Comes with the <a class="reference external" href="http://github.enthought.com/mayavi/mayavi/">Mayavi</a> 3-d
+rendering package installed while the 64-bit does not (for technical reasons).
+If you are interested in using this cool package you should consider choosing 32-bit.
+Note that the standard matplotlib package supports some <a class="reference external" href="http://matplotlib.sourceforge.net/mpl_toolkits/mplot3d/tutorial.html">3-d plotting</a>.</li>
+</ul>
+</div>
+<div class="section" id="install-core-python">
+<h3>Install core Python<a class="headerlink" href="#install-core-python" title="Permalink to this headline">¶</a></h3>
+<p>Now install EPD as the core Python on your system following the instructions below:</p>
+</div>
+<div class="section" id="install-additional-packages">
+<h3>Install additional packages<a class="headerlink" href="#install-additional-packages" title="Permalink to this headline">¶</a></h3>
+<p>Here you will install the additional packages listed in the
+<a class="reference internal" href="requirements.html#python-pkg-requirements"><em>Python requirements</em></a> section.  Copy and paste the lines applicable to your
+system one at a time, checking that each one works.  The program outputs may
+contain various &#8220;warnings&#8221;, but watch for &#8220;errors&#8221; and look at the end to see
+if a successful installation was reported.</p>
+<p>Of these packages only <tt class="docutils literal"><span class="pre">pywcs</span></tt> was a significant issue during the CfA Python
+for Astronomers series.  Most Windows users and a few MacOS users had
+problems.  Since then a patch has been released, but it is still known to fail
+for 32-bit Windows XP.  This package is required to make images with <tt class="docutils literal"><span class="pre">APLpy</span></tt>
+and do WCS coordinate transformations, but otherwise it is not absolutely needed.</p>
+<div class="section" id="macos-or-root-linux-install">
+<h4>MacOS or root linux install<a class="headerlink" href="#macos-or-root-linux-install" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><pre>easy_install --upgrade pip
+pip install --upgrade distribute
+pip install asciitable
+pip install pyfits
+pip install pywcs
+pip install atpy
+pip install aplpy
+pip install pyregion
+pip install pyparsing
+pip install http://stsdas.stsci.edu/astrolib/vo-0.6.tar.gz
+pip install http://stsdas.stsci.edu/astrolib/coords-0.37.tar.gz</pre>
+</div>
+</div>
+<div class="section" id="non-root-linux">
+<h4>Non-root linux<a class="headerlink" href="#non-root-linux" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python"><pre>easy_install --user --upgrade pip
+pip install --user --upgrade distribute
+pip install --user asciitable
+pip install --user pyfits
+pip install --user pywcs
+pip install --user atpy
+pip install --user aplpy
+pip install --user pyregion
+pip install --user pyparsing
+pip install --user http://stsdas.stsci.edu/astrolib/vo-0.6.tar.gz
+pip install --user http://stsdas.stsci.edu/astrolib/coords-0.37.tar.gz</pre>
+</div>
+</div>
+<div class="section" id="windows">
+<h4>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h4>
+<p>For Windows XP 32-bit the following are known to have problems: pywcs,
+pyregion, and coords.</p>
+<div class="highlight-python"><pre>cd C:\Python27\Scripts
+easy_install.exe --upgrade pip
+pip.exe install --upgrade distribute
+pip.exe install asciitable
+pip.exe install pyfits
+pip.exe install pywcs
+pip.exe install atpy
+pip.exe install aplpy
+pip.exe install pyregion
+pip.exe install pyparsing
+pip.exe install http://stsdas.stsci.edu/astrolib/vo-0.6.tar.gz
+pip.exe install http://stsdas.stsci.edu/astrolib/coords-0.37.tar.gz</pre>
+</div>
+<div class="admonition-the-soap-opera-of-pip-and-easy-install-and-distribute-and-setuptools admonition ">
+<p class="first admonition-title">The soap opera of pip and easy_install and distribute and setuptools</p>
+<p>Here is where things can appear very confusing if you start installing
+packages on your own and looking through various projects and installation
+documentation.  First there was the <tt class="docutils literal"><span class="pre">distutils</span></tt> standard
+library module that specifies what a package provides and how it gets
+installed.  But this was found to be lacking and a 3rd party extension named
+<tt class="docutils literal"><span class="pre">setuptools</span></tt> was developed and adopted fairly widely.  In conjunction with
+<tt class="docutils literal"><span class="pre">setuptools</span></tt> was a script <tt class="docutils literal"><span class="pre">easy_install</span></tt> that took care of downloading,
+untarring, building, and installing packages.  Pretty good, except that the
+developer of both these stopped actively developing them.</p>
+<p class="last">So some people took matters into their own hands and did a &#8220;friendly fork&#8221;
+of <tt class="docutils literal"><span class="pre">setuptools</span></tt> named <tt class="docutils literal"><span class="pre">distribute</span></tt>.  The not-so-friendly part is that
+the <tt class="docutils literal"><span class="pre">distribute</span></tt> package actually installs a module named
+<tt class="docutils literal"><span class="pre">setuptools.py</span></tt> and will overwrite an &#8220;original&#8221; <tt class="docutils literal"><span class="pre">setuptools</span></tt> package.
+The flame war that ensued was epic.  In any case now <tt class="docutils literal"><span class="pre">distribute</span></tt> is the
+standard, and likewise <tt class="docutils literal"><span class="pre">pip</span></tt> has replaced <tt class="docutils literal"><span class="pre">easy_install</span></tt> as the best
+(and actively developed) easy installer.</p>
+</div>
+</div>
+</div>
+<div class="section" id="test-your-installation">
+<span id="installation-test"></span><h3>Test your installation<a class="headerlink" href="#test-your-installation" title="Permalink to this headline">¶</a></h3>
+<p>To do a very basic test whether you meet the requirements and have a functioning
+core scientific Python installation, do the following and check version numbers:</p>
+<div class="highlight-python"><pre>% python -V
+% ipython -V
+% ipython -pylab
+import numpy
+import scipy
+import scipy.linalg
+
+print numpy.__version__
+print scipy.__version__
+print matplotlib.__version__
+
+x = numpy.linspace(0, 20, 100)
+plot(x, sin(x))
+print scipy.linalg.eig([[1,2],[3,4]])</pre>
+</div>
+<p>The commands above should succeed with no errors.  The version numbers should
+meet the requirements, and finally you should see a plot of a sine wave.</p>
+<p>To check the other required packages, do the following from within ipython:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">asciitable</span>
+<span class="kn">import</span> <span class="nn">pyfits</span>
+<span class="kn">import</span> <span class="nn">pywcs</span>
+<span class="kn">import</span> <span class="nn">atpy</span>
+<span class="kn">import</span> <span class="nn">aplpy</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="try-it-out">
+<h2>Try it out!<a class="headerlink" href="#try-it-out" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="setup">
+<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h3>
+<p>First download the <a class="reference external" href="install_examples.tar">install_examples.tar</a> tar file which has example data
+files that will be used in subsequent exercises.
+Then change to a working directory, untar the file, and start up IPython:</p>
+<div class="highlight-python"><pre>tar xvf ~/Downloads/install_examples.tar   # or wherever your browser puts downloads
+cd py4ast/install
+ls
+ipython -pylab</pre>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p>For all of the workshops you should always start Python using the command:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ipython</span> <span class="o">-</span><span class="n">pylab</span>  <span class="c"># (for Windows start the Pylab application)</span>
+</pre></div>
+</div>
+<p>This will automatically load all of the main plotting functions from
+<a class="reference external" href="http://matplotlib.sourceforge.net/">Matplotlib</a> (e.g. <tt class="docutils literal"><span class="pre">plot()</span></tt>, <tt class="docutils literal"><span class="pre">hist()</span></tt>, and many more) as well as common
+math functions and array utilities from <a class="reference external" href="http://numpy.scipy.org/">NumPy</a> (e.g. <tt class="docutils literal"><span class="pre">sin()</span></tt>, <tt class="docutils literal"><span class="pre">exp()</span></tt>,
+<tt class="docutils literal"><span class="pre">array()</span></tt>, etc).</p>
+<p>In my <tt class="docutils literal"><span class="pre">~/.cshrc</span></tt> file I define an alias that I commonly use:</p>
+<div class="last highlight-python"><pre>alias pylab "ipython -pylab"</pre>
+</div>
+</div>
+<div class="admonition-exercise-read-a-table-and-examine-it admonition ">
+<p class="first admonition-title">Exercise: Read a table and examine it</p>
+<p>Look at the documentation for the <a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable/#reading-tables">asciitable.read()</a> function in
+<a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable">asciitable</a>.  Follow the very first example and use the <tt class="docutils literal"><span class="pre">read()</span></tt> function
+to read the data in the file <tt class="docutils literal"><span class="pre">table1.dat</span></tt> into the variable named <tt class="docutils literal"><span class="pre">data</span></tt>.</p>
+<p>This table is in the &#8220;ApJ machine-readable format&#8221; (which is actually a bit
+tricky for machines to read).  This is very similar to the table format used
+by CDS / Vizier for input and storage of tables in astronomy.</p>
+<p>Once you have read the table into the variable <tt class="docutils literal"><span class="pre">data</span></tt> then print the table,
+print the column <tt class="docutils literal"><span class="pre">RAdeg</span></tt>, and print the 3rd row.</p>
+<p>Hints:</p>
+<blockquote>
+<ul>
+<li><p class="first">You can print a <tt class="docutils literal"><span class="pre">&lt;variable&gt;</span></tt> by just typing <tt class="docutils literal"><span class="pre">print</span> <span class="pre">&lt;variable&gt;</span></tt> at the command line, for example <tt class="docutils literal"><span class="pre">print</span> <span class="pre">data</span></tt>.</p>
+</li>
+<li><p class="first">You can get tons of useful information about a variable with <tt class="docutils literal"><span class="pre">help</span></tt> or <tt class="docutils literal"><span class="pre">?</span></tt>:</p>
+<blockquote>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">help</span> <span class="pre">&lt;variable&gt;</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">?</span> <span class="pre">&lt;variable&gt;</span></tt></li>
+</ul>
+</blockquote>
+<p>These two commands are pretty similar except that <tt class="docutils literal"><span class="pre">?</span></tt> gives a little bit more information
+and in a more raw form.</p>
+</li>
+<li><p class="first">The object returned by <tt class="docutils literal"><span class="pre">asciitable.read()</span></tt> is a NumPy record array,
+which is just a fancy way of saying a table where you can access rows or columns of data.</p>
+</li>
+<li><p class="first">You can get the column names and types with <tt class="docutils literal"><span class="pre">print</span> <span class="pre">data.dtype</span></tt></p>
+</li>
+<li><p class="first">To print a column of data use <tt class="docutils literal"><span class="pre">print</span> <span class="pre">data[&quot;&lt;column_name&gt;&quot;]</span></tt>, for example <tt class="docutils literal"><span class="pre">print</span> <span class="pre">data[&quot;Name&quot;]</span></tt></p>
+</li>
+<li><p class="first">To print a row of data use <tt class="docutils literal"><span class="pre">print</span> <span class="pre">data[&lt;row_number&gt;]</span></tt></p>
+</li>
+</ul>
+</blockquote>
+<p class="last">Optional: use the <a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib.pyplot.plot">plot</a> and
+<a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib.pyplot.hist">hist</a> functions to
+examine the data graphically.  For instance plot RAdeg versus DEdeg.  Look at the <tt class="docutils literal"><span class="pre">table1.dat</span></tt> file itself for
+detailed column descriptions.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="packages.html" title="Modules, Packages, and all that"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="installation.html" title="Python Installation and Understanding Packages"
+             >previous</a> |</li>
+        <li><a href="../index.html">Python4Astronomers v1.0 documentation</a> &raquo;</li>
+          <li><a href="installation.html" >Python Installation and Understanding Packages</a> &raquo;</li> 
+      </ul>
+    </div>
+ <small>Copyright:
+ Smithsonian Astrophysical Observatory under terms of
+ <a rel="license"
+ href="http://creativecommons.org/licenses/by/3.0/">CC
+ Attribution 3.0</a></small> <a rel="license"
+ href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons
+ License" style="border-width:0"
+ src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
+
+  </body>
+</html>

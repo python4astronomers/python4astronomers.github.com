@@ -69,8 +69,10 @@ module, do some basic filtering with `NumPy`_, and make a couple of plots with
   asciitable.write(dat[with_z], 'fermi_agn_with_z.dat')
 
 .. image:: scatter.png
+   :scale: 70%
 
 .. image:: hist.png
+   :scale: 70%
 
 Curve fitting with SciPy
 ------------------------
@@ -120,17 +122,18 @@ uncertainties.
 The plotted fit result is as shown below:
 
 .. image:: fit.png
+   :scale: 50%
 
 Intermission: NumPy, Matplotlib, and SciPy
 ------------------------------------------
 
 These three packages are the workhorses of scientific Python.  
 
-- `NumPy`_ is the fundamental package for scientific computing in Python [`Reference
+- `NumPy`_ is the fundamental package for scientific computing in Python [`NumPy Reference
   <http://docs.scipy.org/doc/numpy/reference/>`_]
 - `Matplotlib`_ is one of many plotting packages.  Started as a Matlab clone.
 - `SciPy`_ is a collection of mathematical algorithms and convenience
-  functions [`Reference <http://docs.scipy.org/doc/scipy/reference/>`_]
+  functions [`SciPy Reference <http://docs.scipy.org/doc/scipy/reference/>`_]
 
 
 Synthetic images
@@ -179,6 +182,7 @@ including convolution with a Gaussian filter and the addition of noise.
 The simulated cluster image is below:
 
 .. image:: synthetic_image.png
+   :scale: 70%
 
 Running existing compiled codes
 -------------------------------
@@ -225,6 +229,7 @@ together other codes and doing system type tasks.
 
 
 .. image:: run_codes.png
+   :scale: 70%
 
 Making a publication quality image
 ----------------------------------
@@ -266,6 +271,7 @@ talk was made.
 This produces the nice image:
 
 .. image:: image_plotting.png 
+   :scale: 60%
 
 
 And much much more...
@@ -280,7 +286,7 @@ And much much more...
   <http://www.astropython.org/blog/2011/3/Querying-tables-in-the-virtual-observatory>`_
   and `broadcast <https://gist.github.com/855678>`_ or 
   `retrieve <https://gist.github.com/855678>`_ tables to VO applications like 
-  `TOPCAT <http://www.star.bris.ac.uk/~mbt/topcat/>`_.  
+  `TOPCAT`_.  
 - GUI application to quickly view thousands of X-ray survey image cutouts
 - Python-based web site for browsing a complex multi-wavelength survey
 - `Thermal modeling of the Chandra X-ray satellite 

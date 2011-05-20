@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Installation &mdash; Python4Astronomers v1.0 documentation</title>
+    <title>Sherpa Installation &mdash; Python4Astronomers v1.0 documentation</title>
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -279,12 +279,11 @@ display:none;
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Installation</a><ul>
-<li><a class="reference internal" href="#users-interested-in-maintaining-their-own-python-installation">Users Interested in Maintaining their own Python Installation</a></li>
-<li><a class="reference internal" href="#install-notes-for-epd-mac-users">Install Notes for EPD Mac Users</a></li>
-<li><a class="reference internal" href="#install-notes-for-ubuntu-users">Install Notes for Ubuntu Users</a></li>
-<li><a class="reference internal" href="#install-notes-for-epd-linux-users">Install Notes for EPD Linux Users</a></li>
-<li><a class="reference internal" href="#install-notes-for-linux-users-using-head-network-installation">Install Notes for Linux Users using HEAD network installation</a></li>
+<li><a class="reference internal" href="#">Sherpa Installation</a><ul>
+<li><a class="reference internal" href="#sherpa-downloads">Sherpa downloads</a></li>
+<li><a class="reference internal" href="#mac-epd">Mac EPD</a></li>
+<li><a class="reference internal" href="#ubuntu-root">Ubuntu (root)</a></li>
+<li><a class="reference internal" href="#epd-linux">EPD Linux</a></li>
 <li><a class="reference internal" href="#try-it-out">Try It Out</a></li>
 </ul>
 </li>
@@ -322,11 +321,11 @@ display:none;
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="installation">
-<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<p>In order to follow along with the Sherpa examples presented in the workshop on
-April 29, your Python installation will need the following dependencies and
-Sherpa version 4.3.0.</p>
+  <div class="section" id="sherpa-installation">
+<h1>Sherpa Installation<a class="headerlink" href="#sherpa-installation" title="Permalink to this headline">¶</a></h1>
+<p>In order to follow along with the Sherpa examples presented in this workshop,
+your Python installation will need the following dependencies and Sherpa
+version 4.3.0.</p>
 <ul class="simple">
 <li>Sherpa Dependencies<ul>
 <li>Python 2.6 or 2.7 (not Python 3.x)</li>
@@ -340,36 +339,24 @@ Sherpa version 4.3.0.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">EPD users, you have already satisfied the installation requirements
-above.  Continue with the installation Notes below.  If you have been to
+above.  Continue with the installation notes below.  If you have been to
 previous workshops and are able to complete the examples, your installation is
 most likely sufficient.  See the Sherpa installation notes below to install
 Sherpa version 4.3.0.</p>
 </div>
-<div class="section" id="users-interested-in-maintaining-their-own-python-installation">
-<h2>Users Interested in Maintaining their own Python Installation<a class="headerlink" href="#users-interested-in-maintaining-their-own-python-installation" title="Permalink to this headline">¶</a></h2>
-<p>Built Python binaries of Sherpa can be found here</p>
+<div class="section" id="sherpa-downloads">
+<h2>Sherpa downloads<a class="headerlink" href="#sherpa-downloads" title="Permalink to this headline">¶</a></h2>
+<p>The Sherpa source tar file and pre-built binaries can be found here:</p>
 <ul class="simple">
-<li><a class="reference external" href="http://cxc.cfa.harvard.edu/contrib/sherpa/downloads/">Download Sherpa</a>:
-Sherpa binaries for Mac and Ubuntu</li>
+<li><a class="reference external" href="http://cxc.cfa.harvard.edu/contrib/sherpa/downloads/">Sherpa downloads</a>:
+Sherpa source and binaries for Mac and Ubuntu.</li>
 </ul>
 </div>
-<div class="section" id="install-notes-for-epd-mac-users">
-<h2>Install Notes for EPD Mac Users<a class="headerlink" href="#install-notes-for-epd-mac-users" title="Permalink to this headline">¶</a></h2>
-<p>Install the Enthought EPD 7.0 at <a class="reference external" href="http://cxc.cfa.harvard.edu/contrib/python4astronomers">EPD downloads</a></p>
-<blockquote>
-<p><a class="reference external" href="http://www.enthought.com">Enthought</a> is the company which leads most of the
-development of <a class="reference external" href="http://numpy.scipy.org/">NumPy</a> and <a class="reference external" href="http://scipy.org/">SciPy</a>.  They provide a bundled binary
-distribution of Python with a large set of useful packages built in.  The
-<a class="reference external" href="http://www.enthought.com/products/edudownload.php">Academic version</a> of EPD
-is free for use by students or employees of a degree-granting institution
-(i.e. Harvard but not SAO) as specified in the <a class="reference external" href="http://www.enthought.com/EPDAcademicTerms.html">license terms</a>.</p>
-<p><em>By special permission from Enthought, all tutorial participants are allowed
-use the Academic EPD downloads we are providing.</em></p>
-<p>However, please do not distribute these files to others without express
-permission.  The user name and password were emailed to the pythonusers
-mailing list on March 18.</p>
-</blockquote>
-<p>Download the appropriate Sherpa disk image for your version of OSX</p>
+<div class="section" id="mac-epd">
+<h2>Mac EPD<a class="headerlink" href="#mac-epd" title="Permalink to this headline">¶</a></h2>
+<p>Installed the Enthought EPD 7.0 following the
+instructions for <a class="reference internal" href="../installation/macosx.html#mac-osx"><em>Mac OSX</em></a>.  Then download the appropriate Sherpa disk
+image for your version of OSX:</p>
 <blockquote>
 <table border="1" class="docutils">
 <colgroup>
@@ -397,8 +384,8 @@ mailing list on March 18.</p>
 </blockquote>
 <p>Double-click on the disk image and follow the instructions in the install wizard.</p>
 </div>
-<div class="section" id="install-notes-for-ubuntu-users">
-<h2>Install Notes for Ubuntu Users<a class="headerlink" href="#install-notes-for-ubuntu-users" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ubuntu-root">
+<h2>Ubuntu (root)<a class="headerlink" href="#ubuntu-root" title="Permalink to this headline">¶</a></h2>
 <p>Users who use <tt class="docutils literal"><span class="pre">apt-get</span></tt> to manage their Python distribution can
 download the appropriate Ubuntu package for their operating system.</p>
 <blockquote>
@@ -410,10 +397,11 @@ download the appropriate Ubuntu package for their operating system.</p>
 <p>Double-click on the Debian package file (.deb) and follow the instructions in
 the install wizard.</p>
 </div>
-<div class="section" id="install-notes-for-epd-linux-users">
-<h2>Install Notes for EPD Linux Users<a class="headerlink" href="#install-notes-for-epd-linux-users" title="Permalink to this headline">¶</a></h2>
-<p>Install the EPD on Linux by following the instructions <a class="reference external" href="http://python4astronomers.github.com/installation/linux-self.html#user-install-without-root">here.</a></p>
-<p>Download the appropriate Sherpa egg for your Linux architecture</p>
+<div class="section" id="epd-linux">
+<h2>EPD Linux<a class="headerlink" href="#epd-linux" title="Permalink to this headline">¶</a></h2>
+<p>Install the EPD on Linux by following the instructions for
+<a class="reference internal" href="../installation/linux.html#linux-nonroot"><em>User install of EPD without root</em></a>.  Then download the appropriate Sherpa egg for your Linux
+architecture</p>
 <blockquote>
 <table border="1" class="docutils">
 <colgroup>
@@ -441,21 +429,6 @@ the install wizard.</p>
 </blockquote>
 <p>Install Sherpa into your EPD installation using easy_install:</p>
 <div class="highlight-python"><pre>easy_install sherpa-4.3.0-EPD-7.0-linux-x86.egg</pre>
-</div>
-</div>
-<div class="section" id="install-notes-for-linux-users-using-head-network-installation">
-<h2>Install Notes for Linux Users using HEAD network installation<a class="headerlink" href="#install-notes-for-linux-users-using-head-network-installation" title="Permalink to this headline">¶</a></h2>
-<p>Users relying on the Python located in /usr/local/bin accessible from their CfA
-HEAD managed Linux machine can install Sherpa as an egg to their own directory</p>
-<p>Download the Sherpa egg</p>
-<p><a class="reference external" href="http://cxc.cfa.harvard.edu/contrib/sherpa/downloads/sherpa-4.3.0-py2.6-rh5-x86_64.egg">sherpa-4.3.0-py2.6-rh5-x86_64.egg</a></p>
-<p>Install Sherpa into your own directory using easy_install:</p>
-<div class="highlight-python"><pre>easy_install --user sherpa-4.3.0-py2.6-rh5-x86_64.egg</pre>
-</div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The Sherpa installation includes a number of XSPEC spectral FITS tables, so
-consider storage of ~= 250MB for Sherpa in your home directory.</p>
 </div>
 </div>
 <div class="section" id="try-it-out">
@@ -516,9 +489,14 @@ on your PATH&#8217;</p>
           <li><a href="fitting.html" >Fitting and Modeling 1-D and 2-D Data</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
-        &copy; Copyright 2011, Smithsonian Astrophysical Observatory.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
-    </div>
+ <small>Copyright:
+ Smithsonian Astrophysical Observatory under terms of
+ <a rel="license"
+ href="http://creativecommons.org/licenses/by/3.0/">CC
+ Attribution 3.0</a></small> <a rel="license"
+ href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons
+ License" style="border-width:0"
+ src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
+
   </body>
 </html>

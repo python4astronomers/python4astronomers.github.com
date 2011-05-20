@@ -23,9 +23,6 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Python4Astronomers v1.0 documentation" href="../index.html" />
-    <link rel="up" title="Installing Scientific Python" href="installation.html" />
-    <link rel="next" title="Linux self-managed machine" href="linux-self.html" />
-    <link rel="prev" title="Installing Scientific Python" href="installation.html" />
  
 <script type="text/javascript"> 
 $(document).ready(function(){
@@ -265,14 +262,7 @@ display:none;
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="linux-self.html" title="Linux self-managed machine"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="installation.html" title="Installing Scientific Python"
-             accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers v1.0 documentation</a> &raquo;</li>
-          <li><a href="installation.html" accesskey="U">Installing Scientific Python</a> &raquo;</li> 
+        <li><a href="../index.html">Python4Astronomers v1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
@@ -281,11 +271,16 @@ display:none;
   <ul>
 <li><a class="reference internal" href="#">Mac OSX</a><ul>
 <li><a class="reference internal" href="#enthought-python-distribution-epd">Enthought Python Distribution (EPD)</a></li>
+<li><a class="reference internal" href="#quick-installation-check">Quick installation check</a></li>
 <li><a class="reference internal" href="#macos-x-developer-tools">MacOS X Developer Tools</a></li>
 <li><a class="reference internal" href="#fortran-optional">Fortran (Optional)</a></li>
-<li><a class="reference internal" href="#additional-packages">Additional packages</a></li>
 <li><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
-<li><a class="reference internal" href="#path">Path</a></li>
+<li><a class="reference internal" href="#path">Path</a><ul>
+<li><a class="reference internal" href="#step-1">Step 1</a></li>
+<li><a class="reference internal" href="#step-2">Step 2</a></li>
+<li><a class="reference internal" href="#step-3">Step 3</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#vs-64-bit">32 vs. 64 bit</a></li>
 </ul>
 </li>
@@ -293,12 +288,6 @@ display:none;
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="installation.html"
-                        title="previous chapter">Installing Scientific Python</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="linux-self.html"
-                        title="next chapter">Linux self-managed machine</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="../_sources/installation/macosx.txt"
@@ -329,25 +318,20 @@ display:none;
 <span id="id1"></span><h1>Mac OSX<a class="headerlink" href="#mac-osx" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="enthought-python-distribution-epd">
 <h2>Enthought Python Distribution (EPD)<a class="headerlink" href="#enthought-python-distribution-epd" title="Permalink to this headline">¶</a></h2>
-<p>First download the appropriate Mac OSX EPD installer from <a class="reference external" href="http://cxc.cfa.harvard.edu/contrib/python4astronomers">this</a> page.
-The user name and password were emailed to the pythonusers mailing list.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">If you are using MacOS X 10.5 or 10.6 on an Intel Mac, you can
-either install the 32-bit or 64-bit version of EPD 7.0.2. To
-determine whether you have a 32-bit or 64-bit processor, see
-<a class="reference external" href="http://support.apple.com/kb/ht3696">this page</a>. If you have a
-64-bit processor, we strongly recommend that you install the
-64-bit version of EPD (<tt class="docutils literal"><span class="pre">epd-7.0-2-macosx-x86_64.dmg</span></tt>).
-Otherwise, you will need the 32-bit version
-(<tt class="docutils literal"><span class="pre">epd-7.0-2-macosx-i386.dmg</span></tt>). If you are using a PPC or Intel
-Mac with MacOS X 10.4, you will need to download an older 32-bit
-version (<tt class="docutils literal"><span class="pre">epd_py25-4.2.30201-macosx-u.dmg</span></tt>).</p>
-</div>
-<p>After downloading the disk image, open it, then double-click on
+<p>Assuming that you have downloaded the EPD disk image, open it, then double-click on
 <tt class="docutils literal"><span class="pre">EPD.mpkg</span></tt> and follow the prompts to install. Choose all the defaults for
 installing (in particular use the default installation location).</p>
-<p>Optionally, you can go over to the <a class="reference external" href="http://www.enthought.com/products/epdgetstart.php?platform=mac">Getting Started with EPD</a> page.</p>
+<p>Additional information can be found on the <a class="reference external" href="http://www.enthought.com/products/epdgetstart.php?platform=mac">Getting Started with EPD</a> page.</p>
+</div>
+<div class="section" id="quick-installation-check">
+<h2>Quick installation check<a class="headerlink" href="#quick-installation-check" title="Permalink to this headline">¶</a></h2>
+<p>Open a new terminal window and type:</p>
+<div class="highlight-python"><pre>which ipython</pre>
+</div>
+<p>You should see something like:</p>
+<blockquote>
+/Library/Frameworks/EPD64.framework/Versions/Current/bin/ipython</blockquote>
+<p>If not go to the <a class="reference internal" href="#troubleshooting">Troubleshooting</a> section.</p>
 </div>
 <div class="section" id="macos-x-developer-tools">
 <h2>MacOS X Developer Tools<a class="headerlink" href="#macos-x-developer-tools" title="Permalink to this headline">¶</a></h2>
@@ -403,37 +387,37 @@ i686-apple-darwin8-gfortran-4.2: no input files</pre>
 <p>If you get <tt class="docutils literal"><span class="pre">gfortran:</span> <span class="pre">command</span> <span class="pre">not</span> <span class="pre">found</span></tt>, then <tt class="docutils literal"><span class="pre">gfortran</span></tt> did not
 install correctly.</p>
 </div>
-<div class="section" id="additional-packages">
-<h2>Additional packages<a class="headerlink" href="#additional-packages" title="Permalink to this headline">¶</a></h2>
-<p>Next open a terminal window and do the following to install additional packages needed for the workshop:</p>
-<div class="highlight-python"><pre>easy_install asciitable
-easy_install http://www.stsci.edu/resources/software_hardware/pyfits/pyfits-2.4.0.tar.gz
-easy_install pywcs
-easy_install atpy
-easy_install aplpy
-easy_install http://stsdas.stsci.edu/astrolib/vo-0.6.tar.gz
-easy_install http://stsdas.stsci.edu/astrolib/coords-0.37.tar.gz
-easy_install pyparsing
-easy_install pyregion</pre>
-</div>
-<p>Now go back to the <a class="reference internal" href="installation.html#installation-test"><em>Tests</em></a> section to verify everything is working.</p>
-</div>
 <div class="section" id="troubleshooting">
 <h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="path">
 <h3>Path<a class="headerlink" href="#path" title="Permalink to this headline">¶</a></h3>
-<p>If EPD installed successfully and you can start <tt class="docutils literal"><span class="pre">python</span></tt> but not <tt class="docutils literal"><span class="pre">ipython</span></tt> (error message
-like <tt class="docutils literal"><span class="pre">ipython:</span> <span class="pre">command</span> <span class="pre">not</span> <span class="pre">found</span></tt>) then there is likely a problem with your PATH.</p>
-<p>First, determine if you are running csh/tcsh or bash with the following command:</p>
-<div class="highlight-python"><pre>echo $SHELL</pre>
+<p>If EPD installed successfully and you can start <tt class="docutils literal"><span class="pre">python</span></tt> but not <tt class="docutils literal"><span class="pre">ipython</span></tt>
+(error message like <tt class="docutils literal"><span class="pre">ipython:</span> <span class="pre">command</span> <span class="pre">not</span> <span class="pre">found</span></tt>) then there is likely a
+problem with your PATH.</p>
+<div class="section" id="step-1">
+<h4>Step 1<a class="headerlink" href="#step-1" title="Permalink to this headline">¶</a></h4>
+<p>Are you sure you opened a new terminal window after the installation finished?</p>
 </div>
-<p>For <tt class="docutils literal"><span class="pre">/bin/csh</span></tt> or <tt class="docutils literal"><span class="pre">/bin/tcsh</span></tt> you should edit the file <tt class="docutils literal"><span class="pre">~/.cshrc</span></tt> and add the following lines at the end:</p>
+<div class="section" id="step-2">
+<h4>Step 2<a class="headerlink" href="#step-2" title="Permalink to this headline">¶</a></h4>
+<p>Try this in a new terminal window:</p>
+<div class="highlight-python"><pre>echo $PATH</pre>
+</div>
+<p>If you do not see something like
+<tt class="docutils literal"><span class="pre">/Library/Frameworks/EPD64.framework/Versions/Current/bin</span></tt> in your path then go
+to step 3.</p>
+</div>
+<div class="section" id="step-3">
+<h4>Step 3<a class="headerlink" href="#step-3" title="Permalink to this headline">¶</a></h4>
+<p>Determine if you are running csh/tcsh or bash by entering the command <tt class="docutils literal"><span class="pre">ps</span></tt> in a terminal window.
+For <tt class="docutils literal"><span class="pre">csh</span></tt> or <tt class="docutils literal"><span class="pre">tcsh</span></tt> you should edit the file <tt class="docutils literal"><span class="pre">~/.cshrc</span></tt> and add the following lines at the end:</p>
 <div class="highlight-python"><pre># Setting PATH for Enthough Python Distribution
 set path=(/Library/Frameworks/EPD64.framework/Versions/Current/bin $path)</pre>
 </div>
-<p>For <tt class="docutils literal"><span class="pre">/bin/bash</span></tt> you should edit the file <tt class="docutils literal"><span class="pre">~/.bash_profile</span></tt> and add the following lines at the end:</p>
+<p>For <tt class="docutils literal"><span class="pre">bash</span></tt> you should edit the file <tt class="docutils literal"><span class="pre">~/.bash_profile</span></tt> and add the following lines at the end:</p>
 <div class="highlight-python"><pre># Setting PATH for Enthough Python Distribution
 export PATH=/Library/Frameworks/EPD64.framework/Versions/Current/bin:$PATH</pre>
+</div>
 </div>
 </div>
 <div class="section" id="vs-64-bit">
@@ -449,7 +433,7 @@ sudo rm -rf 7.0
 cd /Applications
 sudo rm -rf Enthought</pre>
 </div>
-<p>then download and install EPD 7.0.2 32-bit (<tt class="docutils literal"><span class="pre">epd-7.0-2-macosx-i386.dmg</span></tt>).</p>
+<p>then download and install EPD 7.0.2 32-bit.</p>
 </div>
 </div>
 </div>
@@ -466,19 +450,17 @@ sudo rm -rf Enthought</pre>
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              >index</a></li>
-        <li class="right" >
-          <a href="linux-self.html" title="Linux self-managed machine"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="installation.html" title="Installing Scientific Python"
-             >previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers v1.0 documentation</a> &raquo;</li>
-          <li><a href="installation.html" >Installing Scientific Python</a> &raquo;</li> 
+        <li><a href="../index.html">Python4Astronomers v1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
-        &copy; Copyright 2011, Smithsonian Astrophysical Observatory.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
-    </div>
+ <small>Copyright:
+ Smithsonian Astrophysical Observatory under terms of
+ <a rel="license"
+ href="http://creativecommons.org/licenses/by/3.0/">CC
+ Attribution 3.0</a></small> <a rel="license"
+ href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons
+ License" style="border-width:0"
+ src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
+
   </body>
 </html>

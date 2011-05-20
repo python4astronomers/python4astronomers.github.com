@@ -1,0 +1,504 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Linux &mdash; Python4Astronomers v1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Python4Astronomers v1.0 documentation" href="../index.html" />
+ 
+<script type="text/javascript"> 
+$(document).ready(function(){
+
+$(".flip0").click(function(){
+    $(".panel0").slideToggle("normal");
+  });
+
+$(".flip1").click(function(){
+    $(".panel1").slideToggle("normal");
+  });
+
+$(".flip2").click(function(){
+    $(".panel2").slideToggle("normal");
+  });
+
+$(".flip3").click(function(){
+    $(".panel3").slideToggle("normal");
+  });
+
+$(".flip4").click(function(){
+    $(".panel4").slideToggle("normal");
+  });
+
+$(".flip5").click(function(){
+    $(".panel5").slideToggle("normal");
+  });
+
+$(".flip6").click(function(){
+    $(".panel6").slideToggle("normal");
+  });
+
+$(".flip7").click(function(){
+    $(".panel7").slideToggle("normal");
+  });
+
+$(".flip8").click(function(){
+    $(".panel8").slideToggle("normal");
+  });
+
+$(".flip9").click(function(){
+    $(".panel9").slideToggle("normal");
+  });
+
+});
+</script>
+ 
+<style type="text/css"> 
+
+div.panel0,p.flip0
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip0
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel0
+{
+display:none;
+}
+
+div.panel1,p.flip1
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip1
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel1
+{
+display:none;
+}
+
+div.panel2,p.flip2
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip2
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel2
+{
+display:none;
+}
+
+div.panel3,p.flip3
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip3
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel3
+{
+display:none;
+}
+
+div.panel4,p.flip4
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip4
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel4
+{
+display:none;
+}
+
+div.panel5,p.flip5
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip5
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel5
+{
+display:none;
+}
+
+div.panel6,p.flip6
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip6
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel6
+{
+display:none;
+}
+
+div.panel7,p.flip7
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip7
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel7
+{
+display:none;
+}
+
+div.panel8,p.flip8
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip8
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel8
+{
+display:none;
+}
+
+div.panel9,p.flip9
+{
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.5em;
+    border-bottom: 1px solid #86989B;
+}
+p.flip9
+{
+    color: white;
+    font-weight: bold;
+    background-color: #AFC1C4;
+}
+div.panel9
+{
+display:none;
+}
+
+</style>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="../index.html">Python4Astronomers v1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Linux</a><ul>
+<li><a class="reference internal" href="#system-install-with-root">System install with root</a><ul>
+<li><a class="reference internal" href="#quick-installation-check">Quick installation check</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#user-install-of-epd-without-root">User install of EPD without root</a><ul>
+<li><a class="reference internal" href="#id1">Quick installation check</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#alternate-non-root-setup-with-existing-python">Alternate non-root setup with existing Python</a><ul>
+<li><a class="reference internal" href="#update-path">Update path</a><ul>
+<li><a class="reference internal" href="#option-a-put-pythonroot-in-path">Option A: put $PYTHONROOT in path</a></li>
+<li><a class="reference internal" href="#option-b-put-local-bin-in-path">Option B: put ~/.local/bin in path</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id2">Quick installation check</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/installation/linux.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="linux">
+<h1>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h1>
+<p>There are three options for a linux Python installation that we describe:</p>
+<ul class="simple">
+<li>System install in /usr/bin and /usr/lib where you have root privilege</li>
+<li>User installation of EPD in a non-system directory without root</li>
+<li>Non-root setup with an existing full-featured Python on the system</li>
+</ul>
+<div class="section" id="system-install-with-root">
+<h2>System install with root<a class="headerlink" href="#system-install-with-root" title="Permalink to this headline">¶</a></h2>
+<p>For a modern linux installation such as Ubuntu 10, the system Python version
+will be 2.6 or newer and all of the required core packages are available as
+package installs.  The instructions below have been developed and tested with
+Ubuntu 10.  Corresponding packages for recent Fedora are probably available but
+this has not been verified.  In this case you will NOT use the Enthought Python
+Distribution.</p>
+<p>The benefit of using a root install via the system package manager is that it
+is simple and all dependencies are managed for you.  The downside is that the
+package versions tend to be older and so you don&#8217;t keep up with the latest
+code development.  In Ubuntu 10 the core packages (NumPy, Matplotlib) are a
+year or so out of date.  Unless you are really pushing for the latest features,
+the older stable versions will work perfectly well.</p>
+<p>Install the core packages for analysis with the following:</p>
+<div class="highlight-python"><pre>sudo apt-get install python-dev
+sudo apt-get install ipython
+sudo apt-get install python-numpy
+sudo apt-get install python-scipy
+sudo apt-get install python-matplotlib
+sudo apt-get install python-setuptools</pre>
+</div>
+<div class="section" id="quick-installation-check">
+<h3>Quick installation check<a class="headerlink" href="#quick-installation-check" title="Permalink to this headline">¶</a></h3>
+<p>Open a new terminal window and type:</p>
+<div class="highlight-python"><pre>which ipython</pre>
+</div>
+<p>You should see:</p>
+<div class="highlight-python"><pre>/usr/bin/ipython</pre>
+</div>
+</div>
+</div>
+<div class="section" id="user-install-of-epd-without-root">
+<span id="linux-nonroot"></span><h2>User install of EPD without root<a class="headerlink" href="#user-install-of-epd-without-root" title="Permalink to this headline">¶</a></h2>
+<p>Assuming that you have downloaded the appropriate EPD tar file for your system,
+follow the instructions for <a class="reference external" href="http://www.enthought.com/products/epdgetstart.php?platform=linux">Getting Started with EPD</a> for Linux.</p>
+<p>Once installed then follow the Getting Started page and look at Pylab and plain
+Python.</p>
+<p>Next you need to edit the appropriate shell startup file (e.g. <tt class="docutils literal"><span class="pre">~/.cshrc</span></tt> or
+<tt class="docutils literal"><span class="pre">~/.bash_profile</span></tt>) and update your path to include the EPD path.  For
+instance if you specified to install EPD in <tt class="docutils literal"><span class="pre">/home/me/epd7.0</span></tt> then the
+following will work:</p>
+<div class="highlight-python"><pre>export PATH=/home/me/epd7.0/bin:$PATH  # bash
+set path=(/home/me/epd7.0/bin $path)   # csh or tcsh</pre>
+</div>
+<div class="section" id="id1">
+<h3>Quick installation check<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Open a new terminal window and type:</p>
+<div class="highlight-python"><pre>which ipython</pre>
+</div>
+<p>You should see (where <tt class="docutils literal"><span class="pre">/home/me/epd7.0</span></tt> is replaced by your installation root
+path):</p>
+<div class="highlight-python"><pre>/home/me/epd7.0/bin/ipython</pre>
+</div>
+</div>
+</div>
+<div class="section" id="alternate-non-root-setup-with-existing-python">
+<h2>Alternate non-root setup with existing Python<a class="headerlink" href="#alternate-non-root-setup-with-existing-python" title="Permalink to this headline">¶</a></h2>
+<p>If you are using a computer on a system managed network which has Python 2.6 or
+2.7 installed along with NumPy, SciPy, IPython, and matplotlib, then you might
+want to look at the following.  This setup assumes you do not have root
+privilege.</p>
+<p>The main configuration that is needed is to set up your path to use the correct
+Python version. Assume that the Python installation is installed in the root
+directory <tt class="docutils literal"><span class="pre">$PYTHONROOT</span></tt>, so that you find <tt class="docutils literal"><span class="pre">python</span></tt> and <tt class="docutils literal"><span class="pre">ipython</span></tt> in
+<tt class="docutils literal"><span class="pre">$PYTHONROOT/bin</span></tt>.</p>
+<div class="section" id="update-path">
+<h3>Update path<a class="headerlink" href="#update-path" title="Permalink to this headline">¶</a></h3>
+<p>There are a couple of ways to do this.</p>
+<div class="section" id="option-a-put-pythonroot-in-path">
+<h4>Option A: put $PYTHONROOT in path<a class="headerlink" href="#option-a-put-pythonroot-in-path" title="Permalink to this headline">¶</a></h4>
+<p>Put <tt class="docutils literal"><span class="pre">$PYTHONROOT/bin</span></tt> directly in your path:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="22%" />
+<col width="69%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Shell</th>
+<th class="head">File</th>
+<th class="head">Command</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>csh</td>
+<td>~/.myrc</td>
+<td><tt class="docutils literal"><span class="pre">set</span> <span class="pre">path=($PYTHONROOT/bin</span> <span class="pre">$path)</span></tt></td>
+</tr>
+<tr><td>bash</td>
+<td>~/.bashrc</td>
+<td><tt class="docutils literal"><span class="pre">export</span> <span class="pre">PATH=$PYTHONROOT/bin:$PATH</span></tt></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="option-b-put-local-bin-in-path">
+<h4>Option B: put ~/.local/bin in path<a class="headerlink" href="#option-b-put-local-bin-in-path" title="Permalink to this headline">¶</a></h4>
+<p>A slight variation occurs if the $PYTHONROOT path is actually a directory with
+a bunch of other stuff that you might not want at the top of your path.  This
+is the situation on a system-managed network at the Harvard CfA: the &#8220;modern&#8221;
+Python 2.6 installation is in /usr/local/bin, but this happens to have a lot of
+other stuff that is not expected to be in front of /usr/bin by the system
+managers.  Hence putting /usr/local/bin first is risky.</p>
+<p>In this case we make an end run and put links into a special directory
+<tt class="docutils literal"><span class="pre">~/.local</span></tt>, which is basically a private user version of /usr/local.</p>
+<blockquote>
+mkdir -p ~/.local/bin
+cd ~/.local/bin
+ln -s $PYTHONROOT/bin/python ./
+ln -s $PYTHONROOT/bin/ipython ./
+ln -s $PYTHONROOT/bin/easy_install ./</blockquote>
+<p>Now update your shell initialization file:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="22%" />
+<col width="69%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Shell</th>
+<th class="head">File</th>
+<th class="head">Command</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>csh</td>
+<td>~/.cshrc.user</td>
+<td><tt class="docutils literal"><span class="pre">set</span> <span class="pre">path=($HOME/.local/bin</span> <span class="pre">$path)</span></tt></td>
+</tr>
+<tr><td>bash</td>
+<td>~/.bashrc</td>
+<td><tt class="docutils literal"><span class="pre">export</span> <span class="pre">PATH=$HOME/.local/bin:$PATH</span></tt></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Quick installation check<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Open a new terminal window and type:</p>
+<div class="highlight-python"><pre>which ipython</pre>
+</div>
+<p>You should see one of the following two (for options A and B respectively):</p>
+<div class="highlight-python"><pre>$PYTHONPATH/bin/ipython    # option A
+$HOME/.local/bin/ipython   # option B</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="../index.html">Python4Astronomers v1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+ <small>Copyright:
+ Smithsonian Astrophysical Observatory under terms of
+ <a rel="license"
+ href="http://creativecommons.org/licenses/by/3.0/">CC
+ Attribution 3.0</a></small> <a rel="license"
+ href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons
+ License" style="border-width:0"
+ src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
+
+  </body>
+</html>

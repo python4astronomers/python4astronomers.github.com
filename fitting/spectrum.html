@@ -25,7 +25,7 @@
     <link rel="top" title="Python4Astronomers v1.0 documentation" href="../index.html" />
     <link rel="up" title="Fitting and Modeling 1-D and 2-D Data" href="fitting.html" />
     <link rel="next" title="2-D Fitting in Sherpa" href="image.html" />
-    <link rel="prev" title="Sherpa" href="sherpa.html" />
+    <link rel="prev" title="Sherpa Overview" href="sherpa.html" />
  
 <script type="text/javascript"> 
 $(document).ready(function(){
@@ -269,7 +269,7 @@ display:none;
           <a href="image.html" title="2-D Fitting in Sherpa"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="sherpa.html" title="Sherpa"
+          <a href="sherpa.html" title="Sherpa Overview"
              accesskey="P">previous</a> |</li>
         <li><a href="../index.html">Python4Astronomers v1.0 documentation</a> &raquo;</li>
           <li><a href="fitting.html" accesskey="U">Fitting and Modeling 1-D and 2-D Data</a> &raquo;</li> 
@@ -279,7 +279,7 @@ display:none;
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="sherpa.html"
-                        title="previous chapter">Sherpa</a></p>
+                        title="previous chapter">Sherpa Overview</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="image.html"
                         title="next chapter">2-D Fitting in Sherpa</a></p>
@@ -325,7 +325,8 @@ namespace named <tt class="docutils literal"><span class="pre">ui</span></tt>:</
 <p>Read in the columns from the FITS file and load the arrays into a Sherpa data
 set:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">dat</span> <span class="o">=</span> <span class="n">pyfits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;3c273.fits&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
-<span class="n">ui</span><span class="o">.</span><span class="n">load_arrays</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">dat</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="s">&#39;WAVELENGTH&#39;</span><span class="p">),</span> <span class="n">dat</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="s">&#39;FLUX&#39;</span><span class="p">)</span><span class="o">*</span><span class="mf">1e14</span><span class="p">,</span> <span class="n">dat</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="s">&#39;FLUX&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.02e14</span><span class="p">)</span>
+<span class="n">ui</span><span class="o">.</span><span class="n">load_arrays</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">dat</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="s">&#39;WAVELENGTH&#39;</span><span class="p">),</span> <span class="n">dat</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="s">&#39;FLUX&#39;</span><span class="p">)</span><span class="o">*</span><span class="mf">1e14</span><span class="p">,</span>
+               <span class="n">dat</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="s">&#39;FLUX&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.02e14</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Filter the spectral coordinates from 3000 to 5700 Angstroms and plot the
@@ -451,15 +452,20 @@ fitting:</p>
           <a href="image.html" title="2-D Fitting in Sherpa"
              >next</a> |</li>
         <li class="right" >
-          <a href="sherpa.html" title="Sherpa"
+          <a href="sherpa.html" title="Sherpa Overview"
              >previous</a> |</li>
         <li><a href="../index.html">Python4Astronomers v1.0 documentation</a> &raquo;</li>
           <li><a href="fitting.html" >Fitting and Modeling 1-D and 2-D Data</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
-        &copy; Copyright 2011, Smithsonian Astrophysical Observatory.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
-    </div>
+ <small>Copyright:
+ Smithsonian Astrophysical Observatory under terms of
+ <a rel="license"
+ href="http://creativecommons.org/licenses/by/3.0/">CC
+ Attribution 3.0</a></small> <a rel="license"
+ href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons
+ License" style="border-width:0"
+ src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
+
   </body>
 </html>

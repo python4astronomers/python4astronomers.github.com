@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Installing Scientific Python &mdash; Python4Astronomers v1.0 documentation</title>
+    <title>Python Installation and Understanding Packages &mdash; Python4Astronomers v1.0 documentation</title>
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -23,8 +23,8 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Python4Astronomers v1.0 documentation" href="../index.html" />
-    <link rel="next" title="Mac OSX" href="macosx.html" />
-    <link rel="prev" title="Python requirements" href="../intro/python-requirements.html" />
+    <link rel="next" title="Installing Scientific Python" href="python_install.html" />
+    <link rel="prev" title="Logistics and open discussion" href="../intro/wrapup.html" />
  
 <script type="text/javascript"> 
 $(document).ready(function(){
@@ -265,62 +265,22 @@ display:none;
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="macosx.html" title="Mac OSX"
+          <a href="python_install.html" title="Installing Scientific Python"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="../intro/python-requirements.html" title="Python requirements"
+          <a href="../intro/wrapup.html" title="Logistics and open discussion"
              accesskey="P">previous</a> |</li>
         <li><a href="../index.html">Python4Astronomers v1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Installing Scientific Python</a><ul>
-<li><a class="reference internal" href="#enthought-python-distribution">Enthought Python Distribution</a></li>
-<li><a class="reference internal" href="#installation">Installation</a><ul>
-<li><a class="reference internal" href="#epd-downloads">EPD downloads</a></li>
-<li><a class="reference internal" href="#instructions">Instructions</a><ul>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#python-requirements">Python requirements</a><ul>
-<li><a class="reference internal" href="#core">Core</a></li>
-<li><a class="reference internal" href="#astro-required">Astro: required</a></li>
-<li><a class="reference internal" href="#astro-useful">Astro: useful</a></li>
-<li><a class="reference internal" href="#tests">Tests</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#try-it-out">Try it out!</a><ul>
-<li><a class="reference internal" href="#setup">Setup</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#modules-packages-and-all-that">Modules, Packages, and all that</a></li>
-<li><a class="reference internal" href="#finding-and-installing-other-packages">Finding and installing other packages</a><ul>
-<li><a class="reference internal" href="#package-resources">Package resources</a></li>
-<li><a class="reference internal" href="#package-installation">Package installation</a></li>
-<li><a class="reference internal" href="#where-to-packages-get-installed">Where to packages get installed?</a><ul>
-<li><a class="reference internal" href="#with-user">WITH <tt class="docutils literal"><span class="pre">--user</span></tt></a></li>
-<li><a class="reference internal" href="#without-user">WITHOUT <tt class="docutils literal"><span class="pre">--user</span></tt></a></li>
-<li><a class="reference internal" href="#how-do-i-find-a-package-once-installed">How do I find a package once installed?</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#uninstalling-packages">Uninstalling packages</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#final-exercises">Final exercises</a></li>
-</ul>
-</li>
-</ul>
-
   <h4>Previous topic</h4>
-  <p class="topless"><a href="../intro/python-requirements.html"
-                        title="previous chapter">Python requirements</a></p>
+  <p class="topless"><a href="../intro/wrapup.html"
+                        title="previous chapter">Logistics and open discussion</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="macosx.html"
-                        title="next chapter">Mac OSX</a></p>
+  <p class="topless"><a href="python_install.html"
+                        title="next chapter">Installing Scientific Python</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="../_sources/installation/installation.txt"
@@ -347,22 +307,33 @@ display:none;
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="installing-scientific-python">
-<h1>Installing Scientific Python<a class="headerlink" href="#installing-scientific-python" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="python-installation-and-understanding-packages">
+<span id="installing-scientific-python"></span><h1>Python Installation and Understanding Packages<a class="headerlink" href="#python-installation-and-understanding-packages" title="Permalink to this headline">¶</a></h1>
 <p>Installing the Python language itself on most platforms is generally very easy.
 However, installing the other core packages that you will need in day to day
-work can be more of a challenge.</p>
+work can be more of a challenge.  In addition the basic mechanics behind
+package management can be confusing at first sight.</p>
 <p>Workshop goals:</p>
 <ul class="simple">
 <li>Install Python and all packages needed for the rest of the workshops</li>
+<li>Understand the concept of Python modules and packages</li>
 <li>Learn how to find and install other 3rd party packages:<ul>
 <li>PyPI</li>
-<li>using easy_install</li>
+<li>using pip install</li>
 <li>using python setup.py install</li>
 </ul>
 </li>
-<li>Learn where Python files live</li>
+<li>Know where Python files live</li>
+<li>Learn how to solve installation problems</li>
+<li>Understand the issues involved with multiple Python installations</li>
 </ul>
+<p><strong>Agenda</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="python_install.html">Installing Scientific Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packages.html">Modules, Packages, and all that</a></li>
+</ul>
+</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -373,540 +344,6 @@ work can be more of a challenge.</p>
 </tr>
 </tbody>
 </table>
-<div class="section" id="enthought-python-distribution">
-<h2>Enthought Python Distribution<a class="headerlink" href="#enthought-python-distribution" title="Permalink to this headline">¶</a></h2>
-<p>For Windows, MacOS and linux non-root installation we will make use of the
-<a class="reference external" href="http://www.enthought.com/products/epd.php">Enthought Python Distribution</a>
-(EPD).  <a class="reference external" href="http://www.enthought.com">Enthought</a> is the company which leads most
-of the development of <a class="reference external" href="http://numpy.scipy.org/">NumPy</a> and <a class="reference external" href="http://scipy.org/">SciPy</a>.  They provide a bundled binary
-distribution of Python with a large set of useful packages built in.  The
-<a class="reference external" href="http://www.enthought.com/products/edudownload.php">Academic version</a> of EPD
-is free for use by students or employees of a degree-granting institution
-(i.e. Harvard but not SAO) as specified in the <a class="reference external" href="http://www.enthought.com/EPDAcademicTerms.html">license terms</a>.</p>
-<p><em>By special permission
-from Enthought, all tutorial participants are allowed use the Academic EPD
-downloads we are providing.</em></p>
-<p>However, please do not distribute these files to others without express permission.</p>
-</div>
-<div class="section" id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<p>In order to follow along with the examples to be presented in the workshops
-your Python installation will need to meet the <a class="reference internal" href="#python-requirements">Python requirements</a>.  The aim
-of this workshop is to get this set up correctly. Once you have followed the
-installation instructions in the next section for your platform then go to the
-<a class="reference internal" href="#tests">Tests</a> section to see if everything is OK</p>
-<p>The installation process is particular to each platform.  For all options
-except &#8220;Linux on HEAD or CF network&#8221; you will need the EPD download as
-discussed in the next section.</p>
-<div class="section" id="epd-downloads">
-<h3>EPD downloads<a class="headerlink" href="#epd-downloads" title="Permalink to this headline">¶</a></h3>
-<p>For workshop participants the Enthought Python Distribution download files have been
-mirrored to the <a class="reference external" href="http://cxc.cfa.harvard.edu/contrib/python4astronomers">EPD downloads</a> page.  The user name
-and password were emailed to the pythonusers mailing list on March 18.</p>
-</div>
-<div class="section" id="instructions">
-<h3>Instructions<a class="headerlink" href="#instructions" title="Permalink to this headline">¶</a></h3>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="macosx.html">Mac OSX</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="macosx.html#enthought-python-distribution-epd">Enthought Python Distribution (EPD)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="macosx.html#macos-x-developer-tools">MacOS X Developer Tools</a></li>
-<li class="toctree-l2"><a class="reference internal" href="macosx.html#fortran-optional">Fortran (Optional)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="macosx.html#additional-packages">Additional packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="macosx.html#troubleshooting">Troubleshooting</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="linux-self.html">Linux self-managed machine</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="linux-self.html#system-install-with-root">System install with root</a></li>
-<li class="toctree-l2"><a class="reference internal" href="linux-self.html#user-install-without-root">User install without root</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="linux-network.html">Linux on HEAD or CF network</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="linux-network.html#path-configuration">Path configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="linux-network.html#additional-packages">Additional packages</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="windows.html">Windows</a></li>
-<li class="toctree-l1"><a class="reference internal" href="package-basics.html">Basics of Python Packages</a></li>
-</ul>
-</div>
-</div>
-</div>
-<div class="section" id="python-requirements">
-<h2>Python requirements<a class="headerlink" href="#python-requirements" title="Permalink to this headline">¶</a></h2>
-<p>Following are a list of required and optional (but useful) packages for the workshops.</p>
-<div class="section" id="core">
-<h3>Core<a class="headerlink" href="#core" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li>Python 2.6 or 2.7 (not Python 3.x <a class="footnote-reference" href="#id4" id="id3">[1]</a>)</li>
-<li>IPython &gt;= 0.10</li>
-<li>NumPy &gt;= 1.3</li>
-<li>SciPy &gt;= 0.7.2</li>
-<li>Matplotlib &gt;= 0.99</li>
-<li>setuptools &gt;= 0.6c11</li>
-</ul>
-<table class="docutils footnote" frame="void" id="id4" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id3">[1]</a></td><td>Python 3.x is the &#8220;next generation&#8221; Python but for astronomy analysis
-Python 2.x is still the best choice.</td></tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="astro-required">
-<h3>Astro: required<a class="headerlink" href="#astro-required" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable">asciitable</a> &gt;= 0.5.0</li>
-<li><a class="reference external" href="http://www.stsci.edu/resources/software_hardware/pyfits">pyfits</a> &gt;= 2.3.0</li>
-<li><a class="reference external" href="https://trac6.assembla.com/astrolib">pywcs</a> &gt;= 1.9 ()</li>
-<li><a class="reference external" href="http://atpy.github.com">ATpy</a> &gt;= 0.9.4</li>
-<li><a class="reference external" href="http://aplpy.github.com">APLpy</a> &gt;= 0.9.5 (pyparsing, pyregion, PIL, montage are optional but useful)</li>
-</ul>
-</div>
-<div class="section" id="astro-useful">
-<h3>Astro: useful<a class="headerlink" href="#astro-useful" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><a class="reference external" href="https://trac6.assembla.com/astrolib">coords</a></li>
-<li><a class="reference external" href="https://trac6.assembla.com/astrolib">vo.table</a></li>
-<li><a class="reference external" href="http://pyparsing.wikispaces.com/">pyparsing</a></li>
-<li><a class="reference external" href="http://leejjoon.github.com/pyregion/">pyregion</a></li>
-<li><a class="reference external" href="http://www.pythonware.com/products/pil">PIL</a></li>
-<li><a class="reference external" href="http://montage.ipac.caltech.edu/">Montage</a> (compiled application and library)</li>
-</ul>
-</div>
-<div class="section" id="tests">
-<span id="installation-test"></span><h3>Tests<a class="headerlink" href="#tests" title="Permalink to this headline">¶</a></h3>
-<p>To do a very basic test whether you meet the requirements and have a functioning
-core scientific Python installation, do the following and check version numbers:</p>
-<div class="highlight-python"><pre>% python -V
-% ipython -V
-% ipython -pylab
-import numpy
-import scipy
-import scipy.linalg
-
-print numpy.__version__
-print scipy.__version__
-print matplotlib.__version__
-
-x = numpy.linspace(0, 20, 100)
-plot(x, sin(x))
-print scipy.linalg.eig([[1,2],[3,4]])</pre>
-</div>
-<p>The commands above should succeed with no errors.  The version numbers should
-meet the requirements, and finally you should see a plot of a sine wave.</p>
-<p>To check the other required packages, do the following from within ipython:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">asciitable</span>
-<span class="kn">import</span> <span class="nn">pyfits</span>
-<span class="kn">import</span> <span class="nn">pywcs</span>
-<span class="kn">import</span> <span class="nn">atpy</span>
-<span class="kn">import</span> <span class="nn">aplpy</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="try-it-out">
-<h2>Try it out!<a class="headerlink" href="#try-it-out" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="setup">
-<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h3>
-<p>First download the <a class="reference external" href="install_examples.tar">install_examples.tar</a> tar file which has example data
-files that will be used in subsequent exercises.
-Then change to a working directory, untar the file, and start up IPython:</p>
-<div class="highlight-python"><pre>tar xvf ~/Downloads/install_examples.tar   # or wherever your browser puts downloads
-cd py4ast/install
-ls
-ipython -pylab</pre>
-</div>
-<div class="admonition tip">
-<p class="first admonition-title">Tip</p>
-<p>For all of the workshops you should always start Python using the command:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">ipython</span> <span class="o">-</span><span class="n">pylab</span>  <span class="c"># (for Windows start the Pylab application)</span>
-</pre></div>
-</div>
-<p>This will automatically load all of the main plotting functions from
-<a class="reference external" href="http://matplotlib.sourceforge.net/">Matplotlib</a> (e.g. <tt class="docutils literal"><span class="pre">plot()</span></tt>, <tt class="docutils literal"><span class="pre">hist()</span></tt>, and many more) as well as common
-math functions and array utilities from <a class="reference external" href="http://numpy.scipy.org/">NumPy</a> (e.g. <tt class="docutils literal"><span class="pre">sin()</span></tt>, <tt class="docutils literal"><span class="pre">exp()</span></tt>,
-<tt class="docutils literal"><span class="pre">array()</span></tt>, etc).</p>
-<p>In my <tt class="docutils literal"><span class="pre">~/.cshrc</span></tt> file I define an alias that I commonly use:</p>
-<div class="last highlight-python"><pre>alias pylab "ipython -pylab"</pre>
-</div>
-</div>
-<div class="admonition-exercise-read-a-table-and-examine-it admonition ">
-<p class="first admonition-title">Exercise: Read a table and examine it</p>
-<p>Look at the documentation for the <a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable/#reading-tables">asciitable.read()</a> function in
-<a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable">asciitable</a>.  Follow the very first example and use the <tt class="docutils literal"><span class="pre">read()</span></tt> function
-to read the data in the file <tt class="docutils literal"><span class="pre">table1.dat</span></tt> into the variable named <tt class="docutils literal"><span class="pre">data</span></tt>.</p>
-<p>This table is in the &#8220;ApJ machine-readable format&#8221; (which is actually a bit
-tricky for machines to read).  This is very similar to the table format used
-by CDS / Vizier for input and storage of tables in astronomy.</p>
-<p>Once you have read the table into the variable <tt class="docutils literal"><span class="pre">data</span></tt> then print the table,
-print the column <tt class="docutils literal"><span class="pre">RAdeg</span></tt>, and print the 3rd row.</p>
-<p>Hints:</p>
-<blockquote>
-<ul>
-<li><p class="first">You can print a <tt class="docutils literal"><span class="pre">&lt;variable&gt;</span></tt> by just typing <tt class="docutils literal"><span class="pre">print</span> <span class="pre">&lt;variable&gt;</span></tt> at the command line, for example <tt class="docutils literal"><span class="pre">print</span> <span class="pre">data</span></tt>.</p>
-</li>
-<li><p class="first">You can get tons of useful information about a variable with <tt class="docutils literal"><span class="pre">help</span></tt> or <tt class="docutils literal"><span class="pre">?</span></tt>:</p>
-<blockquote>
-<ul class="simple">
-<li><tt class="docutils literal"><span class="pre">help</span> <span class="pre">&lt;variable&gt;</span></tt></li>
-<li><tt class="docutils literal"><span class="pre">?</span> <span class="pre">&lt;variable&gt;</span></tt></li>
-</ul>
-</blockquote>
-<p>These two commands are pretty similar except that <tt class="docutils literal"><span class="pre">?</span></tt> gives a little bit more information
-and in a more raw form.</p>
-</li>
-<li><p class="first">The object returned by <tt class="docutils literal"><span class="pre">asciitable.read()</span></tt> is a NumPy record array,
-which is just a fancy way of saying a table where you can access rows or columns of data.</p>
-</li>
-<li><p class="first">You can get the column names and types with <tt class="docutils literal"><span class="pre">print</span> <span class="pre">data.dtype</span></tt></p>
-</li>
-<li><p class="first">To print a column of data use <tt class="docutils literal"><span class="pre">print</span> <span class="pre">data[&quot;&lt;column_name&gt;&quot;]</span></tt>, for example <tt class="docutils literal"><span class="pre">print</span> <span class="pre">data[&quot;Name&quot;]</span></tt></p>
-</li>
-<li><p class="first">To print a row of data use <tt class="docutils literal"><span class="pre">print</span> <span class="pre">data[&lt;row_number&gt;]</span></tt></p>
-</li>
-</ul>
-</blockquote>
-<p class="last">Optional: use the <a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib.pyplot.plot">plot</a> and
-<a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib.pyplot.hist">hist</a> functions to
-examine the data graphically.  For instance plot RAdeg versus DEdeg.  Look at the <tt class="docutils literal"><span class="pre">table1.dat</span></tt> file itself for
-detailed column descriptions.</p>
-</div>
-</div>
-</div>
-<div class="section" id="modules-packages-and-all-that">
-<h2>Modules, Packages, and all that<a class="headerlink" href="#modules-packages-and-all-that" title="Permalink to this headline">¶</a></h2>
-<p>One of the key features of Python is that the actual core language is fairly
-small.  This is an intentional design feature to maintain simplicity.  Much of
-the powerful functionality comes through external modules and packages.</p>
-<p>The main work of installation so far has been to supplement the core Python
-with useful modules for science analysis.</p>
-<p><strong>Module</strong></p>
-<p>A <a class="reference external" href="http://docs.python.org/tutorial/modules.html">module</a> is simply a file
-containing Python definitions, functions, and statements.  Putting code into
-modules is useful because of the ability to <a class="reference external" href="http://docs.python.org/reference/simple_stmts.html#import">import</a> the module
-functionality into your script or IPython session, for instance:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">atpy</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">atpy</span><span class="o">.</span><span class="n">Table</span><span class="p">(</span><span class="s">&#39;my_table.fits&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>You&#8217;ll see <tt class="docutils literal"><span class="pre">import</span></tt> in virtually every Python script and soon it will be
-second nature.</p>
-<dl class="docutils">
-<dt><em>Question</em>:</dt>
-<dd>Importing modules and putting the module name in front is such a bother,
-why do I need to do this?</dd>
-<dt><em>Answer</em>:</dt>
-<dd>It keeps everything modular and separate.  For instance many modules have a
-<tt class="docutils literal"><span class="pre">read()</span></tt> function since this is a common thing to do.  Without using the
-<tt class="docutils literal"><span class="pre">&lt;module&gt;.&lt;function&gt;(...)</span></tt> syntax there would be no way to know which one
-to call.</dd>
-</dl>
-<div class="admonition tip">
-<p class="first admonition-title">Tip</p>
-<p>Sometimes it is convenient to make an end-run around the <tt class="docutils literal"><span class="pre">&lt;module&gt;.</span></tt>
-prefixing.  For instance when you run <tt class="docutils literal"><span class="pre">ipython</span> <span class="pre">-pylab</span></tt> the interpreter
-does some startup processing so that a number of functions
-from the <a class="reference external" href="http://numpy.scipy.org/">numpy</a> and <a class="reference external" href="http://matplotlib.sourceforge.net/">matplotlib</a> modules are available <em>without</em>
-using the prefix.</p>
-<p>Python allows this with this syntax:</p>
-<div class="highlight-python"><pre>from &lt;module&gt; import *</pre>
-</div>
-<p>That means to import every function and definition from the module into the
-current namespace (in other words make them available without prefixing).
-For instance you could do:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">atpy</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="s">&#39;my_table.fits&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p class="last">A general rule of thumb is that <tt class="docutils literal"><span class="pre">from</span> <span class="pre">&lt;module&gt;</span> <span class="pre">import</span> <span class="pre">*</span></tt> is OK for
-interactive analysis within IPython but you should avoid using it within
-scripts.</p>
-</div>
-<p><strong>Package</strong></p>
-<p>A <a class="reference external" href="http://docs.python.org/tutorial/modules.html#packages">package</a> is just a
-way of collecting related modules together within a single tree-like
-hierarchy.  Very complex packages like <a class="reference external" href="http://numpy.scipy.org/">NumPy</a> or <a class="reference external" href="http://scipy.org/">SciPy</a> have hundreds of
-individual modules so putting them into a directory-like structure keeps things
-organized and avoids name collisions.  For example here is a partial list
-of sub-packages available within <a class="reference external" href="http://scipy.org/">SciPy</a></p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="39%" />
-<col width="61%" />
-</colgroup>
-<tbody valign="top">
-<tr><td>scipy.fftpack</td>
-<td>Discrete Fourier Transform algorithms</td>
-</tr>
-<tr><td>scipy.stats</td>
-<td>Statistical Functions</td>
-</tr>
-<tr><td>scipy.lib</td>
-<td>Python wrappers to external libraries</td>
-</tr>
-<tr><td>scipy.lib.blas</td>
-<td>Wrappers to BLAS library</td>
-</tr>
-<tr><td>scipy.lib.lapack</td>
-<td>Wrappers to LAPACK library</td>
-</tr>
-<tr><td>scipy.integrate</td>
-<td>Integration routines</td>
-</tr>
-<tr><td>scipy.linalg</td>
-<td>Linear algebra routines</td>
-</tr>
-<tr><td>scipy.sparse.linalg</td>
-<td>Sparse Linear Algebra</td>
-</tr>
-<tr><td>scipy.sparse.linalg.eigen</td>
-<td>Sparse Eigenvalue Solvers</td>
-</tr>
-<tr><td>scipy.sparse.linalg.eigen.arpack</td>
-<td>Eigenvalue solver using iterative methods.</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition-exercise-import-a-package-module-and-learn-about-it admonition ">
-<p class="first admonition-title">Exercise: Import a package module and learn about it</p>
-<p class="last">Import the Linear algebra module from the SciPy package and find out what
-functions it provides.</p>
-</div>
-</div>
-<div class="section" id="finding-and-installing-other-packages">
-<h2>Finding and installing other packages<a class="headerlink" href="#finding-and-installing-other-packages" title="Permalink to this headline">¶</a></h2>
-<p>If you&#8217;ve gotten this far you have a working scientific Python environment that
-has <em>most</em> of what you will ever need.  Nevertheless it is almost certain that
-you will eventually find a need that is not met within your current
-installation.  Here we learn <strong>where</strong> to find other useful packages and
-<strong>how</strong> to install them.</p>
-<div class="section" id="package-resources">
-<h3>Package resources<a class="headerlink" href="#package-resources" title="Permalink to this headline">¶</a></h3>
-<div class="sidebar">
-<p class="first sidebar-title">Good vs. bad resources</p>
-<p>When you find some package on the web, look for a few things:</p>
-<blockquote class="last">
-<ul class="simple">
-<li>Good modern-looking documentation with examples</li>
-<li>Installs easily without lots of dependencies (or has detailed
-installation instructions)</li>
-<li>Actively developed</li>
-</ul>
-</blockquote>
-</div>
-<p><strong>Google</strong></p>
-<p>Google &#8220;python blah blah&#8221; or &#8220;python astronomy blah blah&#8221;</p>
-<p><strong>Resource lists</strong></p>
-<p>There are a number of sites specifically devoted to Python for astronomy with
-organized lists of useful resources and packages.</p>
-<blockquote>
-<ul class="simple">
-<li><a class="reference external" href="http://www.astropython.org/resources">Astropython.org resources</a></li>
-<li><a class="reference external" href="http://oneau.wordpress.com/2010/10/02/python-for-astronomy/">Comfort at 1 AU</a></li>
-<li><a class="reference external" href="http://www.astro.washington.edu/users/rowen/AstroPy.html">Astronomical Python</a></li>
-</ul>
-</blockquote>
-<p><strong>PyPI</strong></p>
-<p>The <a class="reference external" href="http://pypi.python.org/pypi">Python Package Index</a> is the main
-repository for 3rd party Python packages (about 14000 packages and growing).
-An increasing number of <a class="reference external" href="http://pypi.python.org/pypi?:action=browse&amp;show=all&amp;c=385&amp;c=387">astronomy related packages</a>
-are available on PyPI, but this list misses a lot of available options.</p>
-<p>The advantage of being on PyPI is the ease of installation using
-<tt class="docutils literal"><span class="pre">easy_install</span> <span class="pre">&lt;package_name&gt;</span></tt>.</p>
-<div class="admonition-exercise-find-packages-for-coordinate-manipulations admonition ">
-<p class="first admonition-title">Exercise: Find packages for coordinate manipulations</p>
-<p>Find one or more Python packages that will transform coordinates from Galactic to FK5 ecliptic.</p>
-<p class="last"><em>Hint</em>: tags are helpful at astropython.org and don&#8217;t forget the &#8220;next&#8221; button at
-the bottom.</p>
-</div>
-</div>
-<div class="section" id="package-installation">
-<h3>Package installation<a class="headerlink" href="#package-installation" title="Permalink to this headline">¶</a></h3>
-<p>There are two standard methods for installing a package.</p>
-<p><strong>Easy_install</strong></p>
-<p>The <tt class="docutils literal"><span class="pre">easy_install</span></tt> script is available within our scientific Python
-installation and is very easy to use (when it works).  During the installation
-process you already saw many examples of <tt class="docutils literal"><span class="pre">easy_install</span></tt> in action.  Features include:</p>
-<blockquote>
-<ul class="simple">
-<li>If supplied with a package name then it will query the PyPI site to find out about
-that package.  Assuming the package is there then <tt class="docutils literal"><span class="pre">easy_install</span></tt> will
-automatically download and install the package.</li>
-<li>Will accept a local tar file (assuming it contains an installable Python package) or a URL
-pointing to a tar file.</li>
-<li>Can install in the user package area via <tt class="docutils literal"><span class="pre">easy_install</span> <span class="pre">&lt;package</span> <span class="pre">or</span> <span class="pre">URL&gt;</span>
-<span class="pre">--user</span></tt> (see discussion further down)</li>
-</ul>
-</blockquote>
-<p><strong>python setup.py install</strong></p>
-<p>Some packages may fail to install via <tt class="docutils literal"><span class="pre">easy_install</span></tt>.  Most often there will
-be some obvious (or not) error message about compilation or missing
-dependency.  In this case the likely next step is to download the installation tar
-file and untar it.  Go into the package directory and look for files like:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">INSTALL</span>
-<span class="n">README</span>
-<span class="n">setup</span><span class="o">.</span><span class="n">py</span>
-<span class="n">setup</span><span class="o">.</span><span class="n">cfg</span>
-</pre></div>
-</div>
-<p>If there is an INSTALL or README file then hopefully you will find useful
-installation instructions.  Most well-behaved python packages do the
-installation via a standard <tt class="docutils literal"><span class="pre">setup.py</span></tt> script.  This is used as follows:</p>
-<div class="highlight-python"><pre>python setup.py --help  # get options
-python setup.py install # install in the python area (root / admin req'd)
-python setup.py install --user # install to user's package area</pre>
-</div>
-<p>More information is available in the <a class="reference external" href="http://docs.python.org/install/index.html">Installing Python Modules</a> page.</p>
-<p><strong>What to do if these don&#8217;t work</strong></p>
-<p>If you attempt to install a package with these methods but it does not work,
-your basic options are:</p>
-<blockquote>
-<ul>
-<li><p class="first">Dig in your heels and start reading the error messages to see why it is
-unhappy.  Often when you find a specific message it&#8217;s time to start
-googling by pasting in the relevant parts of the message.</p>
-</li>
-<li><p class="first">Send an email to the pythonusers mailing list.  Include:</p>
-<blockquote>
-<ul class="simple">
-<li>Package you are trying to install</li>
-<li>URL for downloading the package tar file</li>
-<li>Your platform (machine architecture and exact OS version)</li>
-<li>Exactly what you typed</li>
-<li>Entire output from the <tt class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">install</span></tt> process</li>
-</ul>
-</blockquote>
-<p>Do NOT write and say &#8220;I tried to install BLAH and it failed, can
-someone help?&#8221;</p>
-</li>
-</ul>
-</blockquote>
-</div>
-<div class="section" id="where-to-packages-get-installed">
-<h3>Where to packages get installed?<a class="headerlink" href="#where-to-packages-get-installed" title="Permalink to this headline">¶</a></h3>
-<p>An important option in the installation process is where to put the package
-files.  We&#8217;ve seen the <tt class="docutils literal"><span class="pre">--user</span></tt> option in <tt class="docutils literal"><span class="pre">easy_install</span></tt> and <tt class="docutils literal"><span class="pre">python</span>
-<span class="pre">setup.py</span> <span class="pre">install</span></tt>.  What&#8217;s up with that?</p>
-<div class="section" id="with-user">
-<h4>WITH <tt class="docutils literal"><span class="pre">--user</span></tt><a class="headerlink" href="#with-user" title="Permalink to this headline">¶</a></h4>
-<p>This option is generally a good idea and will work in all cases.  Packages get
-installed in a local user-owned directory when you do something like either of
-the following:</p>
-<div class="highlight-python"><pre>easy_install --user asciitable
-python setup.py install --user</pre>
-</div>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p>If you installed Python with a distribution <em>other</em> than EPD, then you might get an error using
-<tt class="docutils literal"><span class="pre">easy_install</span> <span class="pre">--user</span></tt>.  There is an older (deprecated) version of easy_install
-in some Python distributions which does not support <tt class="docutils literal"><span class="pre">--user</span></tt>.  You should be able
-to get the latest <tt class="docutils literal"><span class="pre">easy_install</span></tt> with:</p>
-<div class="last highlight-python"><pre>easy_install distribute  # maybe need "sudo" in front</pre>
-</div>
-</div>
-<p>This puts the packages into:</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="13%" />
-<col width="87%" />
-</colgroup>
-<tbody valign="top">
-<tr><td>Mac</td>
-<td>~/Library/Python/2.x/lib/python/site-packages</td>
-</tr>
-<tr><td>Linux</td>
-<td>~/.local/lib/python-2.x/site-packages</td>
-</tr>
-<tr><td>Windows</td>
-<td>%APPDATA%/Python/Python2x/site-packages</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">On Mac if you did not use the EPD Python Framework then you may see user
-packages within <tt class="docutils literal"><span class="pre">~/.local/lib</span></tt> as for linux.  This depends on whether Python
-is installed as a MacOS Framework or not.</p>
-</div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p>As a side benefit of always installing with <tt class="docutils literal"><span class="pre">--user</span></tt>, if you use multiple
-Python installations (for instance PyRaf, CASA, and CIAO), <em>each</em> of those will
-provide its own version of Python which is essentially its own universe as far
-as packages.  The only reliable way to make a package available to all of them
-at once is to install with <tt class="docutils literal"><span class="pre">--user</span></tt>.  (There are limitations even in this
-case, for instance Python 2.6 will not always play with Python 2.7).</p>
-<img alt="../_images/antisocial_pythons_trans.png" class="last" src="../_images/antisocial_pythons_trans.png" style="width: 650px;" />
-</div>
-</div>
-<div class="section" id="without-user">
-<h4>WITHOUT <tt class="docutils literal"><span class="pre">--user</span></tt><a class="headerlink" href="#without-user" title="Permalink to this headline">¶</a></h4>
-<p>This option requires root or admin privilege because the package will be
-installed in the system area instead of your own local directories.</p>
-<p>Installing this way has the benefit of making the package available for all users of the
-Python installation, but has the downside of possibly breaking things in a way
-that is difficult to repair (see next topic).</p>
-</div>
-<div class="section" id="how-do-i-find-a-package-once-installed">
-<h4>How do I find a package once installed?<a class="headerlink" href="#how-do-i-find-a-package-once-installed" title="Permalink to this headline">¶</a></h4>
-<p>Finding the file associated with a package or module is simple, just use the <tt class="docutils literal"><span class="pre">help</span></tt>
-command in IPython:</p>
-<div class="highlight-python"><pre>import scipy
-help scipy</pre>
-</div>
-<p>This gives something like:</p>
-<div class="highlight-python"><pre>NAME
-    scipy
-
-FILE
-    /usr/local/lib/python2.6/site-packages/scipy/__init__.py
-
-DESCRIPTION
-    SciPy: A scientific computing package for Python
-    ================================================
-
-    Documentation is available in the docstrings and
-    online at http://docs.scipy.org.
-    ...</pre>
-</div>
-</div>
-</div>
-<div class="section" id="uninstalling-packages">
-<h3>Uninstalling packages<a class="headerlink" href="#uninstalling-packages" title="Permalink to this headline">¶</a></h3>
-<p>There is no simple way to do this.  (Python community is working on this one).</p>
-</div>
-</div>
-<div class="section" id="final-exercises">
-<h2>Final exercises<a class="headerlink" href="#final-exercises" title="Permalink to this headline">¶</a></h2>
-<div class="admonition-exercise-intermediate-fully-install-aplpy admonition ">
-<p class="first admonition-title">Exercise [intermediate]: Fully install APLpy</p>
-<p>Go to the <a class="reference external" href="http://aplpy.github.com/install.html">APLpy install page</a> and
-read the instructions.  Manually install all of the Python package dependencies with the
-<tt class="docutils literal"><span class="pre">--user</span></tt> option or try the auto-install script available there.</p>
-<p class="last">For extra credit install the <a class="reference external" href="http://montage.ipac.caltech.edu/">Montage</a> C library as discussed on the APLpy
-install page.  Then try to run the example <a class="reference external" href="../intro/quick-tour.html#making-a-publication-quality-image">Making a publication quality plot</a> that was shown
-in the introductory talk.  The necessary input files are in the
-<tt class="docutils literal"><span class="pre">install_examples.tar</span></tt> file.</p>
-</div>
-<div class="admonition-exercise-intermediate-install-hdf5-and-pytables admonition ">
-<p class="first admonition-title">Exercise [intermediate]: Install HDF5 and PyTables</p>
-<p class="last">Install <a class="reference external" href="http://www.hdfgroup.org/HDF5/">HDF5</a> and
-<a class="reference external" href="http://www.pytables.org/moin">PyTables</a>.  This will let you read HDF5 tables
-in Python.  HDF5 is a data file format which can store and manipulate extremely
-large or complex datasets in a scalable manner.  It is the baseline for some data-heavy
-facilities such as LOFAR.</p>
-</div>
-<div class="admonition-exercise-expert-install-scipy-and-all-dependencies-from-source admonition ">
-<p class="first admonition-title">Exercise [expert]: Install SciPy and all dependencies from source</p>
-<p>Attempt to follow the instructions for building from source in the <a class="reference external" href="http://www.scipy.org/Installing_SciPy">Installing
-SciPy</a> page.  (No binary downloads!).
-This will be useful if you want to use the very latest development version of
-Python or else want to use the system-dependent build optimization so your
-numerical libraries are the fastest possible.  For most people this is not needed.</p>
-<p class="last">If you can do this then consider yourself an expert on Python installation.</p>
-</div>
-</div>
 </div>
 
 
@@ -922,17 +359,22 @@ numerical libraries are the fastest possible.  For most people this is not neede
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="macosx.html" title="Mac OSX"
+          <a href="python_install.html" title="Installing Scientific Python"
              >next</a> |</li>
         <li class="right" >
-          <a href="../intro/python-requirements.html" title="Python requirements"
+          <a href="../intro/wrapup.html" title="Logistics and open discussion"
              >previous</a> |</li>
         <li><a href="../index.html">Python4Astronomers v1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
-        &copy; Copyright 2011, Smithsonian Astrophysical Observatory.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
-    </div>
+ <small>Copyright:
+ Smithsonian Astrophysical Observatory under terms of
+ <a rel="license"
+ href="http://creativecommons.org/licenses/by/3.0/">CC
+ Attribution 3.0</a></small> <a rel="license"
+ href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons
+ License" style="border-width:0"
+ src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
+
   </body>
 </html>

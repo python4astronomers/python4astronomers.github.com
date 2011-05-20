@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Installation &mdash; Python4Astronomers v1.0 documentation</title>
+    <title>Modules &mdash; Python4Astronomers v1.0 documentation</title>
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Python4Astronomers v1.0 documentation" href="../index.html" />
     <link rel="up" title="Online Astronomy and the virtual observatory" href="vo.html" />
-    <link rel="next" title="Core Modules" href="webmodules.html" />
+    <link rel="next" title="Standard Python Tools" href="webmodules.html" />
     <link rel="prev" title="Online Astronomy and the virtual observatory" href="vo.html" />
  
 <script type="text/javascript"> 
@@ -266,7 +266,7 @@ display:none;
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="webmodules.html" title="Core Modules"
+          <a href="webmodules.html" title="Standard Python Tools"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="vo.html" title="Online Astronomy and the virtual observatory"
@@ -279,7 +279,7 @@ display:none;
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Installation</a><ul>
+<li><a class="reference internal" href="#">Modules</a><ul>
 <li><a class="reference internal" href="#id1">COATPy</a></li>
 <li><a class="reference internal" href="#id2">SAMPy</a></li>
 </ul>
@@ -291,7 +291,7 @@ display:none;
                         title="previous chapter">Online Astronomy and the virtual observatory</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="webmodules.html"
-                        title="next chapter">Core Modules</a></p>
+                        title="next chapter">Standard Python Tools</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="../_sources/vo/install.txt"
@@ -318,16 +318,24 @@ display:none;
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="installation">
-<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<p>In addition to Scientific Python packages like numpy, and modules installed
-for preceding classes (<a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable">asciitable</a>, <a class="reference external" href="http://atpy.github.com">ATpy</a>, <a class="reference external" href="http://aplpy.github.com">APLpy</a>, vo), the following
-modules should be installed for this class:</p>
-<div class="highlight-python"><pre>easy_install -U sampy
-easy_install -U https://github.com/python4vo/coatpy/tarball/master</pre>
+  <div class="section" id="modules">
+<h1>Modules<a class="headerlink" href="#modules" title="Permalink to this headline">¶</a></h1>
+<p>This class assumes that you have have installed Scientific Python packages
+such as numpy, as well as the <em class="xref std std-ref">astro-required</em> modules used in preceding
+classes (e.g., <a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable">asciitable</a>, <a class="reference external" href="http://atpy.github.com">ATpy</a>, <a class="reference external" href="http://aplpy.github.com">APLpy</a>, etc). In addition the
+following modules should be installed for this class (may require sudo):</p>
+<div class="highlight-python"><pre>easy_install http://stsdas.stsci.edu/astrolib/vo-0.6.tar.gz
+easy_install sampy
+easy_install https://github.com/python4vo/coatpy/tarball/master</pre>
 </div>
 <div class="section" id="id1">
 <h2>COATPy<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="sidebar">
+<p class="first sidebar-title">COATPy is alphaware</p>
+<p class="last">COATPy as a standalone module should be considered
+alpha-ware and its content and wrapping of the underlying
+packages may change in the near term.</p>
+</div>
 <p>We have provided this &#8220;Collection of Online Astronomy Tools&#8221; for the
 purposes of this workshop. The <a class="reference external" href="https://github.com/python4vo/coatpy">COATPy</a> package wraps up a number (2
 presently) other modules that exist but lack turnkey installation:</p>
@@ -336,7 +344,8 @@ presently) other modules that exist but lack turnkey installation:</p>
 <dt><a class="reference external" href="https://code.google.com/p/pyvolib">pyvolib</a></dt>
 <dd><ul class="first last simple">
 <li>author: Shui Hung Kwok</li>
-<li>comment:  an updated version of the python software used in past virtual observatory summer schools.</li>
+<li>comment:  an updated version of the python software used in
+past virtual observatory summer schools.</li>
 </ul>
 </dd>
 </dl>
@@ -345,19 +354,14 @@ presently) other modules that exist but lack turnkey installation:</p>
 <dt><a class="reference external" href="https://github.com/python4vo/vaods9">vaods9</a></dt>
 <dd><ul class="first last simple">
 <li>author: Omar Laurino, SAO/VAO</li>
-<li>comment:  a wrapper to the SAMPy interface for making private calls between python and ds9.</li>
+<li>comment:  a wrapper to the <a class="reference external" href="http://pypi.python.org/pypi/sampy">SAMPy</a> interface for sending messages,
+including &#8220;xpa&#8221;-like commands, between python and ds9.</li>
+<li><a class="reference external" href="http://python4vo.github.com/vaods9/">documentation</a></li>
 </ul>
 </dd>
 </dl>
 </li>
 </ul>
-<p>We will see how these tools are used in</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">COATPy as a standalone module should be considered
-alpha-ware and its content and wrapping of the underlying
-packages may change in the near term.</p>
-</div>
 </div>
 <div class="section" id="id2">
 <h2>SAMPy<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
@@ -380,7 +384,7 @@ python command line interface and other desktop applications such as
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="webmodules.html" title="Core Modules"
+          <a href="webmodules.html" title="Standard Python Tools"
              >next</a> |</li>
         <li class="right" >
           <a href="vo.html" title="Online Astronomy and the virtual observatory"
@@ -389,9 +393,14 @@ python command line interface and other desktop applications such as
           <li><a href="vo.html" >Online Astronomy and the virtual observatory</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
-        &copy; Copyright 2011, Smithsonian Astrophysical Observatory.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.5.
-    </div>
+ <small>Copyright:
+ Smithsonian Astrophysical Observatory under terms of
+ <a rel="license"
+ href="http://creativecommons.org/licenses/by/3.0/">CC
+ Attribution 3.0</a></small> <a rel="license"
+ href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons
+ License" style="border-width:0"
+ src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
+
   </body>
 </html>
