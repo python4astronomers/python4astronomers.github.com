@@ -393,14 +393,14 @@ the file at a URL and untar it.  Google on &#8220;python urllib2&#8221; and &#82
 tarfile&#8221; to find the relevant module docs.  Figure out how you would
 use the <tt class="docutils literal"><span class="pre">tarfile</span></tt> module to create a tarfile.</p>
 </div>
-<div class="panel0"><ul class="simple">
+<p class="flip0">Click to Show/Hide Solution</p> <div class="panel0"><ul class="simple">
 <li><tt class="docutils literal"><span class="pre">urllib2.urlopen(url)</span></tt> opens the URL as a streaming file-like object</li>
 <li><tt class="docutils literal"><span class="pre">mode='r|'</span> <span class="pre">means</span> <span class="pre">``tarfile</span></tt> is expecting a streaming file-like object
 with no ability to seek in the file</li>
 <li><tt class="docutils literal"><span class="pre">tarfile.open(..).extractall</span></tt> then extracts the tar archive</li>
 </ul>
 <p>Creating a tarfile is left for the reader to solve.</p>
-</div> <p class="flip0">Click to Show/Hide Solution</p></div>
+</div></div>
 <div class="section" id="read-in-the-2-d-image">
 <h2>Read in the 2-d image<a class="headerlink" href="#read-in-the-2-d-image" title="Permalink to this headline">¶</a></h2>
 <p>First read in the long-slit spectrum data.  The standard file format available
@@ -439,13 +439,13 @@ buttons on the lower-left (hint: try the four on the right first, then
 imagine a web browser for the three on the left).  Does the save button
 work for you?</p>
 </div>
-<div class="panel1"><div class="highlight-python"><div class="highlight"><pre><span class="n">ImgView</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+<p class="flip1">Click to Show/Hide Solution</p> <div class="panel1"><div class="highlight-python"><div class="highlight"><pre><span class="n">ImgView</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
 <span class="n">ImgView</span><span class="p">(</span><span class="n">dq</span><span class="p">)</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../_images/imgview_err.png"><img alt="../_images/imgview_err.png" src="../_images/imgview_err.png" style="width: 406.0px; height: 306.0px;" /></a>
 <a class="reference internal image-reference" href="../_images/imgview_dq.png"><img alt="../_images/imgview_dq.png" src="../_images/imgview_dq.png" style="width: 406.0px; height: 306.0px;" /></a>
-</div> <p class="flip1">Click to Show/Hide Solution</p><p>Now discover a little bit about the images you have read in, first with <tt class="docutils literal"><span class="pre">?</span></tt>:</p>
+</div><p>Now discover a little bit about the images you have read in, first with <tt class="docutils literal"><span class="pre">?</span></tt>:</p>
 <div class="highlight-python"><pre>img?</pre>
 </div>
 <p>Next use <tt class="docutils literal"><span class="pre">help</span></tt> and note the slightly different information that you get:</p>
@@ -554,7 +554,7 @@ a few key features of NumPy.</p>
 Make <tt class="docutils literal"><span class="pre">y</span></tt> the same as <tt class="docutils literal"><span class="pre">x</span></tt> but &#8220;transposed&#8221; using the <tt class="docutils literal"><span class="pre">reshape</span></tt> trick above.
 Use ImgView to display the image of <tt class="docutils literal"><span class="pre">z</span></tt>.</p>
 </div>
-<div class="panel3"><div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">)</span>
+<p class="flip3">Click to Show/Hide Solution</p> <div class="panel3"><div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">z</span> <span class="o">=</span> <span class="n">cos</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">r</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span>
@@ -562,7 +562,7 @@ Use ImgView to display the image of <tt class="docutils literal"><span class="pr
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../_images/ripple.png"><img alt="../_images/ripple.png" src="../_images/ripple.png" style="width: 406.0px; height: 306.0px;" /></a>
-</div> <p class="flip3">Click to Show/Hide Solution</p></div>
+</div></div>
 <div class="section" id="array-access-and-slicing">
 <h3>Array access and slicing<a class="headerlink" href="#array-access-and-slicing" title="Permalink to this headline">¶</a></h3>
 <p>NumPy provides powerful methods for accessing array elements or particular subsets of an array,
@@ -615,7 +615,7 @@ array[&lt;slice0&gt;, &lt;slice1&gt;, ...]</pre>
 104 (inclusive).  What did you learn about the index upper bound value?</li>
 </ul>
 </div>
-<div class="panel2"><div class="highlight-python"><div class="highlight"><pre><span class="n">clf</span><span class="p">()</span>
+<p class="flip2">Click to Show/Hide Solution</p> <div class="panel2"><div class="highlight-python"><div class="highlight"><pre><span class="n">clf</span><span class="p">()</span>
 <span class="n">plot</span><span class="p">(</span><span class="n">err</span><span class="p">[</span><span class="mi">254</span><span class="p">,</span> <span class="mi">10</span><span class="p">:</span><span class="mi">200</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
 <span class="n">dq</span><span class="p">[</span><span class="mi">251</span><span class="p">:</span><span class="mi">254</span><span class="p">,</span> <span class="mi">101</span><span class="p">:</span><span class="mi">105</span><span class="p">]</span>
 </pre></div>
@@ -625,7 +625,7 @@ included in the slice.  In other words the slice includes everything up to,
 <em>but not including</em>, the index upper bound <tt class="docutils literal"><span class="pre">i1</span></tt>.  There are good reasons for
 this, but for now just accept and learn it.</p>
 <a class="reference internal image-reference" href="../_images/err_row254.png"><img alt="../_images/err_row254.png" src="../_images/err_row254.png" style="width: 406.0px; height: 306.0px;" /></a>
-</div> <p class="flip2">Click to Show/Hide Solution</p></div>
+</div></div>
 </div>
 <div class="section" id="plot-the-spatial-profile-and-raw-spectrum">
 <h2>Plot the spatial profile and raw spectrum<a class="headerlink" href="#plot-the-spatial-profile-and-raw-spectrum" title="Permalink to this headline">¶</a></h2>
@@ -651,13 +651,13 @@ cosmic-ray contamination.</p>
 there is a signal from the source.
 Hint: zoom into the profile plot to find the right row range.</p>
 </div>
-<div class="panel4"><div class="highlight-python"><div class="highlight"><pre><span class="n">spectrum</span> <span class="o">=</span> <span class="n">img</span><span class="p">[</span><span class="mi">250</span><span class="p">:</span><span class="mi">260</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<p class="flip4">Click to Show/Hide Solution</p> <div class="panel4"><div class="highlight-python"><div class="highlight"><pre><span class="n">spectrum</span> <span class="o">=</span> <span class="n">img</span><span class="p">[</span><span class="mi">250</span><span class="p">:</span><span class="mi">260</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">clf</span><span class="p">()</span>
 <span class="n">plot</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../_images/spectrum_clean.png"><img alt="../_images/spectrum_clean.png" src="../_images/spectrum_clean.png" style="width: 406.0px; height: 306.0px;" /></a>
-</div> <p class="flip4">Click to Show/Hide Solution</p></div>
+</div></div>
 <div class="section" id="filter-cosmic-rays-from-the-background">
 <h2>Filter cosmic rays from the background<a class="headerlink" href="#filter-cosmic-rays-from-the-background" title="Permalink to this headline">¶</a></h2>
 <p>Plot five columns (wavelength) from the spectrum image as follows:</p>
@@ -720,14 +720,14 @@ and that you can compose logical expressions:</p>
 <p class="last">Remember the surface <tt class="docutils literal"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">cos(r)</span> <span class="pre">/</span> <span class="pre">(r</span> <span class="pre">+</span> <span class="pre">5)</span></tt> that you made previously.  Set
 <tt class="docutils literal"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">0</span></tt> for every pixel of <tt class="docutils literal"><span class="pre">z</span></tt> that is within 10 units of (x,y) = (10, 15).</p>
 </div>
-<div class="panel5"><div class="highlight-python"><div class="highlight"><pre><span class="n">dist</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">((</span><span class="n">x</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="mi">15</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<p class="flip5">Click to Show/Hide Solution</p> <div class="panel5"><div class="highlight-python"><div class="highlight"><pre><span class="n">dist</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">((</span><span class="n">x</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="mi">15</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">mask</span> <span class="o">=</span> <span class="n">dist</span> <span class="o">&lt;</span> <span class="mi">10</span>
 <span class="n">z</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">ImgView</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../_images/ripple_masked.png"><img alt="../_images/ripple_masked.png" src="../_images/ripple_masked.png" style="width: 406.0px; height: 306.0px;" /></a>
-</div> <p class="flip5">Click to Show/Hide Solution</p><div class="admonition-detour-copy-versus-reference admonition ">
+</div><div class="admonition-detour-copy-versus-reference admonition ">
 <p class="first admonition-title">Detour: copy versus reference</p>
 <dl class="docutils">
 <dt><strong>Question</strong></dt>
@@ -877,12 +877,12 @@ or maybe coded in C or Fortran.</p>
 <p class="last">Sum the rows of the background subtracted spectrum and plot.  Hint: you
 already did it once in a previous exercise.</p>
 </div>
-<div class="panel6"><div class="highlight-python"><div class="highlight"><pre><span class="n">spectrum</span> <span class="o">=</span> <span class="n">img_bkg</span><span class="p">[</span><span class="mi">250</span><span class="p">:</span><span class="mi">260</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<p class="flip6">Click to Show/Hide Solution</p> <div class="panel6"><div class="highlight-python"><div class="highlight"><pre><span class="n">spectrum</span> <span class="o">=</span> <span class="n">img_bkg</span><span class="p">[</span><span class="mi">250</span><span class="p">:</span><span class="mi">260</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">clf</span><span class="p">()</span>
 <span class="n">plot</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span>
 </pre></div>
 </div>
-</div> <p class="flip6">Click to Show/Hide Solution</p><p><strong>To do</strong>: flux calibration and wavelength calibration!</p>
+</div><p><strong>To do</strong>: flux calibration and wavelength calibration!</p>
 </div>
 </div>
 <div class="section" id="scipy">

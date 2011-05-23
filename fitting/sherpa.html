@@ -456,7 +456,7 @@ attribute its model.  For example, the power-law amplitude is referenced with
 <p class="last">Wait. Didn&#8217;t we just set <tt class="docutils literal"><span class="pre">pl.ref</span></tt> to be an float?  How can <tt class="docutils literal"><span class="pre">pl.ref</span></tt> be an
 float and a <tt class="docutils literal"><span class="pre">Parameter</span></tt> object?</p>
 </div>
-<div class="panel0"><p>The answer is that pl.ref is in fact an object, but its model class supports a
+<p class="flip0">Click to Show/Hide Solution</p> <div class="panel0"><p>The answer is that pl.ref is in fact an object, but its model class supports a
 special setter method <tt class="docutils literal"><span class="pre">__setattr__()</span></tt> that updates the pl.ref.val attribute
 underneath.  The <tt class="docutils literal"><span class="pre">property</span></tt> function defines custom getter and setter
 functions for a particular class attribute:</p>
@@ -486,7 +486,7 @@ functions for a particular class attribute:</p>
 <span class="n">m</span><span class="o">.</span><span class="n">ref</span><span class="o">.</span><span class="n">val</span>
 </pre></div>
 </div>
-</div> <p class="flip0">Click to Show/Hide Solution</p><p>Create a <tt class="docutils literal"><span class="pre">Fit</span></tt> object made up of a Sherpa data set, model, fit statistic, and
+</div><p>Create a <tt class="docutils literal"><span class="pre">Fit</span></tt> object made up of a Sherpa data set, model, fit statistic, and
 optimization method.  Fit the spectrum to a power-law with least squares
 (Levenberg-Marquardt) using the chi-squared statistic with data variance:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">f</span> <span class="o">=</span> <span class="n">Fit</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">pl</span><span class="p">,</span> <span class="n">Chi2DataVar</span><span class="p">(),</span> <span class="n">LevMar</span><span class="p">())</span>

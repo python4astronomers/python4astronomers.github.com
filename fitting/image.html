@@ -555,14 +555,14 @@ percentage.  How can we convert the desired percentage to the sigma that
 Sherpa supports?</p>
 <p class="last">(Hint): Try <tt class="docutils literal"><span class="pre">scipy.special.erfinv</span></tt></p>
 </div>
-<div class="panel0"><p>Typically, the confidence is calculated from sigma using the error-function,
+<p class="flip0">Click to Show/Hide Solution</p> <div class="panel0"><p>Typically, the confidence is calculated from sigma using the error-function,
 ERF(sigma/SQRT(2)).  We can invert this operation using the inverse
 error-function found in SciPy in the special functions module:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">scipy.special</span>
 <span class="k">print</span> <span class="n">scipy</span><span class="o">.</span><span class="n">special</span><span class="o">.</span><span class="n">erfinv</span><span class="p">(</span><span class="mf">0.90</span><span class="p">)</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
-</div> <p class="flip0">Click to Show/Hide Solution</p><p>Notice how the parameter confidence limits are displayed as soon as they are
+</div><p>Notice how the parameter confidence limits are displayed as soon as they are
 known.  The parameter confidence limits are accessed using <tt class="docutils literal"><span class="pre">get_conf_results</span></tt>.
 Save the 90% calculated parameter limits:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">results</span> <span class="o">=</span> <span class="n">get_conf_results</span><span class="p">()</span>

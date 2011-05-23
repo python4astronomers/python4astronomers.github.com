@@ -503,7 +503,7 @@ using arrays:</p>
 <a class="reference internal image-reference" href="../_images/big_hexes.png"><img alt="../_images/big_hexes.png" src="../_images/big_hexes.png" style="width: 406.0px; height: 306.0px;" /></a>
 <p class="last">Make a plot that looks similar to the one above.</p>
 </div>
-<div class="panel0"><div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<p class="flip1">Click to Show/Hide Solution</p> <div class="panel1"><div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
 <span class="n">clf</span><span class="p">()</span>
 <span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s">&#39;-.&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
@@ -511,7 +511,7 @@ using arrays:</p>
 <span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
 </pre></div>
 </div>
-</div> <p class="flip0">Click to Show/Hide Solution</p><div class="section" id="controlling-line-properties">
+</div><div class="section" id="controlling-line-properties">
 <h3>Controlling line properties<a class="headerlink" href="#controlling-line-properties" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-what-are-lines-and-markers admonition ">
 <p class="first admonition-title">What are lines and markers?</p>
@@ -845,13 +845,13 @@ choose the opacities so it looks reasonable.</p>
 <li>The <tt class="docutils literal"><span class="pre">histtype</span></tt> parameter may also prove useful depending on your taste.</li>
 </ul>
 </div>
-<div class="panel0"><div class="highlight-python"><div class="highlight"><pre><span class="n">clf</span><span class="p">()</span>
+<p class="flip0">Click to Show/Hide Solution</p> <div class="panel0"><div class="highlight-python"><div class="highlight"><pre><span class="n">clf</span><span class="p">()</span>
 <span class="n">x2</span> <span class="o">=</span> <span class="n">normal</span><span class="p">(</span><span class="mi">130</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
 <span class="n">out</span> <span class="o">=</span> <span class="n">hist</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">normed</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s">&#39;g&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s">&#39;stepfilled&#39;</span><span class="p">)</span>
 <span class="n">out</span> <span class="o">=</span> <span class="n">hist</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">normed</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s">&#39;r&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s">&#39;stepfilled&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div> <p class="flip0">Click to Show/Hide Solution</p><div class="section" id="getting-the-fonts-just-right">
+</div><div class="section" id="getting-the-fonts-just-right">
 <h3>Getting the fonts just right<a class="headerlink" href="#getting-the-fonts-just-right" title="Permalink to this headline">¶</a></h3>
 <p>The global font properties for various plot elements can be controlled using
 the <a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib.pyplot.rc">rc()</a> function:</p>
