@@ -443,13 +443,13 @@ Python 2.6 installation is in /usr/local/bin, but this happens to have a lot of
 other stuff that is not expected to be in front of /usr/bin by the system
 managers.  Hence putting /usr/local/bin first is risky.</p>
 <p>In this case we make an end run and put links into a special directory
-<tt class="docutils literal"><span class="pre">~/.local</span></tt>, which is basically a private user version of /usr/local.</p>
-<blockquote>
-mkdir -p ~/.local/bin
+<tt class="docutils literal"><span class="pre">~/.local</span></tt>, which is basically a private user version of /usr/local:</p>
+<div class="highlight-python"><pre>mkdir -p ~/.local/bin
 cd ~/.local/bin
 ln -s $PYTHONROOT/bin/python ./
 ln -s $PYTHONROOT/bin/ipython ./
-ln -s $PYTHONROOT/bin/easy_install ./</blockquote>
+ln -s $PYTHONROOT/bin/easy_install ./</pre>
+</div>
 <p>Now update your shell initialization file:</p>
 <table border="1" class="docutils">
 <colgroup>
