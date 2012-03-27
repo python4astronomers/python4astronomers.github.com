@@ -293,8 +293,10 @@ display:none;
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Installing Scientific Python</a><ul>
+<li><a class="reference internal" href="#choosing-your-distribution">Choosing your distribution</a></li>
 <li><a class="reference internal" href="#installation-steps">Installation steps</a></li>
 <li><a class="reference internal" href="#try-it-out">Try it out!</a></li>
+<li><a class="reference internal" href="#versus-32-bit">64 versus 32 bit</a></li>
 </ul>
 </li>
 </ul>
@@ -333,44 +335,169 @@ display:none;
             
   <div class="section" id="installing-scientific-python">
 <span id="id1"></span><h1>Installing Scientific Python<a class="headerlink" href="#installing-scientific-python" title="Permalink to this headline">¶</a></h1>
-<p>Unless you are confident with (and enjoy) tracking down compiler errors and
-other issues related to package incompatibilities, we strongly recommend using
-a pre-built binary Python distribution.  For MacOS in particular there are a
-whole slew of options for Python which don&#8217;t play well together.  Even if you
-already have an installation on your system you will probably save time in
-the long run by starting fresh with a binary Python distribution.  There are
-two main options that we have experience installing:</p>
-<p><strong>Enthought Python Distribution</strong></p>
-<p>For Windows, MacOS and linux non-root installation, <strong>the easiest option for
-academics</strong> is to use the <a class="reference external" href="http://www.enthought.com/products/epd.php">Enthought Python Distribution</a> (EPD).  For the Python for
-Astronomers workshop series held at the Harvard Center for Astrophysics in
-2011, over 50 astronomers successfully installed and used EPD on a variety of
-platforms (including Windows).  <em>All the installation instructions that follow
-are written assuming this option.</em></p>
-<p><a class="reference external" href="http://www.enthought.com">Enthought</a> is the company which leads most of the
-development of <a class="reference external" href="http://numpy.scipy.org/">NumPy</a> and <a class="reference external" href="http://scipy.org/">SciPy</a>.  EPD is a bundled binary
-distribution of Python with a <em>large</em> set of useful packages built in.  The
-<a class="reference external" href="http://www.enthought.com/products/edudownload.php">Academic version</a> of EPD
-is free for use by students or employees of a degree-granting institution as
-specified in the <a class="reference external" href="http://www.enthought.com/EPDAcademicTerms.html">license terms</a>.</p>
-<p>If you do not meet the academic license requirements but are using Python for
-research in astronomy (e.g. observatory staff scientist), we recommend
-contacting Enthought directly and requesting permission.</p>
-<p><strong>ActiveState Community Python Distribution</strong></p>
-<p>A second option is to use the <a class="reference external" href="http://www.activestate.com/activepython/downloads">ActiveState Community Python Distribution</a>,
-a.k.a. ActivePython.  This has no license requirements and is freely
-available.  Features of ActivePython include:</p>
-<ul class="simple">
-<li>The initial distribution is much smaller, consisting mostly of Python and
-some utilities.</li>
-<li>Packages can be added with a customized package manager <tt class="docutils literal"><span class="pre">pypm</span></tt> toolf which
-installs from the <a class="reference external" href="http://code.activestate.com/pypm/">ActiveState PyPM repository</a>.  This
-handles the &#8220;difficult&#8221; packages like NumPy and SciPy with support for
-dependency resolution, and also includes most packages from <a class="reference external" href="pypi.python.org">PyPI</a>.</li>
-</ul>
-<p>Two tests of installing ActivePython on MacOS (snow leopard) and a linux
-CentOS-5 system were successful and were simple to perform.  Although we don&#8217;t
-provide detailed instructions here, this option seems to be reasonable.</p>
+<p>Unless you are enjoy tracking down compiler errors and other issues related to
+package incompatibilities, we recommend using a pre-built binary Python
+distribution.  For MacOS in particular there are a whole slew of options for
+Python which don&#8217;t play well together.  Even if you already have an
+installation on your system you will probably save time in the long run by
+starting fresh with a binary Python distribution.</p>
+<div class="section" id="choosing-your-distribution">
+<h2>Choosing your distribution<a class="headerlink" href="#choosing-your-distribution" title="Permalink to this headline">¶</a></h2>
+<p>The table below lists the recommended options for installing
+scientific Python.  Note that there are <em>many</em> other installation
+options, but these cover the ones which are well-supported and likely
+to present the fewest problems.</p>
+<div class="admonition-for-the-completely-impatient admonition ">
+<p class="first admonition-title">For the completely impatient</p>
+<p class="last">The fastest way to get a basic Python installation up and running is
+<a class="reference external" href="http://www.enthought.com/products/edudownload.php">EPD Academic</a> if you
+meet these <a class="reference external" href="http://www.enthought.com/EPDAcademicTerms.html">license terms</a> or <a class="reference external" href="http://www.enthought.com/products/epd_free.php">EPD Free</a> otherwise.  Click on that
+link, download the installer and then go to the <a class="reference internal" href="#install-core-python">Install core Python</a>
+section and click on the link for your OS (Mac, Linux, or Windows).</p>
+</div>
+<table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="12%" />
+<col width="13%" />
+<col width="13%" />
+<col width="32%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Distribution</th>
+<th class="head">Mac</th>
+<th class="head">Linux</th>
+<th class="head">Windows</th>
+<th class="head">Notes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>OS Package manager</td>
+<td>MacPorts</td>
+<td>rpm, apt</td>
+<td>N</td>
+<td><a class="footnote-reference" href="#id13" id="id2">[1]</a>, <a class="footnote-reference" href="#id14" id="id3">[2]</a>, <a class="footnote-reference" href="#id15" id="id4">[3]</a></td>
+</tr>
+<tr><td>EPD Academic</td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+<td><a class="footnote-reference" href="#id16" id="id5">[4]</a>, <a class="footnote-reference" href="#id17" id="id6">[5]</a></td>
+</tr>
+<tr><td>ActiveState CE</td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+<td><a class="footnote-reference" href="#id19" id="id7">[6]</a></td>
+</tr>
+<tr><td>EPD Free</td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+<td><a class="footnote-reference" href="#id20" id="id8">[7]</a>, <a class="footnote-reference" href="#id21" id="id9">[8]</a>, <a class="footnote-reference" href="#id22" id="id10">[9]</a></td>
+</tr>
+<tr><td>STSci_Python</td>
+<td>Y</td>
+<td>N</td>
+<td>Y</td>
+<td><a class="footnote-reference" href="#id23" id="id11">[10]</a>, <a class="footnote-reference" href="#id24" id="id12">[11]</a></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<span style="font-size: small"><table class="docutils footnote" frame="void" id="id13" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td><strong>MacPorts</strong>:  Although there are other package managers
+MacPorts has the best support for Python.  MacPorts
+has the slight drawback of being slow to install so that it can take
+several hours to build a working Python distribution.  All the other
+binary options take 10 minutes or less.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id14" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[2]</a></td><td><strong>Linux package managers</strong>:
+For recent versions of linux distributions like Ubuntu, the
+installed Python and supporting packages available through the
+package manager will be sufficiently current to support science
+analysis.  For a linux distribution like CentOS-5 this is not the
+case.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id15" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[3]</a></td><td>Using an OS package manager requires root privilege.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id16" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id5">[4]</a></td><td><strong>EPD</strong>:
+The <a class="reference external" href="http://www.enthought.com/products/epd.php">Enthought Python Distribution</a> is a bundled
+binary distribution of Python with a large set of useful packages
+built in.  This is the <strong>simplest option for academics</strong>.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id17" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id6">[5]</a></td><td>The EPD <a class="reference external" href="http://www.enthought.com/products/edudownload.php">Academic version</a> is a full
+version of EPD that is free
+for use by students or employees of a degree-granting institution as
+specified in the <a class="reference external" href="http://www.enthought.com/EPDAcademicTerms.html">license terms</a>.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id19" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id7">[6]</a></td><td><strong>ActivePython</strong>: The <a class="reference external" href="http://www.activestate.com/activepython/downloads">ActiveState Community Python Distribution</a>, has no
+license requirements and is freely available.  It features a
+package manager tool which installs from the <a class="reference external" href="http://code.activestate.com/pypm/">ActiveState PyPM
+repository</a>.  It handles the
+&#8220;difficult&#8221; packages like PyQt and SciPy with support for
+dependency resolution, and also includes most packages from <a class="reference external" href="pypi.python.org">PyPI</a>.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id20" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id8">[7]</a></td><td>Available only in 32-bit for Mac and Windows.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id21" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id9">[8]</a></td><td>The EPD <a class="reference external" href="http://www.enthought.com/products/epd_free.php">Free version</a>  provides
+NumPy, SciPy, Matplotlib, IPython, Traits, and Chaco,</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id22" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id10">[9]</a></td><td>Qt and PyQt <em>not</em> available.
+These are GUI toolkits which are used by a number of useful
+applications, in particular the IPython Qt console.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id23" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id11">[10]</a></td><td>The <a class="reference external" href="http://www.stsci.edu/institute/software_hardware/pyraf/stsci_python">STSci_Python distribution</a>
+provides <a class="reference external" href="http://www.stsci.edu/institute/software_hardware/pyraf">PyRAF</a>,
+various analysis packages, and the core NumPy, SciPy, and Matplotlib packages.
+Qt and PyQt are not included.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id24" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id12">[11]</a></td><td>Available only as a source install on Linux.</td></tr>
+</tbody>
+</table>
+</span></div>
 <div class="section" id="installation-steps">
 <h2>Installation steps<a class="headerlink" href="#installation-steps" title="Permalink to this headline">¶</a></h2>
 <p>In order to follow along with the examples to be presented in the workshops
@@ -378,42 +505,14 @@ your Python installation will need to meet the <a class="reference internal" hre
 of this workshop is to get this set up correctly.  This will proceed in three
 steps:</p>
 <ul class="simple">
-<li>Download the appropriate Enthought Python Distribution (EPD) installer</li>
-<li>Install EPD as the core Python installation</li>
+<li>Install the core Python installation</li>
 <li>Install additional packages which are used in the workshops</li>
 <li>Test the installation</li>
 </ul>
-<p>The installation process is particular to each platform.  For all options
-except &#8220;Linux on HEAD or CF network&#8221; you will need the EPD download as
-discussed in the next section.</p>
-<div class="section" id="download-epd">
-<h3>Download EPD<a class="headerlink" href="#download-epd" title="Permalink to this headline">¶</a></h3>
-<p>To download EPD go to the <a class="reference external" href="http://www.enthought.com/products/edudownload.php">EPD Academic Download</a> page.</p>
-<p>Here you immediately need to make a decision: 32-bit or 64-bit download?  First
-you need to establish whether your computer has a 32-bit or 64-bit processor.
-If you have a 32-bit processor then your decision is easy (32-bit) but if you
-have a 64-bit processor then either 32 or 64 will work.  See below if you don&#8217;t
-know your processor architecture:</p>
-<ul class="simple">
-<li>MacOSX: Follow <a class="reference external" href="http://support.apple.com/kb/ht3696">the MacOS instructions</a></li>
-<li>Linux: Type <tt class="docutils literal"><span class="pre">uname</span> <span class="pre">-mpi</span></tt> at the command line.  If you see <tt class="docutils literal"><span class="pre">x86_64</span> <span class="pre">x86_64</span>
-<span class="pre">x86_64</span></tt> you have a 64-bit machine and OS.  If you see one or more <tt class="docutils literal"><span class="pre">i686</span></tt>
-or <tt class="docutils literal"><span class="pre">i386</span></tt> you are running a 32-bit OS.</li>
-<li>Windows:  Follow <a class="reference external" href="http://windows.microsoft.com/en-US/windows-vista/32-bit-and-64-bit-Windows-frequently-asked-questions">the Windows instructions</a>.</li>
-</ul>
-<p><strong>64-bit</strong></p>
-<ul class="simple">
-<li><em>Pro</em>: Faster for data- and compute-intensive applications</li>
-<li><em>Con</em>: Have to submit an email address and wait for the download link in response</li>
-</ul>
-<p><strong>32-bit</strong></p>
-<ul class="simple">
-<li><em>Pro</em>: Comes with the <a class="reference external" href="http://github.enthought.com/mayavi/mayavi/">Mayavi</a> 3-d
-rendering package installed while the 64-bit does not (for technical reasons).
-If you are interested in using this cool package you should consider choosing 32-bit.
-Note that the standard matplotlib package supports some <a class="reference external" href="http://matplotlib.sourceforge.net/mpl_toolkits/mplot3d/tutorial.html">3-d plotting</a>.</li>
-</ul>
-</div>
+<p>The installation process is particular to each platform.  For some options you
+will need to choose between 32-bit and 64-bit installations.  Generally
+speaking you should choose 64-bit, but read <a class="reference internal" href="#versus-32-bit">64 versus 32 bit</a> for some
+caveats or if you aren&#8217;t sure if your CPU is 64-bit.</p>
 <div class="section" id="install-core-python">
 <h3>Install core Python<a class="headerlink" href="#install-core-python" title="Permalink to this headline">¶</a></h3>
 <p>Now install EPD as the core Python on your system following the instructions below:</p>
@@ -432,24 +531,21 @@ Note that the standard matplotlib package supports some <a class="reference exte
 system one at a time, checking that each one works.  The program outputs may
 contain various &#8220;warnings&#8221;, but watch for &#8220;errors&#8221; and look at the end to see
 if a successful installation was reported.</p>
-<p>Of these packages only <tt class="docutils literal"><span class="pre">pywcs</span></tt> was a significant issue during the CfA Python
-for Astronomers series.  Most Windows users and a few MacOS users had
-problems.  Since then a patch has been released, but it is still known to fail
-for 32-bit Windows XP.  This package is required to make images with <tt class="docutils literal"><span class="pre">APLpy</span></tt>
-and do WCS coordinate transformations, but otherwise it is not absolutely needed.</p>
+<p>If you experience problems with installation for any of these packages you can
+send an email to the <a class="reference external" href="http://mail.scipy.org/mailman/listinfo/astropy">astropy mailing list</a>.</p>
 <div class="section" id="macos-or-root-linux-install">
 <h4>MacOS or root linux install<a class="headerlink" href="#macos-or-root-linux-install" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><pre>easy_install --upgrade pip
-pip install --upgrade distribute
-pip install asciitable
-pip install pyfits
-pip install pywcs
-pip install atpy
-pip install aplpy
-pip install pyregion
-pip install pyparsing
-pip install http://stsdas.stsci.edu/astrolib/vo-0.6.tar.gz
-pip install http://stsdas.stsci.edu/astrolib/coords-0.37.tar.gz</pre>
+<div class="highlight-python"><pre>sudo easy_install --upgrade pip
+sudo pip install --upgrade distribute
+sudo pip install asciitable
+sudo pip install pyfits
+sudo pip install pywcs
+sudo pip install atpy
+sudo pip install aplpy
+sudo pip install pyregion
+sudo pip install pyparsing
+sudo pip install http://stsdas.stsci.edu/astrolib/vo-0.7.2.tar.gz
+sudo pip install http://stsdas.stsci.edu/astrolib/coords-0.37.tar.gz</pre>
 </div>
 </div>
 <div class="section" id="non-root-linux">
@@ -463,7 +559,7 @@ pip install --user atpy
 pip install --user aplpy
 pip install --user pyregion
 pip install --user pyparsing
-pip install --user http://stsdas.stsci.edu/astrolib/vo-0.6.tar.gz
+pip install --user http://stsdas.stsci.edu/astrolib/vo-0.7.2.tar.gz
 pip install --user http://stsdas.stsci.edu/astrolib/coords-0.37.tar.gz</pre>
 </div>
 </div>
@@ -574,16 +670,16 @@ by CDS / Vizier for input and storage of tables in astronomy.</p>
 print the column <tt class="docutils literal"><span class="pre">RAdeg</span></tt>, and print the 3rd row.</p>
 <p>Hints:</p>
 <blockquote>
-<ul>
+<div><ul>
 <li><p class="first">You can print a <tt class="docutils literal"><span class="pre">&lt;variable&gt;</span></tt> by just typing <tt class="docutils literal"><span class="pre">print</span> <span class="pre">&lt;variable&gt;</span></tt> at the command line, for example <tt class="docutils literal"><span class="pre">print</span> <span class="pre">data</span></tt>.</p>
 </li>
 <li><p class="first">You can get tons of useful information about a variable with <tt class="docutils literal"><span class="pre">help</span></tt> or <tt class="docutils literal"><span class="pre">?</span></tt>:</p>
 <blockquote>
-<ul class="simple">
+<div><ul class="simple">
 <li><tt class="docutils literal"><span class="pre">help</span> <span class="pre">&lt;variable&gt;</span></tt></li>
 <li><tt class="docutils literal"><span class="pre">?</span> <span class="pre">&lt;variable&gt;</span></tt></li>
 </ul>
-</blockquote>
+</div></blockquote>
 <p>These two commands are pretty similar except that <tt class="docutils literal"><span class="pre">?</span></tt> gives a little bit more information
 and in a more raw form.</p>
 </li>
@@ -597,13 +693,40 @@ which is just a fancy way of saying a table where you can access rows or columns
 <li><p class="first">To print a row of data use <tt class="docutils literal"><span class="pre">print</span> <span class="pre">data[&lt;row_number&gt;]</span></tt></p>
 </li>
 </ul>
-</blockquote>
+</div></blockquote>
 <p class="last">Optional: use the <a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib.pyplot.plot">plot</a> and
 <a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib.pyplot.hist">hist</a> functions to
 examine the data graphically.  For instance plot RAdeg versus DEdeg.  Look at the <tt class="docutils literal"><span class="pre">table1.dat</span></tt> file itself for
 detailed column descriptions.</p>
 </div>
 </div>
+</div>
+<div class="section" id="versus-32-bit">
+<h2>64 versus 32 bit<a class="headerlink" href="#versus-32-bit" title="Permalink to this headline">¶</a></h2>
+<p>For several of the binary installers you need to make a decision: 32-bit or
+64-bit download?  First you need to establish whether your computer has a
+32-bit or 64-bit processor.  If you have a 32-bit processor then your decision
+is easy (32-bit) but if you have a 64-bit processor then either 32 or 64 will
+work.  See below if you don&#8217;t know your processor architecture:</p>
+<ul class="simple">
+<li>MacOSX: Follow <a class="reference external" href="http://support.apple.com/kb/ht3696">the MacOS instructions</a></li>
+<li>Linux: Type <tt class="docutils literal"><span class="pre">uname</span> <span class="pre">-mpi</span></tt> at the command line.  If you see <tt class="docutils literal"><span class="pre">x86_64</span> <span class="pre">x86_64</span>
+<span class="pre">x86_64</span></tt> you have a 64-bit machine and OS.  If you see one or more <tt class="docutils literal"><span class="pre">i686</span></tt>
+or <tt class="docutils literal"><span class="pre">i386</span></tt> you are running a 32-bit OS.</li>
+<li>Windows:  Follow <a class="reference external" href="http://windows.microsoft.com/en-US/windows-vista/32-bit-and-64-bit-Windows-frequently-asked-questions">the Windows instructions</a>.</li>
+</ul>
+<p><strong>64-bit</strong></p>
+<ul class="simple">
+<li><em>Pro</em>: Faster for data- and compute-intensive applications</li>
+<li><em>Con</em>: Have to submit an email address and wait for the download link in response</li>
+</ul>
+<p><strong>32-bit</strong></p>
+<ul class="simple">
+<li><em>Pro</em>: Comes with the <a class="reference external" href="http://github.enthought.com/mayavi/mayavi/">Mayavi</a> 3-d
+rendering package installed while the 64-bit does not (for technical reasons).
+If you are interested in using this cool package you should consider choosing 32-bit.
+Note that the standard matplotlib package supports some <a class="reference external" href="http://matplotlib.sourceforge.net/mpl_toolkits/mplot3d/tutorial.html">3-d plotting</a>.</li>
+</ul>
 </div>
 </div>
 

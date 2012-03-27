@@ -283,10 +283,15 @@ display:none;
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Mac OSX</a><ul>
+<li><a class="reference internal" href="#install-the-distribution">Install the distribution</a><ul>
+<li><a class="reference internal" href="#macports">MacPorts</a></li>
 <li><a class="reference internal" href="#enthought-python-distribution-epd">Enthought Python Distribution (EPD)</a></li>
+<li><a class="reference internal" href="#activestate">ActiveState</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#quick-installation-check">Quick installation check</a></li>
 <li><a class="reference internal" href="#macos-x-developer-tools">MacOS X Developer Tools</a></li>
-<li><a class="reference internal" href="#fortran-optional">Fortran (Optional)</a></li>
+<li><a class="reference internal" href="#fortran">Fortran</a></li>
 <li><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
 <li><a class="reference internal" href="#path">Path</a><ul>
 <li><a class="reference internal" href="#step-1">Step 1</a></li>
@@ -329,21 +334,63 @@ display:none;
             
   <div class="section" id="mac-osx">
 <span id="id1"></span><h1>Mac OSX<a class="headerlink" href="#mac-osx" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="install-the-distribution">
+<h2>Install the distribution<a class="headerlink" href="#install-the-distribution" title="Permalink to this headline">¶</a></h2>
+<p>If you can follow instructions and have a little patience then MacPorts is
+probably the best option.  If anything beyond a one-click install is too much
+of a bother then choose EPD Academic or ActiveState.</p>
+<div class="section" id="macports">
+<h3>MacPorts<a class="headerlink" href="#macports" title="Permalink to this headline">¶</a></h3>
+<p>To install Python using MacPorts follow the detailed instructions at <a class="reference external" href="http://astrofrog.github.com/macports-python/">MacPorts
+Python installation on Mac - 10 easy steps</a>.</p>
+</div>
 <div class="section" id="enthought-python-distribution-epd">
-<h2>Enthought Python Distribution (EPD)<a class="headerlink" href="#enthought-python-distribution-epd" title="Permalink to this headline">¶</a></h2>
-<p>Assuming that you have downloaded the EPD disk image, open it, then double-click on
-<tt class="docutils literal"><span class="pre">EPD.mpkg</span></tt> and follow the prompts to install. Choose all the defaults for
-installing (in particular use the default installation location).</p>
+<h3>Enthought Python Distribution (EPD)<a class="headerlink" href="#enthought-python-distribution-epd" title="Permalink to this headline">¶</a></h3>
+<p>Assuming that you have downloaded the <a class="reference external" href="http://www.enthought.com/products/edudownload.php">EPD Academic</a> or <a class="reference external" href="http://www.enthought.com/products/epd_free.php">EPD Free</a> disk image, open it, then
+double-click on <tt class="docutils literal"><span class="pre">EPD.mpkg</span></tt> and follow the prompts to install. Choose all the
+defaults for installing (in particular use the default installation location).</p>
 <p>Additional information can be found on the <a class="reference external" href="http://www.enthought.com/products/epdgetstart.php?platform=mac">Getting Started with EPD</a> page.</p>
+</div>
+<div class="section" id="activestate">
+<h3>ActiveState<a class="headerlink" href="#activestate" title="Permalink to this headline">¶</a></h3>
+<p>Download the <a class="reference external" href="http://www.activestate.com/activepython/downloads">ActivePython community edition</a> disk image for Python 2.7
+and run the installer, choosing all defaults at the prompts.  Next install the
+core packages from the terminal command line:</p>
+<div class="highlight-python"><pre>sudo /usr/local/bin/pypm -g install numpy scipy matplotlib ipython</pre>
+</div>
+<p>Now edit the file <cite>~/.bash_profile</cite> and insert the following line at the end:</p>
+<div class="highlight-python"><pre>export PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"</pre>
+</div>
+</div>
 </div>
 <div class="section" id="quick-installation-check">
 <h2>Quick installation check<a class="headerlink" href="#quick-installation-check" title="Permalink to this headline">¶</a></h2>
 <p>Open a new terminal window and type:</p>
 <div class="highlight-python"><pre>which ipython</pre>
 </div>
-<p>You should see something like:</p>
-<blockquote>
-/Library/Frameworks/EPD64.framework/Versions/Current/bin/ipython</blockquote>
+<p>You should see one of the following:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Dist</th>
+<th class="head">Path</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>MacPorts</td>
+<td><tt class="docutils literal"><span class="pre">/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin/ipython</span></tt></td>
+</tr>
+<tr><td>EPD</td>
+<td><tt class="docutils literal"><span class="pre">/Library/Frameworks/EPD64.framework/Versions/Current/bin/ipython</span></tt></td>
+</tr>
+<tr><td>ActiveState</td>
+<td><tt class="docutils literal"><span class="pre">/Library/Frameworks/Python.framework/Versions/2.7/bin/ipython</span></tt></td>
+</tr>
+</tbody>
+</table>
 <p>If not go to the <a class="reference internal" href="#troubleshooting">Troubleshooting</a> section.</p>
 </div>
 <div class="section" id="macos-x-developer-tools">
@@ -385,15 +432,12 @@ not tested it so we can&#8217;t guarantee that everything will go smoothly with
 the Enthought Python Distribution.</li>
 </ul>
 </div>
-<div class="section" id="fortran-optional">
-<h2>Fortran (Optional)<a class="headerlink" href="#fortran-optional" title="Permalink to this headline">¶</a></h2>
-<p>You may at some point come across packages which require a Fortran
-compiler, or you may want to interface Fortran and Python code. If not, you
-can proceed to the next section.</p>
-<p>The preferred compiler to interface Fortran and Python code is <tt class="docutils literal"><span class="pre">gfortran</span></tt>.
-Other compilers <cite>should</cite> work, but if you want to be on the safe side, you
-can download a one-click installer for gfortran 4.2.3 from <a class="reference external" href="http://r.research.att.com/tools/">this page</a>. Once you have installed it, make sure
-that typing <tt class="docutils literal"><span class="pre">gfortran</span></tt> gives something like this:</p>
+<div class="section" id="fortran">
+<h2>Fortran<a class="headerlink" href="#fortran" title="Permalink to this headline">¶</a></h2>
+<p>Many of the Python scientific packages use Fortran libraries internally. To
+avoid getting obscure errors, it is highly recommended to install the latest
+<tt class="docutils literal"><span class="pre">gfortran</span></tt> from <a class="reference external" href="http://r.research.att.com/tools/">http://r.research.att.com/tools/</a>.  Once you have
+installed it, make sure that typing <tt class="docutils literal"><span class="pre">gfortran</span></tt> gives something like this:</p>
 <div class="highlight-python"><pre>$ gfortran
 i686-apple-darwin8-gfortran-4.2: no input files</pre>
 </div>
@@ -404,9 +448,31 @@ install correctly.</p>
 <h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="path">
 <h3>Path<a class="headerlink" href="#path" title="Permalink to this headline">¶</a></h3>
-<p>If EPD installed successfully and you can start <tt class="docutils literal"><span class="pre">python</span></tt> but not <tt class="docutils literal"><span class="pre">ipython</span></tt>
+<p>If the Python distribution installed successfully and you can start <tt class="docutils literal"><span class="pre">python</span></tt> but not <tt class="docutils literal"><span class="pre">ipython</span></tt>
 (error message like <tt class="docutils literal"><span class="pre">ipython:</span> <span class="pre">command</span> <span class="pre">not</span> <span class="pre">found</span></tt>) then there is likely a
-problem with your PATH.</p>
+problem with your PATH.  In the instructions below use the correct PATH for your distribution:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="86%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Dist</th>
+<th class="head">Path</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>MacPorts</td>
+<td><tt class="docutils literal"><span class="pre">/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin/</span></tt></td>
+</tr>
+<tr><td>EPD</td>
+<td><tt class="docutils literal"><span class="pre">/Library/Frameworks/EPD64.framework/Versions/Current/bin/</span></tt></td>
+</tr>
+<tr><td>ActiveState</td>
+<td><tt class="docutils literal"><span class="pre">/Library/Frameworks/Python.framework/Versions/2.7/bin/</span></tt></td>
+</tr>
+</tbody>
+</table>
 <div class="section" id="step-1">
 <h4>Step 1<a class="headerlink" href="#step-1" title="Permalink to this headline">¶</a></h4>
 <p>Are you sure you opened a new terminal window after the installation finished?</p>
@@ -422,8 +488,9 @@ to step 3.</p>
 </div>
 <div class="section" id="step-3">
 <h4>Step 3<a class="headerlink" href="#step-3" title="Permalink to this headline">¶</a></h4>
-<p>Determine if you are running csh/tcsh or bash by entering the command <tt class="docutils literal"><span class="pre">ps</span></tt> in a terminal window.
-For <tt class="docutils literal"><span class="pre">csh</span></tt> or <tt class="docutils literal"><span class="pre">tcsh</span></tt> you should edit the file <tt class="docutils literal"><span class="pre">~/.cshrc</span></tt> and add the following lines at the end:</p>
+<p>Determine if you are running csh/tcsh or bash by entering the command
+<tt class="docutils literal"><span class="pre">echo</span> <span class="pre">$0</span></tt> in a terminal window.  For <tt class="docutils literal"><span class="pre">csh</span></tt> or <tt class="docutils literal"><span class="pre">tcsh</span></tt> you should edit the file
+<tt class="docutils literal"><span class="pre">~/.cshrc</span></tt> and add the following lines at the end:</p>
 <div class="highlight-python"><pre># Setting PATH for Enthough Python Distribution
 set path=(/Library/Frameworks/EPD64.framework/Versions/Current/bin $path)</pre>
 </div>
