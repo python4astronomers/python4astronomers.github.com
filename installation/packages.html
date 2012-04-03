@@ -295,6 +295,7 @@ display:none;
 <li><a class="reference internal" href="#">Modules, Packages, and all that</a><ul>
 <li><a class="reference internal" href="#finding-and-installing-other-packages">Finding and installing other packages</a></li>
 <li><a class="reference internal" href="#multiple-pythons-on-your-computer">Multiple Pythons on your computer</a></li>
+<li><a class="reference internal" href="#virtualenv">Virtualenv</a></li>
 <li><a class="reference internal" href="#final-exercises">Final exercises</a></li>
 </ul>
 </li>
@@ -363,7 +364,7 @@ to call.</dd>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
 <p>Sometimes it is convenient to make an end-run around the <tt class="docutils literal"><span class="pre">&lt;module&gt;.</span></tt>
-prefixing.  For instance when you run <tt class="docutils literal"><span class="pre">ipython</span> <span class="pre">-pylab</span></tt> the interpreter
+prefixing.  For instance when you run <tt class="docutils literal"><span class="pre">ipython</span> <span class="pre">--pylab</span></tt> the interpreter
 does some startup processing so that a number of functions
 from the <a class="reference external" href="http://numpy.scipy.org/">numpy</a> and <a class="reference external" href="http://matplotlib.sourceforge.net/">matplotlib</a> modules are available <em>without</em>
 using the prefix.</p>
@@ -563,7 +564,7 @@ is installed as a MacOS Framework or not.</p>
 </div>
 <div class="section" id="without-user">
 <h4>WITHOUT <tt class="docutils literal"><span class="pre">--user</span></tt><a class="headerlink" href="#without-user" title="Permalink to this headline">¶</a></h4>
-<p>This option requires root or admin privilege because the package will be
+<p>This option may require root or admin privilege because the package will be
 installed in the system area instead of your own local directories.</p>
 <p>Installing this way has the benefit of making the package available for all users of the
 Python installation, but has the downside of possibly breaking things in a way
@@ -638,7 +639,7 @@ as its own local Python universe.</p>
 <div class="section" id="installing-within-each-python">
 <h3>Installing within each Python<a class="headerlink" href="#installing-within-each-python" title="Permalink to this headline">¶</a></h3>
 <p>Now that you know about all the great packages within our Scientific Python
-installation, you might want to start using them in your PyRaf or CASA
+installation, you might want to start using them in your PyRAF or CASA
 or CIAO analysis.</p>
 <p>If you start digging into Python you will likely come across the technique of
 setting the <tt class="docutils literal"><span class="pre">PYTHONPATH</span></tt> environment variable to extend the list of search
@@ -654,9 +655,15 @@ have write permission into the directories where the analysis package files
 live.  Simply enter the appropriate analysis environment, then do then
 following:</p>
 <ul class="simple">
-<li>Download <a class="reference external" href="http://pypi.python.org/packages/source/p/pip/pip-1.0.1.tar.gz">http://pypi.python.org/packages/source/p/pip/pip-1.0.1.tar.gz</a></li>
+<li>At the command line do <tt class="docutils literal"><span class="pre">which</span> <span class="pre">python</span></tt> to verify that <tt class="docutils literal"><span class="pre">python</span></tt> is
+the correct one from the analysis environment.</li>
+<li>Navigate to <a class="reference external" href="http://pypi.python.org/pypi/pip#downloads">http://pypi.python.org/pypi/pip#downloads</a></li>
+<li>Download the latest version of pip (<cite>pip-X.Y.tar.gz</cite>)</li>
 <li>Untar that file, go in the tar directory, and do <tt class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">install</span></tt></li>
-<li>Now you can do <tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">&lt;package&gt;</span></tt> for each desired package within
+<li>Do <tt class="docutils literal"><span class="pre">rehash</span></tt> (for csh) then  <tt class="docutils literal"><span class="pre">which</span> <span class="pre">pip</span></tt> to make sure the new
+<tt class="docutils literal"><span class="pre">pip</span></tt> got installed into your analysis environment path.</li>
+<li>Now you can do <tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">&lt;package&gt;</span></tt> or <tt class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">install</span></tt>
+for each desired package within
 that analysis environment.</li>
 </ul>
 <p>It&#8217;s worth noting that the original example of SciPy will not install with
@@ -669,14 +676,16 @@ then set a corresponding <tt class="docutils literal"><span class="pre">PYTHONPA
 </div>
 <div class="section" id="can-we-share-packages">
 <h3>Can we share packages?<a class="headerlink" href="#can-we-share-packages" title="Permalink to this headline">¶</a></h3>
-<p>If you are careful there is a way to get limited sharing between Pythons.  The
-first rule is that they need to be the same major version, i.e. all 2.6 or 2.7.
-This is because Python always includes a major version like <tt class="docutils literal"><span class="pre">python2.6/</span></tt> in
-the default search path so Python 2.7 will never find 2.6 packages.  The second
-rule is to install packages using the <tt class="docutils literal"><span class="pre">--user</span></tt> option in <tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span></tt> or
-<tt class="docutils literal"><span class="pre">setup.py</span> <span class="pre">install</span></tt>.  This results in the situation shown below where each
-Python can find common packages in the local user area:</p>
-<img alt="../_images/antisocial_pythons_trans.png" src="../_images/antisocial_pythons_trans.png" style="width: 650px;" />
+<p>In some cases you can successfully share between Pythons.  However, <em>this technique is
+prone to breaking things in strange ways and we do not recommend it</em>.  Nevertheless it is
+useful to illustrate how this works.</p>
+<p>The first rule is that they need to be the same major version, i.e. all 2.6 or
+2.7.  This is because Python always includes a major version like
+<tt class="docutils literal"><span class="pre">python2.6/</span></tt> in the default search path so Python 2.7 will never find 2.6
+packages.  The second rule is to install packages using the <tt class="docutils literal"><span class="pre">--user</span></tt> option
+in <tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span></tt> or <tt class="docutils literal"><span class="pre">setup.py</span> <span class="pre">install</span></tt>.  This results in the situation
+shown below where each Python can find common packages in the local user area:</p>
+<img alt="../_images/antisocial_pythons_trans5.png" src="../_images/antisocial_pythons_trans5.png" style="width: 650px;" />
 <p>Be sure to test that the package you installed works within the other Python
 environments.</p>
 <div class="admonition caution">
@@ -684,11 +693,21 @@ environments.</p>
 <p class="last">Be very wary of installing a package with <tt class="docutils literal"><span class="pre">--user</span></tt> if one of your Python
 installations already contains that package.  This is because the local user
 version will always take precedence and thus potentially upset that Python
-installation.  Big analysis packages like CIAO or CASA are carefully tested
-assuming the integrated environment they provide.  If you start mucking this
-up then all bets are off.</p>
+installation.  Big analysis packages like CIAO, STSci_Python or CASA are
+carefully tested assuming the integrated environment they provide.  If you
+start mucking this up then all bets are off.</p>
 </div>
 </div>
+</div>
+<div class="section" id="virtualenv">
+<h2>Virtualenv<a class="headerlink" href="#virtualenv" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://virtualenv.org">Virtualenv</a> is a very useful tool for creating isolated
+Python environments.  As seen in the linux non-root install it provides a way
+to make a virtual clone of an existing Python environment.  This clone can then
+be used as the package installation location.</p>
+<p>One use case is wanting to install a new or experimental version of a package
+without overwriting the existing production version in your baseline environment.</p>
+<p>For a good introductory tutorial see <a class="reference external" href="http://iamzed.com/2009/05/07/a-primer-on-virtualenv/">http://iamzed.com/2009/05/07/a-primer-on-virtualenv/</a>.</p>
 </div>
 <div class="section" id="final-exercises">
 <h2>Final exercises<a class="headerlink" href="#final-exercises" title="Permalink to this headline">¶</a></h2>

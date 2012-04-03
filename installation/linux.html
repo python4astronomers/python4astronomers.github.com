@@ -291,12 +291,7 @@ display:none;
 <li><a class="reference internal" href="#id1">Quick installation check</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#alternate-non-root-setup-with-existing-python">Alternate non-root setup with existing Python</a><ul>
-<li><a class="reference internal" href="#update-path">Update path</a><ul>
-<li><a class="reference internal" href="#option-a-put-pythonroot-in-path">Option A: put $PYTHONROOT in path</a></li>
-<li><a class="reference internal" href="#option-b-put-local-bin-in-path">Option B: put ~/.local/bin in path</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#non-root-setup-using-virtualenv">Non-root setup using virtualenv</a><ul>
 <li><a class="reference internal" href="#id2">Quick installation check</a></li>
 </ul>
 </li>
@@ -394,96 +389,59 @@ path):</p>
 </div>
 </div>
 </div>
-<div class="section" id="alternate-non-root-setup-with-existing-python">
-<h2>Alternate non-root setup with existing Python<a class="headerlink" href="#alternate-non-root-setup-with-existing-python" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="non-root-setup-using-virtualenv">
+<h2>Non-root setup using virtualenv<a class="headerlink" href="#non-root-setup-using-virtualenv" title="Permalink to this headline">¶</a></h2>
 <p>If you are using a computer on a system managed network which has Python 2.6 or
-2.7 installed along with NumPy, SciPy, IPython, and matplotlib, then you might
-want to look at the following.  This setup assumes you do not have root
-privilege.</p>
-<p>The main configuration that is needed is to set up your path to use the correct
-Python version. Assume that the Python installation is installed in the root
-directory <tt class="docutils literal"><span class="pre">$PYTHONROOT</span></tt>, so that you find <tt class="docutils literal"><span class="pre">python</span></tt> and <tt class="docutils literal"><span class="pre">ipython</span></tt> in
-<tt class="docutils literal"><span class="pre">$PYTHONROOT/bin</span></tt>.</p>
-<div class="section" id="update-path">
-<h3>Update path<a class="headerlink" href="#update-path" title="Permalink to this headline">¶</a></h3>
-<p>There are a couple of ways to do this.</p>
-<div class="section" id="option-a-put-pythonroot-in-path">
-<h4>Option A: put $PYTHONROOT in path<a class="headerlink" href="#option-a-put-pythonroot-in-path" title="Permalink to this headline">¶</a></h4>
-<p>Put <tt class="docutils literal"><span class="pre">$PYTHONROOT/bin</span></tt> directly in your path:</p>
+2.7 installed along with NumPy, SciPy, matplotlib, and easy_install, then you
+might want to look at the following.  This setup assumes you do not have root
+privilege and takes advantage of the <a class="reference external" href="http://www.virtualenv.org/">virtualenv</a>
+package.  This allows you to install new and updated packages to a virtual
+clone of this Python installation without having root.</p>
+<p>Assume that the system Python installation is installed in the root directory
+<tt class="docutils literal"><span class="pre">$PYTHONROOT</span></tt>, so that you find <tt class="docutils literal"><span class="pre">python</span></tt> and <tt class="docutils literal"><span class="pre">easy_install</span></tt> in
+<tt class="docutils literal"><span class="pre">$PYTHONROOT/bin</span></tt>.  Now install <tt class="docutils literal"><span class="pre">pip</span></tt>, <tt class="docutils literal"><span class="pre">distribute</span></tt>, and <tt class="docutils literal"><span class="pre">virtualenv</span></tt>:</p>
+<div class="highlight-python"><pre>$PYTHONROOT/bin/easy_install --user --upgrade virtualenv</pre>
+</div>
+<p>Now use <tt class="docutils literal"><span class="pre">virtualenv</span></tt> to make a local virtual Python which is a clone of the
+system Python but resides in a directory (e.g. <tt class="docutils literal"><span class="pre">~/py27</span></tt>) where you have write
+access:</p>
+<div class="highlight-python"><pre>~/.local/bin/virtualenv ~/py27</pre>
+</div>
+<p>To use this virtual Python just do:</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="8%" />
-<col width="22%" />
-<col width="69%" />
+<col width="11%" />
+<col width="89%" />
 </colgroup>
 <thead valign="bottom">
 <tr><th class="head">Shell</th>
-<th class="head">File</th>
 <th class="head">Command</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr><td>csh</td>
-<td>~/.myrc</td>
-<td><tt class="docutils literal"><span class="pre">set</span> <span class="pre">path=($PYTHONROOT/bin</span> <span class="pre">$path)</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">source</span> <span class="pre">~/py27/bin/activate.csh</span></tt></td>
 </tr>
 <tr><td>bash</td>
-<td>~/.bashrc</td>
-<td><tt class="docutils literal"><span class="pre">export</span> <span class="pre">PATH=$PYTHONROOT/bin:$PATH</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">.</span> <span class="pre">~/py27/bin/activate</span></tt></td>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="option-b-put-local-bin-in-path">
-<h4>Option B: put ~/.local/bin in path<a class="headerlink" href="#option-b-put-local-bin-in-path" title="Permalink to this headline">¶</a></h4>
-<p>A slight variation occurs if the $PYTHONROOT path is actually a directory with
-a bunch of other stuff that you might not want at the top of your path.  This
-is the situation on a system-managed network at the Harvard CfA: the &#8220;modern&#8221;
-Python 2.6 installation is in /usr/local/bin, but this happens to have a lot of
-other stuff that is not expected to be in front of /usr/bin by the system
-managers.  Hence putting /usr/local/bin first is risky.</p>
-<p>In this case we make an end run and put links into a special directory
-<tt class="docutils literal"><span class="pre">~/.local</span></tt>, which is basically a private user version of /usr/local:</p>
-<div class="highlight-python"><pre>mkdir -p ~/.local/bin
-cd ~/.local/bin
-ln -s $PYTHONROOT/bin/python ./
-ln -s $PYTHONROOT/bin/ipython ./
-ln -s $PYTHONROOT/bin/easy_install ./</pre>
-</div>
-<p>Now update your shell initialization file:</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="8%" />
-<col width="22%" />
-<col width="69%" />
-</colgroup>
-<thead valign="bottom">
-<tr><th class="head">Shell</th>
-<th class="head">File</th>
-<th class="head">Command</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr><td>csh</td>
-<td>~/.cshrc.user</td>
-<td><tt class="docutils literal"><span class="pre">set</span> <span class="pre">path=($HOME/.local/bin</span> <span class="pre">$path)</span></tt></td>
-</tr>
-<tr><td>bash</td>
-<td>~/.bashrc</td>
-<td><tt class="docutils literal"><span class="pre">export</span> <span class="pre">PATH=$HOME/.local/bin:$PATH</span></tt></td>
-</tr>
-</tbody>
-</table>
-</div>
+<p>For convience you might make an alias for these startup commands in your csh or
+bash startup file.  Once you&#8217;ve activated the virtual Python environment then
+you <em>do not</em> use the <tt class="docutils literal"><span class="pre">--user</span></tt> option in <tt class="docutils literal"><span class="pre">easy_install</span></tt> or <tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span></tt>.
+All installs will be made in your local environment.</p>
+<p>To finish up you need to install <tt class="docutils literal"><span class="pre">ipython</span></tt> in this virtual environment, even
+if it already exists in the system python:</p>
+<div class="highlight-python"><pre>pip install --upgrade ipython</pre>
 </div>
 <div class="section" id="id2">
 <h3>Quick installation check<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>Open a new terminal window and type:</p>
 <div class="highlight-python"><pre>which ipython</pre>
 </div>
-<p>You should see one of the following two (for options A and B respectively):</p>
-<div class="highlight-python"><pre>$PYTHONPATH/bin/ipython    # option A
-$HOME/.local/bin/ipython   # option B</pre>
+<p>You should see something like the following:</p>
+<div class="highlight-python"><pre>~/py27/bin/ipython</pre>
 </div>
 </div>
 </div>
