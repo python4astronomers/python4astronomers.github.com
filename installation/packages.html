@@ -294,6 +294,7 @@ display:none;
   <ul>
 <li><a class="reference internal" href="#">Modules, Packages, and all that</a><ul>
 <li><a class="reference internal" href="#finding-and-installing-other-packages">Finding and installing other packages</a></li>
+<li><a class="reference internal" href="#where-does-python-look-for-modules">Where does Python look for modules?</a></li>
 <li><a class="reference internal" href="#multiple-pythons-on-your-computer">Multiple Pythons on your computer</a></li>
 <li><a class="reference internal" href="#virtualenv">Virtualenv</a></li>
 <li><a class="reference internal" href="#final-exercises">Final exercises</a></li>
@@ -565,10 +566,10 @@ is installed as a MacOS Framework or not.</p>
 <div class="section" id="without-user">
 <h4>WITHOUT <tt class="docutils literal"><span class="pre">--user</span></tt><a class="headerlink" href="#without-user" title="Permalink to this headline">¶</a></h4>
 <p>This option may require root or admin privilege because the package will be
-installed in the system area instead of your own local directories.</p>
+installed in the system area instead of your own local directories.
+<em>For most astronomers running on a single-user machine this is a good option.</em></p>
 <p>Installing this way has the benefit of making the package available for all users of the
-Python installation, but has the downside of possibly breaking things in a way
-that is difficult to repair (see next topic).</p>
+Python installation, but has the downside that it is a bit more difficult to back out changes if required.</p>
 </div>
 <div class="section" id="how-do-i-find-a-package-once-installed">
 <h4>How do I find a package once installed?<a class="headerlink" href="#how-do-i-find-a-package-once-installed" title="Permalink to this headline">¶</a></h4>
@@ -626,6 +627,35 @@ someone help?&#8221;</p>
 </ul>
 </div></blockquote>
 </div>
+</div>
+<div class="section" id="where-does-python-look-for-modules">
+<h2>Where does Python look for modules?<a class="headerlink" href="#where-does-python-look-for-modules" title="Permalink to this headline">¶</a></h2>
+<p>The official reference on <a class="reference external" href="http://docs.python.org/install/index.html#modifying-python-s-search-path">Modifying Python&#8217;s Search Path</a>
+gives all the details.  In summary:</p>
+<p>When the Python interpreter executes an import statement, it looks for modules
+on a search path. A default value for the path is configured into the Python
+binary when the interpreter is built. You can determine the path by importing
+the <a class="reference external" href="http://docs.python.org/library/sys.html#module-sys">sys</a> module and
+printing the value of <tt class="docutils literal"><span class="pre">sys.path</span></tt>:</p>
+<div class="highlight-python"><pre>$ python
+Python 2.2 (#11, Oct  3 2002, 13:31:27)
+[GCC 2.96 20000731 (Red Hat Linux 7.3 2.96-112)] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+&gt;&gt;&gt; import sys
+&gt;&gt;&gt; sys.path
+['', '/usr/local/lib/python2.3', '/usr/local/lib/python2.3/plat-linux2',
+ '/usr/local/lib/python2.3/lib-tk', '/usr/local/lib/python2.3/lib-dynload',
+ '/usr/local/lib/python2.3/site-packages']
+&gt;&gt;&gt;</pre>
+</div>
+<p>Within a script it is possible to adjust the search path by modify <tt class="docutils literal"><span class="pre">sys.path</span></tt>
+which is just a Python list.  Generally speaking you will want to put your path
+at the front of the list using insert:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&#39;/my/path/python/packages&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You can also add paths to the search path using the <a class="reference external" href="http://docs.python.org/using/cmdline.html#envvar-PYTHONPATH">PYTHONPATH</a> environment variable.</p>
 </div>
 <div class="section" id="multiple-pythons-on-your-computer">
 <h2>Multiple Pythons on your computer<a class="headerlink" href="#multiple-pythons-on-your-computer" title="Permalink to this headline">¶</a></h2>
