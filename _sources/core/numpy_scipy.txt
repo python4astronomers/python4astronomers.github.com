@@ -105,11 +105,29 @@ where the count starts from 0::
   err = hdus[2].data      # Error per pixel
   dq = hdus[3].data       # Data quality per pixel
 
-Next have a look at the images using a super-simple image viewer that I wrote in
-about 50 lines of Python::
+Next have a look at the images using one of the standard Matplotlib plotting
+functions::
 
-  from imgview import ImgView
-  ImgView(img)
+  plt.imshow(img)
+
+As you can see, it is hard to see things. So, let's set a few option for this
+plot. First, we want the origin in the lower left instead of the upper left
+corner::
+
+  plt.clf()
+  plt.imshow(img, origin = 'lower')
+
+Second, let's change the scaling to something more sensible. By default,
+``plt.imshow()`` scales the colorbar from the minimum to the maximum value. In
+our case that is not the best option. We can set a lower and upper bound and
+add a colorbar to out plot::
+
+  plt.clf()
+  plt.imshow(img, origin = 'lower', vmin = -10, vmax = 65)
+  plt.colorbar()
+
+Your plot should not look like this (it is possible that the colormap differs,
+if your matplot lib has different defaults set).
 
 .. image:: imgview_img.png
   :scale: 50
@@ -126,9 +144,15 @@ about 50 lines of Python::
    <p class="flip1">Click to Show/Hide Solution</p> <div class="panel1">
 
 ::
-
-  ImgView(err)
-  ImgView(dq)
+  
+  # Errors
+  plt.clf()
+  plt.imshow(err, origin = 'lower', vmin = 5, vmax = 25)
+  plt.colorbar()
+  # Data quality
+  plt.clf()
+  plt.imshow(dq, origin = 'lower', vmax = 25)
+  plt.colorbar()
 
 .. image:: imgview_err.png
    :scale: 50
@@ -264,7 +288,7 @@ It is possible to operate with arrays of different dimensions as long as they fi
    y = x.reshape(-1, 1)
    r = np.sqrt(x**2 + y**2)
    z = np.cos(r) / (r + 5)
-   ImgView(z)
+   plt.imshow(z, origin = 'lower)
 
 .. image:: ripple.png
    :scale: 50
@@ -479,7 +503,7 @@ and that you can compose logical expressions::
   dist = np.sqrt((x-10)**2 + (y-15)**2)
   mask = dist < 10
   z[mask] = 0
-  ImgView(z)
+  plt.imshow(z, origin = 'lower')
 
 .. image:: ripple_masked.png
    :scale: 50
@@ -564,11 +588,13 @@ Now do this for every column and store the results in a background image::
 
   xrows = np.arange(img_cr.shape[0])          # Array from 0 .. N_rows-1
   bkg = np.zeros_like(img_cr)                 # Empty image for background fits
-  for col in arange(img_cr.shape[1]):         # Iterate over columns
-      pfit = np.polyfit(x, img_cr[x, col], 2) # Fit poly over bkg rows for col
+  for col in np.arange(img_cr.shape[1]):      # Iterate over columns
+      pfit = np.polyfit(xrows, img_cr[xrows, col], 2) # Fit poly over bkg rows for col
       bkg[:, col] = np.polyval(pfit, xrows)   # Eval poly at ALL row positions
 
-  ImgView(bkg)
+  plt.clf()
+  plt.imshow(bkg, origin = 'lower', vmin=0, vmax=20)
+  plt.colorbar()
 
 .. image:: bkg_fit1.png
    :scale: 50
@@ -576,7 +602,9 @@ Now do this for every column and store the results in a background image::
 Finally subtract this background and see if it worked::
 
   img_bkg = img_cr - bkg
-  ImgView(img_bkg)
+  plt.clf()
+  plt.imshow(img_bkg, origin = 'lower', vmin=0, vmax=60)
+  plt.colorbar()
 
 +------------------------------------+-----------------------------------+
 |  **Background subtracted**         |   **Original**                    |
