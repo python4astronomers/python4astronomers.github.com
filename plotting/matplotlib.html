@@ -3,13 +3,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Matplotlib &mdash; Python4Astronomers v1.1 documentation</title>
+    <title>Matplotlib &mdash; Python4Astronomers 1.1 documentation</title>
+    
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -22,7 +25,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Python4Astronomers v1.1 documentation" href="../index.html" />
+    <link rel="top" title="Python4Astronomers 1.1 documentation" href="../index.html" />
     <link rel="up" title="Plotting and Images" href="plotting.html" />
     <link rel="next" title="Python Objects - or what’s with the periods everywhere?" href="../python/objects.html" />
     <link rel="prev" title="Plotting and Images" href="plotting.html" />
@@ -284,7 +287,7 @@ display:none;
         <li class="right" >
           <a href="plotting.html" title="Plotting and Images"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers v1.1 documentation</a> &raquo;</li>
+        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li>
           <li><a href="plotting.html" accesskey="U">Plotting and Images</a> &raquo;</li> 
       </ul>
     </div>
@@ -329,7 +332,7 @@ display:none;
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" size="18" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
@@ -570,105 +573,105 @@ about the plot) are <em>dynamic objects</em> that can be modified after the fact
 <col width="69%" />
 </colgroup>
 <thead valign="bottom">
-<tr><th class="head">Property</th>
+<tr class="row-odd"><th class="head">Property</th>
 <th class="head">Value Type</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr><td>alpha</td>
+<tr class="row-even"><td>alpha</td>
 <td>float</td>
 </tr>
-<tr><td>animated</td>
+<tr class="row-odd"><td>animated</td>
 <td>[True | False]</td>
 </tr>
-<tr><td>antialiased or aa</td>
+<tr class="row-even"><td>antialiased or aa</td>
 <td>[True | False]</td>
 </tr>
-<tr><td>clip_box</td>
+<tr class="row-odd"><td>clip_box</td>
 <td>a matplotlib.transform.Bbox instance</td>
 </tr>
-<tr><td>clip_on</td>
+<tr class="row-even"><td>clip_on</td>
 <td>[True | False]</td>
 </tr>
-<tr><td>clip_path</td>
+<tr class="row-odd"><td>clip_path</td>
 <td>a Path instance and a Transform instance, a Patch</td>
 </tr>
-<tr><td>color or c</td>
+<tr class="row-even"><td>color or c</td>
 <td>any matplotlib color</td>
 </tr>
-<tr><td>contains</td>
+<tr class="row-odd"><td>contains</td>
 <td>the hit testing function</td>
 </tr>
-<tr><td>dash_capstyle</td>
+<tr class="row-even"><td>dash_capstyle</td>
 <td>[&#8216;butt&#8217; | &#8216;round&#8217; | &#8216;projecting&#8217;]</td>
 </tr>
-<tr><td>dash_joinstyle</td>
+<tr class="row-odd"><td>dash_joinstyle</td>
 <td>[&#8216;miter&#8217; | &#8216;round&#8217; | &#8216;bevel&#8217;]</td>
 </tr>
-<tr><td>dashes</td>
+<tr class="row-even"><td>dashes</td>
 <td>sequence of on/off ink in points</td>
 </tr>
-<tr><td>data</td>
+<tr class="row-odd"><td>data</td>
 <td>(array xdata, array ydata)</td>
 </tr>
-<tr><td>figure</td>
+<tr class="row-even"><td>figure</td>
 <td>a matplotlib.figure.Figure instance</td>
 </tr>
-<tr><td>label</td>
+<tr class="row-odd"><td>label</td>
 <td>any string</td>
 </tr>
-<tr><td>linestyle or ls</td>
+<tr class="row-even"><td>linestyle or ls</td>
 <td>[ &#8216;-&#8216; | &#8216;&#8211;&#8217; | &#8216;-.&#8217; | &#8216;:&#8217; | &#8216;steps&#8217; | ...]</td>
 </tr>
-<tr><td>linewidth or lw</td>
+<tr class="row-odd"><td>linewidth or lw</td>
 <td>float value in points</td>
 </tr>
-<tr><td>lod</td>
+<tr class="row-even"><td>lod</td>
 <td>[True | False]</td>
 </tr>
-<tr><td>marker</td>
+<tr class="row-odd"><td>marker</td>
 <td>[ &#8216;+&#8217; | &#8216;,&#8217; | &#8216;.&#8217; | &#8216;1&#8217; | &#8216;2&#8217; | &#8216;3&#8217; | &#8216;4&#8217; | ... ]</td>
 </tr>
-<tr><td>markeredgecolor or mec</td>
+<tr class="row-even"><td>markeredgecolor or mec</td>
 <td>any matplotlib color</td>
 </tr>
-<tr><td>markeredgewidth or mew</td>
+<tr class="row-odd"><td>markeredgewidth or mew</td>
 <td>float value in points</td>
 </tr>
-<tr><td>markerfacecolor or mfc</td>
+<tr class="row-even"><td>markerfacecolor or mfc</td>
 <td>any matplotlib color</td>
 </tr>
-<tr><td>markersize or ms</td>
+<tr class="row-odd"><td>markersize or ms</td>
 <td>float</td>
 </tr>
-<tr><td>markevery</td>
+<tr class="row-even"><td>markevery</td>
 <td>None | integer | (startind, stride)</td>
 </tr>
-<tr><td>picker</td>
+<tr class="row-odd"><td>picker</td>
 <td>used in interactive line selection</td>
 </tr>
-<tr><td>pickradius</td>
+<tr class="row-even"><td>pickradius</td>
 <td>the line pick selection radius</td>
 </tr>
-<tr><td>solid_capstyle</td>
+<tr class="row-odd"><td>solid_capstyle</td>
 <td>[&#8216;butt&#8217; | &#8216;round&#8217; |  &#8216;projecting&#8217;]</td>
 </tr>
-<tr><td>solid_joinstyle</td>
+<tr class="row-even"><td>solid_joinstyle</td>
 <td>[&#8216;miter&#8217; | &#8216;round&#8217; | &#8216;bevel&#8217;]</td>
 </tr>
-<tr><td>transform</td>
+<tr class="row-odd"><td>transform</td>
 <td>a matplotlib.transforms.Transform instance</td>
 </tr>
-<tr><td>visible</td>
+<tr class="row-even"><td>visible</td>
 <td>[True | False]</td>
 </tr>
-<tr><td>xdata</td>
+<tr class="row-odd"><td>xdata</td>
 <td>array</td>
 </tr>
-<tr><td>ydata</td>
+<tr class="row-even"><td>ydata</td>
 <td>array</td>
 </tr>
-<tr><td>zorder</td>
+<tr class="row-odd"><td>zorder</td>
 <td>any number</td>
 </tr>
 </tbody>
@@ -697,28 +700,28 @@ as argument:</p>
 <col width="79%" />
 </colgroup>
 <tbody valign="top">
-<tr><td><a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib.pyplot.figure">figure()</a></td>
+<tr class="row-odd"><td><a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib.pyplot.figure">figure()</a></td>
 <td>Make new figure frame (accepts figsize=(width,height) in inches)</td>
 </tr>
-<tr><td><a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html?highlight=plot.autoscale#matplotlib.pyplot.autoscale">autoscale()</a></td>
+<tr class="row-even"><td><a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html?highlight=plot.autoscale#matplotlib.pyplot.autoscale">autoscale()</a></td>
 <td>Allow or disable autoscaling and control space beyond data limits</td>
 </tr>
-<tr><td><a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html?highlight=plot.hold#matplotlib.pyplot.hold">hold()</a></td>
+<tr class="row-odd"><td><a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html?highlight=plot.hold#matplotlib.pyplot.hold">hold()</a></td>
 <td>Hold figure: hold(False) means next plot() command wipes figure</td>
 </tr>
-<tr><td><a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html?highlight=plot.ion#matplotlib.pyplot.ion">ion()</a>, <a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html?highlight=plot.ioff#matplotlib.pyplot.ioff">ioff()</a></td>
+<tr class="row-even"><td><a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html?highlight=plot.ion#matplotlib.pyplot.ion">ion()</a>, <a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html?highlight=plot.ioff#matplotlib.pyplot.ioff">ioff()</a></td>
 <td>Turn interactive plotting on and off</td>
 </tr>
-<tr><td><a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib.pyplot.axis">axis()</a></td>
+<tr class="row-odd"><td><a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib.pyplot.axis">axis()</a></td>
 <td>Set plot axis limits or set aspect ratio (plus more)</td>
 </tr>
-<tr><td><a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib.pyplot.subplots_adjust">subplots_adjust()</a></td>
+<tr class="row-even"><td><a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib.pyplot.subplots_adjust">subplots_adjust()</a></td>
 <td>Adjust the spacing around subplots (fix clipped labels etc)</td>
 </tr>
-<tr><td><a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html?highlight=plot.xlim#matplotlib.pyplot.xlim">xlim()</a>, <a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html?highlight=plot.ylim#matplotlib.pyplot.ylim">ylim()</a></td>
+<tr class="row-odd"><td><a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html?highlight=plot.xlim#matplotlib.pyplot.xlim">xlim()</a>, <a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html?highlight=plot.ylim#matplotlib.pyplot.ylim">ylim()</a></td>
 <td>Set x and y axis limits individually</td>
 </tr>
-<tr><td><a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html?highlight=plot.xticks#matplotlib.pyplot.xticks">xticks()</a>, <a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html?highlight=plot.yticks#matplotlib.pyplot.yticks">yticks()</a></td>
+<tr class="row-even"><td><a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html?highlight=plot.xticks#matplotlib.pyplot.xticks">xticks()</a>, <a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html?highlight=plot.yticks#matplotlib.pyplot.yticks">yticks()</a></td>
 <td>Set x and y axis ticks</td>
 </tr>
 </tbody>
@@ -775,7 +778,7 @@ subplots:</p>
 <col width="51%" />
 </colgroup>
 <tbody valign="top">
-<tr><td><a class="first last reference internal image-reference" href="../_images/mult_figs1.png"><img alt="../_images/mult_figs1.png" src="../_images/mult_figs1.png" style="width: 406.0px; height: 306.0px;" /></a>
+<tr class="row-odd"><td><a class="first last reference internal image-reference" href="../_images/mult_figs1.png"><img alt="../_images/mult_figs1.png" src="../_images/mult_figs1.png" style="width: 406.0px; height: 306.0px;" /></a>
 </td>
 <td><a class="first last reference internal image-reference" href="../_images/mult_figs2.png"><img alt="../_images/mult_figs2.png" src="../_images/mult_figs2.png" style="width: 406.0px; height: 306.0px;" /></a>
 </td>
@@ -972,7 +975,7 @@ looking at an example of the 3-d viewer that is available:</p>
         <li class="right" >
           <a href="plotting.html" title="Plotting and Images"
              >previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers v1.1 documentation</a> &raquo;</li>
+        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li>
           <li><a href="plotting.html" >Plotting and Images</a> &raquo;</li> 
       </ul>
     </div>

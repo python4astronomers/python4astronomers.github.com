@@ -3,13 +3,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>IPython &mdash; Python4Astronomers v1.1 documentation</title>
+    <title>IPython &mdash; Python4Astronomers 1.1 documentation</title>
+    
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -22,7 +25,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Python4Astronomers v1.1 documentation" href="../index.html" />
+    <link rel="top" title="Python4Astronomers 1.1 documentation" href="../index.html" />
     <link rel="up" title="Core packages for analysis: IPython, NumPy, and SciPy" href="core.html" />
     <link rel="next" title="NumPy" href="numpy_scipy.html" />
     <link rel="prev" title="Core packages for analysis: IPython, NumPy, and SciPy" href="core.html" />
@@ -284,7 +287,7 @@ display:none;
         <li class="right" >
           <a href="core.html" title="Core packages for analysis: IPython, NumPy, and SciPy"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers v1.1 documentation</a> &raquo;</li>
+        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li>
           <li><a href="core.html" accesskey="U">Core packages for analysis: IPython, NumPy, and SciPy</a> &raquo;</li> 
       </ul>
     </div>
@@ -316,7 +319,7 @@ display:none;
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" size="18" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
@@ -346,11 +349,15 @@ for Astronomers working directory.  Then start IPython by typing &#8220;ipython
 </div>
 <p>As we saw in the Introduction and Installation workshops, for interactive data
 analysis IPython has a special <tt class="docutils literal"><span class="pre">-pylab</span></tt> command line option which
-automatically imports elements of the NumPy and the Matplotlib environments.
-This provides a Matlab-like environment allowing very simple and direct
+automatically imports elements of the NumPy and the Matplotlib environments. This is equivalent to:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+</pre></div>
+</div>
+<p>This provides a Matlab-like environment allowing very simple and direct
 commands like the following:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="k">print</span> <span class="n">x</span>
 <span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>
@@ -361,8 +368,8 @@ commands like the following:</p>
 you command line history.  This lets you quickly re-do commands, perhaps with a
 slight variation based on seeing the last result.  Try cut-n-pasting the above
 lines in an IPython session.  This should bring up a plot of a sine wave.</p>
-<p>Now hit up-arrow once and get back the <tt class="docutils literal"><span class="pre">plot(x,</span> <span class="pre">y)</span></tt> line.  Hit the left-arrow
-key (not backspace) once and type <tt class="docutils literal"><span class="pre">**2</span></tt> so that the line reads <tt class="docutils literal"><span class="pre">plot(x,</span>
+<p>Now hit up-arrow once and get back the <tt class="docutils literal"><span class="pre">plt.plot(x,</span> <span class="pre">y)</span></tt> line.  Hit the left-arrow
+key (not backspace) once and type <tt class="docutils literal"><span class="pre">**2</span></tt> so that the line reads <tt class="docutils literal"><span class="pre">plt.plot(x,</span>
 <span class="pre">y**2)</span></tt>.  Now you can hit Return to see the new curve overlayed within the same
 plot window.  It is not necessary to forward-space to the end of the line, you
 can hit Return with the cursor anywhere in the line.</p>
@@ -370,7 +377,7 @@ can hit Return with the cursor anywhere in the line.</p>
 up-arrow 5 times, but a much faster way is to remember that the line started
 with <tt class="docutils literal"><span class="pre">x</span></tt>, so type <tt class="docutils literal"><span class="pre">x</span></tt> and then start hitting up-arrow.  Only lines that
 start with <tt class="docutils literal"><span class="pre">x</span></tt> will be displayed and you are immediately at the
-<tt class="docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">arange(0,</span> <span class="pre">10,</span> <span class="pre">0.2)</span></tt> line.  Now use the right-arrow and backspace to change <tt class="docutils literal"><span class="pre">10</span></tt> to
+<tt class="docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">np.arange(0,</span> <span class="pre">10,</span> <span class="pre">0.2)</span></tt> line.  Now use the right-arrow and backspace to change <tt class="docutils literal"><span class="pre">10</span></tt> to
 <tt class="docutils literal"><span class="pre">15</span></tt> and hit Return.  Of course <tt class="docutils literal"><span class="pre">y</span></tt> needs to be recalculated, so hit <tt class="docutils literal"><span class="pre">y</span></tt>
 then up-arrow, then Return.  Finally <tt class="docutils literal"><span class="pre">pl</span></tt> up-arrow and Return.  Nice and fast!</p>
 <p>Bonus points: to speed up by another factor of several, use Ctrl-p (prev) instead of
@@ -447,7 +454,7 @@ which explains editing <tt class="docutils literal"><span class="pre">~/.ipython
         <li class="right" >
           <a href="core.html" title="Core packages for analysis: IPython, NumPy, and SciPy"
              >previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers v1.1 documentation</a> &raquo;</li>
+        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li>
           <li><a href="core.html" >Core packages for analysis: IPython, NumPy, and SciPy</a> &raquo;</li> 
       </ul>
     </div>

@@ -3,13 +3,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>NumPy &mdash; Python4Astronomers v1.1 documentation</title>
+    <title>NumPy &mdash; Python4Astronomers 1.1 documentation</title>
+    
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -22,7 +25,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Python4Astronomers v1.1 documentation" href="../index.html" />
+    <link rel="top" title="Python4Astronomers 1.1 documentation" href="../index.html" />
     <link rel="up" title="Core packages for analysis: IPython, NumPy, and SciPy" href="core.html" />
     <link rel="next" title="CONTEST: Make a fun bouncing balls demo" href="../contest/bounce.html" />
     <link rel="prev" title="IPython" href="ipython.html" />
@@ -284,7 +287,7 @@ display:none;
         <li class="right" >
           <a href="ipython.html" title="IPython"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers v1.1 documentation</a> &raquo;</li>
+        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li>
           <li><a href="core.html" accesskey="U">Core packages for analysis: IPython, NumPy, and SciPy</a> &raquo;</li> 
       </ul>
     </div>
@@ -319,7 +322,7 @@ display:none;
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" size="18" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
@@ -360,12 +363,12 @@ workshop, but on its own it&#8217;s a bit dry for the impatient astronomer.</p>
 <col width="49%" />
 </colgroup>
 <thead valign="bottom">
-<tr><th class="head"><strong>2-d longslit image</strong></th>
+<tr class="row-odd"><th class="head"><strong>2-d longslit image</strong></th>
 <th class="head"><strong>Final 1-d spectrum</strong></th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr><td><a class="first last reference internal image-reference" href="../_images/3c120.png"><img alt="../_images/3c120.png" src="../_images/3c120.png" style="width: 378.0px; height: 290.5px;" /></a>
+<tr class="row-even"><td><a class="first last reference internal image-reference" href="../_images/3c120.png"><img alt="../_images/3c120.png" src="../_images/3c120.png" style="width: 378.0px; height: 290.5px;" /></a>
 </td>
 <td><a class="first last reference internal image-reference" href="../_images/3c120_spec.gif"><img alt="../_images/3c120_spec.gif" src="../_images/3c120_spec.gif" style="width: 382.5px; height: 306.0px;" /></a>
 </td>
@@ -425,12 +428,29 @@ where the count starts from 0:</p>
 <span class="n">dq</span> <span class="o">=</span> <span class="n">hdus</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>       <span class="c"># Data quality per pixel</span>
 </pre></div>
 </div>
-<p>Next have a look at the images using a super-simple image viewer that I wrote in
-about 50 lines of Python:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">imgview</span> <span class="kn">import</span> <span class="n">ImgView</span>
-<span class="n">ImgView</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+<p>Next have a look at the images using one of the standard Matplotlib plotting
+functions:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>As you can see, it is hard to see things. So, let&#8217;s set a few option for this
+plot. First, we want the origin in the lower left instead of the upper left
+corner:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">origin</span> <span class="o">=</span> <span class="s">&#39;lower&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Second, let&#8217;s change the scaling to something more sensible. By default,
+<tt class="docutils literal"><span class="pre">plt.imshow()</span></tt> scales the colorbar from the minimum to the maximum value. In
+our case that is not the best option. We can set a lower and upper bound and
+add a colorbar to our plot:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">origin</span> <span class="o">=</span> <span class="s">&#39;lower&#39;</span><span class="p">,</span> <span class="n">vmin</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="mi">65</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Your plot should not look like this (it is possible that the colormap differs,
+if your matplotlib has different defaults set).</p>
 <a class="reference internal image-reference" href="../_images/imgview_img.png"><img alt="../_images/imgview_img.png" src="../_images/imgview_img.png" style="width: 406.0px; height: 306.0px;" /></a>
 <div class="admonition-exercise-view-the-error-and-data-quality-images admonition ">
 <p class="first admonition-title">Exercise: View the error and data quality images</p>
@@ -439,8 +459,14 @@ buttons on the lower-left (hint: try the four on the right first, then
 imagine a web browser for the three on the left).  Does the save button
 work for you?</p>
 </div>
-<p class="flip1">Click to Show/Hide Solution</p> <div class="panel1"><div class="highlight-python"><div class="highlight"><pre><span class="n">ImgView</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
-<span class="n">ImgView</span><span class="p">(</span><span class="n">dq</span><span class="p">)</span>
+<p class="flip1">Click to Show/Hide Solution</p> <div class="panel1"><div class="highlight-python"><div class="highlight"><pre><span class="c"># Errors</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">origin</span> <span class="o">=</span> <span class="s">&#39;lower&#39;</span><span class="p">,</span> <span class="n">vmin</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="mi">25</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="c"># Data quality</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dq</span><span class="p">,</span> <span class="n">origin</span> <span class="o">=</span> <span class="s">&#39;lower&#39;</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="mi">25</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../_images/imgview_err.png"><img alt="../_images/imgview_err.png" src="../_images/imgview_err.png" style="width: 406.0px; height: 306.0px;" /></a>
@@ -467,15 +493,15 @@ a few key features of NumPy.</p>
 <div class="section" id="making-arrays">
 <h3>Making arrays<a class="headerlink" href="#making-arrays" title="Permalink to this headline">¶</a></h3>
 <p>Arrays can be created in different ways:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">array</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">])</span>   <span class="c"># create an array from a list of values</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">])</span>   <span class="c"># create an array from a list of values</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
 <span class="go">array([10, 20, 30, 40]</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>                 <span class="c"># create an array of 4 integers, from 0 to 3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>                 <span class="c"># create an array of 4 integers, from 0 to 3</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b</span>
 <span class="go">array([0, 1, 2, 3]),</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="n">arange</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>    <span class="c"># create a float array from 0 to 100 stepping by 0.1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>    <span class="c"># create a float array from 0 to 100 stepping by 0.1</span>
 <span class="go">array([ 0. ,  0.1,  0.2,  0.3,  0.4,  0.5,  0.6,  0.7,  0.8,  0.9,  1. ,</span>
 <span class="go">        1.1,  1.2,  1.3,  1.4,  1.5,  1.6,  1.7,  1.8,  1.9,  2. ,  2.1,</span>
 <span class="go">        2.2,  2.3,  2.4,  2.5,  2.6,  2.7,  2.8,  2.9,  3. ,  3.1,  3.2,</span>
@@ -487,7 +513,7 @@ a few key features of NumPy.</p>
 <span class="go">        8.8,  8.9,  9. ,  9.1,  9.2,  9.3,  9.4,  9.5,  9.6,  9.7,  9.8,</span>
 <span class="go">        9.9]),</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">pi</span><span class="p">,</span> <span class="n">pi</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>      <span class="c"># create an array of 5 evenly spaced samples from -pi to pi</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">pi</span><span class="p">,</span> <span class="n">pi</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>      <span class="c"># create an array of 5 evenly spaced samples from -pi to pi</span>
 <span class="go">array([-3.14159265, -1.57079633,  0.        ,  1.57079633,  3.14159265]))</span>
 </pre></div>
 </div>
@@ -497,13 +523,13 @@ a few key features of NumPy.</p>
 </pre></div>
 </div>
 <p>Arrays may have more than one dimension:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">ones</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>                 <span class="c"># 3 x 4 float array of ones</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>                 <span class="c"># 3 x 4 float array of ones</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">f</span>
 <span class="go">array([[ 1.,  1.,  1.,  1.],</span>
 <span class="go">       [ 1.,  1.,  1.,  1.],</span>
 <span class="go">       [ 1.,  1.,  1.,  1.]]),</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>  <span class="c"># 3 x 4 x 5 int array of zeros</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>  <span class="c"># 3 x 4 x 5 int array of zeros</span>
 <span class="go">array([[[0, 0, 0, 0],</span>
 <span class="go">        [0, 0, 0, 0],</span>
 <span class="go">        [0, 0, 0, 0]],</span>
@@ -511,20 +537,20 @@ a few key features of NumPy.</p>
 <span class="go">        [0, 0, 0, 0],</span>
 <span class="go">        [0, 0, 0, 0]]]),</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="n">i</span> <span class="o">=</span> <span class="n">zeros_like</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>                <span class="c"># array of zeros with same shape/type as f</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>                <span class="c"># array of zeros with same shape/type as f</span>
 <span class="go">array([[ 0.,  0.,  0.,  0.],</span>
 <span class="go">       [ 0.,  0.,  0.,  0.],</span>
 <span class="go">       [ 0.,  0.,  0.,  0.]]))</span>
 </pre></div>
 </div>
 <p>You can change the dimensions of existing arrays:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">w</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">w</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>       <span class="c"># does not modify the total number of elements</span>
 <span class="go">array([[ 0,  1,  2,  3],</span>
 <span class="go">       [ 4,  5,  6,  7],</span>
 <span class="go">       [ 8,  9, 10, 11]]),</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
 <span class="go">array([0, 1, 2, 3, 4]),</span>
 
@@ -554,12 +580,11 @@ a few key features of NumPy.</p>
 Make <tt class="docutils literal"><span class="pre">y</span></tt> the same as <tt class="docutils literal"><span class="pre">x</span></tt> but &#8220;transposed&#8221; using the <tt class="docutils literal"><span class="pre">reshape</span></tt> trick above.
 Use ImgView to display the image of <tt class="docutils literal"><span class="pre">z</span></tt>.</p>
 </div>
-<p class="flip3">Click to Show/Hide Solution</p> <div class="panel3"><div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">z</span> <span class="o">=</span> <span class="n">cos</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">r</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span>
-<span class="n">ImgView</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
-</pre></div>
+<p class="flip3">Click to Show/Hide Solution</p> <div class="panel3"><div class="highlight-python"><pre>x = np.arange(-20, 20, 0.25)
+y = x.reshape(-1, 1)
+r = np.sqrt(x**2 + y**2)
+z = np.cos(r) / (r + 5)
+plt.imshow(z, origin = 'lower)</pre>
 </div>
 <a class="reference internal image-reference" href="../_images/ripple.png"><img alt="../_images/ripple.png" src="../_images/ripple.png" style="width: 406.0px; height: 306.0px;" /></a>
 </div></div>
@@ -569,7 +594,7 @@ Use ImgView to display the image of <tt class="docutils literal"><span class="pr
 e.g. the 4th column or every other row.  This is called slicing.  The outputs
 below illustrate basic slicing, but you don&#8217;t need to type these examples.
 The &#8220;&gt;&gt;&gt;&#8221; indicates the input to Python:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
 <span class="go">array([[ 0,  1,  2,  3,  4],</span>
 <span class="go">      [ 5,  6,  7,  8,  9],</span>
@@ -593,8 +618,8 @@ The &#8220;&gt;&gt;&gt;&#8221; indicates the input to Python:</p>
 </div>
 <p>As a first practical
 example plot column 300 of the longslit image to look at the spatial profile:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">figure</span><span class="p">()</span>             <span class="c"># Clear the existing plot -- by default matplotlib overplots.</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">img</span><span class="p">[:,</span> <span class="mi">300</span><span class="p">])</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>             <span class="c"># Clear the existing plot -- by default matplotlib overplots.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">img</span><span class="p">[:,</span> <span class="mi">300</span><span class="p">])</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../_images/img_col300.png"><img alt="../_images/img_col300.png" src="../_images/img_col300.png" style="width: 406.0px; height: 306.0px;" /></a>
@@ -615,8 +640,8 @@ array[&lt;slice0&gt;, &lt;slice1&gt;, ...]</pre>
 104 (inclusive).  What did you learn about the index upper bound value?</li>
 </ul>
 </div>
-<p class="flip2">Click to Show/Hide Solution</p> <div class="panel2"><div class="highlight-python"><div class="highlight"><pre><span class="n">clf</span><span class="p">()</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">err</span><span class="p">[</span><span class="mi">254</span><span class="p">,</span> <span class="mi">10</span><span class="p">:</span><span class="mi">200</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
+<p class="flip2">Click to Show/Hide Solution</p> <div class="panel2"><div class="highlight-python"><div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">err</span><span class="p">[</span><span class="mi">254</span><span class="p">,</span> <span class="mi">10</span><span class="p">:</span><span class="mi">200</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
 <span class="n">dq</span><span class="p">[</span><span class="mi">251</span><span class="p">:</span><span class="mi">254</span><span class="p">,</span> <span class="mi">101</span><span class="p">:</span><span class="mi">105</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -631,14 +656,14 @@ this, but for now just accept and learn it.</p>
 <h2>Plot the spatial profile and raw spectrum<a class="headerlink" href="#plot-the-spatial-profile-and-raw-spectrum" title="Permalink to this headline">¶</a></h2>
 <p>Plot the spatial profile by summing along the wavelength direction:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">profile</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">figure</span><span class="p">()</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">profile</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">profile</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Now plot the spectrum by summing along the spatial direction:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">spectrum</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">figure</span><span class="p">()</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Since most of the sum is in the background region there is a lot of noise and
@@ -652,8 +677,8 @@ there is a signal from the source.
 Hint: zoom into the profile plot to find the right row range.</p>
 </div>
 <p class="flip4">Click to Show/Hide Solution</p> <div class="panel4"><div class="highlight-python"><div class="highlight"><pre><span class="n">spectrum</span> <span class="o">=</span> <span class="n">img</span><span class="p">[</span><span class="mi">250</span><span class="p">:</span><span class="mi">260</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">clf</span><span class="p">()</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../_images/spectrum_clean.png"><img alt="../_images/spectrum_clean.png" src="../_images/spectrum_clean.png" style="width: 406.0px; height: 306.0px;" /></a>
@@ -661,8 +686,8 @@ Hint: zoom into the profile plot to find the right row range.</p>
 <div class="section" id="filter-cosmic-rays-from-the-background">
 <h2>Filter cosmic rays from the background<a class="headerlink" href="#filter-cosmic-rays-from-the-background" title="Permalink to this headline">¶</a></h2>
 <p>Plot five columns (wavelength) from the spectrum image as follows:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">clf</span><span class="p">()</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">img</span><span class="p">[:,</span> <span class="mi">254</span><span class="p">:</span><span class="mi">259</span><span class="p">])</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">img</span><span class="p">[:,</span> <span class="mi">254</span><span class="p">:</span><span class="mi">259</span><span class="p">])</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../_images/img_row254_noisy.png"><img alt="../_images/img_row254_noisy.png" src="../_images/img_row254_noisy.png" style="width: 406.0px; height: 306.0px;" /></a>
@@ -678,21 +703,21 @@ image.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">scipy.signal</span>
 <span class="n">img_sm</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">medfilt</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 <span class="n">sigma</span> <span class="o">=</span> <span class="n">median</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
-<span class="n">bad</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">img</span> <span class="o">-</span> <span class="n">img_sm</span><span class="p">)</span> <span class="o">/</span> <span class="n">sigma</span> <span class="o">&gt;</span> <span class="mf">8.0</span>
+<span class="n">bad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">img</span> <span class="o">-</span> <span class="n">img_sm</span><span class="p">)</span> <span class="o">/</span> <span class="n">sigma</span> <span class="o">&gt;</span> <span class="mf">8.0</span>
 <span class="n">img_cr</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">img_cr</span><span class="p">[</span><span class="n">bad</span><span class="p">]</span> <span class="o">=</span> <span class="n">img_sm</span><span class="p">[</span><span class="n">bad</span><span class="p">]</span>
 <span class="n">img_cr</span><span class="p">[</span><span class="mi">230</span><span class="p">:</span><span class="mi">280</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">img</span><span class="p">[</span><span class="mi">230</span><span class="p">:</span><span class="mi">280</span><span class="p">,:]</span>  <span class="c"># Filter only for background</span>
 </pre></div>
 </div>
 <p>Check if it worked:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">clf</span><span class="p">()</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">img_cr</span><span class="p">[:,</span> <span class="mi">254</span><span class="p">:</span><span class="mi">259</span><span class="p">])</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">img_cr</span><span class="p">[:,</span> <span class="mi">254</span><span class="p">:</span><span class="mi">259</span><span class="p">])</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../_images/img_row254_clean.png"><img alt="../_images/img_row254_clean.png" src="../_images/img_row254_clean.png" style="width: 406.0px; height: 306.0px;" /></a>
 <p>This introduces the important concept of slicing with a <strong>boolean mask</strong>.  Let&#8217;s
 look at a smaller example:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">])</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">neg</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>    <span class="c"># Parentheses here for clarity but are not required</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">neg</span>
 <span class="go">array([False, False,  True, False,  True], dtype=bool)</span>
@@ -704,7 +729,7 @@ look at a smaller example:</p>
 </div>
 <p>A slightly more complex example shows that this works the same on N-d arrays
 and that you can compose logical expressions:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ok</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="mi">6</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">17</span><span class="p">)</span>     <span class="c"># &quot;ok = a &gt; 6 &amp; a &lt; 17&quot; will FAIL!</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="o">~</span><span class="n">ok</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>                  <span class="c"># Note the &quot;logical not&quot; operator</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
@@ -720,10 +745,10 @@ and that you can compose logical expressions:</p>
 <p class="last">Remember the surface <tt class="docutils literal"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">cos(r)</span> <span class="pre">/</span> <span class="pre">(r</span> <span class="pre">+</span> <span class="pre">5)</span></tt> that you made previously.  Set
 <tt class="docutils literal"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">0</span></tt> for every pixel of <tt class="docutils literal"><span class="pre">z</span></tt> that is within 10 units of (x,y) = (10, 15).</p>
 </div>
-<p class="flip5">Click to Show/Hide Solution</p> <div class="panel5"><div class="highlight-python"><div class="highlight"><pre><span class="n">dist</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">((</span><span class="n">x</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="mi">15</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<p class="flip5">Click to Show/Hide Solution</p> <div class="panel5"><div class="highlight-python"><div class="highlight"><pre><span class="n">dist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">x</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="mi">15</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">mask</span> <span class="o">=</span> <span class="n">dist</span> <span class="o">&lt;</span> <span class="mi">10</span>
 <span class="n">z</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">ImgView</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">origin</span> <span class="o">=</span> <span class="s">&#39;lower&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../_images/ripple_masked.png"><img alt="../_images/ripple_masked.png" src="../_images/ripple_masked.png" style="width: 406.0px; height: 306.0px;" /></a>
@@ -739,7 +764,7 @@ pointing to the underlying N-d array object that <tt class="docutils literal"><s
 </dl>
 <p>Variable names in Python are just pointers to the actual Python
 object.  To see this clearly do the following:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>     <span class="c"># Unique identifier for the object referred to by &quot;a&quot;: arange(8)</span>
 <span class="go">122333200</span>
@@ -767,7 +792,7 @@ does NOT make a copy:</p>
 </pre></div>
 </div>
 <p>However if you do arithmetic or boolean mask then a copy is always made:</p>
-<div class="last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<div class="last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">**</span><span class="mi">2</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
@@ -785,31 +810,35 @@ does NOT make a copy:</p>
 quadratic to the background pixels and subtract that quadratic from the entire
 image which includes the source region.</p>
 <p>Let&#8217;s tackle a simpler problem first and fit the background for a single column:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="n">append</span><span class="p">(</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="n">arange</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">480</span><span class="p">))</span>  <span class="c"># Background rows</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">480</span><span class="p">))</span>  <span class="c"># Background rows</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">img_cr</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>         <span class="c"># Background rows of column 10 of cleaned image</span>
-<span class="n">figure</span><span class="p">()</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="n">pfit</span> <span class="o">=</span> <span class="n">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>   <span class="c"># Fit a 2nd order polynomial to (x, y) data</span>
-<span class="n">yfit</span> <span class="o">=</span> <span class="n">polyval</span><span class="p">(</span><span class="n">pfit</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>   <span class="c"># Evaluate the polynomial at x</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">yfit</span><span class="p">)</span>
-<span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">pfit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>   <span class="c"># Fit a 2nd order polynomial to (x, y) data</span>
+<span class="n">yfit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">pfit</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>   <span class="c"># Evaluate the polynomial at x</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">yfit</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../_images/bkg_fit0.png"><img alt="../_images/bkg_fit0.png" src="../_images/bkg_fit0.png" style="width: 406.0px; height: 306.0px;" /></a>
 <p>Now do this for every column and store the results in a background image:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">xrows</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="n">img_cr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>          <span class="c"># Array from 0 .. N_rows-1</span>
-<span class="n">bkg</span> <span class="o">=</span> <span class="n">zeros_like</span><span class="p">(</span><span class="n">img_cr</span><span class="p">)</span>                 <span class="c"># Empty image for background fits</span>
-<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">arange</span><span class="p">(</span><span class="n">img_cr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>      <span class="c"># Iterate over columns</span>
-    <span class="n">pfit</span> <span class="o">=</span> <span class="n">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">img_cr</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">col</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span> <span class="c"># Fit poly over bkg rows for col</span>
-    <span class="n">bkg</span><span class="p">[:,</span> <span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">polyval</span><span class="p">(</span><span class="n">pfit</span><span class="p">,</span> <span class="n">xrows</span><span class="p">)</span>   <span class="c"># Eval poly at ALL row positions</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">xrows</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">img_cr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>          <span class="c"># Array from 0 .. N_rows-1</span>
+<span class="n">bkg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">img_cr</span><span class="p">)</span>                 <span class="c"># Empty image for background fits</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">img_cr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>      <span class="c"># Iterate over columns</span>
+    <span class="n">pfit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">xrows</span><span class="p">,</span> <span class="n">img_cr</span><span class="p">[</span><span class="n">xrows</span><span class="p">,</span> <span class="n">col</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span> <span class="c"># Fit poly over bkg rows for col</span>
+    <span class="n">bkg</span><span class="p">[:,</span> <span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">pfit</span><span class="p">,</span> <span class="n">xrows</span><span class="p">)</span>   <span class="c"># Eval poly at ALL row positions</span>
 
-<span class="n">ImgView</span><span class="p">(</span><span class="n">bkg</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">bkg</span><span class="p">,</span> <span class="n">origin</span> <span class="o">=</span> <span class="s">&#39;lower&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../_images/bkg_fit1.png"><img alt="../_images/bkg_fit1.png" src="../_images/bkg_fit1.png" style="width: 406.0px; height: 306.0px;" /></a>
 <p>Finally subtract this background and see if it worked:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">img_bkg</span> <span class="o">=</span> <span class="n">img_cr</span> <span class="o">-</span> <span class="n">bkg</span>
-<span class="n">ImgView</span><span class="p">(</span><span class="n">img_bkg</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_bkg</span><span class="p">,</span> <span class="n">origin</span> <span class="o">=</span> <span class="s">&#39;lower&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
 </pre></div>
 </div>
 <table border="1" class="docutils">
@@ -818,12 +847,12 @@ image which includes the source region.</p>
 <col width="49%" />
 </colgroup>
 <thead valign="bottom">
-<tr><th class="head"><strong>Background subtracted</strong></th>
+<tr class="row-odd"><th class="head"><strong>Background subtracted</strong></th>
 <th class="head"><strong>Original</strong></th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr><td><a class="first last reference internal image-reference" href="../_images/bkg_fit2.png"><img alt="../_images/bkg_fit2.png" src="../_images/bkg_fit2.png" style="width: 406.0px; height: 306.0px;" /></a>
+<tr class="row-even"><td><a class="first last reference internal image-reference" href="../_images/bkg_fit2.png"><img alt="../_images/bkg_fit2.png" src="../_images/bkg_fit2.png" style="width: 406.0px; height: 306.0px;" /></a>
 </td>
 <td><a class="first last reference internal image-reference" href="../_images/imgview_img.png"><img alt="../_images/imgview_img.png" src="../_images/imgview_img.png" style="width: 406.0px; height: 306.0px;" /></a>
 </td>
@@ -837,12 +866,12 @@ hoops with slicing and making sure everything is vectorized.  The answer is
 that pure Python is an interpreted dynamic language and hence doing loops is
 <em>slow</em>.   Try the following:</p>
 <div class="highlight-python"><pre>size = 500000
-x = arange(size)
-a = zeros(size)
+x = np.arange(size)
+a = np.zeros(size)
 time for i in x: a[i] = x[i] / 2.0</pre>
 </div>
 <p>Now compare to the vectorized NumPy solution:</p>
-<div class="highlight-python"><pre>x = arange(size)
+<div class="highlight-python"><pre>x = np.arange(size)
 time a = x / 2</pre>
 </div>
 <p class="last">Sometimes doing things in a vectorized way is not possible or just too
@@ -860,12 +889,12 @@ or maybe coded in C or Fortran.</p>
 <col width="49%" />
 </colgroup>
 <thead valign="bottom">
-<tr><th class="head"><strong>Python for Astronomers Spectrum</strong></th>
+<tr class="row-odd"><th class="head"><strong>Python for Astronomers Spectrum</strong></th>
 <th class="head"><strong>HST official spectrum</strong></th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr><td><a class="first last reference internal image-reference" href="../_images/spectrum_final.png"><img alt="../_images/spectrum_final.png" src="../_images/spectrum_final.png" style="width: 406.0px; height: 306.0px;" /></a>
+<tr class="row-even"><td><a class="first last reference internal image-reference" href="../_images/spectrum_final.png"><img alt="../_images/spectrum_final.png" src="../_images/spectrum_final.png" style="width: 406.0px; height: 306.0px;" /></a>
 </td>
 <td><a class="first last reference internal image-reference" href="../_images/3c120_spec.gif"><img alt="../_images/3c120_spec.gif" src="../_images/3c120_spec.gif" style="width: 382.5px; height: 306.0px;" /></a>
 </td>
@@ -878,8 +907,8 @@ or maybe coded in C or Fortran.</p>
 already did it once in a previous exercise.</p>
 </div>
 <p class="flip6">Click to Show/Hide Solution</p> <div class="panel6"><div class="highlight-python"><div class="highlight"><pre><span class="n">spectrum</span> <span class="o">=</span> <span class="n">img_bkg</span><span class="p">[</span><span class="mi">250</span><span class="p">:</span><span class="mi">260</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">clf</span><span class="p">()</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span>
 </pre></div>
 </div>
 </div><p><strong>To do</strong>: flux calibration and wavelength calibration!</p>
@@ -926,7 +955,7 @@ functionality that isn&#8217;t in NumPy: there is a good chance it is in SciPy:<
         <li class="right" >
           <a href="ipython.html" title="IPython"
              >previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers v1.1 documentation</a> &raquo;</li>
+        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li>
           <li><a href="core.html" >Core packages for analysis: IPython, NumPy, and SciPy</a> &raquo;</li> 
       </ul>
     </div>
