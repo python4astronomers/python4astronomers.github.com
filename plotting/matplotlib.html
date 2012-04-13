@@ -389,7 +389,7 @@ enter the function name.  <em>Most</em> of the high-level plotting functions are
 the <tt class="docutils literal"><span class="pre">pyplot</span></tt> module and you can find them quickly by searching for
 <tt class="docutils literal"><span class="pre">pyplot.&lt;function&gt;</span></tt>, e.g. <tt class="docutils literal"><span class="pre">pyplot.errorbar</span></tt>.</li>
 </ul>
-<div class="admonition-pylab-and-pyplot-and-numpy admonition">
+<div class="admonition-pylab-and-pyplot-and-numpy admonition ">
 <p class="first admonition-title">Pylab and Pyplot and NumPy</p>
 <p>Let&#8217;s demystify what&#8217;s happening when you use <tt class="docutils literal"><span class="pre">ipython</span> <span class="pre">-pylab</span></tt> and
 clarify the relationship between <strong>pylab</strong> and <strong>pyplot</strong>.</p>
@@ -445,9 +445,9 @@ lines in a plotting area, decorate the plot with labels, etc....
 <a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib-pyplot">matplotlib.pyplot</a> is stateful, in that it keeps track of the current
 figure and plotting area, and the plotting functions are directed to the
 current axes:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">figure</span><span class="p">()</span>          <span class="c"># Make a new figure window</span>
-<span class="n">plot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
-<span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;some numbers&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>          <span class="c"># Make a new figure window</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;some numbers&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <img alt="../_images/pyplot_simple.png" src="../_images/pyplot_simple.png" />
@@ -461,8 +461,8 @@ same length as y but starts with 0.  Hence the x data are
 <p><a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib.pyplot.plot">plot()</a> is a versatile command, and will take
 an arbitrary number of arguments.  For example, to plot x versus y,
 you can issue the command:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">clf</span><span class="p">()</span>
-<span class="n">plot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">16</span><span class="p">])</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">16</span><span class="p">])</span>
 </pre></div>
 </div>
 <p><a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib.pyplot.plot">Plot()</a> is just the tip of the iceberg for plotting commands and you should
@@ -473,9 +473,9 @@ the plot.  The letters and symbols of the format string are from
 MATLAB, and you concatenate a color string with a line style string.
 The default format string is &#8216;b-&#8216;, which is a solid blue line.  For
 example, to plot the above with red circles, you would issue:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">clf</span><span class="p">()</span>
-<span class="n">plot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">16</span><span class="p">],</span> <span class="s">&#39;ro&#39;</span><span class="p">)</span>
-<span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">16</span><span class="p">],</span> <span class="s">&#39;ro&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
 </pre></div>
 </div>
 <img alt="../_images/pyplot_formatstr.png" src="../_images/pyplot_formatstr.png" />
@@ -491,32 +491,32 @@ converted to numpy arrays internally.  The example below illustrates a
 plotting several lines with different format styles in one command
 using arrays:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c"># evenly sampled time at 200ms intervals</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
 
 <span class="c"># red dashes, blue squares and green triangles</span>
 <span class="c"># then filled circle with connecting line</span>
-<span class="n">clf</span><span class="p">()</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="s">&#39;r--&#39;</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">t</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="s">&#39;bs&#39;</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">t</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="s">&#39;g^&#39;</span><span class="p">)</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">t</span><span class="o">+</span><span class="mi">60</span><span class="p">,</span> <span class="s">&#39;o&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;c&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="s">&#39;r--&#39;</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">t</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="s">&#39;bs&#39;</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">t</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="s">&#39;g^&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">t</span><span class="o">+</span><span class="mi">60</span><span class="p">,</span> <span class="s">&#39;o&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;c&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../_images/pyplot_three_v2.png"><img alt="../_images/pyplot_three_v2.png" src="../_images/pyplot_three_v2.png" style="width: 420.0px; height: 306.6px;" /></a>
-<div class="admonition-exercise-make-this-plot admonition">
+<div class="admonition-exercise-make-this-plot admonition ">
 <p class="first admonition-title">Exercise: Make this plot</p>
 <a class="reference internal image-reference" href="../_images/big_hexes.png"><img alt="../_images/big_hexes.png" src="../_images/big_hexes.png" style="width: 406.0px; height: 306.0px;" /></a>
 <p class="last">Make a plot that looks similar to the one above.</p>
 </div>
 <p class="flip1">Click to Show/Hide Solution</p> <div class="panel1"><div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-<span class="n">clf</span><span class="p">()</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s">&#39;-.&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s">&#39;H&#39;</span><span class="p">,</span> <span class="n">markeredgecolor</span><span class="o">=</span><span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">markerfacecolor</span><span class="o">=</span><span class="s">&#39;r&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
-<span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s">&#39;-.&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s">&#39;H&#39;</span><span class="p">,</span> <span class="n">markeredgecolor</span><span class="o">=</span><span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">markerfacecolor</span><span class="o">=</span><span class="s">&#39;r&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
 </pre></div>
 </div>
 </div><div class="section" id="controlling-line-properties">
 <h3>Controlling line properties<a class="headerlink" href="#controlling-line-properties" title="Permalink to this headline">¶</a></h3>
-<div class="admonition-what-are-lines-and-markers admonition">
+<div class="admonition-what-are-lines-and-markers admonition ">
 <p class="first admonition-title">What are lines and markers?</p>
 <p class="last">A matplotlib &#8220;line&#8221; is a object containing a set of points and various
 attributes describing how to draw those points.  The points are optionally
@@ -528,10 +528,10 @@ antialiased, etc; see <a class="reference external" href="http://matplotlib.sour
 properties</p>
 <ul>
 <li><p class="first">Use keyword args:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">clf</span><span class="p">()</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">4.0</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">4.0</span><span class="p">)</span>
 </pre></div>
 </div>
 </li>
@@ -539,9 +539,9 @@ properties</p>
 uses a MATLAB-style command to set multiple properties
 on a list of lines.  <tt class="docutils literal"><span class="pre">setp</span></tt> works transparently with a list of objects
 or a single object:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">clf</span><span class="p">()</span>
-<span class="n">lines</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">y</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="s">&#39;b&#39;</span><span class="p">)</span>
-<span class="n">setp</span><span class="p">(</span><span class="n">lines</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;r&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">4.0</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+<span class="n">lines</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">y</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="s">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">lines</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;r&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">4.0</span><span class="p">)</span>
 </pre></div>
 </div>
 </li>
@@ -549,13 +549,13 @@ or a single object:</p>
 of lines; eg <tt class="docutils literal"><span class="pre">line1,</span> <span class="pre">line2</span> <span class="pre">=</span> <span class="pre">plot(x1,y1,x2,x2)</span></tt>.  Below I have only
 one line so it is a list of length 1.  I use tuple unpacking in the
 <tt class="docutils literal"><span class="pre">line,</span> <span class="pre">=</span> <span class="pre">plot(x,</span> <span class="pre">y,</span> <span class="pre">'o')</span></tt> to get the first element of the list:</p>
-<div class="highlight-python"><pre>clf()
-line, = plot(x, y, '-')
+<div class="highlight-python"><pre>plt.clf()
+line, = plt.plot(x, y, '-')
 line.set_&lt;TAB&gt;</pre>
 </div>
 <p>Now change the line color, noting that in this case you need to explicitly redraw:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">line</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s">&#39;m&#39;</span><span class="p">)</span> <span class="c"># change color</span>
-<span class="n">draw</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
 </pre></div>
 </div>
 </li>
@@ -679,15 +679,15 @@ about the plot) are <em>dynamic objects</em> that can be modified after the fact
 <p>To get a list of settable line properties, call the
 <a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib.pyplot.setp">setp()</a> function with a line or lines
 as argument:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">lines</span> <span class="o">=</span> <span class="n">plot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
-<span class="n">setp</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">lines</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="admonition-detour-into-python admonition" id="multiple-figs-axes">
+<div class="admonition-detour-into-python admonition " id="multiple-figs-axes">
 <p class="first admonition-title">Detour into Python</p>
 <p class="last">You may have noticed that in the last workshop we mostly used NumPy arrays like
-<tt class="docutils literal"><span class="pre">arange(5)</span></tt> or <tt class="docutils literal"><span class="pre">array([1,2,3,4])</span></tt> but now you are seeing statements like
-<tt class="docutils literal"><span class="pre">plot([1,2,3])</span></tt>.</p>
+<tt class="docutils literal"><span class="pre">np.arange(5)</span></tt> or <tt class="docutils literal"><span class="pre">np.array([1,2,3,4])</span></tt> but now you are seeing statements like
+<tt class="docutils literal"><span class="pre">plt.plot([1,2,3])</span></tt>.</p>
 </div>
 </div>
 </div>
@@ -740,36 +740,36 @@ scenes.  Below is a script to create two figures where the first figure has two
 subplots:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Python function to calculate a decaying sinusoid&quot;&quot;&quot;</span>
-    <span class="n">val</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+    <span class="n">val</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">val</span>
 
-<span class="n">t1</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
-<span class="n">t2</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">)</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="n">t2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">)</span>
 
-<span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>             <span class="c"># Make the first figure</span>
-<span class="n">clf</span><span class="p">()</span>
-<span class="n">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">)</span>  <span class="c"># 2 rows, 1 column, plot 1</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">t1</span><span class="p">),</span> <span class="s">&#39;bo&#39;</span><span class="p">,</span> <span class="n">t2</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">t2</span><span class="p">),</span> <span class="s">&#39;k&#39;</span><span class="p">)</span>
-<span class="n">title</span><span class="p">(</span><span class="s">&#39;FIGURE 1&#39;</span><span class="p">)</span>
-<span class="n">text</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="s">&#39;AXES 211&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>             <span class="c"># Make the first figure</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">)</span>  <span class="c"># 2 rows, 1 column, plot 1</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">t1</span><span class="p">),</span> <span class="s">&#39;bo&#39;</span><span class="p">,</span> <span class="n">t2</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">t2</span><span class="p">),</span> <span class="s">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">&#39;FIGURE 1&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="s">&#39;AXES 211&#39;</span><span class="p">)</span>
 
-<span class="n">subplot</span><span class="p">(</span><span class="mi">212</span><span class="p">)</span>  <span class="c"># 2 rows, 1 column, plot 2</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">t2</span><span class="p">),</span> <span class="s">&#39;r--&#39;</span><span class="p">)</span>
-<span class="n">text</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="s">&#39;AXES 212&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">212</span><span class="p">)</span>  <span class="c"># 2 rows, 1 column, plot 2</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">t2</span><span class="p">),</span> <span class="s">&#39;r--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="s">&#39;AXES 212&#39;</span><span class="p">)</span>
 
-<span class="n">figure</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>             <span class="c"># Make a second figure</span>
-<span class="n">clf</span><span class="p">()</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">t2</span><span class="p">),</span> <span class="s">&#39;*&#39;</span><span class="p">)</span>
-<span class="n">grid</span><span class="p">()</span>
-<span class="n">title</span><span class="p">(</span><span class="s">&#39;FIGURE 2&#39;</span><span class="p">)</span>
-<span class="n">text</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="s">&#39;AXES 111&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>             <span class="c"># Make a second figure</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">t2</span><span class="p">),</span> <span class="s">&#39;*&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">&#39;FIGURE 2&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="s">&#39;AXES 111&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Now return the second plot in the first figure and update it:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>             <span class="c"># Select the existing first figure</span>
-<span class="n">subplot</span><span class="p">(</span><span class="mi">212</span><span class="p">)</span>          <span class="c"># Select the existing subplot 212</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">cos</span><span class="p">(</span><span class="n">pi</span><span class="o">*</span><span class="n">t2</span><span class="p">),</span> <span class="s">&#39;g--&#39;</span><span class="p">)</span>   <span class="c"># Add a plot to the axes</span>
-<span class="n">text</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.8</span><span class="p">,</span> <span class="s">&#39;Back to AXES 212&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>             <span class="c"># Select the existing first figure</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">212</span><span class="p">)</span>          <span class="c"># Select the existing subplot 212</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">cos</span><span class="p">(</span><span class="n">pi</span><span class="o">*</span><span class="n">t2</span><span class="p">),</span> <span class="s">&#39;g--&#39;</span><span class="p">)</span>   <span class="c"># Add a plot to the axes</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.8</span><span class="p">,</span> <span class="s">&#39;Back to AXES 212&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <table border="1" class="docutils">
@@ -813,18 +813,18 @@ an arbitrary location, and the <a class="reference external" href="http://matplo
 are used to add text in the indicated locations (see <em class="xref std std-ref">text-intro</em>
 for a more detailed example):</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">15</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">normal</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
-<span class="n">clf</span><span class="p">()</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
 
 <span class="c"># the histogram of the data</span>
-<span class="n">histvals</span><span class="p">,</span> <span class="n">binvals</span><span class="p">,</span> <span class="n">patches</span> <span class="o">=</span> <span class="n">hist</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">normed</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s">&#39;g&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
+<span class="n">histvals</span><span class="p">,</span> <span class="n">binvals</span><span class="p">,</span> <span class="n">patches</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">normed</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s">&#39;g&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
 
-<span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;Smarts&#39;</span><span class="p">)</span>
-<span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;Probability&#39;</span><span class="p">)</span>
-<span class="n">title</span><span class="p">(</span><span class="s">&#39;Histogram of IQ&#39;</span><span class="p">)</span>
-<span class="n">text</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="o">.</span><span class="mo">025</span><span class="p">,</span> <span class="s">r&#39;$\mu=100,\ \sigma=15$&#39;</span><span class="p">)</span>
-<span class="n">axis</span><span class="p">([</span><span class="mi">40</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">])</span>
-<span class="n">grid</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;Smarts&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;Probability&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">&#39;Histogram of IQ&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="o">.</span><span class="mo">025</span><span class="p">,</span> <span class="s">r&#39;$\mu=100,\ \sigma=15$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">40</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <img alt="../_images/pyplot_text.png" src="../_images/pyplot_text.png" />
@@ -832,11 +832,11 @@ for a more detailed example):</p>
 <tt class="xref py py-class docutils literal"><span class="pre">matplotlib.text.Text</span></tt> instance.  Just as with with lines
 above, you can customize the properties by passing keyword arguments
 into the text functions or using <a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib.pyplot.setp">setp()</a>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">t</span> <span class="o">=</span> <span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;my data&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;red&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">t</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;my data&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;red&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>These properties are covered in more detail in <a class="reference external" href="http://matplotlib.sourceforge.net/users/text_props.html">text-properties</a>.</p>
-<div class="admonition-exercise-overlaying-histograms admonition">
+<div class="admonition-exercise-overlaying-histograms admonition ">
 <p class="first admonition-title">Exercise: Overlaying histograms</p>
 <p>Make an additional normal distribution with a mean of 130.  Make a new plot
 where the two distributions are overlayed.  Use a different color and
@@ -848,21 +848,21 @@ choose the opacities so it looks reasonable.</p>
 <li>The <tt class="docutils literal"><span class="pre">histtype</span></tt> parameter may also prove useful depending on your taste.</li>
 </ul>
 </div>
-<p class="flip0">Click to Show/Hide Solution</p> <div class="panel0"><div class="highlight-python"><div class="highlight"><pre><span class="n">clf</span><span class="p">()</span>
-<span class="n">x2</span> <span class="o">=</span> <span class="n">normal</span><span class="p">(</span><span class="mi">130</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
-<span class="n">out</span> <span class="o">=</span> <span class="n">hist</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">normed</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s">&#39;g&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s">&#39;stepfilled&#39;</span><span class="p">)</span>
-<span class="n">out</span> <span class="o">=</span> <span class="n">hist</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">normed</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s">&#39;r&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s">&#39;stepfilled&#39;</span><span class="p">)</span>
+<p class="flip0">Click to Show/Hide Solution</p> <div class="panel0"><div class="highlight-python"><div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">130</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">normed</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s">&#39;g&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s">&#39;stepfilled&#39;</span><span class="p">)</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">normed</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s">&#39;r&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s">&#39;stepfilled&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div><div class="section" id="getting-the-fonts-just-right">
 <h3>Getting the fonts just right<a class="headerlink" href="#getting-the-fonts-just-right" title="Permalink to this headline">¶</a></h3>
 <p>The global font properties for various plot elements can be controlled using
 the <a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib.pyplot.rc">rc()</a> function:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">rc</span><span class="p">(</span><span class="s">&quot;font&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="s">&#39;normal&#39;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s">&#39;bold&#39;</span><span class="p">)</span>
-<span class="n">rc</span><span class="p">(</span><span class="s">&quot;axes&quot;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">titlesize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">rc</span><span class="p">(</span><span class="s">&quot;xtick&quot;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">rc</span><span class="p">(</span><span class="s">&quot;ytick&quot;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">rc</span><span class="p">(</span><span class="s">&quot;legend&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s">&quot;font&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="s">&#39;normal&#39;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s">&quot;axes&quot;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">titlesize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s">&quot;xtick&quot;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s">&quot;ytick&quot;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s">&quot;legend&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The inconsistency here is one of the warts in matplotlib.  Ironically my favorite
@@ -878,7 +878,7 @@ listed in <tt class="docutils literal"><span class="pre">$HOME/.matplotlib/matpl
 <p>matplotlib accepts TeX equation expressions in any text expression.
 For example to write the expression <img class="math" src="../_images/math/5d8763ca6f914c959b1190f437880d07ced1403f.png" alt="\sigma_i=15"/> in the title,
 you can write a TeX expression surrounded by dollar signs:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">title</span><span class="p">(</span><span class="s">r&#39;$\sigma_i=15$&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">r&#39;$\sigma_i=15$&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The <tt class="docutils literal"><span class="pre">r</span></tt> preceeding the title string is important &#8211; it signifies that the
@@ -900,14 +900,14 @@ functionality to make annotations easy.  In an annotation, there are
 two points to consider: the location being annotated represented by
 the argument <tt class="docutils literal"><span class="pre">xy</span></tt> and the location of the text <tt class="docutils literal"><span class="pre">xytext</span></tt>.  Both of
 these arguments are <tt class="docutils literal"><span class="pre">(x,y)</span></tt> tuples:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">clf</span><span class="p">()</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
-<span class="n">s</span> <span class="o">=</span> <span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
-<span class="n">lines</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+<span class="n">lines</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
-<span class="n">annotate</span><span class="p">(</span><span class="s">&#39;local max&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">),</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s">&#39;local max&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">),</span>
          <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s">&#39;black&#39;</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.05</span><span class="p">))</span>
-<span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 <img alt="../_images/pyplot_annotate.png" src="../_images/pyplot_annotate.png" />
@@ -939,7 +939,7 @@ looking at an example of the 3-d viewer that is available:</p>
 <span class="k">def</span> <span class="nf">randrange</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">vmax</span><span class="o">-</span><span class="n">vmin</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">vmin</span>
 
-<span class="n">fig</span> <span class="o">=</span> <span class="n">figure</span><span class="p">()</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s">&#39;3d&#39;</span><span class="p">)</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="k">for</span> <span class="n">c</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">zl</span><span class="p">,</span> <span class="n">zh</span> <span class="ow">in</span> <span class="p">[(</span><span class="s">&#39;r&#39;</span><span class="p">,</span> <span class="s">&#39;o&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="o">-</span><span class="mi">25</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="s">&#39;^&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">30</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">)]:</span>

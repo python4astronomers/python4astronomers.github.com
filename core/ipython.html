@@ -349,17 +349,37 @@ for Astronomers working directory.  Then start IPython by typing &#8220;ipython
 </div>
 <p>As we saw in the Introduction and Installation workshops, for interactive data
 analysis IPython has a special <tt class="docutils literal"><span class="pre">-pylab</span></tt> command line option which
-automatically imports elements of the NumPy and the Matplotlib environments. This is equivalent to:</p>
+automatically imports elements of the NumPy and the Matplotlib environments.
+This is equivalent to:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 </pre></div>
 </div>
-<p>This provides a Matlab-like environment allowing very simple and direct
-commands like the following:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<div class="admonition-reminder-what-does-import-do admonition ">
+<p class="first admonition-title">Reminder: What does <tt class="docutils literal"><span class="pre">import</span></tt> do?</p>
+<p>In python only basic functionality is provided in the language itself. Most of the
+commands we need are imported from other
+<a href="#id1"><span class="problematic" id="id2">`module s&lt;http://docs.python.org/tutorial/modules.html&gt;`_</span></a>. The
+<a class="reference external" href="http://docs.python.org/reference/simple_stmts.html#import">import</a> statement
+makes the functions in a module available:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span> <span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">()</span>    <span class="c"># will fail</span>
+<span class="c"># need to import the time module first</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">()</span>          <span class="c"># prints the system time</span>
+</pre></div>
+</div>
+<p>The <tt class="docutils literal"><span class="pre">as</span></tt> variant of <tt class="docutils literal"><span class="pre">import</span></tt> simply saves some typing. <tt class="docutils literal"><span class="pre">import</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></tt>
+allows us to type <tt class="docutils literal"><span class="pre">np</span></tt> instead of <tt class="docutils literal"><span class="pre">numpy</span></tt> to call a numpy function:</p>
+<div class="last highlight-python"><div class="highlight"><pre><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<p>IPython with the  <tt class="docutils literal"><span class="pre">-pylab</span></tt> command line option provides a Matlab-like environment
+allowing very simple and direct commands like the following:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="k">print</span> <span class="n">x</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="section" id="keyboard-navigation-and-history">
