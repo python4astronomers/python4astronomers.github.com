@@ -352,12 +352,13 @@ display:none;
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="id1">
-<h1>Matplotlib<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference external" href="http://matplotlib.sourceforge.net/">Matplotlib</a> is a python 2-d plotting library which produces publication quality
-figures in a variety of formats and interactive environments across
-platforms.  Matplotlib can be used in Python scripts, the Python and IPython
-shell, web application servers, and six graphical user interface toolkits.</p>
+  <div class="section" id="id3">
+<h1>Matplotlib<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="http://matplotlib.sourceforge.net/">Matplotlib</a> is a Python 2-d and 3-d plotting library which produces
+publication quality figures in a variety of formats and interactive
+environments across platforms.  Matplotlib can be used in Python scripts, the
+Python and IPython shell, web application servers, and six graphical user
+interface toolkits.</p>
 <div class="section" id="documentation">
 <h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
 <p>The matplotlib documentation is extensive and covers all the functionality in
@@ -383,6 +384,8 @@ beautiful and well-behaved</li>
 <ul class="simple">
 <li>Start with <a class="reference external" href="http://matplotlib.sourceforge.net/users/screenshots.html">Screenshots</a> for the broad
 plotting capabilities</li>
+<li>Go to the <a class="reference external" href="http://matplotlib.sourceforge.net/gallery.html">thumbnail gallery</a> and scan the thumbnails to
+find something similar.</li>
 <li>Googling is unfortunately not the best way to get to the detailed help for
 particular functions.  For example <a class="reference external" href="http://www.google.com/search?ie=UTF-8&amp;q=matplotlib+errorbar&amp;qscrl=1">googling &#8220;matplotlib errorbar&#8221;</a> just gives the home page and the
 pyplot API docs.  The <tt class="docutils literal"><span class="pre">errorbar()</span></tt> function is then not so easy to find.</li>
@@ -676,7 +679,7 @@ as argument:</p>
 </div>
 </div>
 <div class="section" id="some-useful-functions-for-controlling-plotting">
-<span id="id5"></span><h2>Some useful functions for controlling plotting<a class="headerlink" href="#some-useful-functions-for-controlling-plotting" title="Permalink to this headline">¶</a></h2>
+<span id="id8"></span><h2>Some useful functions for controlling plotting<a class="headerlink" href="#some-useful-functions-for-controlling-plotting" title="Permalink to this headline">¶</a></h2>
 <p>Here are a few useful functions:</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -716,12 +719,32 @@ as argument:</p>
 <p>MATLAB, and <a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib-pyplot">matplotlib.pyplot</a>, have the concept of the current
 figure and the current axes.  All plotting commands apply to the
 current axes.  The function <a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib.pyplot.gca">gca()</a> returns the
-current axes (a <tt class="xref py py-class docutils literal"><span class="pre">matplotlib.axes.Axes</span></tt> instance), and
+current axes (an <a class="reference external" href="http://matplotlib.sourceforge.net/api/axes_api.html">Axes</a> instance), and
 <a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib.pyplot.gcf">gcf()</a> returns the current figure
-(<tt class="xref py py-class docutils literal"><span class="pre">matplotlib.figure.Figure</span></tt> instance). Normally, you don&#8217;t have
+(a <a class="reference external" href="http://matplotlib.sourceforge.net/api/figure_api.html">Figure</a> instance). Normally, you don&#8217;t have
 to worry about this, because it is all taken care of behind the
-scenes.  Below is a script to create two figures where the first figure has two
-subplots:</p>
+scenes.</p>
+<div class="admonition-figure-axes-plot-and-subplot admonition">
+<p class="first admonition-title">Figure, Axes, plot(), and subplot()</p>
+<dl class="last docutils">
+<dt><a class="reference external" href="http://matplotlib.sourceforge.net/api/figure_api.html">Figure</a></dt>
+<dd>This is the entire window where one or more subplots live.
+A Figure object (new window) is created with the <a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib.pyplot.figure">figure()</a> command.</dd>
+<dt><a class="reference external" href="http://matplotlib.sourceforge.net/api/axes_api.html">Axes</a></dt>
+<dd>This is an object representing a subplot (which you might casually
+call a &#8220;plot&#8221;) which contains axes, ticks, lines, points, text, etc.</dd>
+<dt><a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib.pyplot.plot">plot()</a></dt>
+<dd>This is a command that draws points or lines and returns a list of
+<a class="reference external" href="http://matplotlib.sourceforge.net/api/artist_api.html#matplotlib.lines.Line2D">Line2D</a> objects.  One sublety is that <a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib.pyplot.plot">plot()</a> will automatically
+call <a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib.pyplot.figure">figure()</a> and/or <a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib.pyplot.subplot">subplot()</a> if neccesary to create the
+underlying <a class="reference external" href="http://matplotlib.sourceforge.net/api/figure_api.html">Figure</a> and <a class="reference external" href="http://matplotlib.sourceforge.net/api/axes_api.html">Axes</a> objects.</dd>
+<dt><a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib.pyplot.subplot">subplot()</a></dt>
+<dd>This is a command that creates and returns a new subplot (<a class="reference external" href="http://matplotlib.sourceforge.net/api/axes_api.html">Axes</a>) object
+which will be used for subsequent plotting commands.</dd>
+</dl>
+</div>
+<p>Below is a script that illustrates this by creating two figures where the first
+figure has two subplots:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Python function to calculate a decaying sinusoid&quot;&quot;&quot;</span>
     <span class="n">val</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
@@ -790,7 +813,7 @@ instead.  See the <a class="reference internal" href="advanced.html#advanced-plo
 approach, and the then <a class="reference external" href="http://matplotlib.sourceforge.net/users/artists.html">Artist tutorial</a> for the gory details.</p>
 </div>
 <div class="section" id="working-with-text">
-<span id="id6"></span><h2>Working with text<a class="headerlink" href="#working-with-text" title="Permalink to this headline">¶</a></h2>
+<span id="id9"></span><h2>Working with text<a class="headerlink" href="#working-with-text" title="Permalink to this headline">¶</a></h2>
 <p>The <a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib.pyplot.text">text()</a> command can be used to add text in
 an arbitrary location, and the <a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib.pyplot.xlabel">xlabel()</a>,
 <a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib.pyplot.ylabel">ylabel()</a> and <a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib.pyplot.title">title()</a>
