@@ -3,13 +3,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>2-D Fitting in Sherpa &mdash; Python4Astronomers v1.1 documentation</title>
+    <title>2-D Fitting in Sherpa &mdash; Python4Astronomers 1.1 documentation</title>
+    
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -22,7 +25,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Python4Astronomers v1.1 documentation" href="../index.html" />
+    <link rel="top" title="Python4Astronomers 1.1 documentation" href="../index.html" />
     <link rel="up" title="Fitting and Modeling 1-D and 2-D Data" href="fitting.html" />
     <link rel="next" title="Online Astronomy and the virtual observatory" href="../vo/vo.html" />
     <link rel="prev" title="1-D Fitting in Sherpa" href="spectrum.html" />
@@ -284,7 +287,7 @@ display:none;
         <li class="right" >
           <a href="spectrum.html" title="1-D Fitting in Sherpa"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers v1.1 documentation</a> &raquo;</li>
+        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li>
           <li><a href="fitting.html" accesskey="U">Fitting and Modeling 1-D and 2-D Data</a> &raquo;</li> 
       </ul>
     </div>
@@ -304,7 +307,7 @@ display:none;
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" size="18" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
@@ -353,7 +356,7 @@ image using <tt class="docutils literal"><span class="pre">image_data</span></tt
 <div class="highlight-python"><div class="highlight"><pre><span class="n">calc_data_sum2d</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="admonition-result admonition ">
+<div class="admonition-result admonition">
 <p class="first admonition-title">Result</p>
 <p class="last">32300</p>
 </div>
@@ -387,7 +390,7 @@ defined in pixels:</p>
 the 2-D region definition.  Typically, a call to <tt class="docutils literal"><span class="pre">set_coord</span></tt> is made before
 using <tt class="docutils literal"><span class="pre">notice2d</span></tt> or <tt class="docutils literal"><span class="pre">ignore2d</span></tt>.</p>
 </div>
-<div class="admonition-sherpa-also-supports-2-d-regions-from-file-either-ascii-or-fits admonition ">
+<div class="admonition-sherpa-also-supports-2-d-regions-from-file-either-ascii-or-fits admonition">
 <p class="first admonition-title">Sherpa also supports 2-D regions from file (either ASCII or FITS).</p>
 <p>Sherpa supports CIAO region files to define 2-D noticed regions:</p>
 <div class="last highlight-python"><div class="highlight"><pre><span class="n">ignore2d</span><span class="p">()</span>
@@ -408,7 +411,7 @@ using <tt class="docutils literal"><span class="pre">notice2d</span></tt> or <tt
 <div class="highlight-python"><div class="highlight"><pre><span class="n">calc_data_sum2d</span><span class="p">(</span><span class="s">&quot;CIRCLE(4072.46,4249.34,108)&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="admonition-result admonition ">
+<div class="admonition-result admonition">
 <p class="first admonition-title">Result</p>
 <p class="last">24658</p>
 </div>
@@ -442,7 +445,7 @@ values according to coordinate system.  The <cite>xpos</cite> and <cite>ypos</ci
 <div class="highlight-python"><div class="highlight"><pre><span class="n">calc_model_sum2d</span><span class="p">(</span><span class="s">&quot;CIRCLE(4072.46,4249.34,108)&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="admonition-result admonition ">
+<div class="admonition-result admonition">
 <p class="first admonition-title">Result</p>
 <p class="last">2266.1800709135932</p>
 </div>
@@ -468,7 +471,7 @@ model expression including any convolution components (e.g. PSF).</p>
 <span class="n">image_fit</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="admonition-fit-result admonition ">
+<div class="admonition-fit-result admonition">
 <p class="first admonition-title">Fit Result</p>
 <p class="last">Sherpa fit results include the statistic and method used during fitting,
 goodness-of-fit indicators, the number of function evaluations computed, and
@@ -494,7 +497,7 @@ parameter values:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">calc_model_sum2d</span><span class="p">(</span><span class="s">&quot;CIRCLE(4072.46,4249.34,108)&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="admonition-result admonition ">
+<div class="admonition-result admonition">
 <p class="first admonition-title">Result</p>
 <p class="last">24658.000000637512</p>
 </div>
@@ -503,7 +506,7 @@ the parameter value with the attribute <tt class="docutils literal"><span class=
 <div class="highlight-python"><div class="highlight"><pre><span class="n">g1</span><span class="o">.</span><span class="n">fwhm</span><span class="o">.</span><span class="n">val</span> <span class="o">*</span> <span class="mf">0.492</span>
 </pre></div>
 </div>
-<div class="admonition-result admonition ">
+<div class="admonition-result admonition">
 <p class="first admonition-title">Result</p>
 <p class="last">28.510281281152213</p>
 </div>
@@ -519,7 +522,7 @@ Sherpa method <tt class="docutils literal"><span class="pre">conf</span></tt>:</
 <span class="n">conf</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="admonition-confidence-result admonition ">
+<div class="admonition-confidence-result admonition">
 <p class="first admonition-title">Confidence Result</p>
 <p class="last">Sherpa confidence results include the statistic and method used during, a list
 of best-fit parameter values, and their associated confidence limits.  NOTE:
@@ -548,7 +551,7 @@ g1.xpos            4070.4    -0.297327     0.297382
 g1.ypos           4251.11    -0.294267     0.294294
 g1.ampl           23.3562    -0.399122     0.405767
 bgnd.c0          0.266365   -0.0152336    0.0156245</p>
-</pre><div class="admonition-exercise-for-the-interested-reader-scipy-special-functions admonition ">
+</pre><div class="admonition-exercise-for-the-interested-reader-scipy-special-functions admonition">
 <p class="first admonition-title">Exercise (for the interested reader): SciPy special functions</p>
 <p>Sherpa does not yet support the feature to indicate the confidence as a
 percentage.  How can we convert the desired percentage to the sigma that
@@ -606,7 +609,7 @@ values, min values, and max values:</p>
         <li class="right" >
           <a href="spectrum.html" title="1-D Fitting in Sherpa"
              >previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers v1.1 documentation</a> &raquo;</li>
+        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li>
           <li><a href="fitting.html" >Fitting and Modeling 1-D and 2-D Data</a> &raquo;</li> 
       </ul>
     </div>
