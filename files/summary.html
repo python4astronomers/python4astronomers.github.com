@@ -357,7 +357,7 @@ star-forming regions.</p>
 <p>The data is taken from the literature, but comes in different formats.
 Read the tables and plot the XLF (fraction of stars vs. log(L_X)) of all
 three clusters.</p>
-<p>Download the example data files:</p>
+<p>Download the example <a class="reference download internal" href="../_downloads/files-excercise.tar.gz"><tt class="xref download docutils literal"><span class="pre">data</span></tt></a>:</p>
 <div class="highlight-python"><pre>import urllib2, tarfile
 url = 'http://python4astronomers.github.com/_downloads/files-excercise.tar.gz'
 tarfile.open(fileobj=urllib2.urlopen(url), mode='r|gz').extractall()
@@ -453,6 +453,7 @@ The logarithmic X-ray luminosities are in column <tt class="docutils literal"><s
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Serplx</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Serplx</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">Serplx</span><span class="o">&gt;</span><span class="n">Lx0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span> <span class="s">&#39;s&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s">&#39;Serpens&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>And this is how it could look like:</p>
 </div></div>
 
 

@@ -36,7 +36,7 @@ Here are some hints:
     Read the tables and plot the XLF (fraction of stars vs. log(L_X)) of all
     three clusters.
 
-    Download the example data files::
+    Download the example :download:`data <../downloads/files-excercise.tar.gz>`::
 
         import urllib2, tarfile
         url = 'http://python4astronomers.github.com/_downloads/files-excercise.tar.gz'
@@ -133,6 +133,10 @@ This is a complex excercise and several solutions are possible. This is one::
     Serplx = winston.L_X[winston.L_X > 0]
     Serplx.sort()
     plt.plot(Serplx, np.arange(len(Serplx), 0, -1, dtype=float)/(Serplx>Lx0).sum(), 's', label = 'Serpens')
+    
+And this is how it could look like:
+
+.. image::
     
 .. raw:: html
 
