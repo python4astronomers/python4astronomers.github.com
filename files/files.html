@@ -3,13 +3,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Reading and Writing files &mdash; Python4Astronomers v1.1 documentation</title>
+    <title>Reading and Writing files &mdash; Python4Astronomers 1.1 documentation</title>
+    
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -22,7 +25,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Python4Astronomers v1.1 documentation" href="../index.html" />
+    <link rel="top" title="Python4Astronomers 1.1 documentation" href="../index.html" />
     <link rel="next" title="Python Built-in Types and Operations" href="../python/types.html" />
     <link rel="prev" title="Publication-quality plots" href="../plotting/publication.html" />
  
@@ -283,7 +286,7 @@ display:none;
         <li class="right" >
           <a href="../plotting/publication.html" title="Publication-quality plots"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers v1.1 documentation</a> &raquo;</li> 
+        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
@@ -302,7 +305,7 @@ display:none;
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" size="18" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
@@ -327,21 +330,44 @@ solely built-in Python functions and types, and we will then move on to see how
 we can use modules such as <a class="reference external" href="https://github.com/taldcroft/asciitable">asciitable</a> and <a class="reference external" href="http://atpy.github.com">ATpy</a> to read tables of data in various formats.
 But before getting to file I/O we&#8217;ll start filling in your basic Python
 knowledge with a primer on Python data types.</p>
+<p>Pure Python primer</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../python/types.html">Python Built-in Types and Operations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pure_python.html">Reading and Writing files in Pure Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="asciitable.html">Asciitable</a></li>
-<li class="toctree-l1"><a class="reference internal" href="atpy.html">ATpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/types.html">Python Built-in Types and Operations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../python/types.html#basic-numeric-types">Basic numeric types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python/types.html#lists-tuples-and-sets">Lists, tuples, and sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python/types.html#strings">Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python/types.html#dictionaries">Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python/types.html#a-note-on-python-objects">A note on Python objects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="asciifiles.html">Several ways to handle ASCII data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="asciifiles.html#reading-and-writing-files-in-pure-python">Reading and Writing files in Pure Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="asciifiles.html#numpy">Numpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="asciifiles.html#asciitable">Asciitable</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="binaryfiles.html">Binary formats useful for astronomers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="binaryfiles.html#pyfits-reading-and-writing-fits-files">Pyfits - Reading and writing fits files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="binaryfiles.html#reading-idl-sav-files">Reading IDL .sav files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="atpy.html">ATpy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="atpy.html#reading-in-an-existing-table">Reading in an existing table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atpy.html#creating-a-table-from-scratch">Creating a table from scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atpy.html#and-much-more">And much more!</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="summary.html">Summary and excercise</a></li>
 </ul>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field"><th class="field-name">Authors:</th><td class="field-body">Tom Robitaille, Tom Aldcroft</td>
+<tr class="field-odd field"><th class="field-name">Authors:</th><td class="field-body">Tom Robitaille, Tom Aldcroft, Moritz Guenther</td>
 </tr>
-<tr class="field"><th class="field-name">Copyright:</th><td class="field-body">2011 Smithsonian Astrophysical Observatory</td>
+<tr class="field-even field"><th class="field-name">Copyright:</th><td class="field-body">2011 Smithsonian Astrophysical Observatory</td>
 </tr>
 </tbody>
 </table>
@@ -365,7 +391,7 @@ knowledge with a primer on Python data types.</p>
         <li class="right" >
           <a href="../plotting/publication.html" title="Publication-quality plots"
              >previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers v1.1 documentation</a> &raquo;</li> 
+        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li> 
       </ul>
     </div>
  <small>Copyright:

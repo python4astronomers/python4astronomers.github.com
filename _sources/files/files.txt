@@ -11,14 +11,17 @@ we can use modules such as `asciitable
 But before getting to file I/O we'll start filling in your basic Python
 knowledge with a primer on Python data types.
 
+Pure Python primer
+
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    ../python/types
-   pure_python.rst
-   asciitable.rst
+   asciifiles.rst
+   binaryfiles.rst
    atpy.rst
+   summary.rst
    
-:Authors: Tom Robitaille, Tom Aldcroft
+:Authors: Tom Robitaille, Tom Aldcroft, Moritz Guenther
 :Copyright: 2011 Smithsonian Astrophysical Observatory
 

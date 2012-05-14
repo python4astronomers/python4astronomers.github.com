@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Core packages for analysis: IPython, NumPy, and SciPy &mdash; Python4Astronomers 1.1 documentation</title>
+    <title>Reading IDL .sav files &mdash; Python4Astronomers 1.1 documentation</title>
     
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -26,8 +26,9 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Python4Astronomers 1.1 documentation" href="../index.html" />
-    <link rel="next" title="IPython" href="ipython.html" />
-    <link rel="prev" title="Modules, Packages, and all that" href="../installation/packages.html" />
+    <link rel="up" title="Reading and Writing files" href="files.html" />
+    <link rel="next" title="ATpy" href="atpy.html" />
+    <link rel="prev" title="Pyfits - Reading and writing fits files" href="pyfits.html" />
  
 <script type="text/javascript"> 
 $(document).ready(function(){
@@ -281,25 +282,26 @@ display:none;
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="ipython.html" title="IPython"
+          <a href="atpy.html" title="ATpy"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="../installation/packages.html" title="Modules, Packages, and all that"
+          <a href="pyfits.html" title="Pyfits - Reading and writing fits files"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li> 
+        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li>
+          <li><a href="files.html" accesskey="U">Reading and Writing files</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="../installation/packages.html"
-                        title="previous chapter">Modules, Packages, and all that</a></p>
+  <p class="topless"><a href="pyfits.html"
+                        title="previous chapter">Pyfits - Reading and writing fits files</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="ipython.html"
-                        title="next chapter">IPython</a></p>
+  <p class="topless"><a href="atpy.html"
+                        title="next chapter">ATpy</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="../_sources/core/core.txt"
+    <li><a href="../_sources/files/idlsave.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
@@ -323,38 +325,55 @@ display:none;
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="core-packages-for-analysis-ipython-numpy-and-scipy">
-<h1>Core packages for analysis: IPython, NumPy, and SciPy<a class="headerlink" href="#core-packages-for-analysis-ipython-numpy-and-scipy" title="Permalink to this headline">¶</a></h1>
-<p>Workshop goals:</p>
-<ul class="simple">
-<li>Learn the key features of IPython for interactive analysis</li>
-<li>NumPy arrays<ul>
-<li>Define arrays and perform common manipulations</li>
-<li>Basic array slicing</li>
-<li>Documentation and tutorials for further work</li>
-</ul>
-</li>
-<li>Develop a script that extracts a 1-d spectrum from a 2-d longslit image</li>
-<li>Gain familiarity with tools available within the SciPy package</li>
-</ul>
-<p><strong>Agenda</strong></p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="ipython.html">IPython</a></li>
-<li class="toctree-l1"><a class="reference internal" href="numpy_scipy.html">NumPy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="numpy_scipy.html#scipy">SciPy</a></li>
-</ul>
+  <div class="section" id="reading-idl-sav-files">
+<h1>Reading IDL .sav files<a class="headerlink" href="#reading-idl-sav-files" title="Permalink to this headline">¶</a></h1>
+<p>IDL is still a very common tool in astronomy. While IDL packages exist to read and write data in simple (ASCII) or standardized file formats (fits), that users of all platforms can use, IDL also offers a binary file format with an undocumented, proprietary structure. However, acess to this file format (usually called <tt class="docutils literal"><span class="pre">.sav</span></tt>) is very simple and convenient in IDL. Therefore, many IDL users dump their data in this way and you might be forced to read <tt class="docutils literal"><span class="pre">.sav</span></tt> files a collegue has sent you.</p>
+<p>Here is an examplary <tt class="docutils literal"><span class="pre">.sav</span></tt> <a class="reference download internal" href="../_downloads/myidlfile.sav"><tt class="xref download docutils literal"><span class="pre">file</span></tt></a>.
+If you have trouble downloading the file, then use IPython:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">urllib2</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">&#39;http://python4astronomers.github.com/_downloads/myidlfile.sav&#39;</span>
+<span class="nb">open</span><span class="p">(</span><span class="s">&#39;myidlfile.sav&#39;</span><span class="p">,</span> <span class="s">&#39;wb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span class="n">ls</span>
+</pre></div>
 </div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Author:</th><td class="field-body">Tom Aldcroft, Moritz Guenther</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Copyright:</th><td class="field-body">2011 Smithsonian Astrophysical Observatory</td>
-</tr>
-</tbody>
-</table>
+<dl class="docutils">
+<dt>What can you do?</dt>
+<dd><ol class="first last arabic simple">
+<li>Convert your collegue to use a different file format.</li>
+<li>Read that file in python.</li>
+</ol>
+</dd>
+</dl>
+<p>If you have a relatively recent version (at least 0.9) of <tt class="docutils literal"><span class="pre">scipy</span></tt> then this is a matter of two lines:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">scipy.io.idl</span> <span class="kn">import</span> <span class="n">readsav</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">readsav</span><span class="p">(</span><span class="s">&#39;myidlfile.sav&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If your scipy is older, then you need to install the package <a class="reference external" href="http://astrofrog.github.com/idlsave/">idlsave</a> yourself.
+(Go back to <a class="reference internal" href="../installation/packages.html"><em>Modules, Packages, and all that</em></a> for details on package installation.)</p>
+<p>In a normal terminal (outside <tt class="docutils literal"><span class="pre">ipython</span></tt>) do:</p>
+<div class="highlight-python"><pre>pip install --upgrade idlsave</pre>
+</div>
+<p>or, if you install packages as root user on your system:</p>
+<div class="highlight-python"><pre>sudo pip install --upgrade idlsave</pre>
+</div>
+<p>Then import the package and read the data:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">idlsave</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">idlsave</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s">&#39;myidlfile.sav&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition-exercise-where-is-your-data admonition ">
+<p class="first admonition-title">Exercise: Where is your data?</p>
+<p class="last"><tt class="docutils literal"><span class="pre">idlsave</span></tt> already prints some information on the screen while reading the file. Inspect the object <tt class="docutils literal"><span class="pre">data</span></tt>, find out how you use it and plot
+the <tt class="docutils literal"><span class="pre">x</span></tt> and <tt class="docutils literal"><span class="pre">y</span></tt> data in it.</p>
+</div>
+<p class="flip6">Click to Show/Hide Solution</p> <div class="panel6"><p><tt class="docutils literal"><span class="pre">data</span></tt> is a dictionary and all the variables in the <tt class="docutils literal"><span class="pre">.sav</span></tt> file are
+fields in this dictionary. You get a list with <tt class="docutils literal"><span class="pre">data.keys()</span></tt>. Then, this
+is easy:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;x&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s">&#39;y&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div><p>Note that <tt class="docutils literal"><span class="pre">idlsave</span></tt> cannot write files and that it will fail to read if the <tt class="docutils literal"><span class="pre">.sav</span></tt> file contains special structures like system variables or compiled IDL code.</p>
 </div>
 
 
@@ -370,12 +389,13 @@ display:none;
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="ipython.html" title="IPython"
+          <a href="atpy.html" title="ATpy"
              >next</a> |</li>
         <li class="right" >
-          <a href="../installation/packages.html" title="Modules, Packages, and all that"
+          <a href="pyfits.html" title="Pyfits - Reading and writing fits files"
              >previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li> 
+        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li>
+          <li><a href="files.html" >Reading and Writing files</a> &raquo;</li> 
       </ul>
     </div>
  <small>Copyright:

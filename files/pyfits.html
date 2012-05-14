@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Core packages for analysis: IPython, NumPy, and SciPy &mdash; Python4Astronomers 1.1 documentation</title>
+    <title>Pyfits - Reading and writing fits files &mdash; Python4Astronomers 1.1 documentation</title>
     
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -26,8 +26,9 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Python4Astronomers 1.1 documentation" href="../index.html" />
-    <link rel="next" title="IPython" href="ipython.html" />
-    <link rel="prev" title="Modules, Packages, and all that" href="../installation/packages.html" />
+    <link rel="up" title="Reading and Writing files" href="files.html" />
+    <link rel="next" title="Reading IDL .sav files" href="idlsave.html" />
+    <link rel="prev" title="Asciitable" href="asciitable.html" />
  
 <script type="text/javascript"> 
 $(document).ready(function(){
@@ -281,25 +282,26 @@ display:none;
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="ipython.html" title="IPython"
+          <a href="idlsave.html" title="Reading IDL .sav files"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="../installation/packages.html" title="Modules, Packages, and all that"
+          <a href="asciitable.html" title="Asciitable"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li> 
+        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li>
+          <li><a href="files.html" accesskey="U">Reading and Writing files</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="../installation/packages.html"
-                        title="previous chapter">Modules, Packages, and all that</a></p>
+  <p class="topless"><a href="asciitable.html"
+                        title="previous chapter">Asciitable</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="ipython.html"
-                        title="next chapter">IPython</a></p>
+  <p class="topless"><a href="idlsave.html"
+                        title="next chapter">Reading IDL .sav files</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="../_sources/core/core.txt"
+    <li><a href="../_sources/files/pyfits.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
@@ -323,39 +325,47 @@ display:none;
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="core-packages-for-analysis-ipython-numpy-and-scipy">
-<h1>Core packages for analysis: IPython, NumPy, and SciPy<a class="headerlink" href="#core-packages-for-analysis-ipython-numpy-and-scipy" title="Permalink to this headline">¶</a></h1>
-<p>Workshop goals:</p>
-<ul class="simple">
-<li>Learn the key features of IPython for interactive analysis</li>
-<li>NumPy arrays<ul>
-<li>Define arrays and perform common manipulations</li>
-<li>Basic array slicing</li>
-<li>Documentation and tutorials for further work</li>
-</ul>
-</li>
-<li>Develop a script that extracts a 1-d spectrum from a 2-d longslit image</li>
-<li>Gain familiarity with tools available within the SciPy package</li>
-</ul>
-<p><strong>Agenda</strong></p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="ipython.html">IPython</a></li>
-<li class="toctree-l1"><a class="reference internal" href="numpy_scipy.html">NumPy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="numpy_scipy.html#scipy">SciPy</a></li>
-</ul>
+  <div class="section" id="pyfits-reading-and-writing-fits-files">
+<h1>Pyfits - Reading and writing fits files<a class="headerlink" href="#pyfits-reading-and-writing-fits-files" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="http://packages.python.org/pyfits/">PyFITS</a>  is a python module developed at STScI to read and write all types of fits files. The pdf version of the <a class="reference external" href="http://stsdas.stsci.edu/download/docs/The_PyFITS_Handbook.pdf">manual</a> is several hundert pages long, but the <a class="reference external" href="http://packages.python.org/pyfits/users_guide/users_tutorial.html">tutorial</a> just goes through the basics.</p>
+<div class="admonition-external-resource admonition ">
+<p class="first admonition-title">External resource!</p>
+<p class="last">The PyFITS tutorial itself is good for our purpose and since this
+is the internet I will not reinvent the wheel. Read the <a class="reference external" href="http://packages.python.org/pyfits/users_guide/users_tutorial.html">Pyfits tutorial</a>
+then come back to this page for an exercise.</p>
 </div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Author:</th><td class="field-body">Tom Aldcroft, Moritz Guenther</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Copyright:</th><td class="field-body">2011 Smithsonian Astrophysical Observatory</td>
-</tr>
-</tbody>
-</table>
+<div class="admonition-exercise admonition ">
+<p class="first admonition-title">Exercise</p>
+<p>Use the following code to download a fits file for this exercise:</p>
+<div class="highlight-python"><pre>import urllib2, tarfile
+url = 'http://python4astronomers.github.com/core/core_examples.tar'
+tarfile.open(fileobj=urllib2.urlopen(url), mode='r|').extractall()
+cd py4ast/core
+ls</pre>
 </div>
+<p class="last">Read in the fits file. Find the time and date of the observations. Then use <tt class="docutils literal"><span class="pre">plt.imshow()</span></tt> to display the intensity array using some sensible minimum and maximum value so that the spectrum is visible.</p>
+</div>
+<p class="flip6">Click to Show/Hide Solution</p> <div class="panel6"><p>Here is a possible solution:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">pyfits</span>
+<span class="n">hdus</span> <span class="o">=</span> <span class="n">pyfits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;3c120_stis.fits.gz&#39;</span><span class="p">)</span>
+<span class="n">hdus</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<span class="n">head</span> <span class="o">=</span> <span class="n">hdus</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">header</span>
+<span class="n">head</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>             <span class="c"># lists all keywords in a dictionary</span>
+<span class="n">head</span><span class="p">[</span><span class="s">&#39;TDATEOBS&#39;</span><span class="p">]</span>
+<span class="n">head</span><span class="p">[</span><span class="s">&#39;TTIMEOBS&#39;</span><span class="p">]</span>
+<span class="n">primary</span> <span class="o">=</span> <span class="n">hdus</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>  <span class="c"># Primary (NULL) header data unit</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">hdus</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>      <span class="c"># Intensity data</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">origin</span> <span class="o">=</span> <span class="s">&#39;lower&#39;</span><span class="p">,</span> <span class="n">vmin</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="mi">65</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Don&#8217;t be surprised to recognize this piece of code. It was used before in
+the <a class="reference internal" href="../core/numpy_scipy.html"><em>NumPy</em></a> part of the tutorial, but now you should understand the
+<tt class="docutils literal"><span class="pre">pyfits</span></tt> commands in more detail.</p>
+</div></div>
 
 
           </div>
@@ -370,12 +380,13 @@ display:none;
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="ipython.html" title="IPython"
+          <a href="idlsave.html" title="Reading IDL .sav files"
              >next</a> |</li>
         <li class="right" >
-          <a href="../installation/packages.html" title="Modules, Packages, and all that"
+          <a href="asciitable.html" title="Asciitable"
              >previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li> 
+        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li>
+          <li><a href="files.html" >Reading and Writing files</a> &raquo;</li> 
       </ul>
     </div>
  <small>Copyright:
