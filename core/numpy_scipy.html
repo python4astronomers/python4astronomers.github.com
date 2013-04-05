@@ -389,7 +389,7 @@ cd py4ast/core
 ls</pre>
 </div>
 <p>Leave this IPython session open for the rest of the workshop.</p>
-<div class="admonition-exercise-for-the-interested-reader-how-did-that-code-above-work admonition ">
+<div class="admonition-exercise-for-the-interested-reader-how-did-that-code-above-work admonition">
 <p class="first admonition-title">Exercise (for the interested reader): How did that code above work?</p>
 <p class="last">Explain what&#8217;s happening in each part of the previous code snippet to grab
 the file at a URL and untar it.  Google on &#8220;python urllib2&#8221; and &#8220;python
@@ -452,7 +452,7 @@ add a colorbar to our plot:</p>
 <p>Your plot should not look like this (it is possible that the colormap differs,
 if your matplotlib has different defaults set).</p>
 <a class="reference internal image-reference" href="../_images/imgview_img.png"><img alt="../_images/imgview_img.png" src="../_images/imgview_img.png" style="width: 406.0px; height: 306.0px;" /></a>
-<div class="admonition-exercise-view-the-error-and-data-quality-images admonition ">
+<div class="admonition-exercise-view-the-error-and-data-quality-images admonition">
 <p class="first admonition-title">Exercise: View the error and data quality images</p>
 <p class="last">Bring up a viewer window for the other two images.  Play with the toolbar
 buttons on the lower-left (hint: try the four on the right first, then
@@ -573,7 +573,7 @@ a few key features of NumPy.</p>
 <span class="go">       [40, 41, 42, 43, 44]])</span>
 </pre></div>
 </div>
-<div class="admonition-exercise-make-a-ripple admonition ">
+<div class="admonition-exercise-make-a-ripple admonition">
 <p class="first admonition-title">Exercise: Make a ripple</p>
 <p class="last">Calculate a surface <tt class="docutils literal"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">cos(r)</span> <span class="pre">/</span> <span class="pre">(r</span> <span class="pre">+</span> <span class="pre">5)</span></tt> where <tt class="docutils literal"><span class="pre">r</span> <span class="pre">=</span> <span class="pre">sqrt(x**2</span> <span class="pre">+</span>
 <span class="pre">y**2)</span></tt>.  Set <tt class="docutils literal"><span class="pre">x</span></tt> to an array that goes from -20 to 20 stepping by 0.25
@@ -631,7 +631,7 @@ array[&lt;slice0&gt;, &lt;slice1&gt;, ...]</pre>
 <li><tt class="docutils literal"><span class="pre">i1</span></tt> is the index upper bound (default is last element index + 1)</li>
 <li><tt class="docutils literal"><span class="pre">step</span></tt> is the step size (default is one).  When <tt class="docutils literal"><span class="pre">step</span></tt> is not specified then the final &#8221;:&#8221; is not required.</li>
 </ul>
-<div class="admonition-exercise-slice-the-error-array admonition ">
+<div class="admonition-exercise-slice-the-error-array admonition">
 <p class="first admonition-title">Exercise: Slice the error array</p>
 <ul class="last simple">
 <li>For row 254 of the error array <tt class="docutils literal"><span class="pre">err</span></tt> plot columns 10 to 200 stepping by 3.</li>
@@ -669,7 +669,7 @@ this, but for now just accept and learn it.</p>
 cosmic-ray contamination.</p>
 <a class="reference internal image-reference" href="../_images/profile.png"><img alt="../_images/profile.png" src="../_images/profile.png" style="width: 406.0px; height: 306.0px;" /></a>
 <a class="reference internal image-reference" href="../_images/spectrum_noisy.png"><img alt="../_images/spectrum_noisy.png" src="../_images/spectrum_noisy.png" style="width: 406.0px; height: 306.0px;" /></a>
-<div class="admonition-exercise-use-slicing-to-make-a-better-spectrum-plot admonition ">
+<div class="admonition-exercise-use-slicing-to-make-a-better-spectrum-plot admonition">
 <p class="first admonition-title">Exercise: Use slicing to make a better spectrum plot</p>
 <p class="last">Use slicing to do the spectrum sum using only the rows in the image where
 there is a signal from the source.
@@ -739,7 +739,7 @@ and that you can compose logical expressions:</p>
 <span class="go">       [ 0,  0,  0,  0,  0]])</span>
 </pre></div>
 </div>
-<div class="admonition-exercise-intermediate-circular-region-slicing admonition ">
+<div class="admonition-exercise-intermediate-circular-region-slicing admonition">
 <p class="first admonition-title">Exercise [intermediate]: circular region slicing</p>
 <p class="last">Remember the surface <tt class="docutils literal"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">cos(r)</span> <span class="pre">/</span> <span class="pre">(r</span> <span class="pre">+</span> <span class="pre">5)</span></tt> that you made previously.  Set
 <tt class="docutils literal"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">0</span></tt> for every pixel of <tt class="docutils literal"><span class="pre">z</span></tt> that is within 10 units of (x,y) = (10, 15).</p>
@@ -751,7 +751,7 @@ and that you can compose logical expressions:</p>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../_images/ripple_masked.png"><img alt="../_images/ripple_masked.png" src="../_images/ripple_masked.png" style="width: 406.0px; height: 306.0px;" /></a>
-</div><div class="admonition-detour-copy-versus-reference admonition ">
+</div><div class="admonition-detour-copy-versus-reference admonition">
 <p class="first admonition-title">Detour: copy versus reference</p>
 <dl class="docutils">
 <dt><strong>Question</strong></dt>
@@ -858,7 +858,7 @@ image which includes the source region.</p>
 </tr>
 </tbody>
 </table>
-<div class="admonition-detour-vector-operations-versus-looping admonition ">
+<div class="admonition-detour-vector-operations-versus-looping admonition">
 <p class="first admonition-title">Detour: vector operations versus looping</p>
 <p>If you are used to C or Fortran you might be wondering why jump through these
 hoops with slicing and making sure everything is vectorized.  The answer is
@@ -900,7 +900,7 @@ or maybe coded in C or Fortran.</p>
 </tr>
 </tbody>
 </table>
-<div class="admonition-exercise-make-the-final-spectrum admonition ">
+<div class="admonition-exercise-make-the-final-spectrum admonition">
 <p class="first admonition-title">Exercise: Make the final spectrum</p>
 <p class="last">Sum the rows of the background subtracted spectrum and plot.  Hint: you
 already did it once in a previous exercise.</p>

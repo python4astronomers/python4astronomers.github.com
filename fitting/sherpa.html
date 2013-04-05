@@ -27,8 +27,8 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Python4Astronomers 1.1 documentation" href="../index.html" />
     <link rel="up" title="Fitting and Modeling 1-D and 2-D Data" href="fitting.html" />
-    <link rel="next" title="1-D Fitting in Sherpa" href="spectrum.html" />
-    <link rel="prev" title="Python Classes" href="classes.html" />
+    <link rel="next" title="1-D data with errors" href="spectrum.html" />
+    <link rel="prev" title="Sherpa Installation" href="installation.html" />
  
 <script type="text/javascript"> 
 $(document).ready(function(){
@@ -282,10 +282,10 @@ display:none;
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="spectrum.html" title="1-D Fitting in Sherpa"
+          <a href="spectrum.html" title="1-D data with errors"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="classes.html" title="Python Classes"
+          <a href="installation.html" title="Sherpa Installation"
              accesskey="P">previous</a> |</li>
         <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li>
           <li><a href="fitting.html" accesskey="U">Fitting and Modeling 1-D and 2-D Data</a> &raquo;</li> 
@@ -297,17 +297,24 @@ display:none;
   <ul>
 <li><a class="reference internal" href="#">Sherpa Overview</a><ul>
 <li><a class="reference internal" href="#documentation">Documentation</a></li>
-<li><a class="reference internal" href="#explore-the-sherpa-object-model">Explore the Sherpa Object Model</a></li>
+<li><a class="reference internal" href="#load-data-into-sherpa">Load data into Sherpa</a></li>
+<li><a class="reference internal" href="#set-up-the-model">Set up the model</a></li>
+<li><a class="reference internal" href="#selecting-a-statistic-and-optimizer">Selecting a statistic and optimizer</a></li>
+<li><a class="reference internal" href="#now-the-fit">Now the fit</a></li>
+<li><a class="reference internal" href="#view-the-fit">View the fit</a></li>
+<li><a class="reference internal" href="#adding-a-component">Adding a component</a></li>
+<li><a class="reference internal" href="#evaluating-the-model-expression-directly">Evaluating the model expression directly</a></li>
+<li><a class="reference internal" href="#saving-the-session">Saving the session</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="classes.html"
-                        title="previous chapter">Python Classes</a></p>
+  <p class="topless"><a href="installation.html"
+                        title="previous chapter">Sherpa Installation</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="spectrum.html"
-                        title="next chapter">1-D Fitting in Sherpa</a></p>
+                        title="next chapter">1-D data with errors</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="../_sources/fitting/sherpa.txt"
@@ -337,8 +344,7 @@ display:none;
   <div class="section" id="sherpa-overview">
 <h1>Sherpa Overview<a class="headerlink" href="#sherpa-overview" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference external" href="http://cxc.harvard.edu/sherpa">Sherpa</a> is a general purpose modeling and fitting application written in Python.</p>
-<blockquote>
-<div><ul class="simple">
+<ul class="simple">
 <li>Uses Python&#8217;s interactive capabilities and its Object Oriented Programming
 (OOP) approach.</li>
 <li>Provides a flexible environment for resolving spectral and image properties,
@@ -350,8 +356,17 @@ limits.</li>
 own data structures, models, statistics or optimization methods to Sherpa.</li>
 <li>Complex model expressions are supported using a general purpose and compact
 definition syntax.</li>
+<li>Has a high-level UI that deals with a lot of the data management
+and general book-keeping you come across, but the low-level API
+can also be used (e.g. as part of a separate application).</li>
 </ul>
-</div></blockquote>
+<p>In this tutorial we will show you how Sherpa can be used to model and
+fit 1D data (without and with errors) and 2D images. Higher
+dimensionality data is supported (to some extent) but there is no
+documentation. The 1D examples are for &#8220;unbinned&#8221; data, but you can
+also handle the case where the model has to be summed (integrated)
+across each bin (for the 2D case we treat image data as point/unbinned
+for convenience and speed).</p>
 <div class="section" id="documentation">
 <h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -366,147 +381,383 @@ threads, and AHELP pages that describe each Sherpa function:</p>
 <li><a class="reference external" href="http://cxc.cfa.harvard.edu/sherpa/ahelp/index_alphabet.html">Sherpa AHELP pages</a>: Function information</li>
 </ul>
 </div>
-<div class="section" id="explore-the-sherpa-object-model">
-<h2>Explore the Sherpa Object Model<a class="headerlink" href="#explore-the-sherpa-object-model" title="Permalink to this headline">¶</a></h2>
-<p>In a new working directory, download a MAST spectrum of <a class="reference download internal" href="../_downloads/3c273.fits"><tt class="xref download docutils literal"><span class="pre">3C</span> <span class="pre">273</span></tt></a>
-and start IPython:</p>
-<div class="highlight-python"><pre>$ ipython -pylab</pre>
+<div class="section" id="load-data-into-sherpa">
+<h2>Load data into Sherpa<a class="headerlink" href="#load-data-into-sherpa" title="Permalink to this headline">¶</a></h2>
+<p>If you still have the 3C120 data from the
+<a class="reference external" href="../core/numpy_scipy.html#setup">NumPy introduction</a>
+then go to the py4ast/core directory, otherwise</p>
+<div class="highlight-python"><pre>$ ipython -pylab
+import urllib2, tarfile
+url = 'http://python4astronomers.github.com/core/core_examples.tar'
+tarfile.open(fileobj=urllib2.urlopen(url), mode='r|').extractall()
+cd py4ast/core</pre>
 </div>
-<p>If you have trouble accessing the spectrum you can download it straight away
-using Python:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">urllib2</span>
-<span class="n">url</span> <span class="o">=</span> <span class="s">&#39;http://python4astronomers.github.com/_downloads/3c273.fits&#39;</span>
-<span class="nb">open</span><span class="p">(</span><span class="s">&#39;3c273.fits&#39;</span><span class="p">,</span> <span class="s">&#39;wb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
-<span class="n">ls</span>
+<p>Now we load the Sherpa UI module</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">sherpa.astro.ui</span> <span class="kn">as</span> <span class="nn">ui</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pyfits</span>
+<span class="c"># import pycrates</span>
+<span class="c"># import pychips</span>
 </pre></div>
 </div>
-<p>Import a few Sherpa classes needed to characterize a fit:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">sherpa.data</span> <span class="kn">import</span> <span class="n">Data1D</span>
-<span class="kn">from</span> <span class="nn">sherpa.models</span> <span class="kn">import</span> <span class="n">PowLaw1D</span>
-<span class="kn">from</span> <span class="nn">sherpa.stats</span> <span class="kn">import</span> <span class="n">Chi2DataVar</span>
-<span class="kn">from</span> <span class="nn">sherpa.optmethods</span> <span class="kn">import</span> <span class="n">LevMar</span>
-<span class="kn">from</span> <span class="nn">sherpa.fit</span> <span class="kn">import</span> <span class="n">Fit</span>
+<p>and then the data, using the <tt class="docutils literal"><span class="pre">load_arrays</span></tt> command</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">img</span> <span class="o">=</span> <span class="n">pyfits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;3c120_stis.fits.gz&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+<span class="c"># cr = pycrates.read_file(&#39;3c120_stis.fits.gz&#39;)</span>
+<span class="c"># img = pycrates.get_piximgvals(cr)</span>
+<span class="n">profile</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">xaxis</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">profile</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+<span class="n">ui</span><span class="o">.</span><span class="n">load_arrays</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">xaxis</span><span class="p">,</span> <span class="n">profile</span><span class="p">)</span>
+<span class="n">ui</span><span class="o">.</span><span class="n">plot_data</span><span class="p">()</span>
+<span class="c"># pychips.log_scale(pychips.Y_AXIS)</span>
 </pre></div>
 </div>
-<p>Import the Python FITS reader <tt class="docutils literal"><span class="pre">pyfits</span></tt> and open the spectrum as a table:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">pyfits</span>
-<span class="n">dat</span> <span class="o">=</span> <span class="n">pyfits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;3c273.fits&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+<a class="reference internal image-reference" href="../_images/3c120_data.png"><img alt="../_images/3c120_data.png" src="../_images/3c120_data.png" style="width: 432.0px; height: 324.0px;" /></a>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">I will be using the CIAO version of Sherpa for the demonstation, but
+feel free to use the standalone version. Here we load the data into
+dataset number <tt class="docutils literal"><span class="pre">1</span></tt> (which is the default); data set ids can be
+integers or strings (for example &#8220;src&#8221; and &#8220;bgnd&#8221;). Some routines
+work on a single dataset and some on all; for some commands
+the id value can be left out to use the default (<tt class="docutils literal"><span class="pre">plot_data</span></tt>
+is and <tt class="docutils literal"><span class="pre">load_arrays</span></tt> isn&#8217;t).</p>
+</div>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<p class="last">Try out <tt class="docutils literal"><span class="pre">d1</span> <span class="pre">=</span> <span class="pre">ui.get_data()</span></tt> and <tt class="docutils literal"><span class="pre">dir(d1)</span></tt>.</p>
+</div>
+</div>
+<div class="section" id="set-up-the-model">
+<h2>Set up the model<a class="headerlink" href="#set-up-the-model" title="Permalink to this headline">¶</a></h2>
+<p>The aim is to determine the approximate spatial extent of the profile,
+so we start with a gaussian:</p>
+<div class="highlight-python"><pre>ui.set_source(ui.gauss1d.g1)
+print(g1)
+gauss1d.g1
+   Param        Type          Value          Min          Max      Units
+   -----        ----          -----          ---          ---      -----
+   g1.fwhm      thawed           10  1.17549e-38  3.40282e+38
+   g1.pos       thawed            0 -3.40282e+38  3.40282e+38
+   g1.ampl      thawed            1 -3.40282e+38  3.40282e+38</pre>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The Sherpa UI uses fancy Python magic to create a variable with
+the name of the model component - in this case <tt class="docutils literal"><span class="pre">g1</span></tt> - which is
+then used to read and modify the model parameters. Parameters
+have a value, range, and can be thawed (can be adjusted during
+a fit) or frozen (will not be fixed).</p>
+</div>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<p class="last">Try out <tt class="docutils literal"><span class="pre">dir(g1)</span></tt>. As shown below, the source expression
+can be retrieved with <tt class="docutils literal"><span class="pre">ui.get_source</span></tt>.</p>
+</div>
+<p>It would be nice if the optimizer were guaranteed to find the
+best fit no matter where you start (and the quality of the data),
+but it often helps to try and give the system a helping hand.
+One way to do this is via the <tt class="docutils literal"><span class="pre">guess</span></tt> command, which
+uses simple heuristics to initialize some of the
+parameter values and ranges (the algorithm used depends on
+the model).</p>
+<div class="highlight-python"><pre>ui.freeze(g1.fwhm)
+ui.guess(g1)
+ui.thaw(g1.fwhm)
+print(g1)
+gauss1d.g1
+   Param        Type          Value          Min          Max      Units
+   -----        ----          -----          ---          ---      -----
+   g1.fwhm      thawed           10  1.17549e-38  3.40282e+38
+   g1.pos       thawed          254            0          511
+   g1.ampl      thawed  3.11272e+06      3112.72  3.11272e+09</pre>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The reason for freezing the <tt class="docutils literal"><span class="pre">fwhm</span></tt> parameter before the <tt class="docutils literal"><span class="pre">guess</span></tt>
+is to avoid a strange error message
+(<tt class="docutils literal"><span class="pre">ParameterErr:</span> <span class="pre">parameter</span> <span class="pre">g1.fwhm</span>
+<span class="pre">has</span> <span class="pre">a</span> <span class="pre">hard</span> <span class="pre">minimum</span> <span class="pre">of</span> <span class="pre">1.17549e-38</span></tt>) that is specific to the
+<tt class="docutils literal"><span class="pre">gauss1d</span></tt> model.</p>
+</div>
+</div>
+<div class="section" id="selecting-a-statistic-and-optimizer">
+<h2>Selecting a statistic and optimizer<a class="headerlink" href="#selecting-a-statistic-and-optimizer" title="Permalink to this headline">¶</a></h2>
+<p>For this dataset we have no errors so use the least-squared statistic,
+and the default optimizer (the Levenberg-Marquardt method).
+Other choices for the statistic are gaussian - with a range of error
+estimates - or Cash, and optimizers are Simplex and a Monte-Carlo
+based method. Some situations require a particular choice, but
+it can be useful to change values to check that you
+are at the best-fit location (or, to avoid the wrath of any
+Statistician, the local minimum).</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ui</span><span class="o">.</span><span class="n">set_stat</span><span class="p">(</span><span class="s">&#39;leastsq&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">ui</span><span class="o">.</span><span class="n">get_method</span><span class="p">())</span>
+<span class="n">name</span>    <span class="o">=</span> <span class="n">levmar</span>
+<span class="n">ftol</span>    <span class="o">=</span> <span class="mf">1.19209289551e-07</span>
+<span class="n">xtol</span>    <span class="o">=</span> <span class="mf">1.19209289551e-07</span>
+<span class="n">gtol</span>    <span class="o">=</span> <span class="mf">1.19209289551e-07</span>
+<span class="n">maxfev</span>  <span class="o">=</span> <span class="bp">None</span>
+<span class="n">epsfcn</span>  <span class="o">=</span> <span class="mf">1.19209289551e-07</span>
+<span class="n">factor</span>  <span class="o">=</span> <span class="mf">100.0</span>
+<span class="n">verbose</span> <span class="o">=</span> <span class="mi">0</span>
 </pre></div>
 </div>
-<p>Access the <cite>WAVELENGTH</cite> and <cite>FLUX</cite> columns from the pyFITS <tt class="docutils literal"><span class="pre">RecArray</span></tt>.  Populate
-variables represented as <tt class="docutils literal"><span class="pre">wave</span></tt>, <tt class="docutils literal"><span class="pre">flux</span></tt>, and <tt class="docutils literal"><span class="pre">err</span></tt>.  Normalize the flux and assume
-uncertainties of 2% of the flux:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">wave</span> <span class="o">=</span> <span class="n">dat</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="s">&#39;WAVELENGTH&#39;</span><span class="p">)</span>
-<span class="n">flux</span> <span class="o">=</span> <span class="n">dat</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="s">&#39;FLUX&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1e14</span>
-<span class="n">err</span>  <span class="o">=</span> <span class="n">dat</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="s">&#39;FLUX&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.02e14</span>
-</pre></div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The parameters for the optimizers (e.g. <tt class="docutils literal"><span class="pre">ftol</span></tt> for <tt class="docutils literal"><span class="pre">levmar</span></tt>)
+should be left alone unless you get <em>really</em> stuck <strong>and</strong> know
+what you are doing.</p>
 </div>
-<p>Create a Sherpa <tt class="docutils literal"><span class="pre">Data1D</span></tt> data set from the NumPy arrays <tt class="docutils literal"><span class="pre">wave</span></tt>, <tt class="docutils literal"><span class="pre">flux</span></tt>, and
-<tt class="docutils literal"><span class="pre">err</span></tt>.  The data arrays are accessible from the <tt class="docutils literal"><span class="pre">data</span></tt> object as the attributes
-<tt class="docutils literal"><span class="pre">x</span></tt>, <tt class="docutils literal"><span class="pre">y</span></tt>, and <tt class="docutils literal"><span class="pre">staterror</span></tt>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">data</span> <span class="o">=</span> <span class="n">Data1D</span><span class="p">(</span><span class="s">&#39;3C 273&#39;</span><span class="p">,</span> <span class="n">wave</span><span class="p">,</span> <span class="n">flux</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">data</span>
-</pre></div>
 </div>
-<p>Array access:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span> <span class="s">&#39;x&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">x</span>
-<span class="k">print</span> <span class="s">&#39;y&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">y</span>
-<span class="k">print</span> <span class="s">&#39;err&#39;</span><span class="p">,</span>  <span class="n">data</span><span class="o">.</span><span class="n">staterror</span>
-</pre></div>
+<div class="section" id="now-the-fit">
+<h2>Now the fit<a class="headerlink" href="#now-the-fit" title="Permalink to this headline">¶</a></h2>
+<p>For this example, the fit is quick (it does not take many iterations):</p>
+<div class="highlight-python"><pre>ui.fit()
+Dataset               = 1
+Method                = levmar
+Statistic             = leastsq
+Initial fit statistic = 5.46696e+13
+Final fit statistic   = 9.55741e+10 at function evaluation 34
+Data points           = 512
+Degrees of freedom    = 509
+Change in statistic   = 5.4574e+13
+   g1.fwhm        1.28959
+   g1.pos         254.075
+   g1.ampl        3.14129e+06</pre>
 </div>
-<p>Define a convenience function <tt class="docutils literal"><span class="pre">plot_data</span></tt> that calls the matplotlib functions
-<tt class="docutils literal"><span class="pre">plot</span></tt> and <tt class="docutils literal"><span class="pre">errorbar</span></tt> according to certain criteria.  Plot the <tt class="docutils literal"><span class="pre">x</span></tt> and
-<tt class="docutils literal"><span class="pre">y</span></tt> arrays using the format specified in the optional argument, <tt class="docutils literal"><span class="pre">fmt</span></tt>.
-Clear the plot if the <tt class="docutils literal"><span class="pre">clear</span></tt> argument is <tt class="docutils literal"><span class="pre">True</span></tt>.  Add the plot errorbars if
-the <tt class="docutils literal"><span class="pre">err</span></tt> array is present.  Plot the spectrum by accessing the NumPy arrays
-in the Sherpa data set using our new function and its default arguments:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">plot_data</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">err</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s">&#39;.&#39;</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">clear</span><span class="p">:</span>
-        <span class="n">clf</span><span class="p">()</span>
-    <span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">fmt</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">err</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="n">errorbar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">err</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ecolor</span><span class="o">=</span><span class="s">&#39;b&#39;</span><span class="p">)</span>
+<p>and we repeat just to make sure:</p>
+<div class="highlight-python"><pre>ui.fit()
+Dataset               = 1
+Method                = levmar
+Statistic             = leastsq
+Initial fit statistic = 9.55741e+10
+Final fit statistic   = 9.55741e+10 at function evaluation 5
+Data points           = 512
+Degrees of freedom    = 509
+Change in statistic   = 0
+   g1.fwhm        1.28959
+   g1.pos         254.075
+   g1.ampl        3.14129e+06</pre>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The exact values you get depend on both the OS and build type
+(32 vs 64 bit).</p>
+</div>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<p class="last">The <tt class="docutils literal"><span class="pre">fit</span></tt> command will fit all loaded datasets when called
+with no id; use <tt class="docutils literal"><span class="pre">fit(1)</span></tt> to fit a single dataset.
+The screen output from the <tt class="docutils literal"><span class="pre">fit</span></tt> command can also be
+retrieved as a structure (a Python object) using the
+<tt class="docutils literal"><span class="pre">ui.get_fit_results()</span></tt> command.</p>
+</div>
+</div>
+<div class="section" id="view-the-fit">
+<h2>View the fit<a class="headerlink" href="#view-the-fit" title="Permalink to this headline">¶</a></h2>
+<p>The fit can be viewed graphically (the warnings can be ignored):</p>
+<div class="highlight-python"><pre>ui.plot_fit()
+WARNING: unable to calculate errors using current statistic: leastsq
+ui.plot_fit_resid()
+WARNING: unable to calculate errors using current statistic: leastsq
+WARNING: unable to calculate errors using current statistic: leastsq
+# pychips.limits(pychips.X_AXIS, 245, 265)</pre>
+</div>
+<a class="reference internal image-reference" href="../_images/3c120_fit_resid1.png"><img alt="../_images/3c120_fit_resid1.png" src="../_images/3c120_fit_resid1.png" style="width: 432.0px; height: 324.0px;" /></a>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<p class="last">The level of screen output created by Sherpa can be controlled
+using the <a class="reference external" href="http://docs.python.org/library/logging.html">Python logging module</a>.
+Unless you
+have used a similar library in another language, it will appear
+needlessly complex (as it does a lot) and we unfortunately don&#8217;t have time to discuss it here.</p>
+</div>
+</div>
+<div class="section" id="adding-a-component">
+<h2>Adding a component<a class="headerlink" href="#adding-a-component" title="Permalink to this headline">¶</a></h2>
+<p>We can re-use existing components in a source expression:</p>
+<div class="highlight-python"><pre>ui.set_source(g1 + ui.const1d.bgnd)
+print(ui.get_source())
+(gauss1d.g1 + const1d.bgnd)
+   Param        Type          Value          Min          Max      Units
+   -----        ----          -----          ---          ---      -----
+   g1.fwhm      thawed      1.28959  1.17549e-38  3.40282e+38
+   g1.pos       thawed      254.075            0          511
+   g1.ampl      thawed  3.14129e+06      3112.72  3.11272e+09
+   bgnd.c0      thawed            1            0  3.40282e+38</pre>
+</div>
+<p>Rather than using <tt class="docutils literal"><span class="pre">guess</span></tt>, let&#8217;s see how well the optimizer does:</p>
+<div class="highlight-python"><pre>ui.fit()
+Dataset               = 1
+Method                = levmar
+Statistic             = leastsq
+Initial fit statistic = 9.55644e+10
+Final fit statistic   = 4.96699e+10 at function evaluation 16
+Data points           = 512
+Degrees of freedom    = 508
+Change in statistic   = 4.58945e+10
+   g1.fwhm        1.28402
+   g1.pos         254.076
+   g1.ampl        3.1326e+06
+   bgnd.c0        9497.67
 
-<span class="n">plot_data</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">staterror</span><span class="p">)</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="../_images/3c273_data_mast.png"><img alt="../_images/3c273_data_mast.png" src="../_images/3c273_data_mast.png" style="width: 609.0px; height: 459.0px;" /></a>
-<p>Create a Sherpa power-law model <tt class="docutils literal"><span class="pre">pl</span></tt>.  All Sherpa models maintain a tuple of
-parameters in <tt class="docutils literal"><span class="pre">pars</span></tt>.  Access each of the model&#8217;s parameter objects and print
-the <tt class="docutils literal"><span class="pre">name</span></tt> and <tt class="docutils literal"><span class="pre">val</span></tt> attributes:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">pl</span> <span class="o">=</span> <span class="n">PowLaw1D</span><span class="p">(</span><span class="s">&#39;pl&#39;</span><span class="p">)</span>
-<span class="n">pl</span><span class="o">.</span><span class="n">pars</span>
-<span class="k">for</span> <span class="n">par</span> <span class="ow">in</span> <span class="n">pl</span><span class="o">.</span><span class="n">pars</span><span class="p">:</span>
-    <span class="k">print</span> <span class="n">par</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">par</span><span class="o">.</span><span class="n">val</span>
+ui.fit()
+Dataset               = 1
+Method                = levmar
+Statistic             = leastsq
+Initial fit statistic = 4.96699e+10
+Final fit statistic   = 4.96699e+10 at function evaluation 6
+Data points           = 512
+Degrees of freedom    = 508
+Change in statistic   = 0
+   g1.fwhm        1.28402
+   g1.pos         254.076
+   g1.ampl        3.1326e+06
+   bgnd.c0        9497.67
 
-<span class="k">print</span> <span class="n">pl</span>
-</pre></div>
+ui.plot_fit_resid()
+# pychips.limits(pychips.X_AXIS, 245, 265)</pre>
 </div>
-<p>Set the power-law reference to be 4000 Angstroms and print out the <tt class="docutils literal"><span class="pre">PowLaw1D</span></tt>
-object and its parameter information.  Each model parameter is accessible as an
-attribute its model.  For example, the power-law amplitude is referenced with
-<tt class="docutils literal"><span class="pre">pl.ampl</span></tt>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">pl</span><span class="o">.</span><span class="n">ref</span> <span class="o">=</span> <span class="mf">4000.</span>
-<span class="k">print</span> <span class="n">pl</span>
-</pre></div>
+<a class="reference internal image-reference" href="../_images/3c120_fit_resid2.png"><img alt="../_images/3c120_fit_resid2.png" src="../_images/3c120_fit_resid2.png" style="width: 432.0px; height: 324.0px;" /></a>
 </div>
-<p>Model parameters are themselves class objects:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span> <span class="n">pl</span><span class="o">.</span><span class="n">ampl</span>
-</pre></div>
-</div>
-<div class="admonition-exercise-for-the-interested-reader-special-methods-and-properties admonition ">
-<p class="first admonition-title">Exercise (for the interested reader): Special methods and properties</p>
-<p class="last">Wait. Didn&#8217;t we just set <tt class="docutils literal"><span class="pre">pl.ref</span></tt> to be an float?  How can <tt class="docutils literal"><span class="pre">pl.ref</span></tt> be an
-float and a <tt class="docutils literal"><span class="pre">Parameter</span></tt> object?</p>
-</div>
-<p class="flip0">Click to Show/Hide Solution</p> <div class="panel0"><p>The answer is that pl.ref is in fact an object, but its model class supports a
-special setter method <tt class="docutils literal"><span class="pre">__setattr__()</span></tt> that updates the pl.ref.val attribute
-underneath.  The <tt class="docutils literal"><span class="pre">property</span></tt> function defines custom getter and setter
-functions for a particular class attribute:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Parameter</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c"># private attribute intended to be reference as &#39;val&#39;.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_value</span> <span class="o">=</span> <span class="mf">1.0</span>
+<div class="section" id="evaluating-the-model-expression-directly">
+<h2>Evaluating the model expression directly<a class="headerlink" href="#evaluating-the-model-expression-directly" title="Permalink to this headline">¶</a></h2>
+<p>Model components and source expressions can be evaluated directly,
+although this approach only works for simple models; that is those
+without convolution (either explicitly via <tt class="docutils literal"><span class="pre">ui.set_psf</span></tt> or implictly
+as happens with the handling of the response information in X-ray
+data).:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">xi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">250</span><span class="p">,</span> <span class="mi">260</span><span class="p">)</span>
+<span class="n">src</span> <span class="o">=</span> <span class="n">ui</span><span class="o">.</span><span class="n">get_source</span><span class="p">()</span>
+<span class="n">yi</span> <span class="o">=</span> <span class="n">src</span><span class="p">(</span><span class="n">xi</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">_get_val</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span>
-    <span class="k">def</span> <span class="nf">_set_val</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span> <span class="o">=</span> <span class="n">value</span>
-    <span class="c"># setup a &#39;val&#39; attribute</span>
-    <span class="n">val</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">_get_val</span><span class="p">,</span> <span class="n">_set_val</span><span class="p">)</span>
+<span class="nb">zip</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">yi</span><span class="p">)</span>
+<span class="p">[(</span><span class="mi">250</span><span class="p">,</span> <span class="mf">9497.6705120244224</span><span class="p">),</span>
+ <span class="p">(</span><span class="mi">251</span><span class="p">,</span> <span class="mf">9498.0568224326398</span><span class="p">),</span>
+ <span class="p">(</span><span class="mi">252</span><span class="p">,</span> <span class="mf">11732.300774634092</span><span class="p">),</span>
+ <span class="p">(</span><span class="mi">253</span><span class="p">,</span> <span class="mf">457003.64642740792</span><span class="p">),</span>
+ <span class="p">(</span><span class="mi">254</span><span class="p">,</span> <span class="mf">3112045.5828799075</span><span class="p">),</span>
+ <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mf">754169.02805867838</span><span class="p">),</span>
+ <span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mf">15685.485177760009</span><span class="p">),</span>
+ <span class="p">(</span><span class="mi">257</span><span class="p">,</span> <span class="mf">9499.4505770869582</span><span class="p">),</span>
+ <span class="p">(</span><span class="mi">258</span><span class="p">,</span> <span class="mf">9497.6705274404576</span><span class="p">),</span>
+ <span class="p">(</span><span class="mi">259</span><span class="p">,</span> <span class="mf">9497.6705097123686</span><span class="p">)]</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The <tt class="docutils literal"><span class="pre">zip</span></tt> command is one of those utility functions that
+comes in really handy.</p>
+</div>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<p class="last">There are a family of commands, such as <tt class="docutils literal"><span class="pre">ui.get_data_plot</span></tt>,
+<tt class="docutils literal"><span class="pre">ui.get_model_plot</span></tt>, and <tt class="docutils literal"><span class="pre">ui.get_fit_plot</span></tt> which provide
+access to the data used to create the corresponding plot command.
+This is one way to handle those models which include a convolution
+component.</p>
+</div>
+<p>I want to find those columns that are significantly higher than
+the background, so let&#8217;s try <tt class="docutils literal"><span class="pre">bgnd.c0</span> <span class="pre">+</span> <span class="pre">5</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">xi</span><span class="p">[</span><span class="n">yi</span> <span class="o">&gt;</span> <span class="n">bgnd</span><span class="o">.</span><span class="n">c0</span> <span class="o">+</span> <span class="mi">5</span><span class="p">])</span>
+<span class="p">[]</span>
+</pre></div>
+</div>
+<p>Well, that was unexpected! So what went wrong?:</p>
+<div class="highlight-python"><pre>bgnd.c0 + 5
+&lt;BinaryOpParameter '(bgnd.c0 + 5)'&gt;</pre>
+</div>
+<p>In order to support linked parameters
+(demonstrated in the <cite>next section &lt;spectrum.html&gt;</cite>), and a
+bunch of other sparkly goodness, the
+value <cite>bgnd.c0</cite> is actually a Python object. To get at its value
+you have to use the <tt class="docutils literal"><span class="pre">val</span></tt> field:</p>
+<div class="highlight-python"><pre>bgnd.c0
+&lt;Parameter 'c0' of model 'bgnd'&gt;
+bgnd.c0.val
+9497.6705097123631
+bgnd.c0.val + 5
+9502.6705097123631
+print(xi[yi&gt;bgnd.c0.val + 5])
+[252 253 254 255 256]</pre>
+</div>
+</div>
+<div class="section" id="saving-the-session">
+<h2>Saving the session<a class="headerlink" href="#saving-the-session" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">save</span></tt> command can be used to store the
+current session as a single file.:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ui</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">&quot;3c120.sherpa&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This file can then be
+loaded into a new session with the <tt class="docutils literal"><span class="pre">restore</span></tt> command.:</p>
+<div class="highlight-python"><pre>ipython -pylab
+In [1]: import sherpa.astro.ui as ui
 
-<span class="k">class</span> <span class="nc">Model</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
-        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="bp">None</span><span class="p">),</span> <span class="n">Parameter</span><span class="p">):</span>
-            <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">val</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="nb">object</span><span class="o">.</span><span class="n">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">ref</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">()</span>
+In [2]: ui.restore("simple1.sherpa")
+ Solar Abundance Vector set to angr:  Anders E. &amp; Grevesse N. Geochimica et Cosmochimica Acta 53, 197 (1989)
+ Cross Section Table set to bcmc:  Balucinska-Church and McCammon, 1998
 
-<span class="n">m</span> <span class="o">=</span> <span class="n">Model</span><span class="p">()</span>
-<span class="n">m</span><span class="o">.</span><span class="n">ref</span>
-<span class="n">m</span><span class="o">.</span><span class="n">ref</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="n">m</span><span class="o">.</span><span class="n">ref</span>
-<span class="n">m</span><span class="o">.</span><span class="n">ref</span><span class="o">.</span><span class="n">val</span>
-</pre></div>
+In [3]: ui.show_all()
+Data Set: 1
+Filter: 0.0000-511.0000 x
+name      =
+x         = Int64[512]
+y         = Float32[512]
+staterror = None
+syserror  = None
+
+Model: 1
+(gauss1d.g1 + const1d.bgnd)
+   Param        Type          Value          Min          Max      Units
+   -----        ----          -----          ---          ---      -----
+   g1.fwhm      thawed      1.28402  1.17549e-38  3.40282e+38
+   g1.pos       thawed      254.076            0          511
+   g1.ampl      thawed   3.1326e+06      3112.72  3.11272e+09
+   bgnd.c0      thawed      9497.67            0  3.40282e+38
+
+Optimization Method: LevMar
+name    = levmar
+ftol    = 1.19209289551e-07
+xtol    = 1.19209289551e-07
+gtol    = 1.19209289551e-07
+maxfev  = None
+epsfcn  = 1.19209289551e-07
+factor  = 100.0
+verbose = 0
+
+Statistic: LeastSq
+Least Squared
+
+Fit:Dataset               = 1
+Method                = levmar
+Statistic             = leastsq
+Initial fit statistic = 4.96699e+10
+Final fit statistic   = 4.96699e+10 at function evaluation 6
+Data points           = 512
+Degrees of freedom    = 508
+Change in statistic   = 0
+   g1.fwhm        1.28402
+   g1.pos         254.076
+   g1.ampl        3.1326e+06
+   bgnd.c0        9497.67</pre>
 </div>
-</div><p>Create a <tt class="docutils literal"><span class="pre">Fit</span></tt> object made up of a Sherpa data set, model, fit statistic, and
-optimization method.  Fit the spectrum to a power-law with least squares
-(Levenberg-Marquardt) using the chi-squared statistic with data variance:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">f</span> <span class="o">=</span> <span class="n">Fit</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">pl</span><span class="p">,</span> <span class="n">Chi2DataVar</span><span class="p">(),</span> <span class="n">LevMar</span><span class="p">())</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="k">print</span> <span class="n">result</span>
-<span class="c"># or alternatively</span>
-<span class="k">print</span> <span class="n">result</span><span class="o">.</span><span class="n">format</span><span class="p">()</span>
-</pre></div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The <tt class="docutils literal"><span class="pre">save</span></tt> command takes advantage of Python&#8217;s pickling
+capabilities. The result is a binary file that can be shared between
+machines, even on a different OS or - I believe - 32 and 64 bit
+variants. This makes sharing fits with colleagues very easy
+- e.g. via DropBox - but has some downsides: it is not guaranteed
+that the files can be used with different versions of Sherpa;
+you can&#8217;t manually inspect the file to see what was done;
+and those people implementing advanced features
+(e.g. user models or statistics) may not
+support this functionality. The <tt class="docutils literal"><span class="pre">ui.save_all</span></tt> command
+writes out a Python script, but it is aimed mainly at users who
+load in data from files rather than with the <tt class="docutils literal"><span class="pre">load_arrays</span></tt>
+command.</p>
 </div>
-<p>Over-plot the fitted model atop the data points using our convenience function
-<tt class="docutils literal"><span class="pre">plot_data</span></tt>.  This time calculate the model using the best-fit parameter
-values over the <tt class="docutils literal"><span class="pre">data.x</span></tt> and plot using a custom format and indicate
-<tt class="docutils literal"><span class="pre">clear=False</span></tt>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">plot_data</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">pl</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">x</span><span class="p">),</span> <span class="n">fmt</span><span class="o">=</span><span class="s">&quot;-&quot;</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="../_images/3c273_fit_mast.png"><img alt="../_images/3c273_fit_mast.png" src="../_images/3c273_fit_mast.png" style="width: 609.0px; height: 459.0px;" /></a>
 </div>
 </div>
 
@@ -523,10 +774,10 @@ values over the <tt class="docutils literal"><span class="pre">data.x</span></tt
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="spectrum.html" title="1-D Fitting in Sherpa"
+          <a href="spectrum.html" title="1-D data with errors"
              >next</a> |</li>
         <li class="right" >
-          <a href="classes.html" title="Python Classes"
+          <a href="installation.html" title="Sherpa Installation"
              >previous</a> |</li>
         <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li>
           <li><a href="fitting.html" >Fitting and Modeling 1-D and 2-D Data</a> &raquo;</li> 
