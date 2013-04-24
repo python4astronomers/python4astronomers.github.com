@@ -370,7 +370,7 @@ the content, either by clicking on the link or by executing this
 python code:</p>
 <div class="highlight-python"><pre>import urllib2, tarfile
 url = 'http://python4astronomers.github.io/_downloads/astropy_UVES.tar.gz'
-tarfile.open(fileobj=urllib2.urlopen(url), mode='r|').extractall()
+tarfile.open(fileobj=urllib2.urlopen(url), mode='r|*').extractall()
 cd UVES
 ls</pre>
 </div>
@@ -424,6 +424,9 @@ or the other two tutorials for more details:</p>
 
 <span class="c"># glob searches through directories similar to the Unix shell</span>
 <span class="n">filelist</span> <span class="o">=</span> <span class="n">glob</span><span class="p">(</span><span class="s">&#39;*.fits&#39;</span><span class="p">)</span>
+<span class="c"># sort alphabetically - given the way the filenames are</span>
+<span class="c"># this also sorts in time</span>
+<span class="n">filelist</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Read the first fits file in the list and check what is in there:</p>
@@ -641,9 +644,9 @@ signatures to appear close to the free-fall velocity v that a mass m reaches, wh
 it hits the stellar surface. We can calculate the infall speed using simple
 energy conservation:</p>
 <div class="math" id="formula-vaccr">
-<p><img src="../_images/math/2e70fbeb2adef76875f09ca390172da73c0e96ef.png" alt="E_{kin}  =  E_{grav}
+<p><img src="../_images/math/e36c581ce084014a95d23cbe42304d15bbf26f7b.png" alt="E_{kin}  =  E_{grav}
 
-1/2 m v^2  =  G \frac{m M_*}{R_*}"/></p>
+\frac{1}{2} m v^2  =  G \frac{m M_*}{R_*}"/></p>
 </div><p>So, let us calculate the free-fall velocity for MN Lup:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">v_accr</span> <span class="o">=</span> <span class="p">(</span><span class="mf">2.</span><span class="o">*</span> <span class="n">G</span> <span class="o">*</span> <span class="n">M_MN_Lup</span><span class="o">/</span><span class="n">R_MN_Lup</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">v_accr</span>
@@ -656,10 +659,11 @@ energy conservation:</p>
 <span class="go">1128465.07598 mi / (h)</span>
 </pre></div>
 </div>
-<p>How does the accretion velocity relate to the rotational velocity?:</p>
-<blockquote>
-<div>v_rot = vsini / np.sin(incl)
-v_accr / v_rot</div></blockquote>
+<p>How does the accretion velocity relate to the rotational velocity?</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">v_rot</span> <span class="o">=</span> <span class="n">vsini</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">incl</span><span class="p">)</span>
+<span class="n">v_accr</span> <span class="o">/</span> <span class="n">v_rot</span>
+</pre></div>
+</div>
 <p>Oh, what is that? The seconds are gone, but <tt class="docutils literal"><span class="pre">astropy.quantity</span></tt> objects keep
 their different length units unless told otherwise:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="p">(</span><span class="n">v_accr</span> <span class="o">/</span> <span class="n">v_rot</span><span class="p">)</span><span class="o">.</span><span class="n">decompose</span><span class="p">()</span>
@@ -699,6 +703,24 @@ This is how it can be done:</p>
 </div>
 <div class="admonition-excercise admonition">
 <p class="first admonition-title">Excercise</p>
+<p>Spectrocopically, MN Lup is classified as spctral type M0 V, thus
+the gravitational acceleration on the surface <img class="math" src="../_images/math/61a67b606ff976adb90abb7ff42d7c378a856b17.png" alt="\log(g)"/>
+should be comparable to the sun.
+(For non-stellar astronomers: Conventionlly, all values are given
+in the cgs system. The value for the sun is <img class="math" src="../_images/math/49685cf6aa06bec432331d377bb3d3ef65272986.png" alt="\log(g) = 4.4"/>.)</p>
+<p class="last">Calculate <img class="math" src="../_images/math/61a67b606ff976adb90abb7ff42d7c378a856b17.png" alt="\log(g)"/> for MN Lup with the values for the mass
+and radius given above. Those values were determined from
+evolutionary tracks. Check if the <img class="math" src="../_images/math/61a67b606ff976adb90abb7ff42d7c378a856b17.png" alt="\log(g)"/> is consistent
+with the value expected from spectroscopy.</p>
+</div>
+<p class="flip7">Click to Show/Hide Solution</p> <div class="panel7"><p>The values from evolutionary tracks are indeed consistent with the
+spectroscopically estimated surface gravity:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">((</span><span class="n">G</span><span class="o">*</span><span class="n">M_MN_Lup</span><span class="o">/</span><span class="n">R_MN_Lup</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">cgs</span><span class="p">)</span>
+<span class="go">4.3080943799180433</span>
+</pre></div>
+</div>
+</div><div class="admonition-excercise admonition">
+<p class="first admonition-title">Excercise</p>
 <p>Write a function that turns a wavelength scale into a velocity scale.
 We want to input a wavelengths array and the rest wavelength of a spectal
 line. We need this function later to show the red- and blueshift of the
@@ -719,6 +741,8 @@ of the following wavelenghts relative to <img class="math" src="../_images/math/
 <p class="flip3">Click to Show/Hide Solution</p> <div class="panel3"><div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">wave2doppler</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">w0</span><span class="p">):</span>
     <span class="n">doppler</span> <span class="o">=</span> <span class="p">((</span><span class="n">w</span><span class="o">-</span><span class="n">w0</span><span class="p">)</span><span class="o">/</span><span class="n">w0</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">doppler</span>
+
+<span class="k">print</span> <span class="n">wave2doppler</span><span class="p">(</span><span class="n">waveclosetoHa</span><span class="p">,</span> <span class="mf">656.489</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">nm</span><span class="p">)</span><span class="o">.</span><span class="n">decompose</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">km</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">s</span><span class="p">)</span>
 </pre></div>
 </div>
 </div><div class="admonition-excercise admonition">
@@ -798,37 +822,37 @@ polynomial. Looking at the figure, <tt class="docutils literal"><span class="pre
 <tt class="docutils literal"><span class="pre">[3938*u.AA,</span> <span class="pre">3945*u.AA]</span></tt> seem right for that. Then, we normalize the flux by
 this polynomial.</p>
 <p>The following function will do that:</p>
-<div class="highlight-python"><pre>def region_around_line(w, flux, cont):
-    '''cut out and normalize flux around a line
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">region_around_line</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">flux</span><span class="p">,</span> <span class="n">cont</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;cut out and normalize flux around a line</span>
 
-    Parameters
-    ----------
-    w : 1 dim np.ndarray
-        array of wanvelenghts
-    flux : np.ndarray of shape (N, len(w))
-        array of flux values for different spectra in the series
-    cont : list of lists
-        wavelengths for continuum normalization [[low1,up1],[low2, up2]]
-        that described two areas on both sides of the line
-    '''
-    #index is true in the region where we fit the polynomial
-    indcont = ((w &gt; cont[0][0]) &amp; (w &lt; cont[0][1])) |
-              ((w &gt; cont[1][0]) &amp; (w &lt; cont[1][1]))
-    #index of the region we want to return
-    indrange = (w &gt; cont[0][0]) &amp; (w &lt; cont[1][1])
-    # make a flux array of shape
-    # (nuber of spectra, number of pointsin indrange)
-    f = np.zeros((flux.shape[0], indrange.sum()))
-    for i in range(flux.shape[0]):
-        # fit polynom of second order to the continuum region
-        linecoeff = np.polyfit(w[indcont], flux[i, indcont],2)
-        # devide the flux by the polynom and put the result in our
-        # new flux array
-        f[i,:] = flux[i,indrange]/np.polyval(linecoeff, w[indrange])
-    return w[indrange], f
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    w : 1 dim np.ndarray</span>
+<span class="sd">        array of wanvelenghts</span>
+<span class="sd">    flux : np.ndarray of shape (N, len(w))</span>
+<span class="sd">        array of flux values for different spectra in the series</span>
+<span class="sd">    cont : list of lists</span>
+<span class="sd">        wavelengths for continuum normalization [[low1,up1],[low2, up2]]</span>
+<span class="sd">        that described two areas on both sides of the line</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c">#index is true in the region where we fit the polynomial</span>
+    <span class="n">indcont</span> <span class="o">=</span> <span class="p">((</span><span class="n">w</span> <span class="o">&gt;</span> <span class="n">cont</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">w</span> <span class="o">&lt;</span> <span class="n">cont</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]))</span> <span class="o">|</span><span class="p">((</span><span class="n">w</span> <span class="o">&gt;</span> <span class="n">cont</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">w</span> <span class="o">&lt;</span> <span class="n">cont</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="c">#index of the region we want to return</span>
+    <span class="n">indrange</span> <span class="o">=</span> <span class="p">(</span><span class="n">w</span> <span class="o">&gt;</span> <span class="n">cont</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">w</span> <span class="o">&lt;</span> <span class="n">cont</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+    <span class="c"># make a flux array of shape</span>
+    <span class="c"># (nuber of spectra, number of pointsin indrange)</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">flux</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">indrange</span><span class="o">.</span><span class="n">sum</span><span class="p">()))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">flux</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="c"># fit polynom of second order to the continuum region</span>
+        <span class="n">linecoeff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="n">indcont</span><span class="p">],</span> <span class="n">flux</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">indcont</span><span class="p">],</span><span class="mi">2</span><span class="p">)</span>
+        <span class="c"># devide the flux by the polynom and put the result in our</span>
+        <span class="c"># new flux array</span>
+        <span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">flux</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">indrange</span><span class="p">]</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">linecoeff</span><span class="p">,</span> <span class="n">w</span><span class="p">[</span><span class="n">indrange</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">w</span><span class="p">[</span><span class="n">indrange</span><span class="p">],</span> <span class="n">f</span>
 
-wcaII, fcaII = region_around_line(wavelength, flux,
-               [[3925*u.AA, 3930*u.AA],[3938*u.AA, 3945*u.AA]])</pre>
+<span class="n">wcaII</span><span class="p">,</span> <span class="n">fcaII</span> <span class="o">=</span> <span class="n">region_around_line</span><span class="p">(</span><span class="n">wavelength</span><span class="p">,</span> <span class="n">flux</span><span class="p">,</span>
+               <span class="p">[[</span><span class="mi">3925</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">AA</span><span class="p">,</span> <span class="mi">3930</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">AA</span><span class="p">],[</span><span class="mi">3938</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">AA</span><span class="p">,</span> <span class="mi">3945</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">AA</span><span class="p">]])</span>
+</pre></div>
 </div>
 </div>
 <div class="section" id="publication-ready-output">
@@ -903,34 +927,31 @@ modulated will stick out between -1 and +1:</p>
 plot and introduce a sensible offset between them, so that we can follow
 the time evolution of the line.</p>
 </div>
-<p class="flip5">Click to Show/Hide Solution</p> <div class="panel5">
+<p class="flip5">Click to Show/Hide Solution</p> <div class="panel5"><p>There are clearly several ways to produce a well looking plot. Here is one
+way:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">yshift</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">((</span><span class="n">fcaII</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span> <span class="o">*</span> <span class="mf">0.5</span>
+<span class="c">#shift the second night up by a little more</span>
+<span class="n">yshift</span><span class="p">[:]</span> <span class="o">+=</span> <span class="mf">1.5</span>
+<span class="n">yshift</span><span class="p">[</span><span class="mi">13</span><span class="p">:]</span> <span class="o">+=</span> <span class="mi">1</span>
 
- There are clearly several ways to produce a well looking plot. Here is one
- way::
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 
-     yshift = np.arange((fcaII.shape[0])) * 0.5
-     #shift the second night up by a little more
-     yshift[:] += 1.5
-     yshift[13:] += 1
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">25</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fcaII</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span><span class="o">+</span><span class="n">yshift</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s">&#39;k&#39;</span><span class="p">)</span>
 
-     fig = plt.figure(figsize = (4,3))
-     ax = fig.add_subplot(1,1,1)
-
-     for i in range(25):
-         ax.plot(x, fcaII[i,:]+yshift[i], 'k')
-
-     #separately show the mean line profile in a different color
-     ax.plot(x, np.mean(fcaII, axis =0), 'b')
-     ax.set_xlim([-2.5,+2.5])
-     ax.set_xlabel('line shift [$v \\sin i$]')
-     ax.set_ylabel('flux')
-     ax.set_title('Ca II H line in MN Lup')
-     fig.subplots_adjust(bottom = 0.15)
-     plt.draw()
-
- .. image:: CaII-lines-all.png
-    :scale: 100%
-    :align: center</div><p>Second, we will make a little more advanced plot. For each spectrum we calculate
+<span class="c">#separately show the mean line profile in a different color</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">fcaII</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="s">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span><span class="o">+</span><span class="mf">2.5</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s">&#39;line shift [$v </span><span class="se">\\</span><span class="s">sin i$]&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s">&#39;flux&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">&#39;Ca II H line in MN Lup&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">bottom</span> <span class="o">=</span> <span class="mf">0.15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/CaII-lines-all.png"><img alt="../_images/CaII-lines-all.png" class="align-center" src="../_images/CaII-lines-all.png" style="width: 400.0px; height: 300.0px;" /></a>
+</div><p>Second, we will make a little more advanced plot. For each spectrum we calculate
 the difference to the mean flux:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">fmean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">fcaII</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">fdiff</span> <span class="o">=</span> <span class="n">fcaII</span> <span class="o">-</span> <span class="n">fmean</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,:]</span>
@@ -1028,11 +1049,10 @@ improved:</p>
 already pretty advanced stuff. Remember, any internet search engine can be
 your friend.</p>
 </div>
-<p class="flip6">Click to Show/Hide Solution</p> <div class="panel6">
-
-Clearly, I did not develop this code for scratch.
-The `matplotlib gallary <http://matplotlib.org/gallery.html>`_ is my
-preferred place to look for plotting solutions.</div></div>
+<p class="flip6">Click to Show/Hide Solution</p> <div class="panel6"><p>Clearly, I did not develop this code for scratch.
+The <a class="reference external" href="http://matplotlib.org/gallery.html">matplotlib gallary</a> is my
+preferred place to look for plotting solutions.</p>
+</div></div>
 </div>
 <div class="section" id="contributing-to-astropy">
 <h2>Contributing to Astropy<a class="headerlink" href="#contributing-to-astropy" title="Permalink to this headline">¶</a></h2>
