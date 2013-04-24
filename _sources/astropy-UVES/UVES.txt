@@ -397,7 +397,10 @@ This is how it can be done::
     You can test if you function works by calculating the a Dopplershift
     of the following wavelenghts relative to :math:`H_\alpha`::
 
-        waveclosetoHa = np.array([6562.,6563,6560.]) * u.AA
+        waveclosetoHa = np.array([6562.,6563,6565.]) * u.AA
+        print wave2doppler(waveclosetoHa, 656.489 * u.nm)
+
+    I get -132, -86 and +5 km/s.
     
 .. raw:: html
 

@@ -710,9 +710,11 @@ to make sure the that code below can use it later:</p>
 </div>
 <p>You can test if you function works by calculating the a Dopplershift
 of the following wavelenghts relative to <img class="math" src="../_images/math/f450573749d6c598034d1c4b7d39231881e15711.png" alt="H_\alpha"/>:</p>
-<div class="last highlight-python"><div class="highlight"><pre><span class="n">waveclosetoHa</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">6562.</span><span class="p">,</span><span class="mi">6563</span><span class="p">,</span><span class="mf">6560.</span><span class="p">])</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">AA</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">waveclosetoHa</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">6562.</span><span class="p">,</span><span class="mi">6563</span><span class="p">,</span><span class="mf">6565.</span><span class="p">])</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">AA</span>
+<span class="k">print</span> <span class="n">wave2doppler</span><span class="p">(</span><span class="n">waveclosetoHa</span><span class="p">,</span> <span class="mf">656.489</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">nm</span><span class="p">)</span>
 </pre></div>
 </div>
+<p class="last">I get -132, -86 and +5 km/s.</p>
 </div>
 <p class="flip3">Click to Show/Hide Solution</p> <div class="panel3"><div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">wave2doppler</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">w0</span><span class="p">):</span>
     <span class="n">doppler</span> <span class="o">=</span> <span class="p">((</span><span class="n">w</span><span class="o">-</span><span class="n">w0</span><span class="p">)</span><span class="o">/</span><span class="n">w0</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span>
