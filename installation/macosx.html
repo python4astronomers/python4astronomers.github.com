@@ -288,9 +288,6 @@ display:none;
 <li><a class="reference internal" href="#">Mac OSX</a><ul>
 <li><a class="reference internal" href="#install-the-distribution">Install the distribution</a><ul>
 <li><a class="reference internal" href="#macports">MacPorts</a></li>
-<li><a class="reference internal" href="#homebrew">Homebrew</a></li>
-<li><a class="reference internal" href="#enthought-python-distribution-epd">Enthought Python Distribution (EPD)</a></li>
-<li><a class="reference internal" href="#activestate">ActiveState</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#quick-installation-check">Quick installation check</a></li>
@@ -341,39 +338,13 @@ display:none;
 <div class="section" id="install-the-distribution">
 <h2>Install the distribution<a class="headerlink" href="#install-the-distribution" title="Permalink to this headline">¶</a></h2>
 <p>If you can follow instructions and have a little patience then MacPorts is
-probably the best option.  If anything beyond a one-click install is too much
-of a bother then choose EPD Academic or ActiveState.  For something in-between
-choose Homebrew.</p>
+probably the best option.</p>
 <div class="section" id="macports">
 <h3>MacPorts<a class="headerlink" href="#macports" title="Permalink to this headline">¶</a></h3>
 <p>To install Python using MacPorts follow the detailed instructions at <a class="reference external" href="http://astrofrog.github.com/macports-python/">MacPorts
 Python installation on Mac - 10 easy steps</a>.  Another tutorial
 on MacPorts for Python which is well-written and helpful is
 <a class="reference external" href="http://jakevdp.github.com/blog/2013/02/02/setting-up-a-mac-for-python-development">Setting Up a Mac for Python Development</a>.</p>
-</div>
-<div class="section" id="homebrew">
-<h3>Homebrew<a class="headerlink" href="#homebrew" title="Permalink to this headline">¶</a></h3>
-<p>To install Python using <a class="reference external" href="http://mxcl.github.com/homebrew/">Homebrew</a> follow
-the detailed instructions at <a class="reference external" href="http://penandpants.com/2012/02/24/install-python/">Install Python, NumPy, SciPy, and matplotlib on
-Mac OS X</a>.</p>
-</div>
-<div class="section" id="enthought-python-distribution-epd">
-<h3>Enthought Python Distribution (EPD)<a class="headerlink" href="#enthought-python-distribution-epd" title="Permalink to this headline">¶</a></h3>
-<p>Assuming that you have downloaded the <a class="reference external" href="http://www.enthought.com/products/edudownload.php">EPD Academic</a> or <a class="reference external" href="http://www.enthought.com/products/epd_free.php">EPD Free</a> disk image, open it, then
-double-click on <tt class="docutils literal"><span class="pre">EPD.mpkg</span></tt> and follow the prompts to install. Choose all the
-defaults for installing (in particular use the default installation location).</p>
-<p>Additional information can be found on the <a class="reference external" href="http://www.enthought.com/products/epdgetstart.php?platform=mac">Getting Started with EPD</a> page.</p>
-</div>
-<div class="section" id="activestate">
-<h3>ActiveState<a class="headerlink" href="#activestate" title="Permalink to this headline">¶</a></h3>
-<p>Download the <a class="reference external" href="http://www.activestate.com/activepython/downloads">ActivePython community edition</a> disk image for Python 2.7
-and run the installer, choosing all defaults at the prompts.  Next install the
-core packages from the terminal command line:</p>
-<div class="highlight-python"><pre>sudo /usr/local/bin/pypm -g install numpy scipy matplotlib ipython</pre>
-</div>
-<p>Now edit the file <cite>~/.bash_profile</cite> and insert the following line at the end:</p>
-<div class="highlight-python"><pre>export PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"</pre>
-</div>
 </div>
 </div>
 <div class="section" id="quick-installation-check">
@@ -395,12 +366,6 @@ core packages from the terminal command line:</p>
 <tbody valign="top">
 <tr class="row-even"><td>MacPorts</td>
 <td><tt class="docutils literal"><span class="pre">/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin/ipython</span></tt></td>
-</tr>
-<tr class="row-odd"><td>EPD</td>
-<td><tt class="docutils literal"><span class="pre">/Library/Frameworks/EPD64.framework/Versions/Current/bin/ipython</span></tt></td>
-</tr>
-<tr class="row-even"><td>ActiveState</td>
-<td><tt class="docutils literal"><span class="pre">/Library/Frameworks/Python.framework/Versions/2.7/bin/ipython</span></tt></td>
 </tr>
 </tbody>
 </table>
@@ -477,12 +442,6 @@ problem with your PATH.  In the instructions below use the correct PATH for your
 <tbody valign="top">
 <tr class="row-even"><td>MacPorts</td>
 <td><tt class="docutils literal"><span class="pre">/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin/</span></tt></td>
-</tr>
-<tr class="row-odd"><td>EPD</td>
-<td><tt class="docutils literal"><span class="pre">/Library/Frameworks/EPD64.framework/Versions/Current/bin/</span></tt></td>
-</tr>
-<tr class="row-even"><td>ActiveState</td>
-<td><tt class="docutils literal"><span class="pre">/Library/Frameworks/Python.framework/Versions/2.7/bin/</span></tt></td>
 </tr>
 </tbody>
 </table>

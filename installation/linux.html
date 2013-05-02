@@ -290,12 +290,8 @@ display:none;
 <li><a class="reference internal" href="#quick-installation-check">Quick installation check</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#user-install-of-epd-without-root">User install of EPD without root</a><ul>
-<li><a class="reference internal" href="#id1">Quick installation check</a></li>
-</ul>
-</li>
 <li><a class="reference internal" href="#non-root-setup-using-virtualenv">Non-root setup using virtualenv</a><ul>
-<li><a class="reference internal" href="#id2">Quick installation check</a></li>
+<li><a class="reference internal" href="#id1">Quick installation check</a></li>
 </ul>
 </li>
 </ul>
@@ -368,32 +364,8 @@ sudo apt-get install python-setuptools</pre>
 </div>
 </div>
 </div>
-<div class="section" id="user-install-of-epd-without-root">
-<span id="linux-nonroot"></span><h2>User install of EPD without root<a class="headerlink" href="#user-install-of-epd-without-root" title="Permalink to this headline">¶</a></h2>
-<p>Assuming that you have downloaded the appropriate EPD tar file for your system,
-follow the instructions for <a class="reference external" href="http://www.enthought.com/products/epdgetstart.php?platform=linux">Getting Started with EPD</a> for Linux.</p>
-<p>Once installed then follow the Getting Started page and look at Pylab and plain
-Python.</p>
-<p>Next you need to edit the appropriate shell startup file (e.g. <tt class="docutils literal"><span class="pre">~/.cshrc</span></tt> or
-<tt class="docutils literal"><span class="pre">~/.bash_profile</span></tt>) and update your path to include the EPD path.  For
-instance if you specified to install EPD in <tt class="docutils literal"><span class="pre">/home/me/epd7.0</span></tt> then the
-following will work:</p>
-<div class="highlight-python"><pre>export PATH=/home/me/epd7.0/bin:$PATH  # bash
-set path=(/home/me/epd7.0/bin $path)   # csh or tcsh</pre>
-</div>
-<div class="section" id="id1">
-<h3>Quick installation check<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<p>Open a new terminal window and type:</p>
-<div class="highlight-python"><pre>which ipython</pre>
-</div>
-<p>You should see (where <tt class="docutils literal"><span class="pre">/home/me/epd7.0</span></tt> is replaced by your installation root
-path):</p>
-<div class="highlight-python"><pre>/home/me/epd7.0/bin/ipython</pre>
-</div>
-</div>
-</div>
 <div class="section" id="non-root-setup-using-virtualenv">
-<h2>Non-root setup using virtualenv<a class="headerlink" href="#non-root-setup-using-virtualenv" title="Permalink to this headline">¶</a></h2>
+<span id="linux-nonroot"></span><h2>Non-root setup using virtualenv<a class="headerlink" href="#non-root-setup-using-virtualenv" title="Permalink to this headline">¶</a></h2>
 <p>If you are using a computer on a system managed network which has Python 2.6 or
 2.7 installed along with NumPy, SciPy, matplotlib, and easy_install, then you
 might want to look at the following.  This setup assumes you do not have root
@@ -441,8 +413,8 @@ All installs will be made in your local environment.</p>
 if it already exists in the system python:</p>
 <div class="highlight-python"><pre>pip install --upgrade ipython</pre>
 </div>
-<div class="section" id="id2">
-<h3>Quick installation check<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h3>Quick installation check<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>Open a new terminal window and type:</p>
 <div class="highlight-python"><pre>which ipython</pre>
 </div>
