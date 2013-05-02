@@ -297,6 +297,8 @@ display:none;
   <ul>
 <li><a class="reference internal" href="#">Installing Scientific Python</a><ul>
 <li><a class="reference internal" href="#choosing-your-distribution">Choosing your distribution</a></li>
+<li><a class="reference internal" href="#anaconda-the-easiest-and-fastest-solution">Anaconda: The easiest and fastest solution</a></li>
+<li><a class="reference internal" href="#alternatives-to-anaconda">Alternatives to Anaconda</a></li>
 <li><a class="reference internal" href="#installation-steps">Installation steps</a></li>
 <li><a class="reference internal" href="#try-it-out">Try it out!</a></li>
 <li><a class="reference internal" href="#versus-32-bit">64 versus 32 bit</a></li>
@@ -350,14 +352,95 @@ starting fresh with a binary Python distribution.</p>
 scientific Python.  Note that there are <em>many</em> other installation
 options, but these cover the ones which are well-supported and likely
 to present the fewest problems.</p>
-<div class="admonition-for-the-completely-impatient admonition">
-<p class="first admonition-title">For the completely impatient</p>
-<p class="last">The fastest way to get a basic Python installation up and running is
-<a class="reference external" href="http://www.enthought.com/products/edudownload.php">EPD Academic</a> if you
-meet these <a class="reference external" href="http://www.enthought.com/EPDAcademicTerms.html">license terms</a> or <a class="reference external" href="http://www.enthought.com/products/epd_free.php">EPD Free</a> otherwise.  Click on that
-link, download the installer and then go to the <a class="reference internal" href="#install-core-python">Install core Python</a>
-section and click on the link for your OS (Mac, Linux, or Windows).</p>
 </div>
+<div class="section" id="anaconda-the-easiest-and-fastest-solution">
+<h2>Anaconda: The easiest and fastest solution<a class="headerlink" href="#anaconda-the-easiest-and-fastest-solution" title="Permalink to this headline">¶</a></h2>
+<p>The fastest way to get a basic Python installation up and running is
+<a class="reference external" href="https://store.continuum.io/cshop/anaconda">Anaconda</a>
+Click on that link and download the installer (using the button marked
+<tt class="docutils literal"><span class="pre">free</span></tt> on the top right of the page). It will ask you for your email
+and then you get an installer for your OS (Mac, Linux, or Windows).
+Read <a class="reference internal" href="#versus-32-bit">64 versus 32 bit</a> if you aren&#8217;t sure if your CPU is 64-bit.</p>
+<p>By default Anaconda is installed into your home directory (no root acress
+required), but you can pick another location if you wish.
+To use the Anaconda python installation, simply add that directory to your
+path (instructions on the Anaconda page).</p>
+<p>Anaconda includes the usual <a class="reference external" href="http://docs.continuum.io/anaconda/pkgs.html">core scientific packages</a> and some interesting
+next-generation packages <a class="reference external" href="http://numba.pydata.org/numba-doc/0.6/index.html">Numba</a> and <a class="reference external" href="http://continuum.io/blog/blaze">Blaze</a>.
+Also, Anaconda is the only packed installation so far that comes bundeled
+with Astropy.</p>
+<p>After you set up Anaconda, you should install one more astromy package,
+that you are likely to use. Use the following commands:</p>
+<div class="highlight-python"><pre>pip install --upgrade aplpy</pre>
+</div>
+<p>Now, you are done, your python should be up and running and can skip the
+rest of this page.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Installing Anaconda, you will probably have more than one python
+installation on your computer, e.g. a python included in the OS,
+Anaconda plus possible CASA or Sherpa. In general, that is not a problem.
+It also protects you from screwing up your system, should anything
+go wrong when you install additional packages. See <em class="xref std std-ref">multiple-pythons</em>
+for more information.</p>
+</div>
+</div>
+<div class="section" id="alternatives-to-anaconda">
+<h2>Alternatives to Anaconda<a class="headerlink" href="#alternatives-to-anaconda" title="Permalink to this headline">¶</a></h2>
+<p>Anaconda is not the only binary package available; alternatives are EPD,
+ActiveState and STSci_Python (see table below for details).</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="12%" />
+<col width="13%" />
+<col width="13%" />
+<col width="32%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Distribution</th>
+<th class="head">Mac</th>
+<th class="head">Linux</th>
+<th class="head">Windows</th>
+<th class="head">Notes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>EPD Academic</td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+<td><a class="footnote-reference" href="#id17" id="id2">[4]</a>, <a class="footnote-reference" href="#id18" id="id3">[5]</a></td>
+</tr>
+<tr class="row-odd"><td>ActiveState CE</td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+<td><a class="footnote-reference" href="#id19" id="id4">[6]</a></td>
+</tr>
+<tr class="row-even"><td>EPD Free</td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+<td><a class="footnote-reference" href="#id20" id="id5">[7]</a>, <a class="footnote-reference" href="#id21" id="id6">[8]</a>, <a class="footnote-reference" href="#id22" id="id7">[9]</a></td>
+</tr>
+<tr class="row-odd"><td>STSci_Python</td>
+<td>Y</td>
+<td><a class="footnote-reference" href="#id23" id="id8">[10]</a></td>
+<td>Y</td>
+<td><a class="footnote-reference" href="#id24" id="id9">[11]</a></td>
+</tr>
+<tr class="row-even"><td>Anaconda CE</td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+<td><a class="footnote-reference" href="#id25" id="id10">[12]</a></td>
+</tr>
+</tbody>
+</table>
+<p>The second option is to use a package manager like RPM or APT on Linux and
+MacPorts or HomeBrew on Macs. Many of the packages we need are available
+in those package mangers; they are complied to work with your system python.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="29%" />
@@ -379,57 +462,29 @@ section and click on the link for your OS (Mac, Linux, or Windows).</p>
 <td>Y</td>
 <td>&#8211;</td>
 <td>&#8211;</td>
-<td><a class="footnote-reference" href="#id14" id="id2">[1]</a></td>
+<td><a class="footnote-reference" href="#id14" id="id11">[1]</a></td>
 </tr>
 <tr class="row-odd"><td>Homebrew</td>
 <td>Y</td>
 <td>&#8211;</td>
 <td>&#8211;</td>
-<td><a class="footnote-reference" href="#id15" id="id3">[2]</a></td>
+<td><a class="footnote-reference" href="#id15" id="id12">[2]</a></td>
 </tr>
 <tr class="row-even"><td>RPM, APT</td>
 <td>&#8211;</td>
 <td>Y</td>
 <td>&#8211;</td>
-<td><a class="footnote-reference" href="#id16" id="id4">[3]</a></td>
-</tr>
-<tr class="row-odd"><td>EPD Academic</td>
-<td>Y</td>
-<td>Y</td>
-<td>Y</td>
-<td><a class="footnote-reference" href="#id17" id="id5">[4]</a>, <a class="footnote-reference" href="#id18" id="id6">[5]</a></td>
-</tr>
-<tr class="row-even"><td>ActiveState CE</td>
-<td>Y</td>
-<td>Y</td>
-<td>Y</td>
-<td><a class="footnote-reference" href="#id20" id="id7">[6]</a></td>
-</tr>
-<tr class="row-odd"><td>EPD Free</td>
-<td>Y</td>
-<td>Y</td>
-<td>Y</td>
-<td><a class="footnote-reference" href="#id21" id="id8">[7]</a>, <a class="footnote-reference" href="#id22" id="id9">[8]</a>, <a class="footnote-reference" href="#id23" id="id10">[9]</a></td>
-</tr>
-<tr class="row-even"><td>STSci_Python</td>
-<td>Y</td>
-<td><a class="footnote-reference" href="#id24" id="id11">[10]</a></td>
-<td>Y</td>
-<td><a class="footnote-reference" href="#id25" id="id12">[11]</a></td>
-</tr>
-<tr class="row-odd"><td>Anaconda CE</td>
-<td>Y</td>
-<td>Y</td>
-<td>Y</td>
-<td><a class="footnote-reference" href="#id26" id="id13">[12]</a></td>
+<td><a class="footnote-reference" href="#id16" id="id13">[3]</a></td>
 </tr>
 </tbody>
 </table>
+<p>The last option is to compile everything from source. While possible, this
+is beyond the scope of this introduction.</p>
 <p class="rubric">Notes</p>
 <span style="font-size: small"><table class="docutils footnote" frame="void" id="id14" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td><strong>MacPorts</strong> has the best built-in support for Python and
+<tr><td class="label"><a class="fn-backref" href="#id11">[1]</a></td><td><strong>MacPorts</strong> has the best built-in support for Python and
 is generally stable after Mac OS system or security updates.
 MacPorts has the drawback of being slow to install so that it can
 take several hours to build a working Python distribution.</td></tr>
@@ -438,7 +493,7 @@ take several hours to build a working Python distribution.</td></tr>
 <table class="docutils footnote" frame="void" id="id15" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id3">[2]</a></td><td><strong>Homebrew</strong> is a simpler and faster solution for Mac but does
+<tr><td class="label"><a class="fn-backref" href="#id12">[2]</a></td><td><strong>Homebrew</strong> is a simpler and faster solution for Mac but does
 not include Python packages and uses the MacOS libraries instead
 of building them separately.  It has been reported that
 MacOS system updates can break homebrew packages, but many people
@@ -448,7 +503,7 @@ successfully use this system.</td></tr>
 <table class="docutils footnote" frame="void" id="id16" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id4">[3]</a></td><td><strong>Linux package managers</strong>:
+<tr><td class="label"><a class="fn-backref" href="#id13">[3]</a></td><td><strong>Linux package managers</strong>:
 For recent versions of linux distributions like Ubuntu, the
 installed Python and supporting packages available through the
 package manager will be sufficiently current to support science
@@ -459,7 +514,7 @@ case.  <em>This option requires root privilege.</em></td></tr>
 <table class="docutils footnote" frame="void" id="id17" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id5">[4]</a></td><td><strong>EPD</strong>:
+<tr><td class="label"><a class="fn-backref" href="#id2">[4]</a></td><td><strong>EPD</strong>:
 The <a class="reference external" href="http://www.enthought.com/products/epd.php">Enthought Python Distribution</a> is a bundled
 binary distribution of Python with a large set of useful packages
 built in.  This is the <strong>simplest option for academics</strong>.</td></tr>
@@ -468,16 +523,16 @@ built in.  This is the <strong>simplest option for academics</strong>.</td></tr>
 <table class="docutils footnote" frame="void" id="id18" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id6">[5]</a></td><td>The EPD <a class="reference external" href="http://www.enthought.com/products/edudownload.php">Academic version</a> is a full
+<tr><td class="label"><a class="fn-backref" href="#id3">[5]</a></td><td>The EPD <a class="reference external" href="http://www.enthought.com/products/edudownload.php">Academic version</a> is a full
 version of EPD that is free
 for use by students or employees of a degree-granting institution as
 specified in the <a class="reference external" href="http://www.enthought.com/EPDAcademicTerms.html">license terms</a>.</td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id20" rules="none">
+<table class="docutils footnote" frame="void" id="id19" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id7">[6]</a></td><td><strong>ActivePython</strong>: The <a class="reference external" href="http://www.activestate.com/activepython/downloads">ActiveState Community Python Distribution</a>, has no
+<tr><td class="label"><a class="fn-backref" href="#id4">[6]</a></td><td><strong>ActivePython</strong>: The <a class="reference external" href="http://www.activestate.com/activepython/downloads">ActiveState Community Python Distribution</a>, has no
 license requirements and is freely available.  It features a
 package manager tool which installs from the <a class="reference external" href="http://code.activestate.com/pypm/">ActiveState PyPM
 repository</a>.  It handles the
@@ -485,48 +540,48 @@ repository</a>.  It handles the
 dependency resolution, and also includes most packages from <a class="reference external" href="pypi.python.org">PyPI</a>.</td></tr>
 </tbody>
 </table>
+<table class="docutils footnote" frame="void" id="id20" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id5">[7]</a></td><td>Available only in 32-bit for Mac and Windows.</td></tr>
+</tbody>
+</table>
 <table class="docutils footnote" frame="void" id="id21" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id8">[7]</a></td><td>Available only in 32-bit for Mac and Windows.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id6">[8]</a></td><td>The EPD <a class="reference external" href="http://www.enthought.com/products/epd_free.php">Free version</a>  provides
+NumPy, SciPy, Matplotlib, IPython, Traits, and Chaco,</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="id22" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id9">[8]</a></td><td>The EPD <a class="reference external" href="http://www.enthought.com/products/epd_free.php">Free version</a>  provides
-NumPy, SciPy, Matplotlib, IPython, Traits, and Chaco,</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id7">[9]</a></td><td>Qt and PyQt <em>not</em> available.
+These are GUI toolkits which are used by a number of useful
+applications, in particular the IPython Qt console.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="id23" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id10">[9]</a></td><td>Qt and PyQt <em>not</em> available.
-These are GUI toolkits which are used by a number of useful
-applications, in particular the IPython Qt console.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id8">[10]</a></td><td>Available only as a source install on Linux.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="id24" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id11">[10]</a></td><td>Available only as a source install on Linux.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="id25" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id12">[11]</a></td><td>The <a class="reference external" href="http://www.stsci.edu/institute/software_hardware/pyraf/stsci_python">STSci_Python distribution</a>
+<tr><td class="label"><a class="fn-backref" href="#id9">[11]</a></td><td>The <a class="reference external" href="http://www.stsci.edu/institute/software_hardware/pyraf/stsci_python">STSci_Python distribution</a>
 provides <a class="reference external" href="http://www.stsci.edu/institute/software_hardware/pyraf">PyRAF</a>,
 various analysis packages, and the core NumPy, SciPy, and Matplotlib packages.
 Qt and PyQt are not included.</td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id26" rules="none">
+<table class="docutils footnote" frame="void" id="id25" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id13">[12]</a></td><td>The <a class="reference external" href="https://store.continuum.io/cshop/anaconda">Anaconda Community Edition</a>
+<tr><td class="label"><a class="fn-backref" href="#id10">[12]</a></td><td>The <a class="reference external" href="https://store.continuum.io/cshop/anaconda">Anaconda Community Edition</a>
 distribution from Continuum Analytics provides 64-bit support on all platforms.
-It includes the usual <a class="reference external" href="http://docs.continuum.io/anaconda/1.2/pkgs.html">core scientific packages</a> and some interesting
+It includes the usual <a class="reference external" href="http://docs.continuum.io/anaconda/pkgs.html">core scientific packages</a> and some interesting
 next-generation packages <a class="reference external" href="http://numba.pydata.org/numba-doc/0.6/index.html">Numba</a> and
 <a class="reference external" href="http://continuum.io/blog/blaze">Blaze</a>.</td></tr>
 </tbody>
@@ -571,30 +626,20 @@ send an email to the <a class="reference external" href="http://mail.scipy.org/m
 <h4>MacOS or root linux install<a class="headerlink" href="#macos-or-root-linux-install" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-python"><pre>sudo easy_install --upgrade pip
 sudo pip install --upgrade distribute
-sudo pip install --upgrade asciitable
-sudo pip install --upgrade pyfits
-sudo pip install --upgrade pywcs
-sudo pip install --upgrade atpy
+sudo pip install --upgrade astropy
 sudo pip install --upgrade aplpy
 sudo pip install --upgrade pyregion
-sudo pip install --upgrade pyparsing
-sudo pip install --upgrade http://stsdas.stsci.edu/astrolib/vo-0.7.2.tar.gz
-sudo pip install --upgrade http://stsdas.stsci.edu/astrolib/coords-0.37.tar.gz</pre>
+sudo pip install --upgrade pyparsing</pre>
 </div>
 </div>
 <div class="section" id="non-root-linux">
 <h4>Non-root linux<a class="headerlink" href="#non-root-linux" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-python"><pre>easy_install --upgrade pip
 pip install --upgrade distribute
-pip install --upgrade asciitable
-pip install --upgrade pyfits
-pip install --upgrade pywcs
-pip install --upgrade atpy
+pip install --upgrade astropy
 pip install --upgrade aplpy
 pip install --upgrade pyregion
-pip install --upgrade pyparsing
-pip install --upgrade http://stsdas.stsci.edu/astrolib/vo-0.7.2.tar.gz
-pip install --upgrade http://stsdas.stsci.edu/astrolib/coords-0.37.tar.gz</pre>
+pip install --upgrade pyparsing</pre>
 </div>
 </div>
 <div class="section" id="windows">
@@ -604,15 +649,10 @@ pyregion, and coords.</p>
 <div class="highlight-python"><pre>cd C:\Python27\Scripts
 easy_install.exe --upgrade pip
 pip.exe install --upgrade distribute
-pip.exe install --upgrade asciitable
-pip.exe install --upgrade pyfits
-pip.exe install --upgrade pywcs
-pip.exe install --upgrade atpy
+pip.exe install --upgrade astropy
 pip.exe install --upgrade aplpy
 pip.exe install --upgrade pyregion
-pip.exe install --upgrade pyparsing
-pip.exe install --upgrade http://stsdas.stsci.edu/astrolib/vo-0.7.2.tar.gz
-pip.exe install --upgrade http://stsdas.stsci.edu/astrolib/coords-0.37.tar.gz</pre>
+pip.exe install --upgrade pyparsing</pre>
 </div>
 <div class="admonition-the-soap-opera-of-pip-and-easy-install-and-distribute-and-setuptools admonition">
 <p class="first admonition-title">The soap opera of pip and easy_install and distribute and setuptools</p>
@@ -657,10 +697,7 @@ print scipy.linalg.eig([[1,2],[3,4]])</pre>
 <p>The commands above should succeed with no errors.  The version numbers should
 meet the requirements, and finally you should see a plot of a sine wave.</p>
 <p>To check the other required packages, do the following from within ipython:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">asciitable</span>
-<span class="kn">import</span> <span class="nn">pyfits</span>
-<span class="kn">import</span> <span class="nn">pywcs</span>
-<span class="kn">import</span> <span class="nn">atpy</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">astropy</span>
 <span class="kn">import</span> <span class="nn">aplpy</span>
 </pre></div>
 </div>
@@ -689,12 +726,12 @@ ipython -pylab</pre>
 math functions and array utilities from <a class="reference external" href="http://numpy.scipy.org/">NumPy</a> (e.g. <tt class="docutils literal"><span class="pre">sin()</span></tt>, <tt class="docutils literal"><span class="pre">exp()</span></tt>,
 <tt class="docutils literal"><span class="pre">array()</span></tt>, etc).</p>
 <p>In my <tt class="docutils literal"><span class="pre">~/.cshrc</span></tt> file I define an alias that I commonly use:</p>
-<div class="last highlight-python"><pre>alias pylab "ipython -pylab"</pre>
+<div class="last highlight-python"><pre>alias pylab "ipython --pylab"</pre>
 </div>
 </div>
 <div class="admonition-exercise-read-a-table-and-examine-it admonition">
 <p class="first admonition-title">Exercise: Read a table and examine it</p>
-<p>Look at the documentation for the <a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable/#reading-tables">asciitable.read()</a> function in
+<p>Look at the documentation for the <a class="reference external" href="http://docs.astropy.org/en/v0.2.1/table/io.html">astropy.Table.read()</a> function in
 <a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable">asciitable</a>.  Follow the very first example and use the <tt class="docutils literal"><span class="pre">read()</span></tt> function
 to read the data in the file <tt class="docutils literal"><span class="pre">table1.dat</span></tt> into the variable named <tt class="docutils literal"><span class="pre">data</span></tt>.</p>
 <p>This table is in the &#8220;ApJ machine-readable format&#8221; (which is actually a bit
@@ -748,18 +785,6 @@ work.  See below if you don&#8217;t know your processor architecture:</p>
 <span class="pre">x86_64</span></tt> you have a 64-bit machine and OS.  If you see one or more <tt class="docutils literal"><span class="pre">i686</span></tt>
 or <tt class="docutils literal"><span class="pre">i386</span></tt> you are running a 32-bit OS.</li>
 <li>Windows:  Follow <a class="reference external" href="http://windows.microsoft.com/en-US/windows-vista/32-bit-and-64-bit-Windows-frequently-asked-questions">the Windows instructions</a>.</li>
-</ul>
-<p><strong>64-bit</strong></p>
-<ul class="simple">
-<li><em>Pro</em>: Faster for data- and compute-intensive applications</li>
-<li><em>Con</em>: Have to submit an email address and wait for the download link in response</li>
-</ul>
-<p><strong>32-bit</strong></p>
-<ul class="simple">
-<li><em>Pro</em>: Comes with the <a class="reference external" href="http://github.enthought.com/mayavi/mayavi/">Mayavi</a> 3-d
-rendering package installed while the 64-bit does not (for technical reasons).
-If you are interested in using this cool package you should consider choosing 32-bit.
-Note that the standard matplotlib package supports some <a class="reference external" href="http://matplotlib.sourceforge.net/mpl_toolkits/mplot3d/tutorial.html">3-d plotting</a>.</li>
 </ul>
 </div>
 </div>
