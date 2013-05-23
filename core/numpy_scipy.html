@@ -381,7 +381,7 @@ workshop, but on its own it&#8217;s a bit dry for the impatient astronomer.</p>
 the workshop.  Now that you have a working Python installation we can do this
 without worrying about details of the platform (e.g. linux has wget,
 Mac has curl, Windows might not have tar, etc etc).</p>
-<p>Now start IPython (&#8220;ipython -pylab&#8221;) or use your existing session and enter:</p>
+<p>Now start IPython (&#8220;ipython &#8211;pylab&#8221;) or use your existing session and enter:</p>
 <div class="highlight-python"><pre>import urllib2, tarfile
 url = 'http://python4astronomers.github.com/core/core_examples.tar'
 tarfile.open(fileobj=urllib2.urlopen(url), mode='r|').extractall()
@@ -411,8 +411,8 @@ for download from <a class="reference external" href="http://archive.stsci.edu/h
 three identically sized images providing the 2-d spectral intensity, error
 values, and data quality for each pixel.  The slit direction is along the rows
 (up and down) and wavelength is in columns (left to right).</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">pyfits</span>
-<span class="n">hdus</span> <span class="o">=</span> <span class="n">pyfits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;3c120_stis.fits.gz&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">astropy.io</span> <span class="kn">import</span> <span class="n">fits</span>
+<span class="n">hdus</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;3c120_stis.fits.gz&#39;</span><span class="p">)</span>
 <span class="n">hdus</span>
 </pre></div>
 </div>

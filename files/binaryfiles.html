@@ -296,7 +296,7 @@ display:none;
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Binary formats useful for astronomers</a><ul>
-<li><a class="reference internal" href="#pyfits-reading-and-writing-fits-files">Pyfits - Reading and writing fits files</a></li>
+<li><a class="reference internal" href="#astropy-io-fits-reading-and-writing-fits-files">astropy.io.fits - Reading and writing fits files</a></li>
 <li><a class="reference internal" href="#reading-idl-sav-files">Reading IDL .sav files</a></li>
 </ul>
 </li>
@@ -336,14 +336,13 @@ display:none;
             
   <div class="section" id="binary-formats-useful-for-astronomers">
 <h1>Binary formats useful for astronomers<a class="headerlink" href="#binary-formats-useful-for-astronomers" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="pyfits-reading-and-writing-fits-files">
-<h2>Pyfits - Reading and writing fits files<a class="headerlink" href="#pyfits-reading-and-writing-fits-files" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="http://packages.python.org/pyfits/">PyFITS</a>  is a Python module developed at STScI to read and write all types of fits files. The full html manual is available <a class="reference external" href="http://stsdas.stsci.edu/download/docs/pyfits/header-refactoring/#">here</a>.
-The pdf version of the <a class="reference external" href="http://stsdas.stsci.edu/download/docs/The_PyFITS_Handbook.pdf">manual</a> is more than hundred pages long.</p>
+<div class="section" id="astropy-io-fits-reading-and-writing-fits-files">
+<h2>astropy.io.fits - Reading and writing fits files<a class="headerlink" href="#astropy-io-fits-reading-and-writing-fits-files" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://docs.astropy.org/en/v0.2.1/io/fits/index.html">astropy.io.fits</a>  is a Python module developed at STScI to read and write all types of fits files. The full html manual is available <a class="reference external" href="http://docs.astropy.org/en/v0.2.1/io/fits/index.html">here</a>.</p>
 <div class="admonition-external-resource admonition">
 <p class="first admonition-title">External resource!</p>
-<p class="last">The PyFITS tutorial itself is good for our purpose and since this
-is the internet I will not reinvent the wheel. Read the <a class="reference external" href="http://packages.python.org/pyfits/users_guide/users_tutorial.html">Pyfits tutorial</a>
+<p class="last">The astropy.io.fits tutorial itself is good for our purpose and since this
+is the internet I will not reinvent the wheel. Read the manual <a class="reference external" href="http://docs.astropy.org/en/v0.2.1/io/fits/index.html">here</a>
 then come back to this page for an exercise.</p>
 </div>
 <div class="admonition-exercise admonition">
@@ -358,8 +357,8 @@ ls</pre>
 <p class="last">Read in the fits file. Find the time and date of the observation. Then use <tt class="docutils literal"><span class="pre">plt.imshow()</span></tt> to display the intensity array using some sensible minimum and maximum value so that the spectrum is visible.</p>
 </div>
 <p class="flip6">Click to Show/Hide Solution</p> <div class="panel6"><p>Here is a possible solution:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">pyfits</span>
-<span class="n">hdus</span> <span class="o">=</span> <span class="n">pyfits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;3c120_stis.fits.gz&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">astropy.io</span> <span class="kn">import</span> <span class="n">fits</span>
+<span class="n">hdus</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;3c120_stis.fits.gz&#39;</span><span class="p">)</span>
 <span class="n">hdus</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 <span class="n">head</span> <span class="o">=</span> <span class="n">hdus</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">header</span>
 <span class="n">head</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>             <span class="c"># lists all keywords in a dictionary</span>
@@ -373,7 +372,7 @@ ls</pre>
 </pre></div>
 </div>
 <p>You might recognize this piece of code. It was used before in
-the <a class="reference internal" href="../core/numpy_scipy.html"><em>NumPy</em></a> part of the tutorial, but now you should understand the <tt class="docutils literal"><span class="pre">pyfits</span></tt> commands in more detail.</p>
+the <a class="reference internal" href="../core/numpy_scipy.html"><em>NumPy</em></a> part of the tutorial, but now you should understand the <tt class="docutils literal"><span class="pre">astropy.io.fits</span></tt> commands in more detail.</p>
 </div></div>
 <div class="section" id="reading-idl-sav-files">
 <h2>Reading IDL .sav files<a class="headerlink" href="#reading-idl-sav-files" title="Permalink to this headline">¶</a></h2>

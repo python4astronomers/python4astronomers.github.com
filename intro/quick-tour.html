@@ -347,14 +347,14 @@ These examples assume you are using <a class="reference external" href="http://m
 <div class="section" id="reading-a-table-and-plotting">
 <h2>Reading a table and plotting<a class="headerlink" href="#reading-a-table-and-plotting" title="Permalink to this headline">¶</a></h2>
 <p>The Fermi Gamma-ray satellite has a nice catalog of AGN available through
-HEASARC.  The script below will read in the catalog data using the <a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable">asciitable</a>
+HEASARC.  The script below will read in the catalog data using the <a class="reference external" href="http://docs.astropy.org/en/v0.2.1/io/ascii/index.html">astropy.io.ascii</a>
 module, do some basic filtering with <a class="reference external" href="http://numpy.scipy.org/">NumPy</a>, and make a couple of plots with
 <a class="reference external" href="http://matplotlib.sourceforge.net/">matplotlib</a></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">asciitable</span>   <span class="c"># Make external package available</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">astropy.io.ascii</span> <span class="kn">as</span> <span class="nn">ascii</span>   <span class="c"># Make external package available</span>
 
 <span class="c"># Read table.</span>
 <span class="c"># ==&gt; dat[column_name] and dat[row_number] both valid &lt;==</span>
-<span class="n">dat</span> <span class="o">=</span> <span class="n">asciitable</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s">&#39;fermi_agn.dat&#39;</span><span class="p">)</span>
+<span class="n">dat</span> <span class="o">=</span> <span class="n">ascii</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s">&#39;fermi_agn.dat&#39;</span><span class="p">)</span>
 
 <span class="n">redshift</span> <span class="o">=</span> <span class="n">dat</span><span class="p">[</span><span class="s">&#39;redshift&#39;</span><span class="p">]</span>    <span class="c"># array of values from &#39;redshift&#39; column</span>
 <span class="n">flux</span> <span class="o">=</span> <span class="n">dat</span><span class="p">[</span><span class="s">&#39;photon_flux&#39;</span><span class="p">]</span>
@@ -447,7 +447,7 @@ functions [<a class="reference external" href="http://docs.scipy.org/doc/scipy/r
 <h2>Synthetic images<a class="headerlink" href="#synthetic-images" title="Permalink to this headline">¶</a></h2>
 <p>This example demonstrates how to create a synthetic image of a cluster,
 including convolution with a Gaussian filter and the addition of noise.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">pyfits</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">astropy.io.fits</span> <span class="kn">as</span> <span class="nn">fits</span>
 <span class="kn">from</span> <span class="nn">scipy.ndimage</span> <span class="kn">import</span> <span class="n">gaussian_filter</span>
 
 <span class="c"># Create empty image</span>
@@ -481,7 +481,7 @@ including convolution with a Gaussian filter and the addition of noise.</p>
 <span class="n">image</span> <span class="o">+=</span> <span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">3.</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 
 <span class="c"># Write out to FITS image</span>
-<span class="n">pyfits</span><span class="o">.</span><span class="n">writeto</span><span class="p">(</span><span class="s">&#39;cluster.fits&#39;</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">clobber</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">pits</span><span class="o">.</span><span class="n">writeto</span><span class="p">(</span><span class="s">&#39;cluster.fits&#39;</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">clobber</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The simulated cluster image is below:</p>
@@ -492,7 +492,7 @@ including convolution with a Gaussian filter and the addition of noise.</p>
 <p>In addition to just doing computations and plotting, Python is great for gluing
 together other codes and doing system type tasks.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">asciitable</span>
+<span class="kn">import</span> <span class="nn">astropy.io.ascii</span> <span class="kn">as</span> <span class="nn">ascii</span>
 
 <span class="n">smoothing</span> <span class="o">=</span> <span class="mi">30</span>  <span class="c"># Smoothing window length</span>
 <span class="n">freqs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>  <span class="c"># Frequency values for making data</span>
@@ -517,7 +517,7 @@ together other codes and doing system type tasks.</p>
         <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
 
         <span class="c"># Parse the output string as a table</span>
-        <span class="n">dat</span> <span class="o">=</span> <span class="n">asciitable</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+        <span class="n">dat</span> <span class="o">=</span> <span class="n">ascii</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
 
         <span class="c"># Make a plot</span>
         <span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">plot_num</span><span class="p">)</span>

@@ -350,9 +350,9 @@ as SQLite, MySQL and PostgreSQL databases, with a very simple interface.</li>
 <div class="section" id="reading-in-an-existing-table">
 <h2>Reading in an existing table<a class="headerlink" href="#reading-in-an-existing-table" title="Permalink to this headline">¶</a></h2>
 <p>First, download <a class="reference download internal" href="../_downloads/catalog.fits.gz"><tt class="xref download docutils literal"><span class="pre">this</span></tt></a> FITS table, then launch IPython in the directory where you have the file:</p>
-<div class="highlight-python"><pre>$ ipython -pylab</pre>
+<div class="highlight-python"><pre>$ ipython --pylab</pre>
 </div>
-<p>If you have trouble downloading the file, then start up IPython (<tt class="docutils literal"><span class="pre">ipython</span> <span class="pre">-pylab</span></tt>) and enter:</p>
+<p>If you have trouble downloading the file, then start up IPython (<tt class="docutils literal"><span class="pre">ipython</span> <span class="pre">--pylab</span></tt>) and enter:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">urllib2</span>
 <span class="n">url</span> <span class="o">=</span> <span class="s">&#39;http://python4astronomers.github.com/_downloads/catalog.fits.gz&#39;</span>
 <span class="nb">open</span><span class="p">(</span><span class="s">&#39;catalog.fits.gz&#39;</span><span class="p">,</span> <span class="s">&#39;wb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>

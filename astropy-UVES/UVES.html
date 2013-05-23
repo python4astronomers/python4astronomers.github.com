@@ -477,8 +477,8 @@ that are defined in your file <tt class="docutils literal"><span class="pre">spe
 </pre></div>
 </div>
 <p>You will recognize that python does not make a difference between modules that come
-with python (e.g. <cite>glob</cite>), external modules (e.g. <cite>numpy</cite> or <cite>astropy</cite>) and moduls
-that you write yourself. The syntax to import those moduls or functions
+with python (e.g. <cite>glob</cite>), external modules (e.g. <cite>numpy</cite> or <cite>astropy</cite>) and modules
+that you write yourself. The syntax to import those modules or functions
 is the same in all cases, provided that the directory where your module is
 defined is in the search path (<a class="reference external" href="http://docs.python.org/2/tutorial/modules.html">more about python modules and the search path</a>).</p>
 <div class="admonition note">
@@ -587,12 +587,13 @@ setup.</p>
 </pre></div>
 </div>
 </div><p>The UVES pipeline that was used to reduce the data that we use in the this example
-employs a fixed wavelength grid (see excersice above),
+employs a fixed wavelength grid (see excercise above),
 thus the <tt class="docutils literal"><span class="pre">wavelength</span></tt> is the same for all spectra.
 This makes it easy to define an array that can hold the fluxes of all
 observations. Then, we loop over the list of all filenames and fill this array
 with data:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">flux</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">filelist</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">wavelength</span><span class="p">)))</span>
+<span class="c"># date comes as string with 23 characters (dtype = &#39;S23&#39;)</span>
 <span class="n">date</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">filelist</span><span class="p">)),</span> <span class="n">dtype</span> <span class="o">=</span> <span class="s">&#39;S23&#39;</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">fname</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">filelist</span><span class="p">):</span>
@@ -611,11 +612,10 @@ keV. How many nm is 0.65 keV?
 offers a framework that can take
 care of this book-keeping and propagate the units through many (but not all)
 mathematical operations (e.g. addition, division, multiplication).
-Furthermore, there is
-<a class="reference external" href="http://docs.astropy.org/en/v0.2.1/constants/index.html">astropy.constants</a>,
-which supplies the values of
+Furthermore,
+<a class="reference external" href="http://docs.astropy.org/en/v0.2.1/constants/index.html">astropy.constants</a>  supplies the values of
 many physical and astronomical constants.
-The easiest way to add a unit to a number is by multiplication:</p>
+The easiest way to attach a unit to a number is by multiplication:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">astropy.units</span> <span class="kn">as</span> <span class="nn">u</span>
 <span class="kn">from</span> <span class="nn">astropy.constants.si</span> <span class="kn">import</span> <span class="n">c</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">M_sun</span><span class="p">,</span> <span class="n">R_sun</span>
 
@@ -859,7 +859,7 @@ this polynomial.</p>
 <h2>Publication ready output<a class="headerlink" href="#publication-ready-output" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="tables">
 <h3>Tables<a class="headerlink" href="#tables" title="Permalink to this headline">¶</a></h3>
-<p>We will calculate the equivalent width in Angstroem of the emission line
+<p>We will calculate the equivalent width in Angstroems of the emission line
 for the first spectrum:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">ew</span> <span class="o">=</span> <span class="n">fcaII</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">-</span> <span class="mf">1.</span>
 <span class="n">ew</span> <span class="o">=</span> <span class="n">ew</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">wcaII</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">AA</span><span class="p">)</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
@@ -951,7 +951,7 @@ way:</p>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../_images/CaII-lines-all.png"><img alt="../_images/CaII-lines-all.png" class="align-center" src="../_images/CaII-lines-all.png" style="width: 400.0px; height: 300.0px;" /></a>
-</div><p>Second, we will make a little more advanced plot. For each spectrum we calculate
+</div><p>Next, we will make a more advanced plot. For each spectrum we calculate
 the difference to the mean flux:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">fmean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">fcaII</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">fdiff</span> <span class="o">=</span> <span class="n">fcaII</span> <span class="o">-</span> <span class="n">fmean</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,:]</span>
@@ -967,7 +967,7 @@ and there is no proper labelling:</p>
 </div>
 <a class="reference internal image-reference" href="../_images/CaII-1.png"><img alt="../_images/CaII-1.png" class="align-center" src="../_images/CaII-1.png" style="width: 400.0px; height: 300.0px;" /></a>
 <p>In the following, we will plot the spectra from both nights separately.
-Also, we will pass the <tt class="docutils literal"><span class="pre">extend</span></tt> keyword to <tt class="docutils literal"><span class="pre">ax.imshow</span></tt> which takes care
+Also, we will pass the <tt class="docutils literal"><span class="pre">extent</span></tt> keyword to <tt class="docutils literal"><span class="pre">ax.imshow</span></tt> which takes care
 of the axis:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">ind1</span> <span class="o">=</span> <span class="n">delta_p</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">dimensionless_unscaled</span>
 <span class="n">ind2</span> <span class="o">=</span> <span class="n">delta_p</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">dimensionless_unscaled</span>
@@ -991,7 +991,7 @@ improved:</p>
 </li>
 <li><dl class="first docutils">
 <dt>Stricly speaking, the image shown is not quite the right scale because the</dt>
-<dd><p class="first last"><tt class="docutils literal"><span class="pre">extend</span></tt> keyword gives the edges of the image shown, while <tt class="docutils literal"><span class="pre">x</span></tt> and
+<dd><p class="first last"><tt class="docutils literal"><span class="pre">extent</span></tt> keyword gives the edges of the image shown, while <tt class="docutils literal"><span class="pre">x</span></tt> and
 <tt class="docutils literal"><span class="pre">delta_p</span></tt> contain the bin mid-points.</p>
 </dd>
 </dl>
@@ -1050,7 +1050,7 @@ already pretty advanced stuff. Remember, any internet search engine can be
 your friend.</p>
 </div>
 <p class="flip6">Click to Show/Hide Solution</p> <div class="panel6"><p>Clearly, I did not develop this code for scratch.
-The <a class="reference external" href="http://matplotlib.org/gallery.html">matplotlib gallary</a> is my
+The <a class="reference external" href="http://matplotlib.org/gallery.html">matplotlib gallery</a> is my
 preferred place to look for plotting solutions.</p>
 </div></div>
 </div>

@@ -183,6 +183,7 @@ installation via a standard ``setup.py`` script.  This is used as follows::
 More information is available in the `Installing Python Modules
 <http://docs.python.org/install/index.html>`_ page.
 
+
 Where do packages get installed?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -312,7 +313,7 @@ at the front of the list using insert::
 You can also add paths to the search path using the `PYTHONPATH
 <http://docs.python.org/using/cmdline.html#envvar-PYTHONPATH>`_ environment variable.
 
-.. _multiple_pythons:
+.. _multiple-pythons:
 
 Multiple Pythons on your computer
 ---------------------------------

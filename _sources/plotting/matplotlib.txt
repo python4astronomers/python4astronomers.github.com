@@ -85,6 +85,7 @@
 .. _`yticks()`: http://matplotlib.sourceforge.net/api/pyplot_api.html?highlight=plot.yticks#matplotlib.pyplot.yticks
 .. _`Figure`: http://matplotlib.sourceforge.net/api/figure_api.html
 .. _`Axes`: http://matplotlib.sourceforge.net/api/axes_api.html
+.. _`Text intro`: http://matplotlib.sourceforge.net/users/text_intro.html#text-intro
 
 Matplotlib
 ============
@@ -108,7 +109,7 @@ exact source code making the plot:
   <http://matplotlib.sourceforge.net/users/navigation_toolbar.html>`_: how to use the plot window for zooming etc.
 - `Screenshots <http://matplotlib.sourceforge.net/users/screenshots.html>`_: screenshots and code for about 20 key types of matplotlib functionality
 - `Thumbnail gallery <http://matplotlib.sourceforge.net/gallery.html>`_: hundreds of thumbnails (find a plot like the one you want to make)
-- `Text intro <http://matplotlib.sourceforge.net/users/text_intro.html#text-intro>`_: manipulate text
+- `Text intro`_: manipulate text
 - `Mathematical expressions
   <http://matplotlib.sourceforge.net/users/mathtext.html#mathtext-tutorial>`_:
   put math in figure text or labels
@@ -513,7 +514,7 @@ Working with text
 The `text()`_ command can be used to add text in
 an arbitrary location, and the `xlabel()`_,
 `ylabel()`_ and `title()`_
-are used to add text in the indicated locations (see :ref:`text-intro`
+are used to add text in the indicated locations (see `Text intro`_
 for a more detailed example)::
 
   mu, sigma = 100, 15
@@ -636,10 +637,9 @@ these arguments are ``(x,y)`` tuples::
 
 In this basic example, both the ``xy`` (arrow tip) and ``xytext``
 locations (text location) are in data coordinates.  There are a
-variety of other coordinate systems one can choose -- see
-:ref:`annotations-tutorial` and :ref:`plotting-guide-annotation` for
-details.  More examples can be found in
-:ref:`pylab_examples-annotation_demo`.
+variety of other coordinate systems one can choose -- see the
+`Annotations introduction <http://matplotlib.org/users/annotations_intro.html>`_
+for more details and links to examples.
 
 Plotting 2-d data
 ------------------------

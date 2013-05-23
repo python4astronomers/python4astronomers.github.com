@@ -296,11 +296,11 @@ display:none;
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Installing Scientific Python</a><ul>
-<li><a class="reference internal" href="#choosing-your-distribution">Choosing your distribution</a></li>
-<li><a class="reference internal" href="#anaconda-the-easiest-and-fastest-solution">Anaconda: The easiest and fastest solution</a></li>
-<li><a class="reference internal" href="#alternatives-to-anaconda">Alternatives to Anaconda</a></li>
-<li><a class="reference internal" href="#try-it-out">Try it out!</a></li>
-<li><a class="reference internal" href="#versus-32-bit">64 versus 32 bit</a></li>
+<li><a class="reference internal" href="#install-core-python">Install core Python</a></li>
+<li><a class="reference internal" href="#install-additional-packages">Install additional packages</a></li>
+<li><a class="reference internal" href="#test-the-installation">Test the installation</a></li>
+<li><a class="reference internal" href="#take-your-python-for-a-spin">Take your Python for a spin!</a></li>
+<li><a class="reference internal" href="#appendix">Appendix</a></li>
 </ul>
 </li>
 </ul>
@@ -339,212 +339,80 @@ display:none;
             
   <div class="section" id="installing-scientific-python">
 <span id="id1"></span><h1>Installing Scientific Python<a class="headerlink" href="#installing-scientific-python" title="Permalink to this headline">¶</a></h1>
+<p>The aim of this workshop is to get you set up with a working scientific Python
+installation which meets the <a class="reference internal" href="requirements.html#python-pkg-requirements"><em>Python requirements</em></a>.  This will proceed
+in four steps:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#install-core-python">Install core Python</a></li>
+<li><a class="reference internal" href="#install-additional-packages">Install additional packages</a></li>
+<li><a class="reference internal" href="#test-the-installation">Test the installation</a></li>
+<li><a class="reference internal" href="#take-your-python-for-a-spin">Take your Python for a spin!</a></li>
+</ul>
+<p>The installation process is particular to each operating system and platform.
+You may need to choose between 32-bit and 64-bit installations.  Generally
+speaking you should choose 64-bit, but read <a class="reference internal" href="#versus-32-bit">64 versus 32 bit</a> for some caveats
+or if you aren&#8217;t sure if your CPU is 64-bit.</p>
+<div class="section" id="install-core-python">
+<span id="anaconda-option"></span><h2>Install core Python<a class="headerlink" href="#install-core-python" title="Permalink to this headline">¶</a></h2>
 <p>Unless you enjoy tracking down compiler errors and other issues related to
 package incompatibilities, we recommend using a pre-built binary Python
-distribution.  For MacOS in particular there are a whole slew of options for
-Python which don&#8217;t play well together.  Even if you already have an
-installation on your system you will probably save time in the long run by
-starting fresh with a binary Python distribution.</p>
-<div class="section" id="choosing-your-distribution">
-<h2>Choosing your distribution<a class="headerlink" href="#choosing-your-distribution" title="Permalink to this headline">¶</a></h2>
-<p>The table below lists the recommended options for installing
-scientific Python.  Note that there are <em>many</em> other installation
-options, but these cover the ones which are well-supported and likely
-to present the fewest problems.</p>
-</div>
-<div class="section" id="anaconda-the-easiest-and-fastest-solution">
-<h2>Anaconda: The easiest and fastest solution<a class="headerlink" href="#anaconda-the-easiest-and-fastest-solution" title="Permalink to this headline">¶</a></h2>
-<p>The fastest way to get a basic Python installation up and running is
-<a class="reference external" href="https://store.continuum.io/cshop/anaconda">Anaconda</a>
+distribution.  Even if you already have an installation on your system you will
+probably save time in the long run by starting fresh with a binary Python
+distribution.</p>
+<p><strong>Anaconda: an easy and fast option</strong></p>
+<p>On of the fastest way to get a basic Python installation up and running is
+<a class="reference external" href="https://store.continuum.io/cshop/anaconda">Anaconda</a>.
 Click on that link and download the installer (using the button marked
 <tt class="docutils literal"><span class="pre">free</span></tt> on the top right of the page). It will ask you for your email
 and then you get an installer for your OS (Mac, Linux, or Windows).
 Read <a class="reference internal" href="#versus-32-bit">64 versus 32 bit</a> if you aren&#8217;t sure if your CPU is 64-bit.</p>
-<p>By default Anaconda is installed into your home directory (no root acress
+<p>By default Anaconda is installed into your home directory (no root access
 required), but you can pick another location if you wish.
 To use the Anaconda python installation, simply add that directory to your
-path (instructions on the Anaconda page).</p>
-<p>Anaconda includes the usual <a class="reference external" href="http://docs.continuum.io/anaconda/pkgs.html">core scientific packages</a> and some interesting
-next-generation packages <a class="reference external" href="http://numba.pydata.org/numba-doc/0.6/index.html">Numba</a> and <a class="reference external" href="http://continuum.io/blog/blaze">Blaze</a>.
-Also, Anaconda is the only packed installation so far that comes bundeled
-with Astropy.</p>
-<p>After you set up Anaconda, you should install one more astromy package,
-that you are likely to use. Use the following commands:</p>
-<div class="highlight-python"><pre>pip install --upgrade aplpy</pre>
-</div>
-<p>Now, you are done, your python should be up and running and can skip the
-rest of this page.</p>
+path, following the instructions on the Anaconda page.</p>
+<p>Anaconda includes the usual <a class="reference external" href="http://docs.continuum.io/anaconda/pkgs.html">core scientific packages</a> (including <a class="reference external" href="http://astropy.org">astropy</a>), and some interesting next-generation packages <a class="reference external" href="http://numba.pydata.org/numba-doc/0.6/index.html">Numba</a> and <a class="reference external" href="http://continuum.io/blog/blaze">Blaze</a>.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Installing Anaconda, you will probably have more than one python
-installation on your computer, e.g. a python included in the OS,
-Anaconda plus possible CASA or Sherpa. In general, that is not a problem.
-It also protects you from screwing up your system, should anything
-go wrong when you install additional packages. See <em class="xref std std-ref">multiple-pythons</em>
-for more information.</p>
+<p class="last">After installing Anaconda, you will probably have more than one Python
+installation on your computer, e.g. a Python included in the OS,
+Anaconda plus possible CASA or CIAO/Sherpa. In general that is not a problem,
+but see <a class="reference internal" href="packages.html#multiple-pythons"><em>Multiple Pythons on your computer</em></a> for more information on managing this situation.</p>
 </div>
-</div>
-<div class="section" id="alternatives-to-anaconda">
-<h2>Alternatives to Anaconda<a class="headerlink" href="#alternatives-to-anaconda" title="Permalink to this headline">¶</a></h2>
-<p>Anaconda is not the only binary package available; alternatives are EPD,
-ActiveState and STSci_Python (see table below for details). They work in a
-similar way, but have more restrictive licenses (EPD) or less complete
-package lists.
-Notable is the <a class="reference external" href="http://www.stsci.edu/institute/software_hardware/pyraf/stsci_python">STSci_Python distribution</a>
-becaue it provides <a class="reference external" href="http://www.stsci.edu/institute/software_hardware/pyraf">PyRAF</a>, as well as various analysis packages, and the core NumPy, SciPy, and Matplotlib packages. Howeverm the GUIs Qt and PyQt are not included.
-Use your prefered internet search engine, if you need EPD or AcitveState python.</p>
-<p>The second option is to use a package manager like RPM or APT on Linux and
-MacPorts or HomeBrew on Macs. Many of the packages we need are available
-in those package mangers; they are complied to work with your system python.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="30%" />
-<col width="12%" />
-<col width="13%" />
-<col width="13%" />
-<col width="32%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Distribution</th>
-<th class="head">Mac</th>
-<th class="head">Linux</th>
-<th class="head">Windows</th>
-<th class="head">Notes</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>MacPorts</td>
-<td>Y</td>
-<td>&#8211;</td>
-<td>&#8211;</td>
-<td><a class="footnote-reference" href="#id4" id="id2">[1]</a></td>
-</tr>
-<tr class="row-odd"><td>Linux Package Manager</td>
-<td>&#8211;</td>
-<td>Y</td>
-<td>&#8211;</td>
-<td><a class="footnote-reference" href="#id5" id="id3">[2]</a></td>
-</tr>
-</tbody>
-</table>
-<p>The last option is to compile everything from source. While possible, this
-is beyond the scope of this introduction.</p>
-<p class="rubric">Notes</p>
-<span style="font-size: small"><table class="docutils footnote" frame="void" id="id4" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td><strong>MacPorts</strong> has the best built-in support for Python and
-is generally stable after Mac OS system or security updates.
-MacPorts has the drawback of being slow to install so that it can
-take several hours to build a working Python distribution.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="id5" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id3">[2]</a></td><td><strong>Linux package managers</strong>:
-For recent versions of linux distributions like Ubuntu, the
-installed Python and supporting packages available through the
-package manager will be sufficiently current to support science
-analysis.  For a linux distribution like CentOS-5 this is not the
-case.  <em>This option requires root privilege.</em></td></tr>
-</tbody>
-</table>
-</span><div class="section" id="installation-steps">
-<h3>Installation steps<a class="headerlink" href="#installation-steps" title="Permalink to this headline">¶</a></h3>
-<p>In order to follow along with the examples to be presented in the workshops
-your Python installation will need to meet the <a class="reference internal" href="requirements.html#python-pkg-requirements"><em>Python requirements</em></a>.  The aim
-of this workshop is to get this set up correctly.  This will proceed in three
-steps:</p>
-<ul class="simple">
-<li>Install the core Python installation</li>
-<li>Install additional packages which are used in the workshops</li>
-<li>Test the installation</li>
-</ul>
-<p>The installation process is particular to each platform.  For some options you
-will need to choose between 32-bit and 64-bit installations.  Generally
-speaking you should choose 64-bit, but read <a class="reference internal" href="#versus-32-bit">64 versus 32 bit</a> for some
-caveats or if you aren&#8217;t sure if your CPU is 64-bit.</p>
-</div>
-<div class="section" id="install-core-python">
-<h3>Install core Python<a class="headerlink" href="#install-core-python" title="Permalink to this headline">¶</a></h3>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="macosx.html">Mac OSX</a></li>
-<li class="toctree-l1"><a class="reference internal" href="linux.html">Linux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="windows.html">Windows</a></li>
-</ul>
-</div>
+<p><strong>Alternate options</strong></p>
+<p>There are a number of <a class="reference internal" href="recommended_options.html#recommended-options"><em>Recommended installation options</em></a> besides Anaconda, and you are
+encouraged to explore these options and decide what might be right for you.
+This includes the use of system package managers like MacPorts or linux RPM.
+Each of the other options has different features and strengths, and no single
+solution works for everybody.</p>
 </div>
 <div class="section" id="install-additional-packages">
-<h3>Install additional packages<a class="headerlink" href="#install-additional-packages" title="Permalink to this headline">¶</a></h3>
-<p>Here you will install the additional packages listed in the
-<a class="reference internal" href="requirements.html#python-pkg-requirements"><em>Python requirements</em></a> section.  Copy and paste the lines applicable to your
-system one at a time, checking that each one works.  The program outputs may
-contain various &#8220;warnings&#8221;, but watch for &#8220;errors&#8221; and look at the end to see
-if a successful installation was reported.</p>
-<p>If you experience problems with installation for any of these packages you can
-send an email to the <a class="reference external" href="http://mail.scipy.org/mailman/listinfo/astropy">astropy mailing list</a>.</p>
-<div class="section" id="macos-or-root-linux-install">
-<h4>MacOS or root linux install<a class="headerlink" href="#macos-or-root-linux-install" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><pre>sudo easy_install --upgrade pip
-sudo pip install --upgrade distribute
-sudo pip install --upgrade astropy
-sudo pip install --upgrade aplpy
-sudo pip install --upgrade pyregion
-sudo pip install --upgrade pyparsing</pre>
-</div>
-</div>
-<div class="section" id="non-root-linux">
-<h4>Non-root linux<a class="headerlink" href="#non-root-linux" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python"><pre>easy_install --upgrade pip
-pip install --upgrade distribute
-pip install --upgrade astropy
+<h2>Install additional packages<a class="headerlink" href="#install-additional-packages" title="Permalink to this headline">¶</a></h2>
+<p>After you set up your core Python installation, you should install a few more
+packages that are used in the tutorials.  Copy and paste the lines below one at
+a time, checking that each one works.  The program outputs may contain various
+&#8220;warnings&#8221;, but watch for &#8220;errors&#8221; and look at the end to see if a successful
+installation was reported.</p>
+<div class="highlight-python"><pre>pip install --upgrade astropy  # NOT required for Anaconda
 pip install --upgrade aplpy
 pip install --upgrade pyregion
-pip install --upgrade pyparsing</pre>
+pip install --upgrade pyparsing
+pip install --upgrade atpy</pre>
 </div>
+<p>Note that if you have used a root-installation option like MacPorts or a linux
+package manager to install Python, then you will need to use the <tt class="docutils literal"><span class="pre">sudo</span></tt> prefix
+in each of these commands, e.g.:</p>
+<div class="highlight-python"><pre>sudo pip install --upgrade aplpy</pre>
 </div>
-<div class="section" id="windows">
-<h4>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h4>
-<p>For Windows XP 32-bit the following are known to have problems: pywcs,
-pyregion, and coords.</p>
-<div class="highlight-python"><pre>cd C:\Python27\Scripts
-easy_install.exe --upgrade pip
-pip.exe install --upgrade distribute
-pip.exe install --upgrade astropy
-pip.exe install --upgrade aplpy
-pip.exe install --upgrade pyregion
-pip.exe install --upgrade pyparsing</pre>
+<p>If you experience problems with installation for any of these packages you can
+send an email to the <a class="reference external" href="http://mail.scipy.org/mailman/listinfo/astropy">astropy mailing list</a>.</p>
 </div>
-<div class="admonition-the-soap-opera-of-pip-and-easy-install-and-distribute-and-setuptools admonition">
-<p class="first admonition-title">The soap opera of pip and easy_install and distribute and setuptools</p>
-<p>Here is where things can appear very confusing if you start installing
-packages on your own and looking through various projects and installation
-documentation.  First there was the <tt class="docutils literal"><span class="pre">distutils</span></tt> standard
-library module that specifies what a package provides and how it gets
-installed.  But this was found to be lacking and a 3rd party extension named
-<tt class="docutils literal"><span class="pre">setuptools</span></tt> was developed and adopted fairly widely.  In conjunction with
-<tt class="docutils literal"><span class="pre">setuptools</span></tt> was a script <tt class="docutils literal"><span class="pre">easy_install</span></tt> that took care of downloading,
-untarring, building, and installing packages.  Pretty good, except that the
-developer of both these stopped actively developing them.</p>
-<p class="last">So some people took matters into their own hands and did a &#8220;friendly fork&#8221;
-of <tt class="docutils literal"><span class="pre">setuptools</span></tt> named <tt class="docutils literal"><span class="pre">distribute</span></tt>.  The not-so-friendly part is that
-the <tt class="docutils literal"><span class="pre">distribute</span></tt> package actually installs a module named
-<tt class="docutils literal"><span class="pre">setuptools.py</span></tt> and will overwrite an &#8220;original&#8221; <tt class="docutils literal"><span class="pre">setuptools</span></tt> package.
-The flame war that ensued was epic.  In any case now <tt class="docutils literal"><span class="pre">distribute</span></tt> is the
-standard, and likewise <tt class="docutils literal"><span class="pre">pip</span></tt> has replaced <tt class="docutils literal"><span class="pre">easy_install</span></tt> as the best
-(and actively developed) easy installer.</p>
-</div>
-</div>
-</div>
-<div class="section" id="test-your-installation">
-<span id="installation-test"></span><h3>Test your installation<a class="headerlink" href="#test-your-installation" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="test-the-installation">
+<span id="installation-test"></span><h2>Test the installation<a class="headerlink" href="#test-the-installation" title="Permalink to this headline">¶</a></h2>
 <p>To do a very basic test whether you meet the requirements and have a functioning
 core scientific Python installation, do the following and check version numbers:</p>
 <div class="highlight-python"><pre>% python -V
 % ipython -V
-% ipython -pylab
+% ipython --pylab
 import numpy
 import scipy
 import scipy.linalg
@@ -562,26 +430,27 @@ meet the requirements, and finally you should see a plot of a sine wave.</p>
 <p>To check the other required packages, do the following from within ipython:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">astropy</span>
 <span class="kn">import</span> <span class="nn">aplpy</span>
+<span class="kn">import</span> <span class="nn">pyregion</span>
+<span class="kn">import</span> <span class="nn">pyparsing</span>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="try-it-out">
-<h2>Try it out!<a class="headerlink" href="#try-it-out" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="setup">
-<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="take-your-python-for-a-spin">
+<h2>Take your Python for a spin!<a class="headerlink" href="#take-your-python-for-a-spin" title="Permalink to this headline">¶</a></h2>
+<p>If you are following along with the Python for Astronomers tutorial and have
+finished installing Python, you can give a real test drive now.</p>
 <p>First download the <a class="reference external" href="install_examples.tar">install_examples.tar</a> tar file which has example data
 files that will be used in subsequent exercises.
 Then change to a working directory, untar the file, and start up IPython:</p>
 <div class="highlight-python"><pre>tar xvf ~/Downloads/install_examples.tar   # or wherever your browser puts downloads
 cd py4ast/install
 ls
-ipython -pylab</pre>
+ipython --pylab</pre>
 </div>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
 <p>For all of the workshops you should always start Python using the command:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">ipython</span> <span class="o">-</span><span class="n">pylab</span>  <span class="c"># (for Windows start the Pylab application)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ipython</span> <span class="o">--</span><span class="n">pylab</span>  <span class="c"># (for Windows start the Pylab application)</span>
 </pre></div>
 </div>
 <p>This will automatically load all of the main plotting functions from
@@ -595,7 +464,7 @@ math functions and array utilities from <a class="reference external" href="http
 <div class="admonition-exercise-read-a-table-and-examine-it admonition">
 <p class="first admonition-title">Exercise: Read a table and examine it</p>
 <p>Look at the documentation for the <a class="reference external" href="http://docs.astropy.org/en/v0.2.1/table/io.html">astropy.Table.read()</a> function in
-<a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable">asciitable</a>.  Follow the very first example and use the <tt class="docutils literal"><span class="pre">read()</span></tt> function
+<a class="reference external" href="http://astropy.org">astropy</a>.  Follow the very first example and use the <tt class="docutils literal"><span class="pre">read()</span></tt> function
 to read the data in the file <tt class="docutils literal"><span class="pre">table1.dat</span></tt> into the variable named <tt class="docutils literal"><span class="pre">data</span></tt>.</p>
 <p>This table is in the &#8220;ApJ machine-readable format&#8221; (which is actually a bit
 tricky for machines to read).  This is very similar to the table format used
@@ -628,15 +497,17 @@ which is just a fancy way of saying a table where you can access rows or columns
 </li>
 </ul>
 </div></blockquote>
-<p class="last">Optional: use the <a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib.pyplot.plot">plot</a> and
-<a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib.pyplot.hist">hist</a> functions to
-examine the data graphically.  For instance plot RAdeg versus DEdeg.  Look at the <tt class="docutils literal"><span class="pre">table1.dat</span></tt> file itself for
-detailed column descriptions.</p>
+<p class="last">Optional: use the <a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib.pyplot.plot">plot</a>
+and <a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib.pyplot.hist">hist</a>
+functions to examine the data graphically.  For instance plot RAdeg versus
+DEdeg.  Look at the <tt class="docutils literal"><span class="pre">table1.dat</span></tt> file itself for detailed column
+descriptions.</p>
 </div>
 </div>
-</div>
+<div class="section" id="appendix">
+<h2>Appendix<a class="headerlink" href="#appendix" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="versus-32-bit">
-<h2>64 versus 32 bit<a class="headerlink" href="#versus-32-bit" title="Permalink to this headline">¶</a></h2>
+<h3>64 versus 32 bit<a class="headerlink" href="#versus-32-bit" title="Permalink to this headline">¶</a></h3>
 <p>For several of the binary installers you need to make a decision: 32-bit or
 64-bit download?  First you need to establish whether your computer has a
 32-bit or 64-bit processor.  If you have a 32-bit processor then your decision
@@ -649,6 +520,18 @@ work.  See below if you don&#8217;t know your processor architecture:</p>
 or <tt class="docutils literal"><span class="pre">i386</span></tt> you are running a 32-bit OS.</li>
 <li>Windows:  Follow <a class="reference external" href="http://windows.microsoft.com/en-US/windows-vista/32-bit-and-64-bit-Windows-frequently-asked-questions">the Windows instructions</a>.</li>
 </ul>
+</div>
+<div class="section" id="details-for-specific-options">
+<h3>Details for specific options<a class="headerlink" href="#details-for-specific-options" title="Permalink to this headline">¶</a></h3>
+<p>The following two topic pages go into a bit more detail for MacOS and linux options that
+do not use a standalone Python distribution installer:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="macosx.html">MacPorts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux.html">Linux</a></li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 

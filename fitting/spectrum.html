@@ -346,7 +346,7 @@ display:none;
 three arrays: x values, y values, and errors on the y values.</p>
 <p>In a new working directory, download a MAST spectrum of <a class="reference download internal" href="../_downloads/3c273.fits"><tt class="xref download docutils literal"><span class="pre">3C</span> <span class="pre">273</span></tt></a>
 and start IPython</p>
-<div class="highlight-python"><pre>$ ipython -pylab</pre>
+<div class="highlight-python"><pre>$ ipython --pylab</pre>
 </div>
 <p>If you have trouble accessing the spectrum you can download it straight away
 using Python</p>
@@ -369,6 +369,19 @@ x         = Float64[1024]
 y         = Float64[1024]
 staterror = None
 syserror  = None</pre>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>The <tt class="docutils literal"><span class="pre">load_data</span></tt> command may not work in the stand-alone version of
+Sherpa. If not, you can use <tt class="docutils literal"><span class="pre">pyfits</span></tt> to load in the data and then
+<tt class="docutils literal"><span class="pre">load_arrays</span></tt>, for example:</p>
+<div class="last highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">pyfits</span>
+<span class="n">dat</span> <span class="o">=</span> <span class="n">pyfits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;3c273.fits&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+<span class="n">wlen</span> <span class="o">=</span> <span class="n">dat</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="s">&#39;WAVELENGTH&#39;</span><span class="p">)</span>
+<span class="n">flux</span> <span class="o">=</span> <span class="n">dat</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="s">&#39;FLUX&#39;</span><span class="p">)</span>
+<span class="n">ui</span><span class="o">.</span><span class="n">load_arrays</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">wlen</span><span class="p">,</span> <span class="n">flux</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 <p>As the file contains two columns, they are taken to be the <tt class="docutils literal"><span class="pre">x</span></tt> and
 <tt class="docutils literal"><span class="pre">y</span></tt> data values. The y values are small (of order 10^-14):</p>
