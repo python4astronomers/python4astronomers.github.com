@@ -302,6 +302,9 @@ display:none;
 </li>
 <li><a class="reference internal" href="#plotting-1-d-data">Plotting 1-d data</a><ul>
 <li><a class="reference internal" href="#basic-plots">Basic plots</a></li>
+<li><a class="reference internal" href="#what-are-all-these-icons-for">What are all these icons for?</a></li>
+<li><a class="reference internal" href="#saving-the-plot">Saving the plot</a></li>
+<li><a class="reference internal" href="#some-common-ish-python-errors">Some common-ish Python errors</a></li>
 <li><a class="reference internal" href="#controlling-line-properties">Controlling line properties</a></li>
 </ul>
 </li>
@@ -414,11 +417,15 @@ interactively so fire up <tt class="docutils literal"><span class="pre">ipython<
 <p>See the <a class="reference internal" href="#appendix-pylab-and-pyplot-and-numpy">Appendix: Pylab and Pyplot and NumPy</a> for details about just what&#8217;s
 going on with the <tt class="docutils literal"><span class="pre">--pylab</span></tt> switch.  Also remember if you are using IPython
 version 0.10 or earlier you need to use <tt class="docutils literal"><span class="pre">-pylab</span></tt> with just one dash.</p>
-<p>Now import <tt class="docutils literal"><span class="pre">numpy</span></tt> and <tt class="docutils literal"><span class="pre">matplotlib</span></tt>:</p>
+<p>The following two statements are made for you automatically if you
+started <tt class="docutils literal"><span class="pre">ipython</span></tt> with the <tt class="docutils literal"><span class="pre">--pylab</span></tt> switch, and cause
+both <tt class="docutils literal"><span class="pre">numpy</span></tt> and <tt class="docutils literal"><span class="pre">matplotlib</span></tt> to be imported:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 </pre></div>
 </div>
+<p>When writing your own Python code - e.g. as a script - then you will need
+to include the above two lines.</p>
 <p><a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib-pyplot">matplotlib.pyplot</a> is a collection of command style functions that make
 matplotlib work like MATLAB.  Each <tt class="docutils literal"><span class="pre">pyplot</span></tt> function makes some change to a
 figure: eg, create a figure, create a plotting area in a figure, plot some
@@ -448,6 +455,11 @@ you can issue the command:</p>
 </div>
 <p><a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib.pyplot.plot">Plot()</a> is just the tip of the iceberg for plotting commands and you should
 study the page of matplotlib <a class="reference external" href="http://matplotlib.sourceforge.net/users/screenshots.html">screenshots</a> to get a better picture.</p>
+<div class="admonition-clearing-the-figure-with-plt-clf admonition">
+<p class="first admonition-title">Clearing the figure with plt.clf()</p>
+<p class="last">From now on we will assume that you know to clear the figure with
+<a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib.pyplot.clf">clf()</a> before entering commands to make the next plot.</p>
+</div>
 <p>For every x, y pair of arguments, there is an optional third argument
 which is the format string that indicates the color and line type of
 the plot.  The letters and symbols of the format string are from
@@ -501,6 +513,68 @@ above.  Start with:</p>
 </pre></div>
 </div>
 </div></div>
+<div class="section" id="what-are-all-these-icons-for">
+<h3>What are all these icons for?<a class="headerlink" href="#what-are-all-these-icons-for" title="Permalink to this headline">¶</a></h3>
+<p>The figures are enclosed in a window that looks a little like the
+following
+(it depends on the OS and matplotlib backend being used):</p>
+<img alt="../_images/pyplot_window.png" src="../_images/pyplot_window.png" />
+<p>The icons at the bottom of the window allow you to zoom in or out of
+the plot, pan around, and save the plot as a &#8220;hardcopy&#8221; format (e.g.
+PNG, postscript, or PDF).
+The first icon will reset you to the original axis limits, which comes
+in quite handy.</p>
+<p>You <em>can</em> use the close button to close the window, but it is best to
+use the <a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib.pyplot.close">close()</a> command to avoid memory leaks.</p>
+</div>
+<div class="section" id="saving-the-plot">
+<h3>Saving the plot<a class="headerlink" href="#saving-the-plot" title="Permalink to this headline">¶</a></h3>
+<p>As discussed above, you can use the GUI to save the plot, but the
+<a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib.pyplot.savefig">savefig()</a> command is often more useful, and has many options:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">&#39;fig.png&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">&#39;fig.pdf&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note that you can save a figure multiple times (e.g. as different
+formats). The supported formats depend on the backend being used, but
+normally include png, pdf, ps, eps and svg:</p>
+<div class="highlight-python"><pre>plt.savefig('fig')   # creates fig.png (unless you have changed the default format)
+plt.savefig('fig.pdf')  # creates a PDF file, fig.pdf
+plt.savefig('fig', format='svg')  # creates a SVG file called fig
+plt.savefig('fig.svg', 'format='ps') # creates a PS file called fig.svg (do not do this!)</pre>
+</div>
+<p>The default format (used in the first line) can be queried, or
+changed, by saying:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">rcParams</span><span class="p">[</span><span class="s">&#39;savefig.format&#39;</span><span class="p">]</span>
+<span class="go">&#39;png&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rcParams</span><span class="p">[</span><span class="s">&#39;savefig.format&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;pdf&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">&#39;foo&#39;</span><span class="p">)</span>  <span class="c"># creates foo.pdf</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="some-common-ish-python-errors">
+<h3>Some common-ish Python errors<a class="headerlink" href="#some-common-ish-python-errors" title="Permalink to this headline">¶</a></h3>
+<p>Here&#8217;s a couple of errors you may come across:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">clf</span>
+<span class="go">&lt;function matplotlib.pyplot.clf&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+<span class="go">TypeError: &#39;int&#39; object is not callable</span>
+</pre></div>
+</div>
+<p>Since <tt class="docutils literal"><span class="pre">clf</span></tt> is a function then you need to add <tt class="docutils literal"><span class="pre">()</span></tt> to actually
+call it (being able to refer to a function as a &#8220;thing&#8221; is incredibly
+powerful, which is what has happened here, but it&#8217;s not much use
+if you just want to clear the current figure).</p>
+<p>For the second case, <tt class="docutils literal"><span class="pre">x.size</span></tt> returns an integer (in this case
+<tt class="docutils literal"><span class="pre">5</span></tt>), which we then call as a function, leading to the
+somewhat cryptic messsage above. For new users it would be nice if it
+said &#8220;hold on, size isn&#8217;t callable&#8221;, but then this would inhibit
+useful - if complex - statements such as:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">tarfile</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">fileobj</span><span class="o">=</span><span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">),</span> <span class="n">mode</span><span class="o">=</span><span class="s">&#39;r|&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extractall</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="controlling-line-properties">
 <h3>Controlling line properties<a class="headerlink" href="#controlling-line-properties" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-what-are-lines-and-markers admonition">
@@ -772,13 +846,6 @@ figure has two subplots:</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="s">&#39;AXES 111&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Now return the second plot in the first figure and update it:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>             <span class="c"># Select the existing first figure</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>          <span class="c"># Select the existing subplot 212</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">t2</span><span class="p">),</span> <span class="s">&#39;g--&#39;</span><span class="p">)</span>   <span class="c"># Add a plot to the axes</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.8</span><span class="p">,</span> <span class="s">&#39;Back to AXES 212&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
 <table border="1" class="docutils">
 <colgroup>
 <col width="49%" />
@@ -806,11 +873,31 @@ arbitrary number of subplots and axes.</p>
 coordinates.  See <a class="reference external" href="http://matplotlib.sourceforge.net/examples/pylab_examples/axes_demo.html">pylab_examples-axes_demo</a>
 for an example of placing axes manually and <a class="reference external" href="http://matplotlib.sourceforge.net/examples/pylab_examples/line_styles.html">pylab_examples-line_styles</a>
 for an example with lots-o-subplots.</p>
+<p>You can move back to existing subplots, or indeed figures, as shown below:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>             <span class="c"># Select the existing first figure</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>          <span class="c"># Select the existing subplot 212</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">t2</span><span class="p">),</span> <span class="s">&#39;g--&#39;</span><span class="p">)</span>   <span class="c"># Add a plot to the axes</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.8</span><span class="p">,</span> <span class="s">&#39;Back to AXES 212&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;g&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>   <span class="c"># add a colored label, increasing the font size</span>
+</pre></div>
+</div>
 <p>You can clear the current figure with <a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib.pyplot.clf">clf()</a> and the current axes with
 <a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib.pyplot.cla">cla()</a>.  If you find this statefulness, annoying, don&#8217;t despair, this is just
 a thin stateful wrapper around an object oriented API, which you can use
 instead.  See the <a class="reference internal" href="advanced.html#advanced-plotting"><em>Advanced plotting</em></a> page for an introduction to this
 approach, and the then <a class="reference external" href="http://matplotlib.sourceforge.net/users/artists.html">Artist tutorial</a> for the gory details.</p>
+<p>Figures can be deleted with the <a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib.pyplot.close">close()</a> command:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>    <span class="c"># Remove the second figure</span>
+</pre></div>
+</div>
+<div class="admonition-using-close admonition">
+<p class="first admonition-title">Using close</p>
+<p class="last">You can use the &#8216;close button&#8217; provided by the window manager
+to remove the figure, but if you do this you must <em>still</em> call
+the <a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html#matplotlib.pyplot.close">close()</a> command, to ensure that memory allocated by pyplot
+for the figure is released. This is only really an issue for
+long-running <tt class="docutils literal"><span class="pre">ipython</span></tt> sessions; if you just create a single
+plot and then exit you do not need to use <tt class="docutils literal"><span class="pre">close</span></tt>.</p>
+</div>
 </div>
 <div class="section" id="working-with-text">
 <span id="id9"></span><h2>Working with text<a class="headerlink" href="#working-with-text" title="Permalink to this headline">¶</a></h2>
@@ -857,7 +944,7 @@ choose the opacities so it looks reasonable.</p>
 <p class="flip0">Click to Show/Hide Solution</p> <div class="panel0"><div class="highlight-python"><div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
 <span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">130</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
 <span class="n">out</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s">&#39;g&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">out</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s">&#39;r&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">out2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s">&#39;r&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div><div class="section" id="getting-the-fonts-just-right">
@@ -959,6 +1046,7 @@ looking at an example of the 3-d viewer that is available:</p>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s">&#39;Z Label&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+<img alt="../_images/pyplot_3d.png" src="../_images/pyplot_3d.png" />
 <p>To get more information check out the <a class="reference external" href="http://matplotlib.sourceforge.net/mpl_toolkits/mplot3d/tutorial.html">mplot3d tutorial</a>.</p>
 </div>
 <div class="section" id="appendix-pylab-and-pyplot-and-numpy">
@@ -978,8 +1066,8 @@ matplotlib work like MATLAB.  This is just a package module that you can import:
 <p>This module is a thin wrapper around <tt class="docutils literal"><span class="pre">matplotlib.pylab</span></tt> which pulls in:</p>
 <ul class="simple">
 <li>Everything in <tt class="docutils literal"><span class="pre">matplotlib.pyplot</span></tt></li>
-<li>All top-level functions <tt class="docutils literal"><span class="pre">numpy</span></tt>,``numpy.fft``, <tt class="docutils literal"><span class="pre">numpy.random</span></tt>,</li>
-<li><tt class="docutils literal"><span class="pre">numpy.linalg</span></tt></li>
+<li>All top-level functions <tt class="docutils literal"><span class="pre">numpy</span></tt>, <tt class="docutils literal"><span class="pre">numpy.fft</span></tt>, <tt class="docutils literal"><span class="pre">numpy.random</span></tt>,
+<tt class="docutils literal"><span class="pre">numpy.linalg</span></tt></li>
 <li>A selection of other useful functions and modules from matplotlib</li>
 </ul>
 <p>There is no magic, and to see for yourself do</p>
