@@ -530,7 +530,7 @@ a few key features of NumPy.</p>
 <span class="go">       [ 1.,  1.,  1.,  1.],</span>
 <span class="go">       [ 1.,  1.,  1.,  1.]]),</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>  <span class="c"># 3 x 4 x 5 int array of zeros</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>  <span class="c"># 2 x 3 x 4 int array of zeros</span>
 <span class="go">array([[[0, 0, 0, 0],</span>
 <span class="go">        [0, 0, 0, 0],</span>
 <span class="go">        [0, 0, 0, 0]],</span>
@@ -565,7 +565,10 @@ a few key features of NumPy.</p>
 <span class="go">       [4]]))</span>
 </pre></div>
 </div>
-<p>It is possible to operate with arrays of different dimensions as long as they fit well (broadcasting):</p>
+<p>It is possible to operate with arrays of different dimensions as long
+as they fit well (this is known as
+<a class="reference external" href="http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html">broadcasting</a>
+in NumPy):</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">*</span> <span class="mi">10</span>
 <span class="go">array([[ 0,  1,  2,  3,  4],</span>
 <span class="go">       [10, 11, 12, 13, 14],</span>

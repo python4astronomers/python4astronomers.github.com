@@ -455,7 +455,7 @@ centered in the figure.</p>
 <p>In some cases, it can be desirable to show two different x axes (e.g. distance and redshift), or two different y axes (e.g. two different quantities such as density and temperature). Matplotlib provides an easy way to create <em>twin</em> axes. For example:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">ax2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>creates a new set of axes (<tt class="docutils literal"><span class="pre">ax2</span></tt>) that shares the x-axis with <tt class="docutils literal"><span class="pre">ax1</span></tt>, but can have a separate y-axis (similarly, <tt class="docutils literal"><span class="pre">twiny</span></tt> would return a second set of axes sharing the y-axis, but with a separate x-axis). As an example, we can use this to plot two different quantities as a function of time:</p>

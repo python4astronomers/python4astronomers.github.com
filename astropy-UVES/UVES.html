@@ -575,7 +575,7 @@ setup.</p>
 <span class="sd">    wavelength_zero_point : float</span>
 <span class="sd">    optical_arm : string</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="n">sp</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">filelist</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">sp</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
     <span class="n">header</span> <span class="o">=</span> <span class="n">sp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">header</span>
 
     <span class="k">return</span> <span class="n">header</span><span class="p">[</span><span class="s">&#39;EXPTIME&#39;</span><span class="p">],</span> <span class="n">header</span><span class="p">[</span><span class="s">&#39;CRVAL1&#39;</span><span class="p">],</span> <span class="n">header</span><span class="p">[</span><span class="s">&#39;HIERARCH ESO INS PATH&#39;</span><span class="p">]</span>
