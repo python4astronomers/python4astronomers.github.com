@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Analyzing UVES Spectrocopy with Astropy &mdash; Python4Astronomers 1.1 documentation</title>
+    <title>Analyzing UVES Spectroscopy with Astropy &mdash; Python4Astronomers 1.1 documentation</title>
     
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -293,7 +293,7 @@ display:none;
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Analyzing UVES Spectrocopy with Astropy</a><ul>
+<li><a class="reference internal" href="#">Analyzing UVES Spectroscopy with Astropy</a><ul>
 <li><a class="reference internal" href="#before-you-proceed">Before you proceed</a></li>
 <li><a class="reference internal" href="#acknowledgments">Acknowledgments</a></li>
 <li><a class="reference internal" href="#scientific-background">Scientific background</a></li>
@@ -344,20 +344,20 @@ display:none;
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="analyzing-uves-spectrocopy-with-astropy">
-<h1>Analyzing UVES Spectrocopy with Astropy<a class="headerlink" href="#analyzing-uves-spectrocopy-with-astropy" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="analyzing-uves-spectroscopy-with-astropy">
+<h1>Analyzing UVES Spectroscopy with Astropy<a class="headerlink" href="#analyzing-uves-spectroscopy-with-astropy" title="Permalink to this headline">¶</a></h1>
 <p>This tutorial follows my real live data analysis of MN Lup and the code developed
 below is taken (with only minor modifications) from the code that I used to
 actually prepare the publication. The plots that will be developed below
-appear in very similar form in the article submitted to ApJ.</p>
+appear in very similar form in the article published in ApJ.</p>
 <p>I will update this page with a proper reference once the article is accepted ;-)</p>
 <p>The examples below depend on each other and the plots in the last section make
 use of things calculated in the earlier sections. Thus, if you need to restart
 your python session in the course of this tutorial, please execute all the code
 again.</p>
 <p>Also, this tutorial works best if you follow along and execute the code shown
-on your own comupter. The page is already quite long and I do not include the
-output you would see on your screen in this decument.</p>
+on your own computer. The page is already quite long and I do not include the
+output you would see on your screen in this document.</p>
 <div class="toctree-wrapper compound">
 <ul class="simple">
 </ul>
@@ -460,7 +460,7 @@ to get the wavelength coordinate:</p>
 so let us define a function that takes the filename as input and returns
 the wavelength and flux arrays and the time of the observation.
 In python, functions are created with the <tt class="docutils literal"><span class="pre">def</span></tt> statements.
-All lines that have an itendation level below the <cite>def</cite> statement are part
+All lines that have an indentation level below the <cite>def</cite> statement are part
 of the function. Functions can (but do not have to) return values using
 the <tt class="docutils literal"><span class="pre">return</span></tt> statement.</p>
 <p>If a function <tt class="docutils literal"><span class="pre">func</span></tt> is contained in a file called <tt class="docutils literal"><span class="pre">spectra_utils.py</span></tt> in
@@ -493,7 +493,7 @@ Fortunately, ipython offers two magic functions that take care of this:</p>
 <li>You can mark code in some editor, copy it to the clipboard and then
 type <tt class="docutils literal"><span class="pre">%paste</span></tt> in ipython.</li>
 <li>You type <tt class="docutils literal"><span class="pre">%cpaste</span></tt> in ipython you can paste code (e.g. with the
-mouse) and ipython will correct the leading number of whitespaces and
+mouse) and ipython will correct the leading number of white spaces and
 ignore empty lines.</li>
 </ol>
 <p class="last">These two tricks can be used with any type of code, but are particularly useful
@@ -507,7 +507,7 @@ If you change the source code of <tt class="docutils literal"><span class="pre">
 </div>
 <p>So, after all this discussion, we can now define a function that automates the
 loading of a single spectrum using the commands we developed above. Even if
-this function is fairly short, we still add some documenation to the header,
+this function is fairly short, we still add some documentation to the header,
 so that we can look up what parameters it needs when we come back to this
 project a while later. Personally, I comment every function that is longer
 than two lines:</p>
@@ -543,8 +543,8 @@ than two lines:</p>
     <span class="k">return</span> <span class="n">wavelength</span><span class="p">,</span> <span class="n">flux</span><span class="p">,</span> <span class="n">date_obs</span>
 </pre></div>
 </div>
-<div class="admonition-excercise admonition">
-<p class="first admonition-title">Excercise</p>
+<div class="admonition-exercise admonition">
+<p class="first admonition-title">Exercise</p>
 <p class="last">Try to find out how you can read the help for this function from the
 command line.</p>
 </div>
@@ -552,8 +552,8 @@ command line.</p>
 #or
 read_spec?</pre>
 </div>
-</div><div class="admonition-excercise admonition">
-<p class="first admonition-title">Excercise</p>
+</div><div class="admonition-exercise admonition">
+<p class="first admonition-title">Exercise</p>
 <p class="last">The dataset of UVES spectra should have been taken using all the same setup.
 Write a function that returns the exposure time (<tt class="docutils literal"><span class="pre">EXPTIME</span></tt>),
 the wavelength zero point
@@ -587,7 +587,7 @@ setup.</p>
 </pre></div>
 </div>
 </div><p>The UVES pipeline that was used to reduce the data that we use in the this example
-employs a fixed wavelength grid (see excercise above),
+employs a fixed wavelength grid (see exercise above),
 thus the <tt class="docutils literal"><span class="pre">wavelength</span></tt> is the same for all spectra.
 This makes it easy to define an array that can hold the fluxes of all
 observations. Then, we loop over the list of all filenames and fill this array
@@ -606,7 +606,7 @@ with data:</p>
 <div class="section" id="units-and-constants-in-astropy">
 <h2>Units and constants in astropy<a class="headerlink" href="#units-and-constants-in-astropy" title="Permalink to this headline">¶</a></h2>
 <p>Often, one has to keep track of the units for certain values. Was the wavelength
-given in Angstroem or in nm? In X-ray observations, a common unit of wavelength is
+given in Angstrom or in nm? In X-ray observations, a common unit of wavelength is
 keV. How many nm is 0.65 keV?
 <a class="reference external" href="http://docs.astropy.org/en/v0.2.1/units/index.html">astropy.units</a>
 offers a framework that can take
@@ -621,7 +621,7 @@ The easiest way to attach a unit to a number is by multiplication:</p>
 
 <span class="n">wavelength</span> <span class="o">=</span> <span class="n">wavelength</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">AA</span>
 
-<span class="c"># Let&#39;s define some constants we need for the excersices further down</span>
+<span class="c"># Let&#39;s define some constants we need for the exercises further down</span>
 <span class="c"># Again, we multiply the value with a unit here</span>
 <span class="n">heliocentric</span> <span class="o">=</span> <span class="o">-</span><span class="mf">23.</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">km</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">s</span>
 <span class="n">v_rad</span> <span class="o">=</span> <span class="o">-</span><span class="mf">4.77</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">km</span> <span class="o">/</span> <span class="n">u</span><span class="o">.</span><span class="n">s</span>  <span class="c"># Strassmeier et al. (2005)</span>
@@ -701,12 +701,12 @@ This is how it can be done:</p>
 <span class="n">wavelength</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">Hz</span><span class="p">,</span> <span class="n">equivalencies</span><span class="o">=</span><span class="n">u</span><span class="o">.</span><span class="n">spectral</span><span class="p">())</span>
 </pre></div>
 </div>
-<div class="admonition-excercise admonition">
-<p class="first admonition-title">Excercise</p>
-<p>Spectrocopically, MN Lup is classified as spctral type M0 V, thus
+<div class="admonition-exercise admonition">
+<p class="first admonition-title">Exercise</p>
+<p>Spectroscopically, MN Lup is classified as spectral type M0 V, thus
 the gravitational acceleration on the surface <img class="math" src="../_images/math/61a67b606ff976adb90abb7ff42d7c378a856b17.png" alt="\log(g)"/>
 should be comparable to the sun.
-(For non-stellar astronomers: Conventionlly, all values are given
+(For non-stellar astronomers: Conventionally, all values are given
 in the cgs system. The value for the sun is <img class="math" src="../_images/math/49685cf6aa06bec432331d377bb3d3ef65272986.png" alt="\log(g) = 4.4"/>.)</p>
 <p class="last">Calculate <img class="math" src="../_images/math/61a67b606ff976adb90abb7ff42d7c378a856b17.png" alt="\log(g)"/> for MN Lup with the values for the mass
 and radius given above. Those values were determined from
@@ -719,19 +719,19 @@ spectroscopically estimated surface gravity:</p>
 <span class="go">4.3080943799180433</span>
 </pre></div>
 </div>
-</div><div class="admonition-excercise admonition">
-<p class="first admonition-title">Excercise</p>
+</div><div class="admonition-exercise admonition">
+<p class="first admonition-title">Exercise</p>
 <p>Write a function that turns a wavelength scale into a velocity scale.
-We want to input a wavelengths array and the rest wavelength of a spectal
+We want to input a wavelengths array and the rest wavelength of a spectral
 line. We need this function later to show the red- and blueshift of the
-spectrum relativ to the the Ca II H line. Use the following definition
+spectrum relative to the the Ca II H line. Use the following definition
 to make sure the that code below can use it later:</p>
 <div class="highlight-python"><pre>def wave2doppler(wavelength_array, wavelength_line):
     .. do something ..
     return array_of_dopplershifts</pre>
 </div>
 <p>You can test if you function works by calculating the a Dopplershift
-of the following wavelenghts relative to <img class="math" src="../_images/math/f450573749d6c598034d1c4b7d39231881e15711.png" alt="H_\alpha"/>:</p>
+of the following wavelengths relative to <img class="math" src="../_images/math/f450573749d6c598034d1c4b7d39231881e15711.png" alt="H_\alpha"/>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">waveclosetoHa</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">6562.</span><span class="p">,</span><span class="mi">6563</span><span class="p">,</span><span class="mf">6565.</span><span class="p">])</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">AA</span>
 <span class="k">print</span> <span class="n">wave2doppler</span><span class="p">(</span><span class="n">waveclosetoHa</span><span class="p">,</span> <span class="mf">656.489</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">nm</span><span class="p">)</span>
 </pre></div>
@@ -745,12 +745,12 @@ of the following wavelenghts relative to <img class="math" src="../_images/math/
 <span class="k">print</span> <span class="n">wave2doppler</span><span class="p">(</span><span class="n">waveclosetoHa</span><span class="p">,</span> <span class="mf">656.489</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">nm</span><span class="p">)</span><span class="o">.</span><span class="n">decompose</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">km</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">s</span><span class="p">)</span>
 </pre></div>
 </div>
-</div><div class="admonition-excercise admonition">
-<p class="first admonition-title">Excercise</p>
+</div><div class="admonition-exercise admonition">
+<p class="first admonition-title">Exercise</p>
 <p>Write a function that takes a wavelength array and the rest wavelength of
 a spectral line as input, turns it into a Doppler shift (you can use
-the function from the last excercise),
-subtracts the radial velicty of MN Lup (4.77 km/s) and expresses
+the function from the last exercise),
+subtracts the radial velocity of MN Lup (4.77 km/s) and expresses
 the resulting velocity in units of vsini.
 We need this function later to show the red- and blueshift of the
 spectrum relative to the Ca II H line. Use the following definition
@@ -773,8 +773,8 @@ provides methods to convert times and dates between different
 systems and formats. Since the ESO fits headers already contain the time of the
 observation in different systems, we could just read the keyword in the time
 system we like, but we will use <tt class="docutils literal"><span class="pre">astropy.time</span></tt> to make this conversion here.
-<tt class="docutils literal"><span class="pre">astropy.time.Time</span></tt> will parse many common imput formats (strings, floats), but
-unless the format is umambiguous the format needs to be specified (e.g. a number
+<tt class="docutils literal"><span class="pre">astropy.time.Time</span></tt> will parse many common input formats (strings, floats), but
+unless the format is unambiguous the format needs to be specified (e.g. a number
 could mean JD or MJD or year). Also, the time system needs to be given (e.g. UTC).
 Below are several examples, initialized from different header keywords:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">astropy.time</span> <span class="kn">import</span> <span class="n">Time</span>
@@ -804,7 +804,7 @@ Below are several examples, initialized from different header keywords:</p>
 <p>Now, we want to express the time difference between the individual spectra of
 MN Lup in rotational periods. While the unit of <tt class="docutils literal"><span class="pre">delta_t</span></tt> is days, unfortunately
 <tt class="docutils literal"><span class="pre">astropy.time.Time</span></tt> and <tt class="docutils literal"><span class="pre">astropy.units.Quantity</span></tt> objects do not work together
-yet, so we will have to convert from one to the other explictly:</p>
+yet, so we will have to convert from one to the other explicitly:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">delta_p</span> <span class="o">=</span> <span class="n">delta_t</span><span class="o">.</span><span class="n">val</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">day</span> <span class="o">/</span> <span class="n">period</span>
 </pre></div>
 </div>
@@ -828,7 +828,7 @@ this polynomial.</p>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    w : 1 dim np.ndarray</span>
-<span class="sd">        array of wanvelenghts</span>
+<span class="sd">        array of wavelengths</span>
 <span class="sd">    flux : np.ndarray of shape (N, len(w))</span>
 <span class="sd">        array of flux values for different spectra in the series</span>
 <span class="sd">    cont : list of lists</span>
@@ -840,12 +840,12 @@ this polynomial.</p>
     <span class="c">#index of the region we want to return</span>
     <span class="n">indrange</span> <span class="o">=</span> <span class="p">(</span><span class="n">w</span> <span class="o">&gt;</span> <span class="n">cont</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">w</span> <span class="o">&lt;</span> <span class="n">cont</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
     <span class="c"># make a flux array of shape</span>
-    <span class="c"># (nuber of spectra, number of pointsin indrange)</span>
+    <span class="c"># (number of spectra, number of points in indrange)</span>
     <span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">flux</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">indrange</span><span class="o">.</span><span class="n">sum</span><span class="p">()))</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">flux</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
-        <span class="c"># fit polynom of second order to the continuum region</span>
+        <span class="c"># fit polynomial of second order to the continuum region</span>
         <span class="n">linecoeff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="n">indcont</span><span class="p">],</span> <span class="n">flux</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">indcont</span><span class="p">],</span><span class="mi">2</span><span class="p">)</span>
-        <span class="c"># devide the flux by the polynom and put the result in our</span>
+        <span class="c"># divide the flux by the polynomial and put the result in our</span>
         <span class="c"># new flux array</span>
         <span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">flux</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">indrange</span><span class="p">]</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">linecoeff</span><span class="p">,</span> <span class="n">w</span><span class="p">[</span><span class="n">indrange</span><span class="p">])</span>
     <span class="k">return</span> <span class="n">w</span><span class="p">[</span><span class="n">indrange</span><span class="p">],</span> <span class="n">f</span>
@@ -859,7 +859,7 @@ this polynomial.</p>
 <h2>Publication ready output<a class="headerlink" href="#publication-ready-output" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="tables">
 <h3>Tables<a class="headerlink" href="#tables" title="Permalink to this headline">¶</a></h3>
-<p>We will calculate the equivalent width in Angstroems of the emission line
+<p>We will calculate the equivalent width in Angstroms of the emission line
 for the first spectrum:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">ew</span> <span class="o">=</span> <span class="n">fcaII</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">-</span> <span class="mf">1.</span>
 <span class="n">ew</span> <span class="o">=</span> <span class="n">ew</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">wcaII</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">AA</span><span class="p">)</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
@@ -894,12 +894,12 @@ details on <tt class="docutils literal"><span class="pre">Table</span></tt>). So
 <p>We will make two plots. The plotting is done with
 <a class="reference external" href="http://matplotlib.org">matplotlib</a>, and does not involve Astropy itself.
 Plotting is introduced in <a class="reference internal" href="../plotting/plotting.html#plotting-and-images"><em>Plotting and Images</em></a> and more details on
-plotting can be found there. When in doubt, use the seach engine of your choice
-and ask the internet. Here, I mainly want to illustrate that Astropy can be
+plotting can be found there. When in doubt, use the search engine of your choice
+and ask the Internet. Here, I mainly want to illustrate that Astropy can be
 used in real-live data analysis.
 Thus, I do not explain every step in the plotting in detail.
 The plots we produce below appear in very
-similar form in Guenther et al. 2013 (ApJ, submitted).</p>
+similar form in Guenther et al. 2013 (ApJ, 771, 70).</p>
 <p>In both cases we want the x-axis to show the Doppler shift expressed in units
 of the rotational velocity. In this way, features that are rotationally
 modulated will stick out between -1 and +1:</p>
@@ -921,8 +921,8 @@ modulated will stick out between -1 and +1:</p>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../_images/CaII-lines-one.png"><img alt="../_images/CaII-lines-one.png" class="align-center" src="../_images/CaII-lines-one.png" style="width: 400.0px; height: 300.0px;" /></a>
-<div class="admonition-excercise admonition">
-<p class="first admonition-title">Excercise</p>
+<div class="admonition-exercise admonition">
+<p class="first admonition-title">Exercise</p>
 <p class="last">The plot above shows only a single spectrum. Plot all spectra into a single
 plot and introduce a sensible offset between them, so that we can follow
 the time evolution of the line.</p>
@@ -959,7 +959,7 @@ the difference to the mean flux:</p>
 </div>
 <p>In the following simple plot, we can already see features moving through the line.
 However, the axis scales are not right, the gap between both nights is not visible
-and there is no proper labelling:</p>
+and there is no proper labeling:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">fdiff</span><span class="p">,</span> <span class="n">aspect</span> <span class="o">=</span> <span class="s">&quot;auto&quot;</span><span class="p">,</span> <span class="n">origin</span> <span class="o">=</span> <span class="s">&#39;lower&#39;</span><span class="p">)</span>
@@ -990,13 +990,13 @@ improved:</p>
 <li><p class="first">Introduce an offset on the y-axis to reduce the amount of white space.</p>
 </li>
 <li><dl class="first docutils">
-<dt>Stricly speaking, the image shown is not quite the right scale because the</dt>
+<dt>Strictly speaking, the image shown is not quite the right scale because the</dt>
 <dd><p class="first last"><tt class="docutils literal"><span class="pre">extent</span></tt> keyword gives the edges of the image shown, while <tt class="docutils literal"><span class="pre">x</span></tt> and
 <tt class="docutils literal"><span class="pre">delta_p</span></tt> contain the bin mid-points.</p>
 </dd>
 </dl>
 </li>
-<li><p class="first">Use a grey scale instead of color to save publication charges.</p>
+<li><p class="first">Use a gray scale instead of color to save publication charges.</p>
 </li>
 <li><p class="first">Add labels to the axis.</p>
 </li>
@@ -1043,10 +1043,10 @@ improved:</p>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../_images/CaII-3.png"><img alt="../_images/CaII-3.png" class="align-center" src="../_images/CaII-3.png" style="width: 400.0px; height: 300.0px;" /></a>
-<div class="admonition-excercise admonition">
-<p class="first admonition-title">Excercise</p>
+<div class="admonition-exercise admonition">
+<p class="first admonition-title">Exercise</p>
 <p class="last">Understand the code for the last plot. Some of the commands used are
-already pretty advanced stuff. Remember, any internet search engine can be
+already pretty advanced stuff. Remember, any Internet search engine can be
 your friend.</p>
 </div>
 <p class="flip6">Click to Show/Hide Solution</p> <div class="panel6"><p>Clearly, I did not develop this code for scratch.
