@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Analyzing UVES Spectroscopy with Astropy &mdash; Python4Astronomers 1.1 documentation</title>
+    <title>Astropy II: Analyzing UVES Spectroscopy &mdash; Python4Astronomers 2.0 documentation</title>
     
-    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-astropy.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.1',
+        VERSION:     '2.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,10 +23,13 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Python4Astronomers 1.1 documentation" href="../index.html" />
-    <link rel="next" title="Local information" href="../local/local.html" />
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <link rel="top" title="Python4Astronomers 2.0 documentation" href="../index.html" />
+    <link rel="next" title="Online Astronomy and the virtual observatory" href="../vo/vo.html" />
     <link rel="prev" title="Celestial Coordinates" href="../astropy/coordinates.html" />
- 
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,600' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="../_static/copybutton.js"></script>
+
 <script type="text/javascript"> 
 $(document).ready(function(){
 
@@ -272,80 +273,47 @@ display:none;
 
 </script>
 
+
   </head>
   <body>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="../local/local.html" title="Local information"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="../astropy/coordinates.html" title="Celestial Coordinates"
-             accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li> 
-      </ul>
-    </div>
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
+<div class="topbar">
+  <a class="brand" title="Documentation Home" href="../index.html"><span id="logotext1">python</span><span id="logotext2">4</span><span id="logotext3">astronomers</span></a>
   <ul>
-<li><a class="reference internal" href="#">Analyzing UVES Spectroscopy with Astropy</a><ul>
-<li><a class="reference internal" href="#before-you-proceed">Before you proceed</a></li>
-<li><a class="reference internal" href="#acknowledgments">Acknowledgments</a></li>
-<li><a class="reference internal" href="#scientific-background">Scientific background</a></li>
-<li><a class="reference internal" href="#reading-the-data">Reading the data</a></li>
-<li><a class="reference internal" href="#making-code-reusable-as-a-function">Making code reusable as a function</a></li>
-<li><a class="reference internal" href="#units-and-constants-in-astropy">Units and constants in astropy</a></li>
-<li><a class="reference internal" href="#converting-times">Converting times</a></li>
-<li><a class="reference internal" href="#normalize-the-flux-to-the-local-continuum">Normalize the flux to the local continuum</a></li>
-<li><a class="reference internal" href="#publication-ready-output">Publication ready output</a><ul>
-<li><a class="reference internal" href="#tables">Tables</a></li>
-<li><a class="reference internal" href="#plots">Plots</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#contributing-to-astropy">Contributing to Astropy</a></li>
-</ul>
-</li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="../astropy/coordinates.html"
-                        title="previous chapter">Celestial Coordinates</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="../local/local.html"
-                        title="next chapter">Local information</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/astropy-UVES/UVES.txt"
-           rel="nofollow">Show Source</a></li>
+    <li><a class="homelink" title="Astropy Homepage" href="http://www.astropy.org"></a></li>
   </ul>
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
+
+<div class="related">
+    <h3>Navigation</h3>
+    <ul>
+      <li class="right">
+	<a href="../vo/vo.html" title="Online Astronomy and the virtual observatory">
+	  next &raquo;
+	</a>
+      </li>
+      <li class="right">
+	<a href="../astropy/coordinates.html" title="Celestial Coordinates">
+	  &laquo; previous
+	</a>
+	 |
+      </li>
+      <li>
+	<a href="../index.html">Python4Astronomers 2.0 documentation</a>
+	 &raquo;
+      </li>
+      
+      <li>Astropy II: Analyzing UVES Spectroscopy</li> 
+    </ul>
+</div>
+  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="analyzing-uves-spectroscopy-with-astropy">
-<h1>Analyzing UVES Spectroscopy with Astropy<a class="headerlink" href="#analyzing-uves-spectroscopy-with-astropy" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="astropy-ii-analyzing-uves-spectroscopy">
+<h1>Astropy II: Analyzing UVES Spectroscopy<a class="headerlink" href="#astropy-ii-analyzing-uves-spectroscopy" title="Permalink to this headline">¶</a></h1>
 <p>This tutorial follows my real live data analysis of MN Lup and the code developed
 below is taken (with only minor modifications) from the code that I used to
 actually prepare the publication. The plots that will be developed below
@@ -367,14 +335,20 @@ output you would see on your screen in this document.</p>
 <a class="reference download internal" href="../_downloads/astropy_UVES.tar.gz"><tt class="xref download docutils literal"><span class="pre">this</span> <span class="pre">tar</span> <span class="pre">file</span></tt></a> and extract
 the content, either by clicking on the link or by executing this
 python code:</p>
-<div class="highlight-python"><pre>import urllib2, tarfile
-url = 'http://python4astronomers.github.io/_downloads/astropy_UVES.tar.gz'
-tarfile.open(fileobj=urllib2.urlopen(url), mode='r|*').extractall()
+<div class="highlight-python"><div class="highlight"><pre>from astropy.extern.six.moves.urllib import request
+import tarfile
+url = &#39;http://python4astronomers.github.io/_downloads/astropy_UVES.tar.gz&#39;
+tarfile.open(fileobj=request.urlopen(url), mode=&#39;r|*&#39;).extractall()
 cd UVES
-ls</pre>
+ls
+</pre></div>
 </div>
-<p>Then start up IPython with the <tt class="docutils literal"><span class="pre">--pylab</span></tt> option to enable easy plotting:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">ipython</span> <span class="o">--</span><span class="n">pylab</span>
+<p>Then start up IPython with the <tt class="docutils literal"><span class="pre">--matplotlib</span></tt> option and do the usual imports
+to enable interactive plotting:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ ipython --matplotlib
+
+import numpy as np
+import matplotlib.pyplot as plt
 </pre></div>
 </div>
 </div>
@@ -547,9 +521,10 @@ than two lines:</p>
 <p class="last">Try to find out how you can read the help for this function from the
 command line.</p>
 </div>
-<p class="flip1">Click to Show/Hide Solution</p> <div class="panel1"><div class="highlight-python"><pre>help(read_spec)
+<p class="flip1">Click to Show/Hide Solution</p> <div class="panel1"><div class="highlight-python"><div class="highlight"><pre>help(read_spec)
 #or
-read_spec?</pre>
+read_spec?
+</pre></div>
 </div>
 </div><div class="admonition-exercise admonition">
 <p class="first admonition-title">Exercise</p>
@@ -582,7 +557,7 @@ setup.</p>
 <span class="c"># Let&#39;s just print the setup on the screen</span>
 <span class="c"># We&#39;ll see if it&#39;s all the same.</span>
 <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">filelist</span><span class="p">:</span>
-    <span class="k">print</span> <span class="n">read_setup</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">read_setup</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
 </pre></div>
 </div>
 </div><p>The UVES pipeline that was used to reduce the data that we use in the this example
@@ -607,12 +582,12 @@ with data:</p>
 <p>Often, one has to keep track of the units for certain values. Was the wavelength
 given in Angstrom or in nm? In X-ray observations, a common unit of wavelength is
 keV. How many nm is 0.65 keV?
-<a class="reference external" href="http://docs.astropy.org/en/v0.2.1/units/index.html">astropy.units</a>
+<a class="reference external" href="http://docs.astropy.org/en/stable/units/index.html">astropy.units</a>
 offers a framework that can take
 care of this book-keeping and propagate the units through many (but not all)
 mathematical operations (e.g. addition, division, multiplication).
 Furthermore,
-<a class="reference external" href="http://docs.astropy.org/en/v0.2.1/constants/index.html">astropy.constants</a>  supplies the values of
+<a class="reference external" href="http://docs.astropy.org/en/stable/constants/index.html">astropy.constants</a>  supplies the values of
 many physical and astronomical constants.
 The easiest way to attach a unit to a number is by multiplication:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">astropy.units</span> <span class="kn">as</span> <span class="nn">u</span>
@@ -643,18 +618,18 @@ signatures to appear close to the free-fall velocity v that a mass m reaches, wh
 it hits the stellar surface. We can calculate the infall speed using simple
 energy conservation:</p>
 <div class="math" id="formula-vaccr">
-<p><img src="../_images/math/e36c581ce084014a95d23cbe42304d15bbf26f7b.png" alt="E_{kin}  =  E_{grav}
+<p><img src="../_images/math/fdf16cee278befb7c078268b7a14972b35f02f03.png" alt="E_{kin}  =  E_{grav}
 
 \frac{1}{2} m v^2  =  G \frac{m M_*}{R_*}"/></p>
 </div><p>So, let us calculate the free-fall velocity for MN Lup:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">v_accr</span> <span class="o">=</span> <span class="p">(</span><span class="mf">2.</span><span class="o">*</span> <span class="n">G</span> <span class="o">*</span> <span class="n">M_MN_Lup</span><span class="o">/</span><span class="n">R_MN_Lup</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">v_accr</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">v_accr</span><span class="p">)</span>
 <span class="go">504469.027564 m / (s)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c"># Maybe astronomers prefer it in the traditional cgs system?</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">v_accr</span><span class="o">.</span><span class="n">cgs</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">v_accr</span><span class="o">.</span><span class="n">cgs</span><span class="p">)</span>
 <span class="go">50446902.7564 cm / (s)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c"># Or in some really obscure unit?</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">v_accr</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">mile</span> <span class="o">/</span> <span class="n">u</span><span class="o">.</span><span class="n">hour</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">v_accr</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">mile</span> <span class="o">/</span> <span class="n">u</span><span class="o">.</span><span class="n">hour</span><span class="p">))</span>
 <span class="go">1128465.07598 mi / (h)</span>
 </pre></div>
 </div>
@@ -675,10 +650,11 @@ shorten this to &#8220;1/s&#8221;.</p>
 <p>We can now use the <tt class="docutils literal"><span class="pre">astropy.units</span></tt> mechanism to correct the wavelength
 scale to the heliocentric velocity scale:</p>
 <div class="math">
-<p><img src="../_images/math/b59efa8caab5b43fce6d0d3fedf02598db863e08.png" alt="\lambda_{heliocentric} = \lambda_{bariocentric} * (1 + \frac{v_{helio}}{c})"/></p>
+<p><img src="../_images/math/15063658b06cee70587baf36295bad28aba17d61.png" alt="\lambda_{heliocentric} = \lambda_{bariocentric} * (1 + \frac{v_{helio}}{c})"/></p>
 </div><p>Naively, we could try:</p>
-<div class="highlight-python"><pre>wavelength = wavelength * (1. + heliocentric/c)
-TypeError: unsupported operand type(s) for +: 'float' and 'Quantity'</pre>
+<div class="highlight-python"><div class="highlight"><pre>wavelength = wavelength * (1. + heliocentric/c)
+TypeError: unsupported operand type(s) for +: &#39;float&#39; and &#39;Quantity&#39;
+</pre></div>
 </div>
 <p>However, this fails, because <tt class="docutils literal"><span class="pre">heliocentric/c</span></tt> is in units of &#8220;km/m&#8221; and <tt class="docutils literal"><span class="pre">1.</span></tt>
 is just a number. From the notation above, it is not clear what we actually want.
@@ -691,7 +667,7 @@ to tell astropy that this number is dimensionless and does not carry any scaling
 </pre></div>
 </div>
 <p>I want to mention one more feature here (check out
-<a class="reference external" href="http://docs.astropy.org/en/v0.2.1/units/index.html">astropy.units</a> for
+<a class="reference external" href="http://docs.astropy.org/en/stable/units/index.html">astropy.units</a> for
 more): The ability to convert the spectral axis to frequencies or energies.
 Normally, a unit of length is not equivalent to a unit of energy or to a
 frequency, but this conversion makes sense for the wavelength of a spectrum.
@@ -703,18 +679,18 @@ This is how it can be done:</p>
 <div class="admonition-exercise admonition">
 <p class="first admonition-title">Exercise</p>
 <p>Spectroscopically, MN Lup is classified as spectral type M0 V, thus
-the gravitational acceleration on the surface <img class="math" src="../_images/math/61a67b606ff976adb90abb7ff42d7c378a856b17.png" alt="\log(g)"/>
+the gravitational acceleration on the surface <img class="math" src="../_images/math/f71e312fe611680b4060ed6d9d1bcf11879fe1e7.png" alt="\log(g)"/>
 should be comparable to the sun.
 (For non-stellar astronomers: Conventionally, all values are given
-in the cgs system. The value for the sun is <img class="math" src="../_images/math/49685cf6aa06bec432331d377bb3d3ef65272986.png" alt="\log(g) = 4.4"/>.)</p>
-<p class="last">Calculate <img class="math" src="../_images/math/61a67b606ff976adb90abb7ff42d7c378a856b17.png" alt="\log(g)"/> for MN Lup with the values for the mass
+in the cgs system. The value for the sun is <img class="math" src="../_images/math/42ad043e400add7470e66938057957b0503890f7.png" alt="\log(g) = 4.4"/>.)</p>
+<p class="last">Calculate <img class="math" src="../_images/math/f71e312fe611680b4060ed6d9d1bcf11879fe1e7.png" alt="\log(g)"/> for MN Lup with the values for the mass
 and radius given above. Those values were determined from
-evolutionary tracks. Check if the <img class="math" src="../_images/math/61a67b606ff976adb90abb7ff42d7c378a856b17.png" alt="\log(g)"/> is consistent
+evolutionary tracks. Check if the <img class="math" src="../_images/math/f71e312fe611680b4060ed6d9d1bcf11879fe1e7.png" alt="\log(g)"/> is consistent
 with the value expected from spectroscopy.</p>
 </div>
 <p class="flip7">Click to Show/Hide Solution</p> <div class="panel7"><p>The values from evolutionary tracks are indeed consistent with the
 spectroscopically estimated surface gravity:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">((</span><span class="n">G</span><span class="o">*</span><span class="n">M_MN_Lup</span><span class="o">/</span><span class="n">R_MN_Lup</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">cgs</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">((</span><span class="n">G</span><span class="o">*</span><span class="n">M_MN_Lup</span><span class="o">/</span><span class="n">R_MN_Lup</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">cgs</span><span class="p">))</span>
 <span class="go">4.3080943799180433</span>
 </pre></div>
 </div>
@@ -725,14 +701,15 @@ We want to input a wavelengths array and the rest wavelength of a spectral
 line. We need this function later to show the red- and blueshift of the
 spectrum relative to the the Ca II H line. Use the following definition
 to make sure the that code below can use it later:</p>
-<div class="highlight-python"><pre>def wave2doppler(wavelength_array, wavelength_line):
+<div class="highlight-python"><div class="highlight"><pre>def wave2doppler(wavelength_array, wavelength_line):
     .. do something ..
-    return array_of_dopplershifts</pre>
+    return array_of_dopplershifts
+</pre></div>
 </div>
 <p>You can test if you function works by calculating the a Dopplershift
-of the following wavelengths relative to <img class="math" src="../_images/math/f450573749d6c598034d1c4b7d39231881e15711.png" alt="H_\alpha"/>:</p>
+of the following wavelengths relative to <img class="math" src="../_images/math/1cb61c8c62f4c25718d2a7da00af648e40d1c99d.png" alt="H_\alpha"/>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">waveclosetoHa</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">6562.</span><span class="p">,</span><span class="mi">6563</span><span class="p">,</span><span class="mf">6565.</span><span class="p">])</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">AA</span>
-<span class="k">print</span> <span class="n">wave2doppler</span><span class="p">(</span><span class="n">waveclosetoHa</span><span class="p">,</span> <span class="mf">656.489</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">nm</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">wave2doppler</span><span class="p">(</span><span class="n">waveclosetoHa</span><span class="p">,</span> <span class="mf">656.489</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">nm</span><span class="p">))</span>
 </pre></div>
 </div>
 <p class="last">I get -132, -86 and +5 km/s.</p>
@@ -741,7 +718,7 @@ of the following wavelengths relative to <img class="math" src="../_images/math/
     <span class="n">doppler</span> <span class="o">=</span> <span class="p">((</span><span class="n">w</span><span class="o">-</span><span class="n">w0</span><span class="p">)</span><span class="o">/</span><span class="n">w0</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">doppler</span>
 
-<span class="k">print</span> <span class="n">wave2doppler</span><span class="p">(</span><span class="n">waveclosetoHa</span><span class="p">,</span> <span class="mf">656.489</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">nm</span><span class="p">)</span><span class="o">.</span><span class="n">decompose</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">km</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">s</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">wave2doppler</span><span class="p">(</span><span class="n">waveclosetoHa</span><span class="p">,</span> <span class="mf">656.489</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">nm</span><span class="p">)</span><span class="o">.</span><span class="n">decompose</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">km</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">s</span><span class="p">))</span>
 </pre></div>
 </div>
 </div><div class="admonition-exercise admonition">
@@ -754,9 +731,10 @@ the resulting velocity in units of vsini.
 We need this function later to show the red- and blueshift of the
 spectrum relative to the Ca II H line. Use the following definition
 to make sure the that code below can use it later:</p>
-<div class="last highlight-python"><pre>def w2vsini(wavelength_array, wavelength_line):
+<div class="last highlight-python"><div class="highlight"><pre>def w2vsini(wavelength_array, wavelength_line):
     .. do something ..
-    return array_of_shifts_in_vsini</pre>
+    return array_of_shifts_in_vsini
+</pre></div>
 </div>
 </div>
 <p class="flip4">Click to Show/Hide Solution</p> <div class="panel4"><div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">w2vsini</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">w0</span><span class="p">):</span>
@@ -767,7 +745,7 @@ to make sure the that code below can use it later:</p>
 </div></div>
 <div class="section" id="converting-times">
 <h2>Converting times<a class="headerlink" href="#converting-times" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="http://docs.astropy.org/en/v0.2.1/time/index.html">astropy.time</a>
+<p><a class="reference external" href="http://docs.astropy.org/en/stable/time/index.html">astropy.time</a>
 provides methods to convert times and dates between different
 systems and formats. Since the ESO fits headers already contain the time of the
 observation in different systems, we could just read the keyword in the time
@@ -862,7 +840,7 @@ this polynomial.</p>
 for the first spectrum:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">ew</span> <span class="o">=</span> <span class="n">fcaII</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">-</span> <span class="mf">1.</span>
 <span class="n">ew</span> <span class="o">=</span> <span class="n">ew</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">wcaII</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">AA</span><span class="p">)</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">ew</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">ew</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
 </pre></div>
 </div>
 <p>Using <tt class="docutils literal"><span class="pre">numpy</span></tt> array notation we can actually process all spectra at once:</p>
@@ -873,7 +851,7 @@ for the first spectrum:</p>
 <p>Now, we want to generate a LaTeX table of the observation times, period
 and equivalent width that we can directly paste into our manuscript. To do so,
 we first collect all the columns and make an <tt class="docutils literal"><span class="pre">astropy.table.Table</span></tt> object. (Please
-check <a class="reference external" href="http://docs.astropy.org/en/v0.2.1/table/index.html">astropy.table</a>
+check <a class="reference external" href="http://docs.astropy.org/en/stable/table/index.html">astropy.table</a>
 or <a class="reference internal" href="../astropy/tables.html#tabular-data"><em>Tabular data</em></a> for more
 details on <tt class="docutils literal"><span class="pre">Table</span></tt>). So, here is the code:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">astropy.table</span> <span class="kn">import</span> <span class="n">Column</span><span class="p">,</span> <span class="n">Table</span>
@@ -1095,31 +1073,50 @@ not clutter the issue tracker needlessly.)</p>
           </div>
         </div>
       </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><h3>Page Contents</h3>
+<ul>
+<li><a class="reference internal" href="#">Astropy II: Analyzing UVES Spectroscopy</a><ul>
+<li><a class="reference internal" href="#before-you-proceed">Before you proceed</a></li>
+<li><a class="reference internal" href="#acknowledgments">Acknowledgments</a></li>
+<li><a class="reference internal" href="#scientific-background">Scientific background</a></li>
+<li><a class="reference internal" href="#reading-the-data">Reading the data</a></li>
+<li><a class="reference internal" href="#making-code-reusable-as-a-function">Making code reusable as a function</a></li>
+<li><a class="reference internal" href="#units-and-constants-in-astropy">Units and constants in astropy</a></li>
+<li><a class="reference internal" href="#converting-times">Converting times</a></li>
+<li><a class="reference internal" href="#normalize-the-flux-to-the-local-continuum">Normalize the flux to the local continuum</a></li>
+<li><a class="reference internal" href="#publication-ready-output">Publication ready output</a><ul>
+<li><a class="reference internal" href="#tables">Tables</a></li>
+<li><a class="reference internal" href="#plots">Plots</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#contributing-to-astropy">Contributing to Astropy</a></li>
+</ul>
+</li>
+</ul>
+
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../astropy/coordinates.html"
+                        title="previous chapter">Celestial Coordinates</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../vo/vo.html"
+                        title="next chapter">Online Astronomy and the virtual observatory</a></p>
+        </div>
+      </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="../local/local.html" title="Local information"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="../astropy/coordinates.html" title="Celestial Coordinates"
-             >previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li> 
-      </ul>
-    </div>
- <small>Copyright:
- Smithsonian Astrophysical Observatory under terms of
- <a rel="license"
- href="http://creativecommons.org/licenses/by/3.0/">CC
- Attribution 3.0</a></small> <a rel="license"
- href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons
- License" style="border-width:0"
- src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
-
+<footer class="footer">
+  <p class="pull-right">
+    <a href="../_sources/astropy-UVES/UVES.txt"
+       rel="nofollow">Page Source</a> &nbsp;
+    <a href="#">Back to Top</a></p>
+  <p>
+    &copy; Copyright 2011-2015, Smithsonian Astrophysical Observatory under
+    terms of <a rel="license"
+                href="http://creativecommons.org/licenses/by/3.0/">CC
+      Attribution 3.0</a>.<br/>
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.3. &nbsp;
+</footer>
   </body>
 </html>

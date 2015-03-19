@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Virtual Observatory &mdash; Python4Astronomers 1.1 documentation</title>
+    <title>Virtual Observatory &mdash; Python4Astronomers 2.0 documentation</title>
     
-    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-astropy.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.1',
+        VERSION:     '2.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,11 +23,14 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Python4Astronomers 1.1 documentation" href="../index.html" />
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <link rel="top" title="Python4Astronomers 2.0 documentation" href="../index.html" />
     <link rel="up" title="Online Astronomy and the virtual observatory" href="vo.html" />
     <link rel="next" title="ATpy" href="atpy.html" />
     <link rel="prev" title="Standard Python Tools" href="webmodules.html" />
- 
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,600' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="../_static/copybutton.js"></script>
+
 <script type="text/javascript"> 
 $(document).ready(function(){
 
@@ -273,62 +274,40 @@ display:none;
 
 </script>
 
+
   </head>
   <body>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="atpy.html" title="ATpy"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="webmodules.html" title="Standard Python Tools"
-             accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li>
-          <li><a href="vo.html" accesskey="U">Online Astronomy and the virtual observatory</a> &raquo;</li> 
-      </ul>
-    </div>
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
+<div class="topbar">
+  <a class="brand" title="Documentation Home" href="../index.html"><span id="logotext1">python</span><span id="logotext2">4</span><span id="logotext3">astronomers</span></a>
   <ul>
-<li><a class="reference internal" href="#">Virtual Observatory</a><ul>
-<li><a class="reference internal" href="#name-position-resolver">Name Position Resolver</a></li>
-<li><a class="reference internal" href="#catalog-search">Catalog Search</a></li>
-<li><a class="reference internal" href="#image-search">Image Search</a></li>
-</ul>
-</li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="webmodules.html"
-                        title="previous chapter">Standard Python Tools</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="atpy.html"
-                        title="next chapter">ATpy</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/vo/votools.txt"
-           rel="nofollow">Show Source</a></li>
+    <li><a class="homelink" title="Astropy Homepage" href="http://www.astropy.org"></a></li>
   </ul>
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
+
+<div class="related">
+    <h3>Navigation</h3>
+    <ul>
+      <li class="right">
+	<a href="atpy.html" title="ATpy">
+	  next &raquo;
+	</a>
+      </li>
+      <li class="right">
+	<a href="webmodules.html" title="Standard Python Tools">
+	  &laquo; previous
+	</a>
+	 |
+      </li>
+      <li>
+	<a href="../index.html">Python4Astronomers 2.0 documentation</a>
+	 &raquo;
+      </li>
+      <li><a href="vo.html" accesskey="U">Online Astronomy and the virtual observatory</a> &raquo;</li>
+      
+      <li>Virtual Observatory</li> 
+    </ul>
+</div>
+  
 
     <div class="document">
       <div class="documentwrapper">
@@ -415,14 +394,15 @@ Directory search.</a> Once a catalog is found, you want to copy the
 <p>enter the query URL for the target catalog (see sidebar), and create a catalog
 handler <tt class="docutils literal"><span class="pre">ic348cxo</span></tt> that wraps the query tool. We use the <tt class="docutils literal"><span class="pre">getRaw</span></tt> function
 of the ConeSearch to retrieve the raw string result that we then dump into a
-file and extract back the data using <a class="reference external" href="http://atpy.github.com">ATpy</a>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">url</span> <span class="o">=</span> <span class="s">&quot;http://vizier.u-strasbg.fr/viz-bin/votable/-A?-source=J/AJ/122/866&amp;&quot;</span>
+file and extract back the data using <a class="reference external" href="http://astropy.org">astropy</a>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">astropy.table</span> <span class="kn">import</span> <span class="n">Table</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">&quot;http://vizier.u-strasbg.fr/viz-bin/votable/-A?-source=J/AJ/122/866&amp;&quot;</span>
 <span class="n">ic348cxo</span> <span class="o">=</span> <span class="n">ConeSearch</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;ic348cxo.xml&#39;</span><span class="p">,</span><span class="s">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">ic348cxo</span><span class="o">.</span><span class="n">getRaw</span><span class="p">(</span><span class="o">**</span><span class="n">params</span><span class="p">))</span>
 
-<span class="n">data</span> <span class="o">=</span> <span class="n">atpy</span><span class="o">.</span><span class="n">Table</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="nb">type</span><span class="o">=</span><span class="s">&#39;vo&#39;</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s">&#39;votable&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -483,7 +463,7 @@ results, extracting the table of images that satisfy our query.</p>
 </pre></div>
 </div>
 <p>The returned array contains <strong>66</strong> fields!</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span> <span class="n">image_table</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">names</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">image_table</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">names</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>If all we want is the actual data then the important column is <strong>URL</strong>
@@ -501,19 +481,19 @@ while the <strong>filename</strong> column is also useful.</p>
 </div>
 <p class="last">Continue this exercise by examining the resulting image.</p>
 </div>
-<p class="flip9">Click to Show/Hide Solution</p> <div class="panel9"><p>We use <a class="reference external" href="http://www.stsci.edu/resources/software_hardware/pyfits">pyfits</a> to open the image file and examine its contents.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">pyfits</span>
+<p class="flip9">Click to Show/Hide Solution</p> <div class="panel9"><p>We use <a class="reference external" href="http://docs.astropy.org/en/stable/io/fits/">astropy.io.fits</a> to open the image file and examine its contents.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">astropy.io</span> <span class="kn">import</span> <span class="n">fits</span>
 <span class="kn">import</span> <span class="nn">aplpy</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">mpl</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 
-<span class="n">hdulist</span> <span class="o">=</span> <span class="n">pyfits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="n">hdulist</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
 
 <span class="c"># check for multiple FITS extensions and their contents</span>
 <span class="c"># in this case the &quot;PRIMARY&quot; header is empty</span>
 <span class="k">for</span> <span class="n">hdu</span> <span class="ow">in</span> <span class="n">hdulist</span><span class="p">:</span>
-    <span class="k">print</span> <span class="n">hdu</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">hdu</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;name: {0}  type: {1}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">hdu</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">hdu</span><span class="o">.</span><span class="n">data</span><span class="p">)))</span>
 
-<span class="n">fig</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
 <span class="n">f1</span> <span class="o">=</span> <span class="n">aplpy</span><span class="o">.</span><span class="n">FITSFigure</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">hdu</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">subplot</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.65</span><span class="p">],</span> <span class="n">figure</span><span class="o">=</span><span class="n">fig</span><span class="p">)</span>
 <span class="n">f1</span><span class="o">.</span><span class="n">set_tick_labels_font</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="s">&#39;x-small&#39;</span><span class="p">)</span>
 <span class="n">f1</span><span class="o">.</span><span class="n">set_axis_labels_font</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="s">&#39;small&#39;</span><span class="p">)</span>
@@ -541,32 +521,39 @@ while the <strong>filename</strong> column is also useful.</p>
           </div>
         </div>
       </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><h3>Page Contents</h3>
+<ul>
+<li><a class="reference internal" href="#">Virtual Observatory</a><ul>
+<li><a class="reference internal" href="#name-position-resolver">Name Position Resolver</a></li>
+<li><a class="reference internal" href="#catalog-search">Catalog Search</a></li>
+<li><a class="reference internal" href="#image-search">Image Search</a></li>
+</ul>
+</li>
+</ul>
+
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="webmodules.html"
+                        title="previous chapter">Standard Python Tools</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="atpy.html"
+                        title="next chapter">ATpy</a></p>
+        </div>
+      </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="atpy.html" title="ATpy"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="webmodules.html" title="Standard Python Tools"
-             >previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li>
-          <li><a href="vo.html" >Online Astronomy and the virtual observatory</a> &raquo;</li> 
-      </ul>
-    </div>
- <small>Copyright:
- Smithsonian Astrophysical Observatory under terms of
- <a rel="license"
- href="http://creativecommons.org/licenses/by/3.0/">CC
- Attribution 3.0</a></small> <a rel="license"
- href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons
- License" style="border-width:0"
- src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
-
+<footer class="footer">
+  <p class="pull-right">
+    <a href="../_sources/vo/votools.txt"
+       rel="nofollow">Page Source</a> &nbsp;
+    <a href="#">Back to Top</a></p>
+  <p>
+    &copy; Copyright 2011-2015, Smithsonian Astrophysical Observatory under
+    terms of <a rel="license"
+                href="http://creativecommons.org/licenses/by/3.0/">CC
+      Attribution 3.0</a>.<br/>
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.3. &nbsp;
+</footer>
   </body>
 </html>

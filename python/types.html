@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Python Built-in Types and Operations &mdash; Python4Astronomers 1.1 documentation</title>
+    <title>Python Built-in Types and Operations &mdash; Python4Astronomers 2.0 documentation</title>
     
-    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-astropy.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.1',
+        VERSION:     '2.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,11 +23,14 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Python4Astronomers 1.1 documentation" href="../index.html" />
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <link rel="top" title="Python4Astronomers 2.0 documentation" href="../index.html" />
     <link rel="up" title="Reading and Writing files" href="../files/files.html" />
-    <link rel="next" title="Several ways to handle ASCII data" href="../files/asciifiles.html" />
+    <link rel="next" title="Reading and Writing tabular ASCII data" href="../files/asciifiles.html" />
     <link rel="prev" title="Reading and Writing files" href="../files/files.html" />
- 
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,600' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="../_static/copybutton.js"></script>
+
 <script type="text/javascript"> 
 $(document).ready(function(){
 
@@ -273,64 +274,40 @@ display:none;
 
 </script>
 
+
   </head>
   <body>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="../files/asciifiles.html" title="Several ways to handle ASCII data"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="../files/files.html" title="Reading and Writing files"
-             accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li>
-          <li><a href="../files/files.html" accesskey="U">Reading and Writing files</a> &raquo;</li> 
-      </ul>
-    </div>
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
+<div class="topbar">
+  <a class="brand" title="Documentation Home" href="../index.html"><span id="logotext1">python</span><span id="logotext2">4</span><span id="logotext3">astronomers</span></a>
   <ul>
-<li><a class="reference internal" href="#">Python Built-in Types and Operations</a><ul>
-<li><a class="reference internal" href="#basic-numeric-types">Basic numeric types</a></li>
-<li><a class="reference internal" href="#lists-tuples-and-sets">Lists, tuples, and sets</a></li>
-<li><a class="reference internal" href="#strings">Strings</a></li>
-<li><a class="reference internal" href="#dictionaries">Dictionaries</a></li>
-<li><a class="reference internal" href="#a-note-on-python-objects">A note on Python objects</a></li>
-</ul>
-</li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="../files/files.html"
-                        title="previous chapter">Reading and Writing files</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="../files/asciifiles.html"
-                        title="next chapter">Several ways to handle ASCII data</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/python/types.txt"
-           rel="nofollow">Show Source</a></li>
+    <li><a class="homelink" title="Astropy Homepage" href="http://www.astropy.org"></a></li>
   </ul>
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
+
+<div class="related">
+    <h3>Navigation</h3>
+    <ul>
+      <li class="right">
+	<a href="../files/asciifiles.html" title="Reading and Writing tabular ASCII data">
+	  next &raquo;
+	</a>
+      </li>
+      <li class="right">
+	<a href="../files/files.html" title="Reading and Writing files">
+	  &laquo; previous
+	</a>
+	 |
+      </li>
+      <li>
+	<a href="../index.html">Python4Astronomers 2.0 documentation</a>
+	 &raquo;
+      </li>
+      <li><a href="../files/files.html" accesskey="U">Reading and Writing files</a> &raquo;</li>
+      
+      <li>Python Built-in Types and Operations</li> 
+    </ul>
+</div>
+  
 
     <div class="document">
       <div class="documentwrapper">
@@ -399,7 +376,7 @@ display:none;
 </div>
 </li>
 </ul>
-<p>However, there is one case where this happens but is not desirable, and that you should be aware of, which is the division of two integer numbers:</p>
+<p>However, there is one case in Python 2 where this happens but is not desirable, and that you should be aware of, which is the division of two integer numbers:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span> <span class="o">/</span> <span class="mi">2</span>
 <span class="go">1</span>
 </pre></div>
@@ -416,6 +393,8 @@ display:none;
 <span class="go">1</span>
 </pre></div>
 </div>
+<p>If you are writing new code in Python 2 then it&#8217;s a fine idea to start each
+file with <tt class="docutils literal"><span class="pre">from</span> <span class="pre">__future__</span> <span class="pre">import</span> <span class="pre">division</span></tt> at the top.</p>
 <p>Another way to prevent this is to cast at least one of the integers in the division to a <tt class="docutils literal"><span class="pre">float</span></tt>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="go">1.5</span>
@@ -585,31 +564,27 @@ object that you get or set by giving the &lt;object_name&gt; + dot +
 object provides, for example <tt class="docutils literal"><span class="pre">img.argmax(axis=0)</span></tt> or <tt class="docutils literal"><span class="pre">img.min()</span></tt>.</p>
 <p>Use tab completion in IPython to inspect objects and start to understand
 attributes and methods. To start off create a list of 4 numbers:</p>
-<div class="highlight-python"><pre>l = [3, 1, 2, 1]
-l.&lt;TAB&gt;</pre>
+<div class="highlight-python"><div class="highlight"><pre>l = [3, 1, 2, 1]
+l.&lt;TAB&gt;
+</pre></div>
 </div>
 <p>This will show the available attributes and methods for the Python list
 <tt class="docutils literal"><span class="pre">a</span></tt>.  <strong>Using &lt;TAB&gt;-completion and help is a very efficient way to learn and later
 remember object methods!</strong></p>
-<div class="highlight-python"><pre>In [17]: a.&lt;TAB&gt;
-a.__add__           a.__ge__            a.__iter__          a.__repr__          a.append
-a.__class__         a.__getattribute__  a.__le__            a.__reversed__      a.count
-a.__contains__      a.__getitem__       a.__len__           a.__rmul__          a.extend
-a.__delattr__       a.__getslice__      a.__lt__            a.__setattr__       a.index
-a.__delitem__       a.__gt__            a.__mul__           a.__setitem__       a.insert
-a.__delslice__      a.__hash__          a.__ne__            a.__setslice__      a.pop
-a.__doc__           a.__iadd__          a.__new__           a.__sizeof__        a.remove
-a.__eq__            a.__imul__          a.__reduce__        a.__str__           a.reverse
-a.__format__        a.__init__          a.__reduce_ex__     a.__subclasshook__  a.sort</pre>
+<div class="highlight-python"><div class="highlight"><pre>::
+</pre></div>
 </div>
-<p>For the most part you can ignore all the ones that begin with <tt class="docutils literal"><span class="pre">__</span></tt> since
-they are generally are internal methods that are not called directly.  At
-the end you see useful looking functions like <tt class="docutils literal"><span class="pre">append</span></tt> or <tt class="docutils literal"><span class="pre">sort</span></tt> which
+<blockquote>
+<div>In [17]: a.&lt;TAB&gt;
+a.append   a.extend   a.insert   a.remove   a.sort
+a.count    a.index    a.pop      a.reverse</div></blockquote>
+<p>Here you see useful looking functions like <tt class="docutils literal"><span class="pre">append</span></tt> or <tt class="docutils literal"><span class="pre">sort</span></tt> which
 you can get help for and use:</p>
-<div class="highlight-python"><pre>a.sort
+<div class="highlight-python"><div class="highlight"><pre>a.sort
 a.sort?
 a.sort()
-a</pre>
+a
+</pre></div>
 </div>
 </div>
 </div>
@@ -618,32 +593,41 @@ a</pre>
           </div>
         </div>
       </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><h3>Page Contents</h3>
+<ul>
+<li><a class="reference internal" href="#">Python Built-in Types and Operations</a><ul>
+<li><a class="reference internal" href="#basic-numeric-types">Basic numeric types</a></li>
+<li><a class="reference internal" href="#lists-tuples-and-sets">Lists, tuples, and sets</a></li>
+<li><a class="reference internal" href="#strings">Strings</a></li>
+<li><a class="reference internal" href="#dictionaries">Dictionaries</a></li>
+<li><a class="reference internal" href="#a-note-on-python-objects">A note on Python objects</a></li>
+</ul>
+</li>
+</ul>
+
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../files/files.html"
+                        title="previous chapter">Reading and Writing files</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../files/asciifiles.html"
+                        title="next chapter">Reading and Writing tabular ASCII data</a></p>
+        </div>
+      </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="../files/asciifiles.html" title="Several ways to handle ASCII data"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="../files/files.html" title="Reading and Writing files"
-             >previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li>
-          <li><a href="../files/files.html" >Reading and Writing files</a> &raquo;</li> 
-      </ul>
-    </div>
- <small>Copyright:
- Smithsonian Astrophysical Observatory under terms of
- <a rel="license"
- href="http://creativecommons.org/licenses/by/3.0/">CC
- Attribution 3.0</a></small> <a rel="license"
- href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons
- License" style="border-width:0"
- src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
-
+<footer class="footer">
+  <p class="pull-right">
+    <a href="../_sources/python/types.txt"
+       rel="nofollow">Page Source</a> &nbsp;
+    <a href="#">Back to Top</a></p>
+  <p>
+    &copy; Copyright 2011-2015, Smithsonian Astrophysical Observatory under
+    terms of <a rel="license"
+                href="http://creativecommons.org/licenses/by/3.0/">CC
+      Attribution 3.0</a>.<br/>
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.3. &nbsp;
+</footer>
   </body>
 </html>

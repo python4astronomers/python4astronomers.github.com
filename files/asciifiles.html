@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Several ways to handle ASCII data &mdash; Python4Astronomers 1.1 documentation</title>
+    <title>Reading and Writing tabular ASCII data &mdash; Python4Astronomers 2.0 documentation</title>
     
-    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-astropy.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.1',
+        VERSION:     '2.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,11 +23,14 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Python4Astronomers 1.1 documentation" href="../index.html" />
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <link rel="top" title="Python4Astronomers 2.0 documentation" href="../index.html" />
     <link rel="up" title="Reading and Writing files" href="files.html" />
-    <link rel="next" title="Binary formats useful for astronomers" href="binaryfiles.html" />
+    <link rel="next" title="Reading and Writing binary data" href="binaryfiles.html" />
     <link rel="prev" title="Python Built-in Types and Operations" href="../python/types.html" />
- 
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,600' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="../_static/copybutton.js"></script>
+
 <script type="text/javascript"> 
 $(document).ready(function(){
 
@@ -273,87 +274,71 @@ display:none;
 
 </script>
 
+
   </head>
   <body>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="binaryfiles.html" title="Binary formats useful for astronomers"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="../python/types.html" title="Python Built-in Types and Operations"
-             accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li>
-          <li><a href="files.html" accesskey="U">Reading and Writing files</a> &raquo;</li> 
-      </ul>
-    </div>
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
+<div class="topbar">
+  <a class="brand" title="Documentation Home" href="../index.html"><span id="logotext1">python</span><span id="logotext2">4</span><span id="logotext3">astronomers</span></a>
   <ul>
-<li><a class="reference internal" href="#">Several ways to handle ASCII data</a><ul>
-<li><a class="reference internal" href="#reading-and-writing-files-in-pure-python">Reading and Writing files in Pure Python</a></li>
-<li><a class="reference internal" href="#numpy">Numpy</a></li>
-<li><a class="reference internal" href="#astropy-io-ascii">astropy.io.ascii</a></li>
-</ul>
-</li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="../python/types.html"
-                        title="previous chapter">Python Built-in Types and Operations</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="binaryfiles.html"
-                        title="next chapter">Binary formats useful for astronomers</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/files/asciifiles.txt"
-           rel="nofollow">Show Source</a></li>
+    <li><a class="homelink" title="Astropy Homepage" href="http://www.astropy.org"></a></li>
   </ul>
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
+
+<div class="related">
+    <h3>Navigation</h3>
+    <ul>
+      <li class="right">
+	<a href="binaryfiles.html" title="Reading and Writing binary data">
+	  next &raquo;
+	</a>
+      </li>
+      <li class="right">
+	<a href="../python/types.html" title="Python Built-in Types and Operations">
+	  &laquo; previous
+	</a>
+	 |
+      </li>
+      <li>
+	<a href="../index.html">Python4Astronomers 2.0 documentation</a>
+	 &raquo;
+      </li>
+      <li><a href="files.html" accesskey="U">Reading and Writing files</a> &raquo;</li>
+      
+      <li>Reading and Writing tabular ASCII data</li> 
+    </ul>
+</div>
+  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="several-ways-to-handle-ascii-data">
-<h1>Several ways to handle ASCII data<a class="headerlink" href="#several-ways-to-handle-ascii-data" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="reading-and-writing-tabular-ascii-data">
+<h1>Reading and Writing tabular ASCII data<a class="headerlink" href="#reading-and-writing-tabular-ascii-data" title="Permalink to this headline">¶</a></h1>
 <p>Astronomers love storing tabular data in human-readable ASCII tables.
 Unfortunately there is very little agreement on a standard way to do this,
 unlike e.g. FITS.</p>
-<div class="section" id="reading-and-writing-files-in-pure-python">
-<h2>Reading and Writing files in Pure Python<a class="headerlink" href="#reading-and-writing-files-in-pure-python" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="pure-python">
+<h2>Pure Python<a class="headerlink" href="#pure-python" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="reading">
 <h3>Reading<a class="headerlink" href="#reading" title="Permalink to this headline">¶</a></h3>
 <p>We have already talked about <a class="reference internal" href="../python/types.html#python-built-in-types-and-operations"><em>Python Built-in Types and Operations</em></a>, but
 there are more types that we did not speak about. One of these is the
 <tt class="docutils literal"><span class="pre">file()</span></tt> object which can be used to read or write files.</p>
 <p>Let&#8217;s start off by downloading <a class="reference download internal" href="../_downloads/data.txt"><tt class="xref download docutils literal"><span class="pre">this</span></tt></a> data file, then launching IPython the directory where you have the file:</p>
-<div class="highlight-python"><pre>$ ipython --pylab</pre>
+<div class="highlight-python"><div class="highlight"><pre>$ ipython --matplotlib
+</pre></div>
 </div>
-<p>If you have trouble downloading the file, then start up IPython (<tt class="docutils literal"><span class="pre">ipython</span> <span class="pre">--pylab</span></tt>) and enter:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">urllib2</span>
+<p>Do the usual imports of numpy and matplotlib:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+<p>If you have trouble downloading the file, then from within IPython enter:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">astropy.extern.six.moves.urllib</span> <span class="kn">import</span> <span class="n">request</span>
 <span class="n">url</span> <span class="o">=</span> <span class="s">&#39;http://python4astronomers.github.com/_downloads/data.txt&#39;</span>
-<span class="nb">open</span><span class="p">(</span><span class="s">&#39;data.txt&#39;</span><span class="p">,</span> <span class="s">&#39;wb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span class="nb">open</span><span class="p">(</span><span class="s">&#39;data.txt&#39;</span><span class="p">,</span> <span class="s">&#39;wb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
 <span class="n">ls</span>
 </pre></div>
 </div>
@@ -416,12 +401,12 @@ occured inside the <tt class="docutils literal"><span class="pre">with</span></t
 <p>But what we&#8217;d really like to do is read the file line by line. There are several ways to do this, the simplest of which is to use a <tt class="docutils literal"><span class="pre">for</span></tt> loop in the following way:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;data.txt&#39;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
-    <span class="k">print</span> <span class="nb">repr</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">line</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>Notice the indent before <tt class="docutils literal"><span class="pre">print</span></tt>, which is necessary to indicate that we are inside the loop (there is no <tt class="docutils literal"><span class="pre">end</span> <span class="pre">for</span></tt> in Python). Note that we are using <tt class="docutils literal"><span class="pre">repr()</span></tt> to show any invisible characters (this will be useful in a minute). The output should now look something like this:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
-<span class="go">        print repr(line)</span>
+<span class="go">        print(repr(line))</span>
 
 <span class="go">&#39;RAJ        DEJ                          Jmag   e_Jmag\n&#39;</span>
 <span class="go">&#39;2000 (deg) 2000 (deg) 2MASS             (mag)  (mag) \n&#39;</span>
@@ -505,19 +490,20 @@ at a time.</p>
     <span class="n">columns</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
     <span class="n">name</span> <span class="o">=</span> <span class="n">columns</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
     <span class="n">j</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">columns</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
-    <span class="k">print</span> <span class="n">name</span><span class="p">,</span> <span class="n">j</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
 
 <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>The output should look like this:</p>
-<div class="highlight-python"><pre>00424433+4116085 9.453
+<div class="highlight-python"><div class="highlight"><pre>00424433+4116085 9.453
 00424403+4116069 9.321
 00424455+4116103 10.773
 00424464+4116092 9.299
 00424403+4116108 11.507
 00424464+4116106 9.399
-00424446+4116016 12.07</pre>
+00424446+4116016 12.07
+</pre></div>
 </div>
 <div class="admonition-exercise admonition">
 <p class="first admonition-title">Exercise</p>
@@ -620,11 +606,220 @@ at a time.</p>
 </div>
 </div></div>
 </div>
+<div class="section" id="astropy-io-ascii">
+<h2>astropy.io.ascii<a class="headerlink" href="#astropy-io-ascii" title="Permalink to this headline">¶</a></h2>
+<p>In the previous section you learned about reading and writing tabular data
+files using direct Python I/O and simple parsing and type-conversion rules.
+This is important base knowledge, but in real-world use when dealing with ASCII
+data files there are many complications and we recommend using the
+<a class="reference external" href="http://docs.astropy.org/en/stable/io/ascii/">astropy.io.ascii</a> module.  It natively understands (and can automatically
+detect) most of the formats which astronomers typically encounter.  As of
+Astropy 1.0 it includes C-based read and write methods which are much faster than
+any pure-Python implementations.</p>
+<p>The <a class="reference external" href="http://docs.astropy.org/en/stable/io/ascii/">astropy.io.ascii</a> module supports these formats:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://docs.astropy.org/en/stable/api/astropy.io.ascii.AASTex.html">AASTex</a>: AASTeX <tt class="docutils literal"><span class="pre">deluxetable</span></tt> used for AAS journals</li>
+<li><a class="reference external" href="http://docs.astropy.org/en/stable/api/astropy.io.ascii.Basic.html">Basic</a>: basic table with customizable delimiters and header configurations</li>
+<li><a class="reference external" href="http://docs.astropy.org/en/stable/api/astropy.io.ascii.Cds.html">Cds</a>: <a class="reference external" href="http://vizier.u-strasbg.fr/doc/catstd.htx">CDS format table</a> (also Vizier and ApJ machine readable tables)</li>
+<li><a class="reference external" href="http://docs.astropy.org/en/stable/api/astropy.io.ascii.CommentedHeader.html">CommentedHeader</a>: column names given in a line that begins with the comment character</li>
+<li><a class="reference external" href="http://docs.astropy.org/en/stable/api/astropy.io.ascii.daophot.Daophot.html">Daophot</a>: table from the IRAF DAOphot package</li>
+<li><a class="reference external" href="http://docs.astropy.org/en/stable/api/astropy.io.ascii.Ecsv.html">ECSV</a>: Enhanced Character-Separated-Values</li>
+<li><a class="reference external" href="http://docs.astropy.org/en/stable/api/astropy.io.ascii.FixedWidth.html">FixedWidth</a>: table with fixed-width columns (see also <a class="reference external" href="http://docs.astropy.org/en/stable/io/ascii/fixed_width_gallery.html#fixed-width-gallery">fixed_width_gallery</a>)</li>
+<li><a class="reference external" href="http://docs.astropy.org/en/stable/api/astropy.io.ascii.Ipac.html">Ipac</a>: <a class="reference external" href="http://irsa.ipac.caltech.edu/applications/DDGEN/Doc/ipac_tbl.html">IPAC format table</a></li>
+<li><a class="reference external" href="http://docs.astropy.org/en/stable/api/astropy.io.ascii.HTML.html">HTML</a>: HTML format table contained in a &lt;table&gt; tag</li>
+<li><a class="reference external" href="http://docs.astropy.org/en/stable/api/astropy.io.ascii.Latex.html">Latex</a>: LaTeX table with datavalue in the <tt class="docutils literal"><span class="pre">tabular</span></tt> environment</li>
+<li><a class="reference external" href="http://docs.astropy.org/en/stable/api/astropy.io.ascii.NoHeader.html">NoHeader</a>: basic table with no header where columns are auto-named</li>
+<li><a class="reference external" href="http://docs.astropy.org/en/stable/api/astropy.io.ascii.Rdb.html">Rdb</a>: tab-separated values with an extra line after the column definition line</li>
+<li><a class="reference external" href="http://docs.astropy.org/en/stable/api/astropy.io.ascii.SExtractor.html">SExtractor</a>: <a class="reference external" href="http://www.astromatic.net/software/sextractor">SExtractor format table</a></li>
+<li><a class="reference external" href="http://docs.astropy.org/en/stable/api/astropy.io.ascii.Tab.html">Tab</a>: tab-separated values</li>
+</ul>
+<div class="section" id="reading-tables">
+<h3>Reading tables<a class="headerlink" href="#reading-tables" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">astropy.io</span> <span class="kn">import</span> <span class="n">ascii</span>
+<span class="n">table</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;</span>
+<span class="s">col1 col2 col3</span>
+<span class="s">1    2    &quot;hi there&quot;</span>
+<span class="s">3    4.2  world&quot;&quot;&quot;</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">ascii</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The first and most important argument to the <a class="reference external" href="http://docs.astropy.org/en/stable/io/ascii/read.html#parameters-for-read">ascii.read()</a> function is
+the table input.  There is some flexibility here and you can supply any of the following:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Name of a file (string)</li>
+<li>Single string containing all table lines separated by newlines</li>
+<li>File-like object with a callable read() method</li>
+<li>List of strings where each list element is a table line</li>
+</ul>
+</div></blockquote>
+<div class="section" id="guessing">
+<h4>Guessing<a class="headerlink" href="#guessing" title="Permalink to this headline">¶</a></h4>
+<p>Even though it seems obvious to a human, parsing this table to get the right
+column names, data values and data types is not trivial.  <a class="reference external" href="http://docs.astropy.org/en/stable/io/ascii/">astropy.io.ascii</a> needed
+to figure out (or guess):</p>
+<ul class="simple">
+<li>Overall table format (DAOphot, CDS, RDB, Basic, etc)</li>
+<li>Column delimiter, e.g. space, comma, tab, vertical bar, etc.</li>
+<li>Column names (which row, maybe preceded by #)</li>
+<li>Quote character (single or double quote)</li>
+</ul>
+<p>By default <a class="reference external" href="http://docs.astropy.org/en/stable/io/ascii/">astropy.io.ascii</a> will try each format it knows and use the first one
+that gives a &#8220;reasonable&#8221; answer.  The details are in the <a class="reference external" href="http://docs.astropy.org/en/stable/io/ascii/read.html#guess-table-format">Guess table format</a> section.
+Sometimes it will fail, e.g.:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">table</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;</span>
+<span class="s">col1 &amp; col2</span>
+<span class="s">  1  &amp; hi there</span>
+<span class="s">  3  &amp; world</span>
+<span class="s">&quot;&quot;&quot;</span>
+<span class="n">ascii</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This gives an ominous looking stack trace, but actually all that happened is
+that <a class="reference external" href="http://docs.astropy.org/en/stable/io/ascii/">astropy.io.ascii</a> guessed every format it knows and nothing worked.  The
+standard set of column delimiters is space, comma, tab, and the vertical bar.
+In this case you simply need to give it some help:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ascii</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s">&quot;&amp;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The full list of parameters for reading includes common options like
+<tt class="docutils literal"><span class="pre">format</span></tt>, <tt class="docutils literal"><span class="pre">delimiter</span></tt>, <tt class="docutils literal"><span class="pre">quote_char</span></tt>, and <tt class="docutils literal"><span class="pre">comment</span></tt>.</p>
+</div>
+<div class="section" id="no-guessing">
+<h4>No guessing<a class="headerlink" href="#no-guessing" title="Permalink to this headline">¶</a></h4>
+<p>For some tricky tables you will want to disable guessing and explicitly provide
+the relevant table format information to the <a class="reference external" href="http://docs.astropy.org/en/stable/io/ascii/read.html#parameters-for-read">ascii.read()</a> function.
+A big advantage in this strategy is that <a class="reference external" href="http://docs.astropy.org/en/stable/io/ascii/">astropy.io.ascii</a> can then provide more
+detailed information if it still fails to parse the table, e.g.:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ascii</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">guess</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s">&#39;basic&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This produces a message (after the stacktrace) that should be a pretty good
+clue that <a class="reference external" href="http://docs.astropy.org/en/stable/io/ascii/">astropy.io.ascii</a> is using the wrong column delimiter:</p>
+<div class="highlight-python"><div class="highlight"><pre>InconsistentTableError: Number of header columns (3) inconsistent with data columns (4) at data line 0
+Header values: [&#39;col1&#39;, &#39;&amp;&#39;, &#39;col2&#39;]
+Data values: [&#39;1&#39;, &#39;&amp;&#39;, &#39;hi&#39;, &#39;there&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>Writing<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>You can write ASCII tables using the <a class="reference external" href="http://docs.astropy.org/en/stable/io/ascii/index.html#writing-tables">ascii.write()</a> function. There is a lot of flexibility in the format of the input data to be written:</p>
+<ul class="simple">
+<li>NumPy structured array or record array</li>
+<li>astropy Table object</li>
+<li>Sequence of sequences</li>
+<li>Dict of sequences</li>
+</ul>
+<p>As a first simple example, read a comma-delimited table and then write it out
+as space-delimited:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">table</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;</span>
+<span class="s">col1,col2,col3</span>
+<span class="s">1,hello world,2.5</span>
+<span class="s">3,again,5.0&quot;&quot;&quot;</span>
+<span class="n">dat</span> <span class="o">=</span> <span class="n">ascii</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">ascii</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>  <span class="c"># print to terminal instead of to file</span>
+</pre></div>
+</div>
+<p>We can use a different column delimiter:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ascii</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s">&#39;|&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>or a different table writer class:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ascii</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s">&#39;latex&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>As a final example, imagine you&#8217;ve gathered basic information about 5 galaxies
+which you want to write as an ASCII table.  You could just use pure Python file I/O as
+shown earlier, but then you may need to be careful about quoting and formatting (and why
+rewrite the same code every time when it is already done!).  Instead just use <a class="reference external" href="http://docs.astropy.org/en/stable/io/ascii/">astropy.io.ascii</a>:</p>
+<div class="highlight-python"><div class="highlight"><pre>types = [&#39;barred spiral&#39;, &#39;spiral&#39;, &#39;peculiar (ring)&#39;, &#39;elliptical&#39;, &#39;elliptical&#39;]
+redshifts = np.array([0.024221, 0.132, 0.22, 0.34, 0.45])
+lums = np.array([1e40, 1.2e40, 2e40, 3e40, 4e40])
+table = {&#39;type&#39;: types, &#39;redshift&#39;: redshifts, &#39;lum&#39;: lums}
+
+ascii.write(table, &#39;galaxies.dat&#39;, formats={&#39;redshift&#39;: &#39;%.5f&#39;, &#39;lum&#39;: &#39;%.2e&#39;})
+cat galaxies.dat
+</pre></div>
+</div>
+<div class="admonition-exercise-scraping-table-data-from-the-web admonition">
+<p class="first admonition-title">Exercise: scraping table data from the web</p>
+<p><em>Note: this exercise only works on Python 2 due to BeautifulSoup doing something
+differently in Python 3.  Five cheers to the person who can fix this!</em></p>
+<p>To do this exercise you must first install the <a class="reference external" href="http://www.crummy.com/software/BeautifulSoup/">BeautifulSoup</a> package which will parse
+HTML pages into nice data structures.  <strong>QUIT</strong> your IPython session and from the command line do:</p>
+<div class="highlight-python"><div class="highlight"><pre>pip install --upgrade beautifulsoup4
+</pre></div>
+</div>
+<p>Now start IPython again.  The exercise is to grab the table data from the
+<a class="reference external" href="http://hea-www.harvard.edu/XJET/">XJET catalog page</a> into a Python data
+structure.  First we&#8217;ll show you the really easy answer using the HTML
+reading capability of <a class="reference external" href="http://docs.astropy.org/en/stable/io/ascii/">astropy.io.ascii</a>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">dat</span> <span class="o">=</span> <span class="n">ascii</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s">&#39;http://hea-www.harvard.edu/XJET/&#39;</span><span class="p">,</span>
+                 <span class="n">format</span><span class="o">=</span><span class="s">&#39;html&#39;</span><span class="p">,</span>
+                 <span class="n">htmldict</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;table_id&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">},</span>  <span class="c"># Get data from the second table</span>
+                 <span class="n">fill_values</span><span class="o">=</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="s">&#39;-1&#39;</span><span class="p">),</span>   <span class="c"># Fill blank entries with -1</span>
+                 <span class="n">header_start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>           <span class="c"># Row 0 is header with column names</span>
+                 <span class="n">data_start</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>             <span class="c"># Row 1 is start of table data</span>
+</pre></div>
+</div>
+<p>But in order to understand the guts of how this works, start by defining
+following function which converts an HTML table to a list of lines with
+tab-separated values (this will be more clear in the next part):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="k">def</span> <span class="nf">html2tsv</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Parse the index&#39;th HTML table in ``html``.  Return table as a list of</span>
+<span class="sd">    tab-separated ASCII table lines&quot;&quot;&quot;</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+    <span class="n">tables</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s">&#39;table&#39;</span><span class="p">)</span>
+    <span class="n">table</span> <span class="o">=</span> <span class="n">tables</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">table</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s">&#39;tr&#39;</span><span class="p">):</span>
+        <span class="n">colvals</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span><span class="o">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">row</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s">&#39;td&#39;</span><span class="p">)]</span>
+        <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\t</span><span class="s">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">colvals</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">out</span>
+</pre></div>
+</div>
+<p>You&#8217;ll want to start with:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">astropy.extern.six.moves.urllib</span> <span class="kn">import</span> <span class="n">request</span>
+<span class="kn">from</span> <span class="nn">astropy.io</span> <span class="kn">import</span> <span class="n">ascii</span>
+<span class="n">html</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s">&#39;http://hea-www.harvard.edu/XJET/&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>  <span class="c"># Get web page as string</span>
+<span class="n">table1</span> <span class="o">=</span> <span class="n">html2tsv</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>   <span class="c"># Parse the first table in the web page</span>
+<span class="n">table2</span> <span class="o">=</span> <span class="n">html2tsv</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>   <span class="c"># Parse the second table</span>
+<span class="n">table3</span> <span class="o">=</span> <span class="n">html2tsv</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>   <span class="c"># Parse the third table</span>
+</pre></div>
+</div>
+<p>Now examine what you got in the <tt class="docutils literal"><span class="pre">table</span></tt> variables and use
+<a class="reference external" href="http://docs.astropy.org/en/stable/io/ascii/read.html#parameters-for-read">ascii.read()</a> to parse the right one into a table.  Then plot a
+histogram of the redshift distribution in this sample.</p>
+<p class="last"><strong>HINT</strong>: the table has missing values so include <tt class="docutils literal"><span class="pre">fill_values=('',</span> <span class="pre">'-1')</span></tt> in
+the call to <a class="reference external" href="http://docs.astropy.org/en/stable/io/ascii/read.html#parameters-for-read">ascii.read()</a>.  <a class="reference external" href="http://docs.astropy.org/en/stable/io/ascii/">astropy.io.ascii</a> has robust functionality to <a class="reference external" href="http://docs.astropy.org/en/stable/io/ascii/read.html#replace-bad-or-missing-values">replace bad or
+missing values</a>.</p>
+</div>
+<p class="flip9">Click to Show/Hide Solution</p> <div class="panel9"><p>The data are in the second table, so do:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">dat</span> <span class="o">=</span> <span class="n">ascii</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">table2</span><span class="p">,</span> <span class="n">fill_values</span><span class="o">=</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="s">&#39;-1&#39;</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">dat</span><span class="p">)</span>
+<span class="n">dat</span><span class="o">.</span><span class="n">colnames</span>
+<span class="n">dat</span><span class="o">.</span><span class="n">dtype</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">dat</span><span class="p">[</span><span class="s">&#39;z&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/xjet_hist.png"><img alt="../_images/xjet_hist.png" src="../_images/xjet_hist.png" style="width: 406.0px; height: 306.0px;" /></a>
+</div></div>
+</div>
 <div class="section" id="numpy">
 <h2>Numpy<a class="headerlink" href="#numpy" title="Permalink to this headline">¶</a></h2>
-<p>Numpy provides two functions to read in ASCII data. <tt class="docutils literal"><span class="pre">np.loadtxt</span></tt> is meant for relatively simple tables without missing values:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">StringIO</span> <span class="kn">import</span> <span class="n">StringIO</span>   <span class="c"># Pretends your variable is really a file</span>
-                                <span class="c"># because loadtxt expect a filename as input</span>
+<p>Numpy provides two functions to read in ASCII data which we describe here for
+completeness.  In most cases the <a class="reference external" href="http://docs.astropy.org/en/stable/io/ascii/">astropy.io.ascii</a> functionality is
+recommended since it is more flexible and generally faster.</p>
+<p><tt class="docutils literal"><span class="pre">np.loadtxt</span></tt> is meant for relatively simple tables without missing values:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># Pretend your variable is really a file because loadtxt expect</span>
+<span class="c"># a filename as input</span>
+<span class="kn">from</span> <span class="nn">astropy.extern.six.moves</span> <span class="kn">import</span> <span class="n">cStringIO</span> <span class="k">as</span> <span class="n">StringIO</span>
+
 <span class="n">c</span> <span class="o">=</span> <span class="n">StringIO</span><span class="p">(</span><span class="s">&quot;0 1</span><span class="se">\n</span><span class="s">2 3&quot;</span><span class="p">)</span>
 <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 </pre></div>
@@ -649,7 +844,9 @@ at a time.</p>
 </div>
 <p>The resulting plot clearly shows the inverse first ionization potential effect.
 That means, that elements of a large FIP are enhanced in the corona.</p>
-<p>The second command <tt class="docutils literal"><span class="pre">np.genfromtxt</span></tt> is more versatile. It can fill missing values in a table, read column names, exclude some columns etc. Here is an example:</p>
+<p>The second command <tt class="docutils literal"><span class="pre">np.genfromtxt</span></tt> is more versatile. It can fill missing
+values in a table, read column names, exclude some columns etc. Here is an
+example (which only works in Python 2 as of Numpy 1.9):</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">d</span> <span class="o">=</span> <span class="n">StringIO</span><span class="p">(</span><span class="s">&#39;&#39;&#39;</span>
 <span class="s">#element abund error FIP</span>
 <span class="s">C  0.2  0.03 11.3</span>
@@ -678,226 +875,45 @@ data at once:</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="astropy-io-ascii">
-<h2>astropy.io.ascii<a class="headerlink" href="#astropy-io-ascii" title="Permalink to this headline">¶</a></h2>
-<p>If you need even more flexibility, than the <a class="reference external" href="http://docs.astropy.org/en/v0.2.1/io/ascii/index.html">astropy.io.ascii</a> module can help you.
-It natively understands some very complex formats, e.g. the CDS machine readable tables and it can automatically detect any of those formats.
-If also can format your output in LaTeX.</p>
-<p>The <a class="reference external" href="http://docs.astropy.org/en/v0.2.1/io/ascii/index.html">astropy.io.ascii</a> module is an extensible ASCII table reader and writer that is
-designed to handle most formats you will encounter in the wild:</p>
-<ul class="simple">
-<li><a class="reference external" href="http://docs.astropy.org/en/v0.2.1/_generated/astropy.io.ascii.latex.AASTex.html#astropy.io.ascii.latex.AASTex">astropy.io.ascii.AASTex</a>: AASTeX <tt class="docutils literal"><span class="pre">deluxetable</span></tt> used for AAS journals</li>
-<li><a class="reference external" href="http://docs.astropy.org/en/v0.2.1/_generated/astropy.io.ascii.basic.Basic.html#astropy.io.ascii.basic.Basic">astropy.io.ascii.Basic</a>: basic table with customizable delimiters and header configurations</li>
-<li><a class="reference external" href="http://docs.astropy.org/en/v0.2.1/_generated/astropy.io.ascii.cds.Cds.html#astropy.io.ascii.cds.Cds">astropy.io.ascii.Cds</a>: <a class="reference external" href="http://vizier.u-strasbg.fr/doc/catstd.htx">CDS format table</a> (also Vizier and ApJ machine readable tables)</li>
-<li><a class="reference external" href="http://docs.astropy.org/en/v0.2.1/_generated/astropy.io.ascii.basic.CommentedHeader.html#astropy.io.ascii.basic.CommentedHeader">astropy.io.ascii.CommentedHeader</a>: column names given in a line that begins with the comment character</li>
-<li><a class="reference external" href="http://docs.astropy.org/en/v0.2.1/_generated/astropy.io.ascii.daophot.Daophot.html#astropy.io.ascii.daophot.Daophot">astropy.io.ascii.Daophot</a>: table from the IRAF DAOphot package</li>
-<li><a class="reference external" href="http://docs.astropy.org/en/v0.2.1/_generated/astropy.io.ascii.fixedwidth.FixedWidth.html#astropy.io.ascii.fixedwidth.FixedWidth">astropy.io.ascii.FixedWidth</a>: table with fixed-width columns (see also <a class="reference external" href="http://docs.astropy.org/en/v0.2.1/io/ascii/fixed_width_gallery.html#fixed-width-gallery">fixed_width_gallery</a>)</li>
-<li><a class="reference external" href="http://docs.astropy.org/en/v0.2.1/_generated/astropy.io.ascii.ipac.Ipac.html#astropy.io.ascii.ipac.Ipac">astropy.io.ascii.Ipac</a>: <a class="reference external" href="http://irsa.ipac.caltech.edu/applications/DDGEN/Doc/ipac_tbl.html">IPAC format table</a></li>
-<li><a class="reference external" href="http://docs.astropy.org/en/v0.2.1/_generated/astropy.io.ascii.latex.Latex.html#astropy.io.ascii.latex.Latex">astropy.io.ascii.Latex</a>: LaTeX table with datavalue in the <tt class="docutils literal"><span class="pre">tabular</span></tt> environment</li>
-<li><a class="reference external" href="http://docs.astropy.org/en/v0.2.1/_generated/astropy.io.ascii.basic.NoHeader.html#astropy.io.ascii.basic.NoHeader">astropy.io.ascii.NoHeader</a>: basic table with no header where columns are auto-named</li>
-<li><a class="reference external" href="http://docs.astropy.org/en/v0.2.1/_generated/astropy.io.ascii.basic.Rdb.html#astropy.io.ascii.basic.Rdb">astropy.io.ascii.Rdb</a>: tab-separated values with an extra line after the column definition line</li>
-<li><a class="reference external" href="http://docs.astropy.org/en/v0.2.1/_generated/astropy.io.ascii.sextractor.SExtractor.html#astropy.io.ascii.sextractor.SExtractor">astropy.io.ascii.SExtractor</a>: <a class="reference external" href="http://www.astromatic.net/software/sextractor">SExtractor format table</a></li>
-<li><a class="reference external" href="http://docs.astropy.org/en/v0.2.1/_generated/astropy.io.ascii.basic.Tab.html#astropy.io.ascii.basic.Tab">astropy.io.ascii.Tab</a>: tab-separated values</li>
-</ul>
-<p><a class="reference external" href="http://docs.astropy.org/en/v0.2.1/io/ascii/index.html">astropy.io.ascii</a> is built on a modular and extensible class structure. This makes
-is easy to create new classes, which implement the functionality for some
-specific table format.</p>
-<div class="section" id="reading-tables">
-<h3>Reading tables<a class="headerlink" href="#reading-tables" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">astropy.io</span> <span class="kn">import</span> <span class="n">ascii</span>
-<span class="n">table</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;</span>
-<span class="s">col1 col2 col3</span>
-<span class="s">1    2    &quot;hi there&quot;</span>
-<span class="s">3    4.2  world&quot;&quot;&quot;</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">ascii</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>The first and most important argument to the <a class="reference external" href="http://docs.astropy.org/en/v0.2.1/io/ascii/read.html#parameters-for-read">ascii.read()</a> function is
-the table input.  There is some flexibility here and you can supply any of the following:</p>
-<blockquote>
-<div><ul class="simple">
-<li>Name of a file (string)</li>
-<li>Single string containing all table lines separated by newlines</li>
-<li>File-like object with a callable read() method</li>
-<li>List of strings where each list element is a table line</li>
-</ul>
-</div></blockquote>
-<div class="section" id="guessing">
-<h4>Guessing<a class="headerlink" href="#guessing" title="Permalink to this headline">¶</a></h4>
-<p>Even though it seems obvious to a human, parsing this table to get the right
-column names, data values and data types is not trivial.  <a class="reference external" href="http://docs.astropy.org/en/v0.2.1/io/ascii/index.html">astropy.io.ascii</a> needed
-to figure out (or guess):</p>
-<ul class="simple">
-<li>Overall table format (DAOphot, CDS, RDB, Basic, etc)</li>
-<li>Column delimiter, e.g. space, comma, tab, vertical bar, etc.</li>
-<li>Column names (which row, maybe preceded by #)</li>
-<li>Quote character (single or double quote)</li>
-</ul>
-<p>By default <a class="reference external" href="http://docs.astropy.org/en/v0.2.1/io/ascii/index.html">astropy.io.ascii</a> will try each format it knows and use the first one
-that gives a &#8220;reasonable&#8221; answer.  The details are in the <a class="reference external" href="http://docs.astropy.org/en/v0.2.1/io/ascii/read.html#guess-table-format">Guess table format</a> section.
-Sometimes it will fail, e.g.:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">table</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;</span>
-<span class="s">col1 &amp; col2</span>
-<span class="s">  1  &amp; hi there</span>
-<span class="s">  3  &amp; world</span>
-<span class="s">&quot;&quot;&quot;</span>
-<span class="n">ascii</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>This gives an ominous looking stack trace, but actually all that happened is
-that <a class="reference external" href="http://docs.astropy.org/en/v0.2.1/io/ascii/index.html">astropy.io.ascii</a> guessed every format it knows and nothing worked.  The
-standard set of column delimiters is space, comma, tab, and the vertical bar.
-In this case you simply need to give it some help:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">ascii</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s">&quot;&amp;&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>The full list of parameters for reading includes common options like
-<tt class="docutils literal"><span class="pre">Reader</span></tt>, <tt class="docutils literal"><span class="pre">delimiter</span></tt>, <tt class="docutils literal"><span class="pre">quote_char</span></tt>, and <tt class="docutils literal"><span class="pre">comment</span></tt>.</p>
-</div>
-<div class="section" id="no-guessing">
-<h4>No guessing<a class="headerlink" href="#no-guessing" title="Permalink to this headline">¶</a></h4>
-<p>For some tricky tables you will want to disable guessing and explicitly provide
-the relevant table format information to the <a class="reference external" href="http://docs.astropy.org/en/v0.2.1/io/ascii/read.html#parameters-for-read">ascii.read()</a> function.
-A big advantage in this strategy is that <a class="reference external" href="http://docs.astropy.org/en/v0.2.1/io/ascii/index.html">astropy.io.ascii</a> can then provide more
-detailed information if it still fails to parse the table, e.g.:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">ascii</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">guess</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">Reader</span><span class="o">=</span><span class="n">ascii</span><span class="o">.</span><span class="n">Basic</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>This produces a message (after the stacktrace) that should be a pretty good
-clue that <a class="reference external" href="http://docs.astropy.org/en/v0.2.1/io/ascii/index.html">astropy.io.ascii</a> is using the wrong column delimiter:</p>
-<div class="highlight-python"><pre>InconsistentTableError: Number of header columns (3) inconsistent with data columns (4) at data line 0
-Header values: ['col1', '&amp;', 'col2']
-Data values: ['1', '&amp;', 'hi', 'there']</pre>
-</div>
-</div>
-</div>
-<div class="section" id="id1">
-<h3>Writing<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<p>You can write ASCII tables using the <a class="reference external" href="http://docs.astropy.org/en/v0.2.1/io/ascii/index.html#writing-tables">ascii.write()</a> function. There is a lot of flexibility in the format of the input data to be written:</p>
-<ul class="simple">
-<li>Existing ASCII table with metadata</li>
-<li>Data from ascii.read()</li>
-<li>NumPy structured array or record array</li>
-<li>astropy.table.Table object</li>
-<li>Sequence of sequences</li>
-<li>Dict of sequences</li>
-</ul>
-<p>As a first simple example, read a comma-delimited table and then write it out
-as space-delimited:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">table</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;</span>
-<span class="s">col1,col2,col3</span>
-<span class="s">1,hello world,2.5</span>
-<span class="s">3,again,5.0&quot;&quot;&quot;</span>
-<span class="n">dat</span> <span class="o">=</span> <span class="n">ascii</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
-
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="n">ascii</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>  <span class="c"># print to terminal instead of to file</span>
-</pre></div>
-</div>
-<p>We can use a different column delimiter:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">ascii</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s">&#39;|&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>or a different table writer class:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">ascii</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">Writer</span><span class="o">=</span><span class="n">ascii</span><span class="o">.</span><span class="n">Latex</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>As a final example, imagine you&#8217;ve gathered basic information about 5 galaxies
-which you want to write as an ASCII table.  You could just use pure Python file I/O as
-shown earlier, but then you may need to be careful about quoting and formatting (and why
-rewrite the same code every time when it is already done!).  Instead just use <a class="reference external" href="http://docs.astropy.org/en/v0.2.1/io/ascii/index.html">astropy.io.ascii</a>:</p>
-<div class="highlight-python"><pre>types = ['barred spiral', 'spiral', 'peculiar (ring)', 'elliptical', 'elliptical']
-redshifts = np.array([0.024221, 0.132, 0.22, 0.34, 0.45])
-lums = np.array([1e40, 1.2e40, 2e40, 3e40, 4e40])
-table = {'type': types, 'redshift': redshifts, 'lum': lums}
-
-ascii.write(table, 'galaxies.dat', formats={'redshift': '%.5f', 'lum': '%.2e'})
-cat galaxies.dat</pre>
-</div>
-<div class="admonition-exercise-scraping-table-data-from-the-web admonition">
-<p class="first admonition-title">Exercise: scraping table data from the web</p>
-<p>To do this exercise you must first install the <a class="reference external" href="http://www.crummy.com/software/BeautifulSoup/">BeautifulSoup</a> package which will parse
-HTML pages into nice data structures.  <strong>QUIT</strong> your IPython session and from the command line do:</p>
-<div class="highlight-python"><pre>pip install --upgrade [--user] BeautifulSoup</pre>
-</div>
-<p>Use the <tt class="docutils literal"><span class="pre">--user</span></tt> flag if you prefer to install the package into your local
-user area instead of within the system Python installation.</p>
-<p>Now start IPython again and define the following function which converts an
-HTML table to a list of lines with tab-separated values (this will be more
-clear in the next part):</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">BeautifulSoup</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
-<span class="k">def</span> <span class="nf">html2tsv</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Parse the index&#39;th HTML table in ``html``.  Return table as a list of</span>
-<span class="sd">    tab-separated ASCII table lines&quot;&quot;&quot;</span>
-    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
-    <span class="n">tables</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s">&#39;table&#39;</span><span class="p">)</span>
-    <span class="n">table</span> <span class="o">=</span> <span class="n">tables</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
-    <span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">table</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s">&#39;tr&#39;</span><span class="p">):</span>
-        <span class="n">colvals</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span><span class="o">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">row</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s">&#39;td&#39;</span><span class="p">)]</span>
-        <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\t</span><span class="s">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">colvals</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">out</span>
-</pre></div>
-</div>
-<p>Now the exercise is to grab the table data from the <a class="reference external" href="http://hea-www.harvard.edu/XJET/">XJET catalog page</a> into a Python data structure.  You&#8217;ll
-want to start with:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">urllib2</span>
-<span class="kn">from</span> <span class="nn">astropy.io</span> <span class="kn">import</span> <span class="n">ascii</span>
-<span class="n">html</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s">&#39;http://hea-www.harvard.edu/XJET/&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>  <span class="c"># Get web page as string</span>
-<span class="n">table1</span> <span class="o">=</span> <span class="n">html2tsv</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>   <span class="c"># Parse the first table in the web page</span>
-<span class="n">table2</span> <span class="o">=</span> <span class="n">html2tsv</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>   <span class="c"># Parse the second table</span>
-<span class="n">table3</span> <span class="o">=</span> <span class="n">html2tsv</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>   <span class="c"># Parse the third table</span>
-</pre></div>
-</div>
-<p>Now examine what you got in the <tt class="docutils literal"><span class="pre">table</span></tt> variables and use
-<a class="reference external" href="http://docs.astropy.org/en/v0.2.1/io/ascii/read.html#parameters-for-read">ascii.read()</a> to parse the right one into a table.  Then plot a
-histogram of the redshift distribution in this sample.</p>
-<p class="last"><strong>HINT</strong>: the table has missing values so include <tt class="docutils literal"><span class="pre">fill_values=('',</span> <span class="pre">'-1')</span></tt> in
-the call to <a class="reference external" href="http://docs.astropy.org/en/v0.2.1/io/ascii/read.html#parameters-for-read">ascii.read()</a>.  <a class="reference external" href="http://docs.astropy.org/en/v0.2.1/io/ascii/index.html">astropy.io.ascii</a> has robust functionality to <a class="reference external" href="http://docs.astropy.org/en/v0.2.1/io/ascii/read.html#replace-bad-or-missing-values">replace bad or
-missing values</a>.</p>
-</div>
-<p class="flip9">Click to Show/Hide Solution</p> <div class="panel9"><p>The data are in the second table, so do:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">dat</span> <span class="o">=</span> <span class="n">asciitable</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">table2</span><span class="p">,</span> <span class="n">fill_values</span><span class="o">=</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="s">&#39;-1&#39;</span><span class="p">))</span>
-<span class="n">dat</span><span class="o">.</span><span class="n">dtype</span>
-<span class="n">dat</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">names</span>
-<span class="n">hist</span><span class="p">(</span><span class="n">dat</span><span class="p">[</span><span class="s">&#39;z&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="../_images/xjet_hist.png"><img alt="../_images/xjet_hist.png" src="../_images/xjet_hist.png" style="width: 406.0px; height: 306.0px;" /></a>
-</div></div>
-</div>
 </div>
 
 
           </div>
         </div>
       </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><h3>Page Contents</h3>
+<ul>
+<li><a class="reference internal" href="#">Reading and Writing tabular ASCII data</a><ul>
+<li><a class="reference internal" href="#pure-python">Pure Python</a></li>
+<li><a class="reference internal" href="#astropy-io-ascii">astropy.io.ascii</a></li>
+<li><a class="reference internal" href="#numpy">Numpy</a></li>
+</ul>
+</li>
+</ul>
+
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../python/types.html"
+                        title="previous chapter">Python Built-in Types and Operations</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="binaryfiles.html"
+                        title="next chapter">Reading and Writing binary data</a></p>
+        </div>
+      </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="binaryfiles.html" title="Binary formats useful for astronomers"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="../python/types.html" title="Python Built-in Types and Operations"
-             >previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li>
-          <li><a href="files.html" >Reading and Writing files</a> &raquo;</li> 
-      </ul>
-    </div>
- <small>Copyright:
- Smithsonian Astrophysical Observatory under terms of
- <a rel="license"
- href="http://creativecommons.org/licenses/by/3.0/">CC
- Attribution 3.0</a></small> <a rel="license"
- href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons
- License" style="border-width:0"
- src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
-
+<footer class="footer">
+  <p class="pull-right">
+    <a href="../_sources/files/asciifiles.txt"
+       rel="nofollow">Page Source</a> &nbsp;
+    <a href="#">Back to Top</a></p>
+  <p>
+    &copy; Copyright 2011-2015, Smithsonian Astrophysical Observatory under
+    terms of <a rel="license"
+                href="http://creativecommons.org/licenses/by/3.0/">CC
+      Attribution 3.0</a>.<br/>
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.3. &nbsp;
+</footer>
   </body>
 </html>

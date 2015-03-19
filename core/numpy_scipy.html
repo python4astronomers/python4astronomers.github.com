@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>NumPy &mdash; Python4Astronomers 1.1 documentation</title>
+    <title>NumPy &mdash; Python4Astronomers 2.0 documentation</title>
     
-    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-astropy.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.1',
+        VERSION:     '2.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,11 +23,14 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Python4Astronomers 1.1 documentation" href="../index.html" />
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <link rel="top" title="Python4Astronomers 2.0 documentation" href="../index.html" />
     <link rel="up" title="Core packages for analysis: IPython, NumPy, and SciPy" href="core.html" />
     <link rel="next" title="CONTEST: Make a fun bouncing balls demo" href="../contest/bounce.html" />
     <link rel="prev" title="IPython" href="ipython.html" />
- 
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,600' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="../_static/copybutton.js"></script>
+
 <script type="text/javascript"> 
 $(document).ready(function(){
 
@@ -273,67 +274,40 @@ display:none;
 
 </script>
 
+
   </head>
   <body>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="../contest/bounce.html" title="CONTEST: Make a fun bouncing balls demo"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="ipython.html" title="IPython"
-             accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li>
-          <li><a href="core.html" accesskey="U">Core packages for analysis: IPython, NumPy, and SciPy</a> &raquo;</li> 
-      </ul>
-    </div>
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
+<div class="topbar">
+  <a class="brand" title="Documentation Home" href="../index.html"><span id="logotext1">python</span><span id="logotext2">4</span><span id="logotext3">astronomers</span></a>
   <ul>
-<li><a class="reference internal" href="#">NumPy</a><ul>
-<li><a class="reference internal" href="#setup">Setup</a></li>
-<li><a class="reference internal" href="#read-in-the-2-d-image">Read in the 2-d image</a></li>
-<li><a class="reference internal" href="#numpy-basics">NumPy basics</a></li>
-<li><a class="reference internal" href="#plot-the-spatial-profile-and-raw-spectrum">Plot the spatial profile and raw spectrum</a></li>
-<li><a class="reference internal" href="#filter-cosmic-rays-from-the-background">Filter cosmic rays from the background</a></li>
-<li><a class="reference internal" href="#fit-the-background">Fit the background</a></li>
-<li><a class="reference internal" href="#sum-the-source-signal">Sum the source signal</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#scipy">SciPy</a></li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="ipython.html"
-                        title="previous chapter">IPython</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="../contest/bounce.html"
-                        title="next chapter">CONTEST: Make a fun bouncing balls demo</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/core/numpy_scipy.txt"
-           rel="nofollow">Show Source</a></li>
+    <li><a class="homelink" title="Astropy Homepage" href="http://www.astropy.org"></a></li>
   </ul>
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
+
+<div class="related">
+    <h3>Navigation</h3>
+    <ul>
+      <li class="right">
+	<a href="../contest/bounce.html" title="CONTEST: Make a fun bouncing balls demo">
+	  next &raquo;
+	</a>
+      </li>
+      <li class="right">
+	<a href="ipython.html" title="IPython">
+	  &laquo; previous
+	</a>
+	 |
+      </li>
+      <li>
+	<a href="../index.html">Python4Astronomers 2.0 documentation</a>
+	 &raquo;
+      </li>
+      <li><a href="core.html" accesskey="U">Core packages for analysis: IPython, NumPy, and SciPy</a> &raquo;</li>
+      
+      <li>NumPy</li> 
+    </ul>
+</div>
+  
 
     <div class="document">
       <div class="documentwrapper">
@@ -381,23 +355,28 @@ workshop, but on its own it&#8217;s a bit dry for the impatient astronomer.</p>
 the workshop.  Now that you have a working Python installation we can do this
 without worrying about details of the platform (e.g. linux has wget,
 Mac has curl, Windows might not have tar, etc etc).</p>
-<p>Now start IPython (&#8220;ipython &#8211;pylab&#8221;) or use your existing session and enter:</p>
-<div class="highlight-python"><pre>import urllib2, tarfile
-url = 'http://python4astronomers.github.com/core/core_examples.tar'
-tarfile.open(fileobj=urllib2.urlopen(url), mode='r|').extractall()
+<p>Now start IPython (&#8220;ipython &#8211;matplotlib&#8221;) or use your existing session and enter:</p>
+<div class="highlight-python"><div class="highlight"><pre>import numpy as np
+import matplotlib.pyplot as plt
+
+from astropy.extern.six.moves.urllib import request
+import tarfile
+url = &#39;http://python4astronomers.github.com/core/core_examples.tar&#39;
+tarfile.open(fileobj=request.urlopen(url), mode=&#39;r|&#39;).extractall()
 cd py4ast/core
-ls</pre>
+ls
+</pre></div>
 </div>
 <p>Leave this IPython session open for the rest of the workshop.</p>
 <div class="admonition-exercise-for-the-interested-reader-how-did-that-code-above-work admonition">
 <p class="first admonition-title">Exercise (for the interested reader): How did that code above work?</p>
 <p class="last">Explain what&#8217;s happening in each part of the previous code snippet to grab
-the file at a URL and untar it.  Google on &#8220;python urllib2&#8221; and &#8220;python
+the file at a URL and untar it.  Google on &#8220;python3 urllib&#8221; and &#8220;python
 tarfile&#8221; to find the relevant module docs.  Figure out how you would
 use the <tt class="docutils literal"><span class="pre">tarfile</span></tt> module to create a tarfile.</p>
 </div>
 <p class="flip0">Click to Show/Hide Solution</p> <div class="panel0"><ul class="simple">
-<li><tt class="docutils literal"><span class="pre">urllib2.urlopen(url)</span></tt> opens the URL as a streaming file-like object</li>
+<li><tt class="docutils literal"><span class="pre">urllib.request.urlopen(url)</span></tt> opens the URL as a streaming file-like object</li>
 <li><tt class="docutils literal"><span class="pre">mode='r|'</span> <span class="pre">means</span> <span class="pre">``tarfile</span></tt> is expecting a streaming file-like object
 with no ability to seek in the file</li>
 <li><tt class="docutils literal"><span class="pre">tarfile.open(..).extractall</span></tt> then extracts the tar archive</li>
@@ -417,7 +396,8 @@ values, and data quality for each pixel.  The slit direction is along the rows
 </pre></div>
 </div>
 <p>Use the <tt class="docutils literal"><span class="pre">?</span></tt> to get a little more detail on the <tt class="docutils literal"><span class="pre">hdus</span></tt> object:</p>
-<div class="highlight-python"><pre>hdus?</pre>
+<div class="highlight-python"><div class="highlight"><pre>hdus?
+</pre></div>
 </div>
 <p>Now give meaningful names to each of the three images that are available in the
 FITS HDU list.  You can access element <tt class="docutils literal"><span class="pre">n</span></tt> in a list with the index <tt class="docutils literal"><span class="pre">[n]</span></tt>,
@@ -472,14 +452,16 @@ work for you?</p>
 <a class="reference internal image-reference" href="../_images/imgview_err.png"><img alt="../_images/imgview_err.png" src="../_images/imgview_err.png" style="width: 406.0px; height: 306.0px;" /></a>
 <a class="reference internal image-reference" href="../_images/imgview_dq.png"><img alt="../_images/imgview_dq.png" src="../_images/imgview_dq.png" style="width: 406.0px; height: 306.0px;" /></a>
 </div><p>Now discover a little bit about the images you have read in, first with <tt class="docutils literal"><span class="pre">?</span></tt>:</p>
-<div class="highlight-python"><pre>img?</pre>
+<div class="highlight-python"><div class="highlight"><pre>img?
+</pre></div>
 </div>
 <p>Next use <tt class="docutils literal"><span class="pre">help</span></tt> and note the slightly different information that you get:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">help</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Use tab completion to see all the methods in short form:</p>
-<div class="highlight-python"><pre>img.&lt;TAB&gt;</pre>
+<div class="highlight-python"><div class="highlight"><pre>img.&lt;TAB&gt;
+</pre></div>
 </div>
 <p>Finally find the shape of the image and its minimum value:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">img</span><span class="o">.</span><span class="n">shape</span>  <span class="c"># Get the shape of img</span>
@@ -584,11 +566,12 @@ in NumPy):</p>
 Make <tt class="docutils literal"><span class="pre">y</span></tt> the same as <tt class="docutils literal"><span class="pre">x</span></tt> but &#8220;transposed&#8221; using the <tt class="docutils literal"><span class="pre">reshape</span></tt> trick above.
 Use <cite>plt.imshow</cite> to display the image of <tt class="docutils literal"><span class="pre">z</span></tt>.</p>
 </div>
-<p class="flip3">Click to Show/Hide Solution</p> <div class="panel3"><div class="highlight-python"><pre>x = np.arange(-20, 20, 0.25)
+<p class="flip3">Click to Show/Hide Solution</p> <div class="panel3"><div class="highlight-python"><div class="highlight"><pre>x = np.arange(-20, 20, 0.25)
 y = x.reshape(-1, 1)
 r = np.sqrt(x**2 + y**2)
 z = np.cos(r) / (r + 5)
-plt.imshow(z, origin = 'lower)</pre>
+plt.imshow(z, origin = &#39;lower)
+</pre></div>
 </div>
 <a class="reference internal image-reference" href="../_images/ripple.png"><img alt="../_images/ripple.png" src="../_images/ripple.png" style="width: 406.0px; height: 306.0px;" /></a>
 </div></div>
@@ -627,8 +610,9 @@ example plot column 300 of the longslit image to look at the spatial profile:</p
 </div>
 <a class="reference internal image-reference" href="../_images/img_col300.png"><img alt="../_images/img_col300.png" src="../_images/img_col300.png" style="width: 406.0px; height: 306.0px;" /></a>
 <p>The full slicing syntax also allows for a step size:</p>
-<div class="highlight-python"><pre>&lt;slice&gt; = i0:i1:step
-array[&lt;slice0&gt;, &lt;slice1&gt;, ...]</pre>
+<div class="highlight-python"><div class="highlight"><pre>&lt;slice&gt; = i0:i1:step
+array[&lt;slice0&gt;, &lt;slice1&gt;, ...]
+</pre></div>
 </div>
 <ul class="simple">
 <li><tt class="docutils literal"><span class="pre">i0</span></tt> is the first index value (default is zero if not provided)</li>
@@ -813,7 +797,7 @@ does NOT make a copy:</p>
 quadratic to the background pixels and subtract that quadratic from the entire
 image which includes the source region.</p>
 <p>Let&#8217;s tackle a simpler problem first and fit the background for a single column:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">480</span><span class="p">))</span>  <span class="c"># Background rows</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">480</span><span class="p">))</span>  <span class="c"># Background rows</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">img_cr</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>         <span class="c"># Background rows of column 10 of cleaned image</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
@@ -868,14 +852,16 @@ image which includes the source region.</p>
 hoops with slicing and making sure everything is vectorized.  The answer is
 that pure Python is an interpreted dynamic language and hence doing loops is
 <em>slow</em>.   Try the following:</p>
-<div class="highlight-python"><pre>size = 500000
+<div class="highlight-python"><div class="highlight"><pre>size = 500000
 x = np.arange(size)
 a = np.zeros(size)
-time for i in x: a[i] = x[i] / 2.0</pre>
+time for i in x: a[i] = x[i] / 2.0
+</pre></div>
 </div>
 <p>Now compare to the vectorized NumPy solution:</p>
-<div class="highlight-python"><pre>x = np.arange(size)
-time a = x / 2</pre>
+<div class="highlight-python"><div class="highlight"><pre>x = np.arange(size)
+time a = x / 2
+</pre></div>
 </div>
 <p class="last">Sometimes doing things in a vectorized way is not possible or just too
 confusing.  There is an art here and the basic answer is that if it runs
@@ -944,32 +930,44 @@ functionality that isn&#8217;t in NumPy: there is a good chance it is in SciPy:<
           </div>
         </div>
       </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><h3>Page Contents</h3>
+<ul>
+<li><a class="reference internal" href="#">NumPy</a><ul>
+<li><a class="reference internal" href="#setup">Setup</a></li>
+<li><a class="reference internal" href="#read-in-the-2-d-image">Read in the 2-d image</a></li>
+<li><a class="reference internal" href="#numpy-basics">NumPy basics</a></li>
+<li><a class="reference internal" href="#plot-the-spatial-profile-and-raw-spectrum">Plot the spatial profile and raw spectrum</a></li>
+<li><a class="reference internal" href="#filter-cosmic-rays-from-the-background">Filter cosmic rays from the background</a></li>
+<li><a class="reference internal" href="#fit-the-background">Fit the background</a></li>
+<li><a class="reference internal" href="#sum-the-source-signal">Sum the source signal</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#scipy">SciPy</a></li>
+</ul>
+
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ipython.html"
+                        title="previous chapter">IPython</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../contest/bounce.html"
+                        title="next chapter">CONTEST: Make a fun bouncing balls demo</a></p>
+        </div>
+      </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="../contest/bounce.html" title="CONTEST: Make a fun bouncing balls demo"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="ipython.html" title="IPython"
-             >previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li>
-          <li><a href="core.html" >Core packages for analysis: IPython, NumPy, and SciPy</a> &raquo;</li> 
-      </ul>
-    </div>
- <small>Copyright:
- Smithsonian Astrophysical Observatory under terms of
- <a rel="license"
- href="http://creativecommons.org/licenses/by/3.0/">CC
- Attribution 3.0</a></small> <a rel="license"
- href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons
- License" style="border-width:0"
- src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
-
+<footer class="footer">
+  <p class="pull-right">
+    <a href="../_sources/core/numpy_scipy.txt"
+       rel="nofollow">Page Source</a> &nbsp;
+    <a href="#">Back to Top</a></p>
+  <p>
+    &copy; Copyright 2011-2015, Smithsonian Astrophysical Observatory under
+    terms of <a rel="license"
+                href="http://creativecommons.org/licenses/by/3.0/">CC
+      Attribution 3.0</a>.<br/>
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.3. &nbsp;
+</footer>
   </body>
 </html>

@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Quick tour of Python &mdash; Python4Astronomers 1.1 documentation</title>
+    <title>Quick tour of Python &mdash; Python4Astronomers 2.0 documentation</title>
     
-    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-astropy.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.1',
+        VERSION:     '2.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,11 +23,14 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Python4Astronomers 1.1 documentation" href="../index.html" />
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <link rel="top" title="Python4Astronomers 2.0 documentation" href="../index.html" />
     <link rel="up" title="Introduction and Motivation" href="intro.html" />
     <link rel="next" title="Who is using Python" href="who-python.html" />
     <link rel="prev" title="Why use Python?" href="why-python.html" />
- 
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,600' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="../_static/copybutton.js"></script>
+
 <script type="text/javascript"> 
 $(document).ready(function(){
 
@@ -273,66 +274,40 @@ display:none;
 
 </script>
 
+
   </head>
   <body>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="who-python.html" title="Who is using Python"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="why-python.html" title="Why use Python?"
-             accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li>
-          <li><a href="intro.html" accesskey="U">Introduction and Motivation</a> &raquo;</li> 
-      </ul>
-    </div>
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
+<div class="topbar">
+  <a class="brand" title="Documentation Home" href="../index.html"><span id="logotext1">python</span><span id="logotext2">4</span><span id="logotext3">astronomers</span></a>
   <ul>
-<li><a class="reference internal" href="#">Quick tour of Python</a><ul>
-<li><a class="reference internal" href="#reading-a-table-and-plotting">Reading a table and plotting</a></li>
-<li><a class="reference internal" href="#curve-fitting-with-scipy">Curve fitting with SciPy</a></li>
-<li><a class="reference internal" href="#intermission-numpy-matplotlib-and-scipy">Intermission: NumPy, Matplotlib, and SciPy</a></li>
-<li><a class="reference internal" href="#synthetic-images">Synthetic images</a></li>
-<li><a class="reference internal" href="#running-existing-compiled-codes">Running existing compiled codes</a></li>
-<li><a class="reference internal" href="#making-a-publication-quality-image">Making a publication quality image</a></li>
-<li><a class="reference internal" href="#and-much-much-more">And much much more...</a></li>
-</ul>
-</li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="why-python.html"
-                        title="previous chapter">Why use Python?</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="who-python.html"
-                        title="next chapter">Who is using Python</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/intro/quick-tour.txt"
-           rel="nofollow">Show Source</a></li>
+    <li><a class="homelink" title="Astropy Homepage" href="http://www.astropy.org"></a></li>
   </ul>
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
+
+<div class="related">
+    <h3>Navigation</h3>
+    <ul>
+      <li class="right">
+	<a href="who-python.html" title="Who is using Python">
+	  next &raquo;
+	</a>
+      </li>
+      <li class="right">
+	<a href="why-python.html" title="Why use Python?">
+	  &laquo; previous
+	</a>
+	 |
+      </li>
+      <li>
+	<a href="../index.html">Python4Astronomers 2.0 documentation</a>
+	 &raquo;
+      </li>
+      <li><a href="intro.html" accesskey="U">Introduction and Motivation</a> &raquo;</li>
+      
+      <li>Quick tour of Python</li> 
+    </ul>
+</div>
+  
 
     <div class="document">
       <div class="documentwrapper">
@@ -342,19 +317,22 @@ display:none;
   <div class="section" id="quick-tour-of-python">
 <h1>Quick tour of Python<a class="headerlink" href="#quick-tour-of-python" title="Permalink to this headline">¶</a></h1>
 <p>In the spirit of this workshop let&#8217;s jump in to real Python analysis code.
-These examples assume you are using <a class="reference external" href="http://matplotlib.sourceforge.net/faq/usage_faq.html#matplotlib-pylab-and-pyplot-how-are-they-related">pylab</a>
-(you&#8217;ll understand what that is after the 2nd hands-on session).</p>
+These examples assume you are using the IPython <a class="reference external" href="http://matplotlib.sourceforge.net/faq/usage_faq.html#matplotlib-pylab-and-pyplot-how-are-they-related">pylab</a>
+mode which automatically imports a number of numerical and plotting routines
+into the session.</p>
 <div class="section" id="reading-a-table-and-plotting">
 <h2>Reading a table and plotting<a class="headerlink" href="#reading-a-table-and-plotting" title="Permalink to this headline">¶</a></h2>
 <p>The Fermi Gamma-ray satellite has a nice catalog of AGN available through
-HEASARC.  The script below will read in the catalog data using the <a class="reference external" href="http://docs.astropy.org/en/v0.2.1/io/ascii/index.html">astropy.io.ascii</a>
-module, do some basic filtering with <a class="reference external" href="http://numpy.scipy.org/">NumPy</a>, and make a couple of plots with
-<a class="reference external" href="http://matplotlib.sourceforge.net/">matplotlib</a></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">astropy.io.ascii</span> <span class="kn">as</span> <span class="nn">ascii</span>   <span class="c"># Make external package available</span>
+HEASARC.  The script below will read in the catalog data using the <a class="reference external" href="http://docs.astropy.org/en/stable/io/ascii/">astropy.io.ascii</a>
+module, do some basic filtering with <a class="reference external" href="http://numpy.org/">NumPy</a>, and make a couple of plots with
+<a class="reference external" href="http://matplotlib.org/">matplotlib</a></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># Make external packages available</span>
+<span class="kn">from</span> <span class="nn">astropy.io</span> <span class="kn">import</span> <span class="n">ascii</span>
 
 <span class="c"># Read table.</span>
 <span class="c"># ==&gt; dat[column_name] and dat[row_number] both valid &lt;==</span>
-<span class="n">dat</span> <span class="o">=</span> <span class="n">ascii</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s">&#39;fermi_agn.dat&#39;</span><span class="p">)</span>
+<span class="n">data_url</span> <span class="o">=</span> <span class="s">&#39;https://raw.githubusercontent.com/python4astronomers/python4astronomers/stable/examples/tables/fermi_agn.dat&#39;</span>
+<span class="n">dat</span> <span class="o">=</span> <span class="n">ascii</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">data_url</span><span class="p">)</span>
 
 <span class="n">redshift</span> <span class="o">=</span> <span class="n">dat</span><span class="p">[</span><span class="s">&#39;redshift&#39;</span><span class="p">]</span>    <span class="c"># array of values from &#39;redshift&#39; column</span>
 <span class="n">flux</span> <span class="o">=</span> <span class="n">dat</span><span class="p">[</span><span class="s">&#39;photon_flux&#39;</span><span class="p">]</span>
@@ -383,7 +361,7 @@ module, do some basic filtering with <a class="reference external" href="http://
 <span class="n">title</span><span class="p">(</span><span class="s">&#39;$\Gamma$ for low-z and high-z samples&#39;</span><span class="p">)</span>
 <span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">&#39;upper left&#39;</span><span class="p">)</span>
 
-<span class="n">asciitable</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">dat</span><span class="p">[</span><span class="n">with_z</span><span class="p">],</span> <span class="s">&#39;fermi_agn_with_z.dat&#39;</span><span class="p">)</span>
+<span class="n">ascii</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">dat</span><span class="p">[</span><span class="n">with_z</span><span class="p">],</span> <span class="s">&#39;fermi_agn_with_z.dat&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../_images/scatter.png"><img alt="../_images/scatter.png" src="../_images/scatter.png" style="width: 358.4px; height: 288.4px;" /></a>
@@ -417,9 +395,9 @@ uncertainties.</p>
 <span class="n">popt</span><span class="p">,</span> <span class="n">pcov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">gaussian</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="n">e</span><span class="p">)</span>
 
 <span class="c"># Print results</span>
-<span class="k">print</span> <span class="s">&quot;Scale =  </span><span class="si">%.3f</span><span class="s"> +/- </span><span class="si">%.3f</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">popt</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">pcov</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span>
-<span class="k">print</span> <span class="s">&quot;Offset = </span><span class="si">%.3f</span><span class="s"> +/- </span><span class="si">%.3f</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">popt</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">pcov</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]))</span>
-<span class="k">print</span> <span class="s">&quot;Sigma =  </span><span class="si">%.3f</span><span class="s"> +/- </span><span class="si">%.3f</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">popt</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">pcov</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;Scale =  </span><span class="si">%.3f</span><span class="s"> +/- </span><span class="si">%.3f</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">popt</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">pcov</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;Offset = </span><span class="si">%.3f</span><span class="s"> +/- </span><span class="si">%.3f</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">popt</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">pcov</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;Sigma =  </span><span class="si">%.3f</span><span class="s"> +/- </span><span class="si">%.3f</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">popt</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">pcov</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">])))</span>
 
 <span class="c"># Plot data</span>
 <span class="n">errorbar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">e</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;black&#39;</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
@@ -439,8 +417,8 @@ uncertainties.</p>
 <h2>Intermission: NumPy, Matplotlib, and SciPy<a class="headerlink" href="#intermission-numpy-matplotlib-and-scipy" title="Permalink to this headline">¶</a></h2>
 <p>These three packages are the workhorses of scientific Python.</p>
 <ul class="simple">
-<li><a class="reference external" href="http://numpy.scipy.org/">NumPy</a> is the fundamental package for scientific computing in Python [<a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/">NumPy Reference</a>]</li>
-<li><a class="reference external" href="http://matplotlib.sourceforge.net/">Matplotlib</a> is one of many plotting packages.  Started as a Matlab clone.</li>
+<li><a class="reference external" href="http://numpy.org/">NumPy</a> is the fundamental package for scientific computing in Python [<a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/">NumPy Reference</a>]</li>
+<li><a class="reference external" href="http://matplotlib.org/">Matplotlib</a> is one of many plotting packages.  Started as a Matlab clone.</li>
 <li><a class="reference external" href="http://scipy.org/">SciPy</a> is a collection of mathematical algorithms and convenience
 functions [<a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/">SciPy Reference</a>]</li>
 </ul>
@@ -449,7 +427,7 @@ functions [<a class="reference external" href="http://docs.scipy.org/doc/scipy/r
 <h2>Synthetic images<a class="headerlink" href="#synthetic-images" title="Permalink to this headline">¶</a></h2>
 <p>This example demonstrates how to create a synthetic image of a cluster,
 including convolution with a Gaussian filter and the addition of noise.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">astropy.io.fits</span> <span class="kn">as</span> <span class="nn">fits</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">astropy.io</span> <span class="kn">import</span> <span class="n">fits</span>
 <span class="kn">from</span> <span class="nn">scipy.ndimage</span> <span class="kn">import</span> <span class="n">gaussian_filter</span>
 
 <span class="c"># Create empty image</span>
@@ -494,7 +472,7 @@ including convolution with a Gaussian filter and the addition of noise.</p>
 <p>In addition to just doing computations and plotting, Python is great for gluing
 together other codes and doing system type tasks.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">astropy.io.ascii</span> <span class="kn">as</span> <span class="nn">ascii</span>
+<span class="kn">from</span> <span class="nn">astropy.io</span> <span class="kn">import</span> <span class="n">ascii</span>
 
 <span class="n">smoothing</span> <span class="o">=</span> <span class="mi">30</span>  <span class="c"># Smoothing window length</span>
 <span class="n">freqs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>  <span class="c"># Frequency values for making data</span>
@@ -510,7 +488,7 @@ together other codes and doing system type tasks.</p>
     <span class="k">for</span> <span class="n">noise</span> <span class="ow">in</span> <span class="n">noises</span><span class="p">:</span>
         <span class="c"># Run the compiled code &quot;make_data&quot; to make data as a list of x, y, y_smooth</span>
         <span class="n">cmd</span> <span class="o">=</span> <span class="s">&#39;make_data </span><span class="si">%s</span><span class="s"> </span><span class="si">%s</span><span class="s"> </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">noise</span><span class="p">,</span> <span class="n">smoothing</span><span class="p">)</span>
-        <span class="k">print</span> <span class="s">&#39;Running&#39;</span><span class="p">,</span> <span class="n">cmd</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Running {0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cmd</span><span class="p">))</span>
         <span class="n">out</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">popen</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
         <span class="c"># out now contains the output from &lt;cmd&gt; as a single string</span>
 
@@ -548,7 +526,7 @@ talk was made.</p>
                      <span class="n">vmin_b</span><span class="o">=-</span><span class="mi">2</span><span class="p">,</span><span class="n">vmax_b</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 
 <span class="c"># Create a new figure</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">aplpy</span><span class="o">.</span><span class="n">FITSFigure</span><span class="p">(</span><span class="s">&#39;rgb_2d.fits&#39;</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">aplpy</span><span class="o">.</span><span class="n">FITSFigure</span><span class="p">(</span><span class="s">&#39;rgb.fits&#39;</span><span class="p">)</span>
 
 <span class="c"># Show the RGB image</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">show_rgb</span><span class="p">(</span><span class="s">&#39;rgb.png&#39;</span><span class="p">)</span>
@@ -591,32 +569,43 @@ and <a class="reference external" href="https://gist.github.com/855678">broadcas
           </div>
         </div>
       </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><h3>Page Contents</h3>
+<ul>
+<li><a class="reference internal" href="#">Quick tour of Python</a><ul>
+<li><a class="reference internal" href="#reading-a-table-and-plotting">Reading a table and plotting</a></li>
+<li><a class="reference internal" href="#curve-fitting-with-scipy">Curve fitting with SciPy</a></li>
+<li><a class="reference internal" href="#intermission-numpy-matplotlib-and-scipy">Intermission: NumPy, Matplotlib, and SciPy</a></li>
+<li><a class="reference internal" href="#synthetic-images">Synthetic images</a></li>
+<li><a class="reference internal" href="#running-existing-compiled-codes">Running existing compiled codes</a></li>
+<li><a class="reference internal" href="#making-a-publication-quality-image">Making a publication quality image</a></li>
+<li><a class="reference internal" href="#and-much-much-more">And much much more...</a></li>
+</ul>
+</li>
+</ul>
+
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="why-python.html"
+                        title="previous chapter">Why use Python?</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="who-python.html"
+                        title="next chapter">Who is using Python</a></p>
+        </div>
+      </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="who-python.html" title="Who is using Python"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="why-python.html" title="Why use Python?"
-             >previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li>
-          <li><a href="intro.html" >Introduction and Motivation</a> &raquo;</li> 
-      </ul>
-    </div>
- <small>Copyright:
- Smithsonian Astrophysical Observatory under terms of
- <a rel="license"
- href="http://creativecommons.org/licenses/by/3.0/">CC
- Attribution 3.0</a></small> <a rel="license"
- href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons
- License" style="border-width:0"
- src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
-
+<footer class="footer">
+  <p class="pull-right">
+    <a href="../_sources/intro/quick-tour.txt"
+       rel="nofollow">Page Source</a> &nbsp;
+    <a href="#">Back to Top</a></p>
+  <p>
+    &copy; Copyright 2011-2015, Smithsonian Astrophysical Observatory under
+    terms of <a rel="license"
+                href="http://creativecommons.org/licenses/by/3.0/">CC
+      Attribution 3.0</a>.<br/>
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.3. &nbsp;
+</footer>
   </body>
 </html>

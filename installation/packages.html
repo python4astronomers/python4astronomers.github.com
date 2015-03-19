@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Modules, Packages, and all that &mdash; Python4Astronomers 1.1 documentation</title>
+    <title>Modules, Packages, and all that &mdash; Python4Astronomers 2.0 documentation</title>
     
-    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-astropy.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.1',
+        VERSION:     '2.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,11 +23,14 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Python4Astronomers 1.1 documentation" href="../index.html" />
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <link rel="top" title="Python4Astronomers 2.0 documentation" href="../index.html" />
     <link rel="up" title="Python Installation and Understanding Packages" href="installation.html" />
     <link rel="next" title="Core packages for analysis: IPython, NumPy, and SciPy" href="../core/core.html" />
-    <link rel="prev" title="Installing Scientific Python" href="python_install.html" />
- 
+    <link rel="prev" title="Linux" href="linux.html" />
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,600' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="../_static/copybutton.js"></script>
+
 <script type="text/javascript"> 
 $(document).ready(function(){
 
@@ -273,64 +274,40 @@ display:none;
 
 </script>
 
+
   </head>
   <body>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="../core/core.html" title="Core packages for analysis: IPython, NumPy, and SciPy"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="python_install.html" title="Installing Scientific Python"
-             accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li>
-          <li><a href="installation.html" accesskey="U">Python Installation and Understanding Packages</a> &raquo;</li> 
-      </ul>
-    </div>
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
+<div class="topbar">
+  <a class="brand" title="Documentation Home" href="../index.html"><span id="logotext1">python</span><span id="logotext2">4</span><span id="logotext3">astronomers</span></a>
   <ul>
-<li><a class="reference internal" href="#">Modules, Packages, and all that</a><ul>
-<li><a class="reference internal" href="#finding-and-installing-other-packages">Finding and installing other packages</a></li>
-<li><a class="reference internal" href="#where-does-python-look-for-modules">Where does Python look for modules?</a></li>
-<li><a class="reference internal" href="#multiple-pythons-on-your-computer">Multiple Pythons on your computer</a></li>
-<li><a class="reference internal" href="#virtualenv">Virtualenv</a></li>
-<li><a class="reference internal" href="#final-exercises">Final exercises</a></li>
-</ul>
-</li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="python_install.html"
-                        title="previous chapter">Installing Scientific Python</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="../core/core.html"
-                        title="next chapter">Core packages for analysis: IPython, NumPy, and SciPy</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/installation/packages.txt"
-           rel="nofollow">Show Source</a></li>
+    <li><a class="homelink" title="Astropy Homepage" href="http://www.astropy.org"></a></li>
   </ul>
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
+
+<div class="related">
+    <h3>Navigation</h3>
+    <ul>
+      <li class="right">
+	<a href="../core/core.html" title="Core packages for analysis: IPython, NumPy, and SciPy">
+	  next &raquo;
+	</a>
+      </li>
+      <li class="right">
+	<a href="linux.html" title="Linux">
+	  &laquo; previous
+	</a>
+	 |
+      </li>
+      <li>
+	<a href="../index.html">Python4Astronomers 2.0 documentation</a>
+	 &raquo;
+      </li>
+      <li><a href="installation.html" accesskey="U">Python Installation and Understanding Packages</a> &raquo;</li>
+      
+      <li>Modules, Packages, and all that</li> 
+    </ul>
+</div>
+  
 
     <div class="document">
       <div class="documentwrapper">
@@ -349,8 +326,9 @@ with useful modules for science analysis.</p>
 containing Python definitions, functions, and statements.  Putting code into
 modules is useful because of the ability to <a class="reference external" href="http://docs.python.org/reference/simple_stmts.html#import">import</a> the module
 functionality into your script or IPython session, for instance:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">atpy</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">atpy</span><span class="o">.</span><span class="n">Table</span><span class="p">(</span><span class="s">&#39;my_table.fits&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">astropy</span>
+<span class="kn">import</span> <span class="nn">astropy.table</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">astropy</span><span class="o">.</span><span class="n">table</span><span class="o">.</span><span class="n">Table</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s">&#39;my_table.fits&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>You&#8217;ll see <tt class="docutils literal"><span class="pre">import</span></tt> in virtually every Python script and soon it will be
@@ -370,15 +348,16 @@ to call.</dd>
 <p>Sometimes it is convenient to make an end-run around the <tt class="docutils literal"><span class="pre">&lt;module&gt;.</span></tt>
 prefixing.  For instance when you run <tt class="docutils literal"><span class="pre">ipython</span> <span class="pre">--pylab</span></tt> the interpreter
 does some startup processing so that a number of functions
-from the <a class="reference external" href="http://numpy.scipy.org/">numpy</a> and <a class="reference external" href="http://matplotlib.sourceforge.net/">matplotlib</a> modules are available <em>without</em>
+from the <a class="reference external" href="http://numpy.org/">numpy</a> and <a class="reference external" href="http://matplotlib.org/">matplotlib</a> modules are available <em>without</em>
 using the prefix.</p>
 <p>Python allows this with this syntax:</p>
-<div class="highlight-python"><pre>from &lt;module&gt; import *</pre>
+<div class="highlight-python"><div class="highlight"><pre>from &lt;module&gt; import *
+</pre></div>
 </div>
 <p>That means to import every function and definition from the module into the
 current namespace (in other words make them available without prefixing).
 For instance you could do:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">atpy</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">astropy.table</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="s">&#39;my_table.fits&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -389,7 +368,7 @@ scripts.</p>
 <p><strong>Package</strong></p>
 <p>A <a class="reference external" href="http://docs.python.org/tutorial/modules.html#packages">package</a> is just a
 way of collecting related modules together within a single tree-like
-hierarchy.  Very complex packages like <a class="reference external" href="http://numpy.scipy.org/">NumPy</a> or <a class="reference external" href="http://scipy.org/">SciPy</a> have hundreds of
+hierarchy.  Very complex packages like <a class="reference external" href="http://numpy.org/">NumPy</a> or <a class="reference external" href="http://scipy.org/">SciPy</a> have hundreds of
 individual modules so putting them into a directory-like structure keeps things
 organized and avoids name collisions.  For example here is a partial list
 of sub-packages available within <a class="reference external" href="http://scipy.org/">SciPy</a></p>
@@ -504,7 +483,7 @@ automatically download and install the package.</li>
 <li>Will accept a local tar file (assuming it contains an installable Python package) or a URL
 pointing to a tar file.</li>
 <li>Can install in the user package area via <tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">&lt;package</span> <span class="pre">or</span> <span class="pre">URL&gt;</span>
-<span class="pre">--user</span></tt> (see discussion further down)</li>
+<span class="pre">--user</span></tt> (but see discussion further down)</li>
 </ul>
 </div></blockquote>
 <p><strong>python setup.py install</strong></p>
@@ -521,9 +500,10 @@ file and untar it.  Go into the package directory and look for files like:</p>
 <p>If there is an INSTALL or README file then hopefully you will find useful
 installation instructions.  Most well-behaved python packages do the
 installation via a standard <tt class="docutils literal"><span class="pre">setup.py</span></tt> script.  This is used as follows:</p>
-<div class="highlight-python"><pre>python setup.py --help  # get options
-python setup.py install # install in the python area (root / admin req'd)
-python setup.py install --user # install to user's package area</pre>
+<div class="highlight-python"><div class="highlight"><pre>python setup.py --help  # get options
+python setup.py install # install in the python area (root / admin req&#39;d)
+python setup.py install --user # install to user&#39;s package area
+</pre></div>
 </div>
 <p>More information is available in the <a class="reference external" href="http://docs.python.org/install/index.html">Installing Python Modules</a> page.</p>
 </div>
@@ -531,15 +511,27 @@ python setup.py install --user # install to user's package area</pre>
 <h3>Where do packages get installed?<a class="headerlink" href="#where-do-packages-get-installed" title="Permalink to this headline">¶</a></h3>
 <p>An important option in the installation process is where to put the package
 files.  We&#8217;ve seen the <tt class="docutils literal"><span class="pre">--user</span></tt> option in <tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span></tt> and <tt class="docutils literal"><span class="pre">python</span>
-<span class="pre">setup.py</span> <span class="pre">install</span></tt>.  What&#8217;s up with that?  In general, if you don&#8217;t have to you
-should not use <tt class="docutils literal"><span class="pre">--user</span></tt>, but see the discussion in <a class="reference internal" href="#multiple-pythons-on-your-computer">Multiple Pythons on
-your computer</a> for a reason you might.</p>
+<span class="pre">setup.py</span> <span class="pre">install</span></tt>.  What&#8217;s up with that?  In the section below we document
+how this works.  See the discussion in <a class="reference internal" href="#multiple-pythons-on-your-computer">Multiple Pythons on
+your computer</a> for a reason you might want to do this, but first please read
+this warning:</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">We strongly recommend against installing packages with <tt class="docutils literal"><span class="pre">--user</span></tt> unless you
+are an expert and really understand what you are doing, .  This is because
+the local user version will always take precedence and can thus potentially
+disrupt other Python installations and cause hard-to-understand problems.
+Big analysis packages like CIAO, STSci_Python or CASA are carefully tested
+assuming the integrated environment they provide.  If you start mucking this
+up then all bets are off.</p>
+</div>
 <div class="section" id="with-user">
 <h4>WITH <tt class="docutils literal"><span class="pre">--user</span></tt><a class="headerlink" href="#with-user" title="Permalink to this headline">¶</a></h4>
 <p>Packages get installed in a local user-owned directory when you do something
 like either of the following:</p>
-<div class="highlight-python"><pre>pip install --user asciitable
-python setup.py install --user</pre>
+<div class="highlight-python"><div class="highlight"><pre>pip install --user aplpy
+python setup.py install --user
+</pre></div>
 </div>
 <p>This puts the packages into:</p>
 <table border="1" class="docutils">
@@ -561,28 +553,34 @@ python setup.py install --user</pre>
 </table>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">On Mac if you did not use the EPD Python Framework then you may see user
+<p class="last">On Mac if you did not use Anaconda or the EPD Python Framework then you may see user
 packages within <tt class="docutils literal"><span class="pre">~/.local/lib</span></tt> as for linux.  This depends on whether Python
 is installed as a MacOS Framework or not.</p>
 </div>
 </div>
 <div class="section" id="without-user">
 <h4>WITHOUT <tt class="docutils literal"><span class="pre">--user</span></tt><a class="headerlink" href="#without-user" title="Permalink to this headline">¶</a></h4>
-<p>This option may require root or admin privilege because the package will be
-installed in the system area instead of your own local directories.
-<em>For most astronomers running on a single-user machine this is a good option.</em></p>
-<p>Installing this way has the benefit of making the package available for all users of the
-Python installation, but has the downside that it is a bit more difficult to back out changes if required.</p>
+<p>If you use Anaconda or a non-root Python installation then there is no issue
+with permissions on any platform since the entire installation is local to a
+directory you own.</p>
+<p>However, installing to a system-wide Python installation will require root or
+admin privilege.  Installing this way has the benefit of making the package
+available for all users of the Python installation, but has the downside that
+it is more difficult to back out changes if required.  In general we recommend
+using <em>only</em> the system package manager (e.g. <tt class="docutils literal"><span class="pre">yum</span></tt>) to install packages to
+the system Python.  This will ensure integrity of your system Python, which is
+important even if you are the only user.</p>
 </div>
 <div class="section" id="how-do-i-find-a-package-once-installed">
 <h4>How do I find a package once installed?<a class="headerlink" href="#how-do-i-find-a-package-once-installed" title="Permalink to this headline">¶</a></h4>
 <p>Finding the file associated with a package or module is simple, just use the <tt class="docutils literal"><span class="pre">help</span></tt>
 command in IPython:</p>
-<div class="highlight-python"><pre>import scipy
-help scipy</pre>
+<div class="highlight-python"><div class="highlight"><pre>import scipy
+help scipy
+</pre></div>
 </div>
 <p>This gives something like:</p>
-<div class="highlight-python"><pre>NAME
+<div class="highlight-python"><div class="highlight"><pre>NAME
     scipy
 
 FILE
@@ -594,15 +592,17 @@ DESCRIPTION
 
     Documentation is available in the docstrings and
     online at http://docs.scipy.org.
-    ...</pre>
+    ...
+</pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="uninstalling-packages">
 <h3>Uninstalling packages<a class="headerlink" href="#uninstalling-packages" title="Permalink to this headline">¶</a></h3>
-<p>There is no simple and fully consistent way to do this.  The Python
-community is working on this one.  In most simple cases, however, you can just
-delete the module file or directory that is revealed by the technique shown above.</p>
+<p>There is no simple and fully consistent way to do this unless you use solutions
+like Anaconda or Canopy.  The Python community is working on this one.  In most
+simple cases, however, you can just delete the module file or directory that is
+revealed by the technique shown above.</p>
 </div>
 <div class="section" id="getting-help-on-package-installation">
 <h3>Getting help on package installation<a class="headerlink" href="#getting-help-on-package-installation" title="Permalink to this headline">¶</a></h3>
@@ -640,16 +640,17 @@ on a search path. A default value for the path is configured into the Python
 binary when the interpreter is built. You can determine the path by importing
 the <a class="reference external" href="http://docs.python.org/library/sys.html#module-sys">sys</a> module and
 printing the value of <tt class="docutils literal"><span class="pre">sys.path</span></tt>:</p>
-<div class="highlight-python"><pre>$ python
+<div class="highlight-python"><div class="highlight"><pre>$ python
 Python 2.2 (#11, Oct  3 2002, 13:31:27)
 [GCC 2.96 20000731 (Red Hat Linux 7.3 2.96-112)] on linux2
-Type "help", "copyright", "credits" or "license" for more information.
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
 &gt;&gt;&gt; import sys
 &gt;&gt;&gt; sys.path
-['', '/usr/local/lib/python2.3', '/usr/local/lib/python2.3/plat-linux2',
- '/usr/local/lib/python2.3/lib-tk', '/usr/local/lib/python2.3/lib-dynload',
- '/usr/local/lib/python2.3/site-packages']
-&gt;&gt;&gt;</pre>
+[&#39;&#39;, &#39;/usr/local/lib/python2.3&#39;, &#39;/usr/local/lib/python2.3/plat-linux2&#39;,
+ &#39;/usr/local/lib/python2.3/lib-tk&#39;, &#39;/usr/local/lib/python2.3/lib-dynload&#39;,
+ &#39;/usr/local/lib/python2.3/site-packages&#39;]
+&gt;&gt;&gt;
+</pre></div>
 </div>
 <p>Within a script it is possible to adjust the search path by modify <tt class="docutils literal"><span class="pre">sys.path</span></tt>
 which is just a Python list.  Generally speaking you will want to put your path
@@ -709,27 +710,22 @@ then set a corresponding <tt class="docutils literal"><span class="pre">PYTHONPA
 </div>
 <div class="section" id="can-we-share-packages">
 <h3>Can we share packages?<a class="headerlink" href="#can-we-share-packages" title="Permalink to this headline">¶</a></h3>
-<p>In some cases you can successfully share between Pythons.  However, <em>this technique is
-prone to breaking things in strange ways and we do not recommend it</em>.  Nevertheless it is
-useful to illustrate how this works.</p>
+<p>In some cases you can successfully share between Pythons.  Although we don&#8217;t
+recommend doing this it is nevertheless useful to illustrate how this works.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This technique is prone to breaking things in strange ways and we do not
+recommend it.</p>
+</div>
 <p>The first rule is that they need to be the same major version, i.e. all 2.6 or
 2.7.  This is because Python always includes a major version like
 <tt class="docutils literal"><span class="pre">python2.6/</span></tt> in the default search path so Python 2.7 will never find 2.6
 packages.  The second rule is to install packages using the <tt class="docutils literal"><span class="pre">--user</span></tt> option
 in <tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span></tt> or <tt class="docutils literal"><span class="pre">setup.py</span> <span class="pre">install</span></tt>.  This results in the situation
 shown below where each Python can find common packages in the local user area:</p>
-<img alt="../_images/antisocial_pythons_trans.png" src="../_images/antisocial_pythons_trans.png" style="width: 650px;" />
+<a class="reference internal image-reference" href="../_images/antisocial_pythons_trans.png"><img alt="../_images/antisocial_pythons_trans.png" src="../_images/antisocial_pythons_trans.png" style="width: 650px;" /></a>
 <p>Be sure to test that the package you installed works within the other Python
 environments.</p>
-<div class="admonition caution">
-<p class="first admonition-title">Caution</p>
-<p class="last">Be very wary of installing a package with <tt class="docutils literal"><span class="pre">--user</span></tt> if one of your Python
-installations already contains that package.  This is because the local user
-version will always take precedence and thus potentially upset that Python
-installation.  Big analysis packages like CIAO, STSci_Python or CASA are
-carefully tested assuming the integrated environment they provide.  If you
-start mucking this up then all bets are off.</p>
-</div>
 </div>
 </div>
 <div class="section" id="virtualenv">
@@ -740,7 +736,17 @@ to make a virtual clone of an existing Python environment.  This clone can then
 be used as the package installation location.</p>
 <p>One use case is wanting to install a new or experimental version of a package
 without overwriting the existing production version in your baseline environment.</p>
-<p>For a good introductory tutorial see <a class="reference external" href="http://iamzed.com/2009/05/07/a-primer-on-virtualenv/">http://iamzed.com/2009/05/07/a-primer-on-virtualenv/</a>.</p>
+<p>For a good introductory tutorial see
+<a class="reference external" href="http://iamzed.com/2009/05/07/a-primer-on-virtualenv/">http://iamzed.com/2009/05/07/a-primer-on-virtualenv/</a>.</p>
+</div>
+<div class="section" id="anaconda-environments">
+<h2>Anaconda environments<a class="headerlink" href="#anaconda-environments" title="Permalink to this headline">¶</a></h2>
+<p>The Anaconda Python distribution, in conjunction with the <tt class="docutils literal"><span class="pre">conda</span></tt> package
+manager, makes it easy maintain multiple Python environments under one tree.
+This is extremely useful if you need to install different versions of
+packages, perhaps for testing or for running a particular application which
+has certain package requirements.  See <a class="reference external" href="http://www.continuum.io/blog/conda">Python Packages and Environments with
+conda</a> for an introduction.</p>
 </div>
 <div class="section" id="final-exercises">
 <h2>Final exercises<a class="headerlink" href="#final-exercises" title="Permalink to this headline">¶</a></h2>
@@ -778,32 +784,42 @@ numerical libraries are the fastest possible.  For most people this is not neede
           </div>
         </div>
       </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><h3>Page Contents</h3>
+<ul>
+<li><a class="reference internal" href="#">Modules, Packages, and all that</a><ul>
+<li><a class="reference internal" href="#finding-and-installing-other-packages">Finding and installing other packages</a></li>
+<li><a class="reference internal" href="#where-does-python-look-for-modules">Where does Python look for modules?</a></li>
+<li><a class="reference internal" href="#multiple-pythons-on-your-computer">Multiple Pythons on your computer</a></li>
+<li><a class="reference internal" href="#virtualenv">Virtualenv</a></li>
+<li><a class="reference internal" href="#anaconda-environments">Anaconda environments</a></li>
+<li><a class="reference internal" href="#final-exercises">Final exercises</a></li>
+</ul>
+</li>
+</ul>
+
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="linux.html"
+                        title="previous chapter">Linux</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../core/core.html"
+                        title="next chapter">Core packages for analysis: IPython, NumPy, and SciPy</a></p>
+        </div>
+      </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="../core/core.html" title="Core packages for analysis: IPython, NumPy, and SciPy"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="python_install.html" title="Installing Scientific Python"
-             >previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li>
-          <li><a href="installation.html" >Python Installation and Understanding Packages</a> &raquo;</li> 
-      </ul>
-    </div>
- <small>Copyright:
- Smithsonian Astrophysical Observatory under terms of
- <a rel="license"
- href="http://creativecommons.org/licenses/by/3.0/">CC
- Attribution 3.0</a></small> <a rel="license"
- href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons
- License" style="border-width:0"
- src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
-
+<footer class="footer">
+  <p class="pull-right">
+    <a href="../_sources/installation/packages.txt"
+       rel="nofollow">Page Source</a> &nbsp;
+    <a href="#">Back to Top</a></p>
+  <p>
+    &copy; Copyright 2011-2015, Smithsonian Astrophysical Observatory under
+    terms of <a rel="license"
+                href="http://creativecommons.org/licenses/by/3.0/">CC
+      Attribution 3.0</a>.<br/>
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.3. &nbsp;
+</footer>
   </body>
 </html>

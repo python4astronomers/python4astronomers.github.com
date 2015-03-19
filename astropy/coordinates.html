@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Celestial Coordinates &mdash; Python4Astronomers 1.1 documentation</title>
+    <title>Celestial Coordinates &mdash; Python4Astronomers 2.0 documentation</title>
     
-    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-astropy.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.1',
+        VERSION:     '2.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,11 +23,14 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Python4Astronomers 1.1 documentation" href="../index.html" />
-    <link rel="up" title="Astropy" href="astropy.html" />
-    <link rel="next" title="Analyzing UVES Spectrocopy with Astropy" href="../astropy-UVES/UVES.html" />
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <link rel="top" title="Python4Astronomers 2.0 documentation" href="../index.html" />
+    <link rel="up" title="Astropy I: core functions" href="astropy.html" />
+    <link rel="next" title="Astropy II: Analyzing UVES Spectroscopy" href="../astropy-UVES/UVES.html" />
     <link rel="prev" title="WCS Transformations" href="wcs.html" />
- 
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,600' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="../_static/copybutton.js"></script>
+
 <script type="text/javascript"> 
 $(document).ready(function(){
 
@@ -273,62 +274,40 @@ display:none;
 
 </script>
 
+
   </head>
   <body>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="../astropy-UVES/UVES.html" title="Analyzing UVES Spectrocopy with Astropy"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="wcs.html" title="WCS Transformations"
-             accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li>
-          <li><a href="astropy.html" accesskey="U">Astropy</a> &raquo;</li> 
-      </ul>
-    </div>
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
+<div class="topbar">
+  <a class="brand" title="Documentation Home" href="../index.html"><span id="logotext1">python</span><span id="logotext2">4</span><span id="logotext3">astronomers</span></a>
   <ul>
-<li><a class="reference internal" href="#">Celestial Coordinates</a><ul>
-<li><a class="reference internal" href="#documentation">Documentation</a></li>
-<li><a class="reference internal" href="#representing-and-converting-coordinates">Representing and converting coordinates</a></li>
-<li><a class="reference internal" href="#practical-exercises">Practical Exercises</a></li>
-</ul>
-</li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="wcs.html"
-                        title="previous chapter">WCS Transformations</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="../astropy-UVES/UVES.html"
-                        title="next chapter">Analyzing UVES Spectrocopy with Astropy</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/astropy/coordinates.txt"
-           rel="nofollow">Show Source</a></li>
+    <li><a class="homelink" title="Astropy Homepage" href="http://www.astropy.org"></a></li>
   </ul>
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
+
+<div class="related">
+    <h3>Navigation</h3>
+    <ul>
+      <li class="right">
+	<a href="../astropy-UVES/UVES.html" title="Astropy II: Analyzing UVES Spectroscopy">
+	  next &raquo;
+	</a>
+      </li>
+      <li class="right">
+	<a href="wcs.html" title="WCS Transformations">
+	  &laquo; previous
+	</a>
+	 |
+      </li>
+      <li>
+	<a href="../index.html">Python4Astronomers 2.0 documentation</a>
+	 &raquo;
+      </li>
+      <li><a href="astropy.html" accesskey="U">Astropy I: core functions</a> &raquo;</li>
+      
+      <li>Celestial Coordinates</li> 
+    </ul>
+</div>
+  
 
     <div class="document">
       <div class="documentwrapper">
@@ -418,10 +397,10 @@ them to Galactic Coordinates</p>
 </div>
 <p class="flip1">Click to Show/Hide Solution</p> <div class="panel1"><div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">astropy</span> <span class="kn">import</span> <span class="n">coordinates</span> <span class="k">as</span> <span class="n">coord</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">crab</span> <span class="o">=</span> <span class="n">coord</span><span class="o">.</span><span class="n">ICRSCoordinates</span><span class="o">.</span><span class="n">from_name</span><span class="p">(</span><span class="s">&#39;M1&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">crab</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">crab</span><span class="p">)</span>
 <span class="go">&lt;ICRSCoordinates RA=83.63308 deg, Dec=22.01450 deg&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">crab_gal</span> <span class="o">=</span> <span class="n">crab</span><span class="o">.</span><span class="n">transform_to</span><span class="p">(</span><span class="n">coord</span><span class="o">.</span><span class="n">GalacticCoordinates</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">crab_gal</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">crab_gal</span><span class="p">)</span>
 <span class="go">&lt;GalacticCoordinates l=-175.44248 deg, b=-5.78434 deg&gt;</span>
 </pre></div>
 </div>
@@ -465,32 +444,39 @@ don&#8217;t worry about the bright sources).</p>
           </div>
         </div>
       </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><h3>Page Contents</h3>
+<ul>
+<li><a class="reference internal" href="#">Celestial Coordinates</a><ul>
+<li><a class="reference internal" href="#documentation">Documentation</a></li>
+<li><a class="reference internal" href="#representing-and-converting-coordinates">Representing and converting coordinates</a></li>
+<li><a class="reference internal" href="#practical-exercises">Practical Exercises</a></li>
+</ul>
+</li>
+</ul>
+
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="wcs.html"
+                        title="previous chapter">WCS Transformations</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../astropy-UVES/UVES.html"
+                        title="next chapter">Astropy II: Analyzing UVES Spectroscopy</a></p>
+        </div>
+      </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="../astropy-UVES/UVES.html" title="Analyzing UVES Spectrocopy with Astropy"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="wcs.html" title="WCS Transformations"
-             >previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li>
-          <li><a href="astropy.html" >Astropy</a> &raquo;</li> 
-      </ul>
-    </div>
- <small>Copyright:
- Smithsonian Astrophysical Observatory under terms of
- <a rel="license"
- href="http://creativecommons.org/licenses/by/3.0/">CC
- Attribution 3.0</a></small> <a rel="license"
- href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons
- License" style="border-width:0"
- src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
-
+<footer class="footer">
+  <p class="pull-right">
+    <a href="../_sources/astropy/coordinates.txt"
+       rel="nofollow">Page Source</a> &nbsp;
+    <a href="#">Back to Top</a></p>
+  <p>
+    &copy; Copyright 2011-2015, Smithsonian Astrophysical Observatory under
+    terms of <a rel="license"
+                href="http://creativecommons.org/licenses/by/3.0/">CC
+      Attribution 3.0</a>.<br/>
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.3. &nbsp;
+</footer>
   </body>
 </html>

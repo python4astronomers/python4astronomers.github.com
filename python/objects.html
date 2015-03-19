@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Python Objects - or what’s with the periods everywhere? &mdash; Python4Astronomers 1.1 documentation</title>
+    <title>Python Objects - or what’s with the periods everywhere? &mdash; Python4Astronomers 2.0 documentation</title>
     
-    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-astropy.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.1',
+        VERSION:     '2.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,11 +23,14 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Python4Astronomers 1.1 documentation" href="../index.html" />
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <link rel="top" title="Python4Astronomers 2.0 documentation" href="../index.html" />
     <link rel="up" title="Plotting and Images" href="../plotting/plotting.html" />
     <link rel="next" title="APLpy" href="../plotting/aplpy.html" />
     <link rel="prev" title="Matplotlib" href="../plotting/matplotlib.html" />
- 
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,600' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="../_static/copybutton.js"></script>
+
 <script type="text/javascript"> 
 $(document).ready(function(){
 
@@ -273,52 +274,40 @@ display:none;
 
 </script>
 
+
   </head>
   <body>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="../plotting/aplpy.html" title="APLpy"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="../plotting/matplotlib.html" title="Matplotlib"
-             accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li>
-          <li><a href="../plotting/plotting.html" accesskey="U">Plotting and Images</a> &raquo;</li> 
-      </ul>
-    </div>
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="../plotting/matplotlib.html"
-                        title="previous chapter">Matplotlib</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="../plotting/aplpy.html"
-                        title="next chapter">APLpy</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/python/objects.txt"
-           rel="nofollow">Show Source</a></li>
+<div class="topbar">
+  <a class="brand" title="Documentation Home" href="../index.html"><span id="logotext1">python</span><span id="logotext2">4</span><span id="logotext3">astronomers</span></a>
+  <ul>
+    <li><a class="homelink" title="Astropy Homepage" href="http://www.astropy.org"></a></li>
   </ul>
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
+
+<div class="related">
+    <h3>Navigation</h3>
+    <ul>
+      <li class="right">
+	<a href="../plotting/aplpy.html" title="APLpy">
+	  next &raquo;
+	</a>
+      </li>
+      <li class="right">
+	<a href="../plotting/matplotlib.html" title="Matplotlib">
+	  &laquo; previous
+	</a>
+	 |
+      </li>
+      <li>
+	<a href="../index.html">Python4Astronomers 2.0 documentation</a>
+	 &raquo;
+      </li>
+      <li><a href="../plotting/plotting.html" accesskey="U">Plotting and Images</a> &raquo;</li>
+      
+      <li>Python Objects - or what&#8217;s with the periods everywhere?</li> 
+    </ul>
+</div>
+  
 
     <div class="document">
       <div class="documentwrapper">
@@ -335,31 +324,25 @@ the object that you get or set by giving the &lt;object_name&gt; + dot +
 that the object provides, for example <tt class="docutils literal"><span class="pre">img.argmax(axis=0)</span></tt> or <tt class="docutils literal"><span class="pre">img.min()</span></tt>.</p>
 <p>Use tab completion in IPython to inspect objects and start to understand
 attributes and methods.  To start off create a list of 4 numbers:</p>
-<div class="highlight-python"><pre>a = [3, 1, 2, 1]
-a.&lt;TAB&gt;</pre>
+<div class="highlight-python"><div class="highlight"><pre>a = [3, 1, 2, 1]
+a.&lt;TAB&gt;
+</pre></div>
 </div>
 <p>This will show the available attributes and methods for the Python list
 <tt class="docutils literal"><span class="pre">a</span></tt>.  <strong>Using &lt;TAB&gt;-completion and help is a very efficient way to learn and later
 remember object methods!</strong></p>
-<div class="highlight-python"><pre>In [17]: a.&lt;TAB&gt;
-a.__add__           a.__ge__            a.__iter__          a.__repr__          a.append
-a.__class__         a.__getattribute__  a.__le__            a.__reversed__      a.count
-a.__contains__      a.__getitem__       a.__len__           a.__rmul__          a.extend
-a.__delattr__       a.__getslice__      a.__lt__            a.__setattr__       a.index
-a.__delitem__       a.__gt__            a.__mul__           a.__setitem__       a.insert
-a.__delslice__      a.__hash__          a.__ne__            a.__setslice__      a.pop
-a.__doc__           a.__iadd__          a.__new__           a.__sizeof__        a.remove
-a.__eq__            a.__imul__          a.__reduce__        a.__str__           a.reverse
-a.__format__        a.__init__          a.__reduce_ex__     a.__subclasshook__  a.sort</pre>
+<div class="highlight-python"><div class="highlight"><pre>In [17]: a.&lt;TAB&gt;
+a.append   a.extend   a.insert   a.remove   a.sort
+a.count    a.index    a.pop      a.reverse
+</pre></div>
 </div>
-<p>For the most part you can ignore all the ones that begin with <tt class="docutils literal"><span class="pre">__</span></tt> since
-they are generally are internal methods that are not called directly.  At
-the end you see useful looking functions like <tt class="docutils literal"><span class="pre">append</span></tt> or <tt class="docutils literal"><span class="pre">sort</span></tt> which
+<p>Here you see useful looking functions like <tt class="docutils literal"><span class="pre">append</span></tt> or <tt class="docutils literal"><span class="pre">sort</span></tt> which
 you can get help for and use:</p>
-<div class="highlight-python"><pre>a.sort
+<div class="highlight-python"><div class="highlight"><pre>a.sort
 a.sort?
 a.sort()
-a</pre>
+a
+</pre></div>
 </div>
 <p>You can tell the difference between an attribute and a callable method with
 the callable function:</p>
@@ -374,32 +357,34 @@ the callable function:</p>
           </div>
         </div>
       </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><h3>Page Contents</h3>
+<ul>
+<li><a class="reference internal" href="#">Python Objects - or what&#8217;s with the periods everywhere?</a></li>
+</ul>
+
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../plotting/matplotlib.html"
+                        title="previous chapter">Matplotlib</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../plotting/aplpy.html"
+                        title="next chapter">APLpy</a></p>
+        </div>
+      </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="../plotting/aplpy.html" title="APLpy"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="../plotting/matplotlib.html" title="Matplotlib"
-             >previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li>
-          <li><a href="../plotting/plotting.html" >Plotting and Images</a> &raquo;</li> 
-      </ul>
-    </div>
- <small>Copyright:
- Smithsonian Astrophysical Observatory under terms of
- <a rel="license"
- href="http://creativecommons.org/licenses/by/3.0/">CC
- Attribution 3.0</a></small> <a rel="license"
- href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons
- License" style="border-width:0"
- src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
-
+<footer class="footer">
+  <p class="pull-right">
+    <a href="../_sources/python/objects.txt"
+       rel="nofollow">Page Source</a> &nbsp;
+    <a href="#">Back to Top</a></p>
+  <p>
+    &copy; Copyright 2011-2015, Smithsonian Astrophysical Observatory under
+    terms of <a rel="license"
+                href="http://creativecommons.org/licenses/by/3.0/">CC
+      Attribution 3.0</a>.<br/>
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.3. &nbsp;
+</footer>
   </body>
 </html>

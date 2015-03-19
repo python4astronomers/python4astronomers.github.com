@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>IPython &mdash; Python4Astronomers 1.1 documentation</title>
+    <title>IPython &mdash; Python4Astronomers 2.0 documentation</title>
     
-    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-astropy.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.1',
+        VERSION:     '2.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,11 +23,14 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Python4Astronomers 1.1 documentation" href="../index.html" />
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <link rel="top" title="Python4Astronomers 2.0 documentation" href="../index.html" />
     <link rel="up" title="Core packages for analysis: IPython, NumPy, and SciPy" href="core.html" />
     <link rel="next" title="NumPy" href="numpy_scipy.html" />
     <link rel="prev" title="Core packages for analysis: IPython, NumPy, and SciPy" href="core.html" />
- 
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,600' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="../_static/copybutton.js"></script>
+
 <script type="text/javascript"> 
 $(document).ready(function(){
 
@@ -273,64 +274,40 @@ display:none;
 
 </script>
 
+
   </head>
   <body>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="numpy_scipy.html" title="NumPy"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="core.html" title="Core packages for analysis: IPython, NumPy, and SciPy"
-             accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li>
-          <li><a href="core.html" accesskey="U">Core packages for analysis: IPython, NumPy, and SciPy</a> &raquo;</li> 
-      </ul>
-    </div>
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
+<div class="topbar">
+  <a class="brand" title="Documentation Home" href="../index.html"><span id="logotext1">python</span><span id="logotext2">4</span><span id="logotext3">astronomers</span></a>
   <ul>
-<li><a class="reference internal" href="#">IPython</a><ul>
-<li><a class="reference internal" href="#keyboard-navigation-and-history">Keyboard navigation and history</a></li>
-<li><a class="reference internal" href="#linux-and-shell-commands">Linux and shell commands</a></li>
-<li><a class="reference internal" href="#tab-completion">Tab completion</a></li>
-<li><a class="reference internal" href="#showing-data-values">Showing data values</a></li>
-<li><a class="reference internal" href="#further-resources">Further resources</a></li>
-</ul>
-</li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="core.html"
-                        title="previous chapter">Core packages for analysis: IPython, NumPy, and SciPy</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="numpy_scipy.html"
-                        title="next chapter">NumPy</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/core/ipython.txt"
-           rel="nofollow">Show Source</a></li>
+    <li><a class="homelink" title="Astropy Homepage" href="http://www.astropy.org"></a></li>
   </ul>
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
+
+<div class="related">
+    <h3>Navigation</h3>
+    <ul>
+      <li class="right">
+	<a href="numpy_scipy.html" title="NumPy">
+	  next &raquo;
+	</a>
+      </li>
+      <li class="right">
+	<a href="core.html" title="Core packages for analysis: IPython, NumPy, and SciPy">
+	  &laquo; previous
+	</a>
+	 |
+      </li>
+      <li>
+	<a href="../index.html">Python4Astronomers 2.0 documentation</a>
+	 &raquo;
+      </li>
+      <li><a href="core.html" accesskey="U">Core packages for analysis: IPython, NumPy, and SciPy</a> &raquo;</li>
+      
+      <li>IPython</li> 
+    </ul>
+</div>
+  
 
     <div class="document">
       <div class="documentwrapper">
@@ -344,17 +321,22 @@ for interactive and exploratory computing.  In this section we&#8217;ll learn th
 basic features of IPython and how it benefits interactive analysis.</p>
 <p>Before going further, open a new terminal window and change to your main Python
 for Astronomers working directory.  Then start IPython by typing &#8220;ipython
--pylab&#8221; at the command prompt:</p>
-<div class="highlight-python"><pre>% ipython --pylab</pre>
-</div>
-<p>As we saw in the Introduction and Installation workshops, for interactive data
-analysis IPython has a special <tt class="docutils literal"><span class="pre">-pylab</span></tt> command line option which
-automatically imports elements of the NumPy and the Matplotlib environments.
-This is equivalent to:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+&#8211;matplotlib&#8221; at the command prompt:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ ipython --matplotlib
 </pre></div>
 </div>
+<p>As we saw in the Introduction and Installation workshops, for interactive data
+analysis IPython has a special <tt class="docutils literal"><span class="pre">--matplotlib</span></tt> command line option which makes
+interactive plotting work better from a terminal window by allowing a plot to
+come up without blocking subsequent terminal input.</p>
+<p>In all of the tutorial examples we will start the session by importing the
+core modules numpy and matplotlib as follows:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+<p>The abbreviations <tt class="docutils literal"><span class="pre">np</span></tt> and <tt class="docutils literal"><span class="pre">plt</span></tt> provide quick access to numpy and
+matplotlib routines and are widely used in scientific code.</p>
 <div class="admonition-reminder-what-does-import-do admonition">
 <p class="first admonition-title">Reminder: What does <tt class="docutils literal"><span class="pre">import</span></tt> do?</p>
 <p>In python only basic functionality is provided in the language itself. Most of the
@@ -362,7 +344,7 @@ commands we need are imported from other
 <a class="reference external" href="http://docs.python.org/tutorial/modules.html">modules</a>. The
 <a class="reference external" href="http://docs.python.org/reference/simple_stmts.html#import">import</a> statement
 makes the functions in a module available:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span> <span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">()</span>    <span class="c"># will fail</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">())</span>   <span class="c"># will fail</span>
 <span class="c"># need to import the time module first</span>
 <span class="kn">import</span> <span class="nn">time</span>
 <span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">()</span>          <span class="c"># prints the system time</span>
@@ -374,11 +356,11 @@ allows us to type <tt class="docutils literal"><span class="pre">np</span></tt> 
 </pre></div>
 </div>
 </div>
-<p>IPython with the  <tt class="docutils literal"><span class="pre">-pylab</span></tt> command line option provides a Matlab-like environment
+<p>IPython with the  <tt class="docutils literal"><span class="pre">--matplotlib</span></tt> command line option provides a Matlab-like environment
 allowing very simple and direct commands like the following:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">x</span>
+<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -423,7 +405,8 @@ can be executed by preceding it with an exclamation point &#8221;!&#8221;.</p>
 <h2>Tab completion<a class="headerlink" href="#tab-completion" title="Permalink to this headline">¶</a></h2>
 <p>IPython has a very useful tab completion feature that can be used both to
 complete file names and to inspect python objects.  As an example do:</p>
-<div class="highlight-python"><pre>ls ~/&lt;TAB&gt;</pre>
+<div class="highlight-python"><div class="highlight"><pre>ls ~/&lt;TAB&gt;
+</pre></div>
 </div>
 <p>This will list everything in your home directory.  You can continue
 this way searching through files or hit Return to complete the command.</p>
@@ -440,7 +423,7 @@ code used to create that object.</p>
 <p>Try:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">y</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="s">&#39;value is </span><span class="si">%d</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 <span class="n">y</span>
-<span class="k">print</span> <span class="n">y</span>
+<span class="k">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -460,32 +443,41 @@ which explains editing <tt class="docutils literal"><span class="pre">~/.ipython
           </div>
         </div>
       </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><h3>Page Contents</h3>
+<ul>
+<li><a class="reference internal" href="#">IPython</a><ul>
+<li><a class="reference internal" href="#keyboard-navigation-and-history">Keyboard navigation and history</a></li>
+<li><a class="reference internal" href="#linux-and-shell-commands">Linux and shell commands</a></li>
+<li><a class="reference internal" href="#tab-completion">Tab completion</a></li>
+<li><a class="reference internal" href="#showing-data-values">Showing data values</a></li>
+<li><a class="reference internal" href="#further-resources">Further resources</a></li>
+</ul>
+</li>
+</ul>
+
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="core.html"
+                        title="previous chapter">Core packages for analysis: IPython, NumPy, and SciPy</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="numpy_scipy.html"
+                        title="next chapter">NumPy</a></p>
+        </div>
+      </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="numpy_scipy.html" title="NumPy"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="core.html" title="Core packages for analysis: IPython, NumPy, and SciPy"
-             >previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li>
-          <li><a href="core.html" >Core packages for analysis: IPython, NumPy, and SciPy</a> &raquo;</li> 
-      </ul>
-    </div>
- <small>Copyright:
- Smithsonian Astrophysical Observatory under terms of
- <a rel="license"
- href="http://creativecommons.org/licenses/by/3.0/">CC
- Attribution 3.0</a></small> <a rel="license"
- href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons
- License" style="border-width:0"
- src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
-
+<footer class="footer">
+  <p class="pull-right">
+    <a href="../_sources/core/ipython.txt"
+       rel="nofollow">Page Source</a> &nbsp;
+    <a href="#">Back to Top</a></p>
+  <p>
+    &copy; Copyright 2011-2015, Smithsonian Astrophysical Observatory under
+    terms of <a rel="license"
+                href="http://creativecommons.org/licenses/by/3.0/">CC
+      Attribution 3.0</a>.<br/>
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.3. &nbsp;
+</footer>
   </body>
 </html>

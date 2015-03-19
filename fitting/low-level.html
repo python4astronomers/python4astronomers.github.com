@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>The low-level Sherpa API &mdash; Python4Astronomers 1.1 documentation</title>
+    <title>The low-level Sherpa API &mdash; Python4Astronomers 2.0 documentation</title>
     
-    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-astropy.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.1',
+        VERSION:     '2.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,11 +23,14 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Python4Astronomers 1.1 documentation" href="../index.html" />
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <link rel="top" title="Python4Astronomers 2.0 documentation" href="../index.html" />
     <link rel="up" title="Fitting and Modeling 1-D and 2-D Data" href="fitting.html" />
-    <link rel="next" title="Online Astronomy and the virtual observatory" href="../vo/vo.html" />
+    <link rel="next" title="Astropy I: core functions" href="../astropy/astropy.html" />
     <link rel="prev" title="2-D Fitting in Sherpa" href="image.html" />
- 
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,600' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="../_static/copybutton.js"></script>
+
 <script type="text/javascript"> 
 $(document).ready(function(){
 
@@ -273,60 +274,40 @@ display:none;
 
 </script>
 
+
   </head>
   <body>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="../vo/vo.html" title="Online Astronomy and the virtual observatory"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="image.html" title="2-D Fitting in Sherpa"
-             accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li>
-          <li><a href="fitting.html" accesskey="U">Fitting and Modeling 1-D and 2-D Data</a> &raquo;</li> 
-      </ul>
-    </div>
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
+<div class="topbar">
+  <a class="brand" title="Documentation Home" href="../index.html"><span id="logotext1">python</span><span id="logotext2">4</span><span id="logotext3">astronomers</span></a>
   <ul>
-<li><a class="reference internal" href="#">The low-level Sherpa API</a><ul>
-<li><a class="reference internal" href="#explore-the-sherpa-object-model">Explore the Sherpa Object Model</a></li>
-</ul>
-</li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="image.html"
-                        title="previous chapter">2-D Fitting in Sherpa</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="../vo/vo.html"
-                        title="next chapter">Online Astronomy and the virtual observatory</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/fitting/low-level.txt"
-           rel="nofollow">Show Source</a></li>
+    <li><a class="homelink" title="Astropy Homepage" href="http://www.astropy.org"></a></li>
   </ul>
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
+
+<div class="related">
+    <h3>Navigation</h3>
+    <ul>
+      <li class="right">
+	<a href="../astropy/astropy.html" title="Astropy I: core functions">
+	  next &raquo;
+	</a>
+      </li>
+      <li class="right">
+	<a href="image.html" title="2-D Fitting in Sherpa">
+	  &laquo; previous
+	</a>
+	 |
+      </li>
+      <li>
+	<a href="../index.html">Python4Astronomers 2.0 documentation</a>
+	 &raquo;
+      </li>
+      <li><a href="fitting.html" accesskey="U">Fitting and Modeling 1-D and 2-D Data</a> &raquo;</li>
+      
+      <li>The low-level Sherpa API</li> 
+    </ul>
+</div>
+  
 
     <div class="document">
       <div class="documentwrapper">
@@ -340,15 +321,19 @@ with the low-level API (and without going quite as far in the analysis).</p>
 <div class="section" id="explore-the-sherpa-object-model">
 <h2>Explore the Sherpa Object Model<a class="headerlink" href="#explore-the-sherpa-object-model" title="Permalink to this headline">¶</a></h2>
 <p>In a new working directory, download a MAST spectrum of <a class="reference download internal" href="../_downloads/3c273.fits"><tt class="xref download docutils literal"><span class="pre">3C</span> <span class="pre">273</span></tt></a>
-and start IPython:</p>
-<div class="highlight-python"><pre>$ ipython --pylab</pre>
+and start IPython along with the standard imports:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ ipython --matplotlib
+
+import numpy as np
+import matplotlib.pyplot as plt
+</pre></div>
 </div>
 <p>If you have trouble accessing the spectrum you can download it straight away
 using Python:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">urllib2</span>
-<span class="n">url</span> <span class="o">=</span> <span class="s">&#39;http://python4astronomers.github.com/_downloads/3c273.fits&#39;</span>
-<span class="nb">open</span><span class="p">(</span><span class="s">&#39;3c273.fits&#39;</span><span class="p">,</span> <span class="s">&#39;wb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
-<span class="n">ls</span>
+<div class="highlight-python"><div class="highlight"><pre>from astropy.extern.six.moves.urllib import request
+url = &#39;http://python4astronomers.github.com/_downloads/3c273.fits&#39;
+open(&#39;3c273.fits&#39;, &#39;wb&#39;).write(request.urlopen(url).read())
+%ls
 </pre></div>
 </div>
 <p>Import a few Sherpa classes needed to characterize a fit:</p>
@@ -359,9 +344,9 @@ using Python:</p>
 <span class="kn">from</span> <span class="nn">sherpa.fit</span> <span class="kn">import</span> <span class="n">Fit</span>
 </pre></div>
 </div>
-<p>Import the Python FITS reader <tt class="docutils literal"><span class="pre">pyfits</span></tt> and open the spectrum as a table:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">pyfits</span>
-<span class="n">dat</span> <span class="o">=</span> <span class="n">pyfits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;3c273.fits&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+<p>Import the Python FITS reader <a class="reference external" href="http://docs.astropy.org/en/stable/io/fits/">astropy.io.fits</a> and open the spectrum as a table:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">astropy.io</span> <span class="kn">import</span> <span class="n">fits</span>
+<span class="n">dat</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;3c273.fits&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
 </pre></div>
 </div>
 <p>Access the <cite>WAVELENGTH</cite> and <cite>FLUX</cite> columns from the pyFITS <tt class="docutils literal"><span class="pre">RecArray</span></tt>.  Populate
@@ -376,13 +361,13 @@ uncertainties of 2% of the flux:</p>
 <tt class="docutils literal"><span class="pre">err</span></tt>.  The data arrays are accessible from the <tt class="docutils literal"><span class="pre">data</span></tt> object as the attributes
 <tt class="docutils literal"><span class="pre">x</span></tt>, <tt class="docutils literal"><span class="pre">y</span></tt>, and <tt class="docutils literal"><span class="pre">staterror</span></tt>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">data</span> <span class="o">=</span> <span class="n">Data1D</span><span class="p">(</span><span class="s">&#39;3C 273&#39;</span><span class="p">,</span> <span class="n">wave</span><span class="p">,</span> <span class="n">flux</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">data</span>
+<span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Array access:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span> <span class="s">&#39;x&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">x</span>
-<span class="k">print</span> <span class="s">&#39;y&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">y</span>
-<span class="k">print</span> <span class="s">&#39;err&#39;</span><span class="p">,</span>  <span class="n">data</span><span class="o">.</span><span class="n">staterror</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="s">&#39;x {0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">x</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;y {0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">y</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;err {0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">staterror</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>Define a convenience function <tt class="docutils literal"><span class="pre">plot_data</span></tt> that calls the matplotlib functions
@@ -393,10 +378,10 @@ the <tt class="docutils literal"><span class="pre">err</span></tt> array is pres
 in the Sherpa data set using our new function and its default arguments:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">plot_data</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">err</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s">&#39;.&#39;</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">clear</span><span class="p">:</span>
-        <span class="n">clf</span><span class="p">()</span>
-    <span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">fmt</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">fmt</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">err</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="n">errorbar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">err</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ecolor</span><span class="o">=</span><span class="s">&#39;b&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">err</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ecolor</span><span class="o">=</span><span class="s">&#39;b&#39;</span><span class="p">)</span>
 
 <span class="n">plot_data</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">staterror</span><span class="p">)</span>
 </pre></div>
@@ -408,9 +393,9 @@ the <tt class="docutils literal"><span class="pre">name</span></tt> and <tt clas
 <div class="highlight-python"><div class="highlight"><pre><span class="n">pl</span> <span class="o">=</span> <span class="n">PowLaw1D</span><span class="p">(</span><span class="s">&#39;pl&#39;</span><span class="p">)</span>
 <span class="n">pl</span><span class="o">.</span><span class="n">pars</span>
 <span class="k">for</span> <span class="n">par</span> <span class="ow">in</span> <span class="n">pl</span><span class="o">.</span><span class="n">pars</span><span class="p">:</span>
-    <span class="k">print</span> <span class="n">par</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">par</span><span class="o">.</span><span class="n">val</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;{0} {1}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">par</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">par</span><span class="o">.</span><span class="n">val</span><span class="p">))</span>
 
-<span class="k">print</span> <span class="n">pl</span>
+<span class="k">print</span><span class="p">(</span><span class="n">pl</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Set the power-law reference to be 4000 Angstroms and print out the <tt class="docutils literal"><span class="pre">PowLaw1D</span></tt>
@@ -418,11 +403,11 @@ object and its parameter information.  Each model parameter is accessible as an
 attribute its model.  For example, the power-law amplitude is referenced with
 <tt class="docutils literal"><span class="pre">pl.ampl</span></tt>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">pl</span><span class="o">.</span><span class="n">ref</span> <span class="o">=</span> <span class="mf">4000.</span>
-<span class="k">print</span> <span class="n">pl</span>
+<span class="k">print</span><span class="p">(</span><span class="n">pl</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Model parameters are themselves class objects:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span> <span class="n">pl</span><span class="o">.</span><span class="n">ampl</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">ampl</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition-exercise-for-the-interested-reader-special-methods-and-properties admonition">
@@ -465,9 +450,9 @@ optimization method.  Fit the spectrum to a power-law with least squares
 (Levenberg-Marquardt) using the chi-squared statistic with data variance:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">f</span> <span class="o">=</span> <span class="n">Fit</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">pl</span><span class="p">,</span> <span class="n">Chi2DataVar</span><span class="p">(),</span> <span class="n">LevMar</span><span class="p">())</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="k">print</span> <span class="n">result</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 <span class="c"># or alternatively</span>
-<span class="k">print</span> <span class="n">result</span><span class="o">.</span><span class="n">format</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">format</span><span class="p">())</span>
 </pre></div>
 </div>
 <p>Over-plot the fitted model atop the data points using our convenience function
@@ -485,32 +470,37 @@ values over the <tt class="docutils literal"><span class="pre">data.x</span></tt
           </div>
         </div>
       </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><h3>Page Contents</h3>
+<ul>
+<li><a class="reference internal" href="#">The low-level Sherpa API</a><ul>
+<li><a class="reference internal" href="#explore-the-sherpa-object-model">Explore the Sherpa Object Model</a></li>
+</ul>
+</li>
+</ul>
+
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="image.html"
+                        title="previous chapter">2-D Fitting in Sherpa</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../astropy/astropy.html"
+                        title="next chapter">Astropy I: core functions</a></p>
+        </div>
+      </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="../vo/vo.html" title="Online Astronomy and the virtual observatory"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="image.html" title="2-D Fitting in Sherpa"
-             >previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li>
-          <li><a href="fitting.html" >Fitting and Modeling 1-D and 2-D Data</a> &raquo;</li> 
-      </ul>
-    </div>
- <small>Copyright:
- Smithsonian Astrophysical Observatory under terms of
- <a rel="license"
- href="http://creativecommons.org/licenses/by/3.0/">CC
- Attribution 3.0</a></small> <a rel="license"
- href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons
- License" style="border-width:0"
- src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
-
+<footer class="footer">
+  <p class="pull-right">
+    <a href="../_sources/fitting/low-level.txt"
+       rel="nofollow">Page Source</a> &nbsp;
+    <a href="#">Back to Top</a></p>
+  <p>
+    &copy; Copyright 2011-2015, Smithsonian Astrophysical Observatory under
+    terms of <a rel="license"
+                href="http://creativecommons.org/licenses/by/3.0/">CC
+      Attribution 3.0</a>.<br/>
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.3. &nbsp;
+</footer>
   </body>
 </html>

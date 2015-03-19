@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Who is using Python &mdash; Python4Astronomers 1.1 documentation</title>
+    <title>Who is using Python &mdash; Python4Astronomers 2.0 documentation</title>
     
-    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-astropy.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.1',
+        VERSION:     '2.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,11 +23,14 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Python4Astronomers 1.1 documentation" href="../index.html" />
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <link rel="top" title="Python4Astronomers 2.0 documentation" href="../index.html" />
     <link rel="up" title="Introduction and Motivation" href="intro.html" />
     <link rel="next" title="Logistics and open discussion" href="wrapup.html" />
     <link rel="prev" title="Quick tour of Python" href="quick-tour.html" />
- 
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,600' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="../_static/copybutton.js"></script>
+
 <script type="text/javascript"> 
 $(document).ready(function(){
 
@@ -273,61 +274,40 @@ display:none;
 
 </script>
 
+
   </head>
   <body>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="wrapup.html" title="Logistics and open discussion"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="quick-tour.html" title="Quick tour of Python"
-             accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li>
-          <li><a href="intro.html" accesskey="U">Introduction and Motivation</a> &raquo;</li> 
-      </ul>
-    </div>
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
+<div class="topbar">
+  <a class="brand" title="Documentation Home" href="../index.html"><span id="logotext1">python</span><span id="logotext2">4</span><span id="logotext3">astronomers</span></a>
   <ul>
-<li><a class="reference internal" href="#">Who is using Python</a><ul>
-<li><a class="reference internal" href="#why-join-the-herd">Why join the herd?</a></li>
-<li><a class="reference internal" href="#other-sciences">Other sciences</a></li>
-</ul>
-</li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="quick-tour.html"
-                        title="previous chapter">Quick tour of Python</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="wrapup.html"
-                        title="next chapter">Logistics and open discussion</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/intro/who-python.txt"
-           rel="nofollow">Show Source</a></li>
+    <li><a class="homelink" title="Astropy Homepage" href="http://www.astropy.org"></a></li>
   </ul>
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
+
+<div class="related">
+    <h3>Navigation</h3>
+    <ul>
+      <li class="right">
+	<a href="wrapup.html" title="Logistics and open discussion">
+	  next &raquo;
+	</a>
+      </li>
+      <li class="right">
+	<a href="quick-tour.html" title="Quick tour of Python">
+	  &laquo; previous
+	</a>
+	 |
+      </li>
+      <li>
+	<a href="../index.html">Python4Astronomers 2.0 documentation</a>
+	 &raquo;
+      </li>
+      <li><a href="intro.html" accesskey="U">Introduction and Motivation</a> &raquo;</li>
+      
+      <li>Who is using Python</li> 
+    </ul>
+</div>
+  
 
     <div class="document">
       <div class="documentwrapper">
@@ -338,8 +318,9 @@ display:none;
 <h1>Who is using Python<a class="headerlink" href="#who-is-using-python" title="Permalink to this headline">¶</a></h1>
 <p><em>&#8220;Sometimes the middle of the herd is a good place to be.&#8221;</em></p>
 <p>(In response to the question &#8220;Why spend time migrating to Python?&#8221; at a Users Committee meeting)</p>
-<p>That was several years ago and in the interim the momentum toward Python in astronomy has
-only grown.  The ease of interfacing C / C++ / FORTRAN means many organizations
+<p>That was in 2007 and in the interim Python has become firmly established as the
+primary scripting language in astronomy.
+The ease of interfacing C / C++ / FORTRAN means many organizations
 are using Python user front-ends with a combination of compiled code + Python
 on the back-end.</p>
 <ul class="simple">
@@ -358,11 +339,9 @@ on the back-end.</p>
 <li>Discussions and people answering questions<ul>
 <li>CfA pythonusers mailing list (over 100 subscribers)</li>
 <li><a class="reference external" href="http://astropython.org">astropython.org</a></li>
-<li><a class="reference external" href="http://mail.scipy.org/mailman/listinfo/astropy">astropy</a> mailing list</li>
-<li><a class="reference external" href="http://stackoverflow.com/questions/tagged/python">stackoverflow</a> (~50000
-questions answered ca. Mar-2011)</li>
-<li>Conferences: <a class="reference external" href="http://conference.scipy.org/scipy2011">SciPy</a> and
-<a class="reference external" href="http://www.euroscipy.org/">EuroSciPy</a></li>
+<li><a class="reference external" href="http://mail.scipy.org/mailman/listinfo/astropy">astropy mailing list</a></li>
+<li><a class="reference external" href="http://stackoverflow.com/questions/tagged/python">stackoverflow</a></li>
+<li>Conferences: <a class="reference external" href="http://conference.scipy.org/">SciPy</a> and <a class="reference external" href="http://www.euroscipy.org/">EuroSciPy</a></li>
 </ul>
 </li>
 <li>Tutorials<ul>
@@ -419,32 +398,38 @@ questions answered ca. Mar-2011)</li>
           </div>
         </div>
       </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><h3>Page Contents</h3>
+<ul>
+<li><a class="reference internal" href="#">Who is using Python</a><ul>
+<li><a class="reference internal" href="#why-join-the-herd">Why join the herd?</a></li>
+<li><a class="reference internal" href="#other-sciences">Other sciences</a></li>
+</ul>
+</li>
+</ul>
+
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="quick-tour.html"
+                        title="previous chapter">Quick tour of Python</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="wrapup.html"
+                        title="next chapter">Logistics and open discussion</a></p>
+        </div>
+      </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="wrapup.html" title="Logistics and open discussion"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="quick-tour.html" title="Quick tour of Python"
-             >previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li>
-          <li><a href="intro.html" >Introduction and Motivation</a> &raquo;</li> 
-      </ul>
-    </div>
- <small>Copyright:
- Smithsonian Astrophysical Observatory under terms of
- <a rel="license"
- href="http://creativecommons.org/licenses/by/3.0/">CC
- Attribution 3.0</a></small> <a rel="license"
- href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons
- License" style="border-width:0"
- src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
-
+<footer class="footer">
+  <p class="pull-right">
+    <a href="../_sources/intro/who-python.txt"
+       rel="nofollow">Page Source</a> &nbsp;
+    <a href="#">Back to Top</a></p>
+  <p>
+    &copy; Copyright 2011-2015, Smithsonian Astrophysical Observatory under
+    terms of <a rel="license"
+                href="http://creativecommons.org/licenses/by/3.0/">CC
+      Attribution 3.0</a>.<br/>
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.3. &nbsp;
+</footer>
   </body>
 </html>

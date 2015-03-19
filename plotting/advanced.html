@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Advanced plotting &mdash; Python4Astronomers 1.1 documentation</title>
+    <title>Advanced plotting &mdash; Python4Astronomers 2.0 documentation</title>
     
-    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-astropy.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.1',
+        VERSION:     '2.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,11 +23,14 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Python4Astronomers 1.1 documentation" href="../index.html" />
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <link rel="top" title="Python4Astronomers 2.0 documentation" href="../index.html" />
     <link rel="up" title="Plotting and Images" href="plotting.html" />
     <link rel="next" title="Publication-quality plots" href="publication.html" />
     <link rel="prev" title="CONTEST: Make a fun bouncing balls demo" href="../contest/bounce.html" />
- 
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,600' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="../_static/copybutton.js"></script>
+
 <script type="text/javascript"> 
 $(document).ready(function(){
 
@@ -273,78 +274,40 @@ display:none;
 
 </script>
 
+
   </head>
   <body>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="publication.html" title="Publication-quality plots"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="../contest/bounce.html" title="CONTEST: Make a fun bouncing balls demo"
-             accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li>
-          <li><a href="plotting.html" accesskey="U">Plotting and Images</a> &raquo;</li> 
-      </ul>
-    </div>
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
+<div class="topbar">
+  <a class="brand" title="Documentation Home" href="../index.html"><span id="logotext1">python</span><span id="logotext2">4</span><span id="logotext3">astronomers</span></a>
   <ul>
-<li><a class="reference internal" href="#">Advanced plotting</a><ul>
-<li><a class="reference internal" href="#moving-to-object-based-plotting">Moving to object-based plotting</a></li>
-<li><a class="reference internal" href="#figure-size">Figure size</a></li>
-<li><a class="reference internal" href="#placing-axes">Placing Axes</a></li>
-<li><a class="reference internal" href="#twin-axes">Twin axes</a></li>
-<li><a class="reference internal" href="#controlling-the-appearance-of-plots">Controlling the appearance of plots</a></li>
-<li><a class="reference internal" href="#rc-parameters"><tt class="docutils literal"><span class="pre">rc</span></tt> parameters</a></li>
-<li><a class="reference internal" href="#adding-a-legend">Adding a legend</a></li>
-<li><a class="reference internal" href="#adding-a-colorbar">Adding a colorbar</a></li>
-<li><a class="reference internal" href="#custom-ticks-and-labels">Custom ticks and labels</a></li>
-<li><a class="reference internal" href="#artists-patches-and-lines">Artists, Patches, and Lines</a></li>
-<li><a class="reference internal" href="#tips-and-tricks">Tips and tricks</a><ul>
-<li><a class="reference internal" href="#matplotlib-gallery">Matplotlib gallery</a></li>
-<li><a class="reference internal" href="#designing-plots">Designing plots</a></li>
-<li><a class="reference internal" href="#automatic-bounding-box">Automatic bounding box</a></li>
-<li><a class="reference internal" href="#showing-images-maps-with-non-pixel-coordinates">Showing images/maps with non-pixel coordinates</a></li>
-<li><a class="reference internal" href="#separating-computations-and-plotting">Separating computations and plotting</a></li>
-<li><a class="reference internal" href="#making-many-plots">Making many plots</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="../contest/bounce.html"
-                        title="previous chapter">CONTEST: Make a fun bouncing balls demo</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="publication.html"
-                        title="next chapter">Publication-quality plots</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/plotting/advanced.txt"
-           rel="nofollow">Show Source</a></li>
+    <li><a class="homelink" title="Astropy Homepage" href="http://www.astropy.org"></a></li>
   </ul>
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
+
+<div class="related">
+    <h3>Navigation</h3>
+    <ul>
+      <li class="right">
+	<a href="publication.html" title="Publication-quality plots">
+	  next &raquo;
+	</a>
+      </li>
+      <li class="right">
+	<a href="../contest/bounce.html" title="CONTEST: Make a fun bouncing balls demo">
+	  &laquo; previous
+	</a>
+	 |
+      </li>
+      <li>
+	<a href="../index.html">Python4Astronomers 2.0 documentation</a>
+	 &raquo;
+      </li>
+      <li><a href="plotting.html" accesskey="U">Plotting and Images</a> &raquo;</li>
+      
+      <li>Advanced plotting</li> 
+    </ul>
+</div>
+  
 
     <div class="document">
       <div class="documentwrapper">
@@ -501,7 +464,7 @@ centered in the figure.</p>
 <p><tt class="docutils literal"><span class="pre">title</span></tt> will be the title object, and points will be a scatter object. Both can be used to set/change the current properties.</p>
 <div class="admonition-exercise-explore-customization admonition">
 <p class="first admonition-title">Exercise: Explore customization</p>
-<p>Run the above example in <tt class="docutils literal"><span class="pre">ipython</span> <span class="pre">--pylab</span></tt>, and try and use the title
+<p>Run the above example in <tt class="docutils literal"><span class="pre">ipython</span> <span class="pre">--matplotlib</span></tt>, and try and use the title
 and points objects to change the points to be red, and the title to have
 an <tt class="docutils literal"><span class="pre">x-large</span></tt> font size.</p>
 <p><strong>Hint 1:</strong> &lt;tab&gt; suggestion/completion is your friend!</p>
@@ -733,7 +696,7 @@ class you need:</p>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../_images/patches.png"><img alt="../_images/patches.png" class="align-center" src="../_images/patches.png" style="width: 480.0px; height: 360.0px;" /></a>
-<p>See <a class="reference external" href="http://matplotlib.sourceforge.net/api/artist_api.html?#module-matplotlib.patches">here</a> for a complete list of patches and options.</p>
+<p>See <a class="reference external" href="http://matplotlib.sourceforge.net/api/artist_api.html?#module-matplotlib.patches">matplotlib.patches</a> for a complete list of patches and options.</p>
 <p>Similarly, there are line classes:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">matplotlib.lines</span> <span class="kn">import</span> <span class="n">Line2D</span>
 <span class="o">...</span>
@@ -741,7 +704,7 @@ class you need:</p>
 <span class="n">ax</span><span class="o">.</span><span class="n">add_line</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>See <a class="reference external" href="http://matplotlib.sourceforge.net/api/artist_api.html?#module-matplotlib.lines">here</a> for a complete list of line types and options.</p>
+<p>See <a class="reference external" href="http://matplotlib.sourceforge.net/api/artist_api.html?#module-matplotlib.lines">matplotlib.lines</a> for a complete list of line types and options.</p>
 </div>
 <div class="section" id="tips-and-tricks">
 <h2>Tips and tricks<a class="headerlink" href="#tips-and-tricks" title="Permalink to this headline">¶</a></h2>
@@ -807,32 +770,55 @@ class you need:</p>
           </div>
         </div>
       </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><h3>Page Contents</h3>
+<ul>
+<li><a class="reference internal" href="#">Advanced plotting</a><ul>
+<li><a class="reference internal" href="#moving-to-object-based-plotting">Moving to object-based plotting</a></li>
+<li><a class="reference internal" href="#figure-size">Figure size</a></li>
+<li><a class="reference internal" href="#placing-axes">Placing Axes</a></li>
+<li><a class="reference internal" href="#twin-axes">Twin axes</a></li>
+<li><a class="reference internal" href="#controlling-the-appearance-of-plots">Controlling the appearance of plots</a></li>
+<li><a class="reference internal" href="#rc-parameters"><tt class="docutils literal"><span class="pre">rc</span></tt> parameters</a></li>
+<li><a class="reference internal" href="#adding-a-legend">Adding a legend</a></li>
+<li><a class="reference internal" href="#adding-a-colorbar">Adding a colorbar</a></li>
+<li><a class="reference internal" href="#custom-ticks-and-labels">Custom ticks and labels</a></li>
+<li><a class="reference internal" href="#artists-patches-and-lines">Artists, Patches, and Lines</a></li>
+<li><a class="reference internal" href="#tips-and-tricks">Tips and tricks</a><ul>
+<li><a class="reference internal" href="#matplotlib-gallery">Matplotlib gallery</a></li>
+<li><a class="reference internal" href="#designing-plots">Designing plots</a></li>
+<li><a class="reference internal" href="#automatic-bounding-box">Automatic bounding box</a></li>
+<li><a class="reference internal" href="#showing-images-maps-with-non-pixel-coordinates">Showing images/maps with non-pixel coordinates</a></li>
+<li><a class="reference internal" href="#separating-computations-and-plotting">Separating computations and plotting</a></li>
+<li><a class="reference internal" href="#making-many-plots">Making many plots</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../contest/bounce.html"
+                        title="previous chapter">CONTEST: Make a fun bouncing balls demo</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="publication.html"
+                        title="next chapter">Publication-quality plots</a></p>
+        </div>
+      </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="publication.html" title="Publication-quality plots"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="../contest/bounce.html" title="CONTEST: Make a fun bouncing balls demo"
-             >previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li>
-          <li><a href="plotting.html" >Plotting and Images</a> &raquo;</li> 
-      </ul>
-    </div>
- <small>Copyright:
- Smithsonian Astrophysical Observatory under terms of
- <a rel="license"
- href="http://creativecommons.org/licenses/by/3.0/">CC
- Attribution 3.0</a></small> <a rel="license"
- href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons
- License" style="border-width:0"
- src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
-
+<footer class="footer">
+  <p class="pull-right">
+    <a href="../_sources/plotting/advanced.txt"
+       rel="nofollow">Page Source</a> &nbsp;
+    <a href="#">Back to Top</a></p>
+  <p>
+    &copy; Copyright 2011-2015, Smithsonian Astrophysical Observatory under
+    terms of <a rel="license"
+                href="http://creativecommons.org/licenses/by/3.0/">CC
+      Attribution 3.0</a>.<br/>
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.3. &nbsp;
+</footer>
   </body>
 </html>

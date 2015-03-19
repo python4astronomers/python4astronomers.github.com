@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>WCS Transformations &mdash; Python4Astronomers 1.1 documentation</title>
+    <title>WCS Transformations &mdash; Python4Astronomers 2.0 documentation</title>
     
-    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-astropy.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.1',
+        VERSION:     '2.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,11 +23,14 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Python4Astronomers 1.1 documentation" href="../index.html" />
-    <link rel="up" title="Astropy" href="astropy.html" />
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <link rel="top" title="Python4Astronomers 2.0 documentation" href="../index.html" />
+    <link rel="up" title="Astropy I: core functions" href="astropy.html" />
     <link rel="next" title="Celestial Coordinates" href="coordinates.html" />
     <link rel="prev" title="Handling FITS files" href="fits.html" />
- 
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,600' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="../_static/copybutton.js"></script>
+
 <script type="text/javascript"> 
 $(document).ready(function(){
 
@@ -273,65 +274,40 @@ display:none;
 
 </script>
 
+
   </head>
   <body>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="coordinates.html" title="Celestial Coordinates"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="fits.html" title="Handling FITS files"
-             accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li>
-          <li><a href="astropy.html" accesskey="U">Astropy</a> &raquo;</li> 
-      </ul>
-    </div>
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
+<div class="topbar">
+  <a class="brand" title="Documentation Home" href="../index.html"><span id="logotext1">python</span><span id="logotext2">4</span><span id="logotext3">astronomers</span></a>
   <ul>
-<li><a class="reference internal" href="#">WCS Transformations</a><ul>
-<li><a class="reference internal" href="#documentation">Documentation</a></li>
-<li><a class="reference internal" href="#data">Data</a></li>
-<li><a class="reference internal" href="#representing-wcs-transformations">Representing WCS transformations</a></li>
-<li><a class="reference internal" href="#pixel-to-world-and-world-to-pixel-transformations">Pixel to World and World to Pixel transformations</a></li>
-<li><a class="reference internal" href="#working-with-arrays">Working with arrays</a></li>
-<li><a class="reference internal" href="#practical-exercises">Practical Exercises</a></li>
-</ul>
-</li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="fits.html"
-                        title="previous chapter">Handling FITS files</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="coordinates.html"
-                        title="next chapter">Celestial Coordinates</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/astropy/wcs.txt"
-           rel="nofollow">Show Source</a></li>
+    <li><a class="homelink" title="Astropy Homepage" href="http://www.astropy.org"></a></li>
   </ul>
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
+
+<div class="related">
+    <h3>Navigation</h3>
+    <ul>
+      <li class="right">
+	<a href="coordinates.html" title="Celestial Coordinates">
+	  next &raquo;
+	</a>
+      </li>
+      <li class="right">
+	<a href="fits.html" title="Handling FITS files">
+	  &laquo; previous
+	</a>
+	 |
+      </li>
+      <li>
+	<a href="../index.html">Python4Astronomers 2.0 documentation</a>
+	 &raquo;
+      </li>
+      <li><a href="astropy.html" accesskey="U">Astropy I: core functions</a> &raquo;</li>
+      
+      <li>WCS Transformations</li> 
+    </ul>
+</div>
+  
 
     <div class="document">
       <div class="documentwrapper">
@@ -390,7 +366,7 @@ supplying the filename:</p>
 <p>Once the WCS object has been created, you can use the following methods to
 convert pixel to world coordinates:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">wx</span><span class="p">,</span> <span class="n">wy</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">wcs_pix2world</span><span class="p">(</span><span class="mf">250.</span><span class="p">,</span> <span class="mf">100.</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">wx</span><span class="p">,</span> <span class="n">wy</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s">&#39;{0} {1}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">wx</span><span class="p">,</span> <span class="n">wy</span><span class="p">))</span>
 <span class="go">352.67460912268814 -15.413728717834152</span>
 </pre></div>
 </div>
@@ -400,7 +376,7 @@ indicates whether the pixel coordinates should be treated as starting from (1,
 1) (as FITS files do) or from (0, 0). Converting from world to pixel
 coordinates is similar:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">px</span><span class="p">,</span> <span class="n">py</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">wcs_world2pix</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">px</span><span class="p">,</span> <span class="n">py</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s">&#39;{0} {1}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">px</span><span class="p">,</span> <span class="n">py</span><span class="p">))</span>
 <span class="go">240.5 120.5</span>
 </pre></div>
 </div>
@@ -412,10 +388,10 @@ coordinates is similar:</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">px</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">200.</span><span class="p">,</span> <span class="mf">300.</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">py</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="mf">100.</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">wx</span><span class="p">,</span> <span class="n">wy</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">wcs_pix2world</span><span class="p">(</span><span class="n">px</span><span class="p">,</span> <span class="n">py</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">wx</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">wx</span><span class="p">)</span>
 <span class="go">[  31.31117136   22.6911179    14.09965438    5.52581152  356.9588445</span>
 <span class="go">  348.38809541  339.80285857  331.19224432  322.54503641  313.84953796]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">wy</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">wy</span><span class="p">)</span>
 <span class="go">[-15.27956026 -15.34691039 -15.39269292 -15.4170814  -15.42016742</span>
 <span class="go"> -15.40196251 -15.36239844 -15.30132572 -15.21851046 -15.11362923]</span>
 </pre></div>
@@ -480,12 +456,13 @@ Point Sources (from the FITS tutorial)</p>
 <span class="n">values</span> <span class="o">=</span> <span class="n">image</span><span class="p">[</span><span class="n">py</span><span class="p">,</span> <span class="n">px</span><span class="p">]</span>
 
 <span class="c"># Print out the values</span>
-<span class="k">print</span> <span class="n">values</span>
+<span class="k">print</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>which gives:</p>
-<div class="highlight-python"><pre>[ 123.7635498   163.27642822  221.76609802 ...,  255.07995605  100.35219574
-   87.62506104]</pre>
+<div class="highlight-python"><div class="highlight"><pre>[ 123.7635498   163.27642822  221.76609802 ...,  255.07995605  100.35219574
+   87.62506104]
+</pre></div>
 </div>
 </div><div class="admonition-level-3 admonition">
 <p class="first admonition-title">Level 3</p>
@@ -542,32 +519,42 @@ latitude overlaid (e.g. every 30 degrees).</p>
           </div>
         </div>
       </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><h3>Page Contents</h3>
+<ul>
+<li><a class="reference internal" href="#">WCS Transformations</a><ul>
+<li><a class="reference internal" href="#documentation">Documentation</a></li>
+<li><a class="reference internal" href="#data">Data</a></li>
+<li><a class="reference internal" href="#representing-wcs-transformations">Representing WCS transformations</a></li>
+<li><a class="reference internal" href="#pixel-to-world-and-world-to-pixel-transformations">Pixel to World and World to Pixel transformations</a></li>
+<li><a class="reference internal" href="#working-with-arrays">Working with arrays</a></li>
+<li><a class="reference internal" href="#practical-exercises">Practical Exercises</a></li>
+</ul>
+</li>
+</ul>
+
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="fits.html"
+                        title="previous chapter">Handling FITS files</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="coordinates.html"
+                        title="next chapter">Celestial Coordinates</a></p>
+        </div>
+      </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="coordinates.html" title="Celestial Coordinates"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="fits.html" title="Handling FITS files"
-             >previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li>
-          <li><a href="astropy.html" >Astropy</a> &raquo;</li> 
-      </ul>
-    </div>
- <small>Copyright:
- Smithsonian Astrophysical Observatory under terms of
- <a rel="license"
- href="http://creativecommons.org/licenses/by/3.0/">CC
- Attribution 3.0</a></small> <a rel="license"
- href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons
- License" style="border-width:0"
- src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
-
+<footer class="footer">
+  <p class="pull-right">
+    <a href="../_sources/astropy/wcs.txt"
+       rel="nofollow">Page Source</a> &nbsp;
+    <a href="#">Back to Top</a></p>
+  <p>
+    &copy; Copyright 2011-2015, Smithsonian Astrophysical Observatory under
+    terms of <a rel="license"
+                href="http://creativecommons.org/licenses/by/3.0/">CC
+      Attribution 3.0</a>.<br/>
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.3. &nbsp;
+</footer>
   </body>
 </html>

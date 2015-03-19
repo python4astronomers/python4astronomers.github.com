@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Sherpa Installation &mdash; Python4Astronomers 1.1 documentation</title>
+    <title>Sherpa Installation &mdash; Python4Astronomers 2.0 documentation</title>
     
-    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-astropy.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.1',
+        VERSION:     '2.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,11 +23,14 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Python4Astronomers 1.1 documentation" href="../index.html" />
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <link rel="top" title="Python4Astronomers 2.0 documentation" href="../index.html" />
     <link rel="up" title="Fitting and Modeling 1-D and 2-D Data" href="fitting.html" />
     <link rel="next" title="Sherpa Overview" href="sherpa.html" />
     <link rel="prev" title="Fitting and Modeling 1-D and 2-D Data" href="fitting.html" />
- 
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,600' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="../_static/copybutton.js"></script>
+
 <script type="text/javascript"> 
 $(document).ready(function(){
 
@@ -273,64 +274,40 @@ display:none;
 
 </script>
 
+
   </head>
   <body>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="sherpa.html" title="Sherpa Overview"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="fitting.html" title="Fitting and Modeling 1-D and 2-D Data"
-             accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li>
-          <li><a href="fitting.html" accesskey="U">Fitting and Modeling 1-D and 2-D Data</a> &raquo;</li> 
-      </ul>
-    </div>
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
+<div class="topbar">
+  <a class="brand" title="Documentation Home" href="../index.html"><span id="logotext1">python</span><span id="logotext2">4</span><span id="logotext3">astronomers</span></a>
   <ul>
-<li><a class="reference internal" href="#">Sherpa Installation</a><ul>
-<li><a class="reference internal" href="#sherpa-downloads">Sherpa downloads</a></li>
-<li><a class="reference internal" href="#mac-epd">Mac EPD</a></li>
-<li><a class="reference internal" href="#ubuntu-root">Ubuntu (root)</a></li>
-<li><a class="reference internal" href="#epd-linux">EPD Linux</a></li>
-<li><a class="reference internal" href="#try-it-out">Try It Out</a></li>
-</ul>
-</li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="fitting.html"
-                        title="previous chapter">Fitting and Modeling 1-D and 2-D Data</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="sherpa.html"
-                        title="next chapter">Sherpa Overview</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/fitting/installation.txt"
-           rel="nofollow">Show Source</a></li>
+    <li><a class="homelink" title="Astropy Homepage" href="http://www.astropy.org"></a></li>
   </ul>
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
+
+<div class="related">
+    <h3>Navigation</h3>
+    <ul>
+      <li class="right">
+	<a href="sherpa.html" title="Sherpa Overview">
+	  next &raquo;
+	</a>
+      </li>
+      <li class="right">
+	<a href="fitting.html" title="Fitting and Modeling 1-D and 2-D Data">
+	  &laquo; previous
+	</a>
+	 |
+      </li>
+      <li>
+	<a href="../index.html">Python4Astronomers 2.0 documentation</a>
+	 &raquo;
+      </li>
+      <li><a href="fitting.html" accesskey="U">Fitting and Modeling 1-D and 2-D Data</a> &raquo;</li>
+      
+      <li>Sherpa Installation</li> 
+    </ul>
+</div>
+  
 
     <div class="document">
       <div class="documentwrapper">
@@ -341,7 +318,7 @@ display:none;
 <h1>Sherpa Installation<a class="headerlink" href="#sherpa-installation" title="Permalink to this headline">¶</a></h1>
 <p>In order to follow along with the Sherpa examples presented in this
 workshop, you can use
-<a class="reference external" href="http://cxc.harvard.edu/ciao/download/">Sherpa in CIAO 4.4</a>,
+<a class="reference external" href="http://cxc.harvard.edu/ciao/download/">Sherpa in CIAO</a>,
 or install the stand-alone version described below.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -451,7 +428,8 @@ architecture</p>
 </table>
 </div></blockquote>
 <p>Install Sherpa into your EPD installation using easy_install:</p>
-<div class="highlight-python"><pre>easy_install sherpa-4.3.0-EPD-7.0-linux-x86.egg</pre>
+<div class="highlight-python"><div class="highlight"><pre>easy_install sherpa-4.3.0-EPD-7.0-linux-x86.egg
+</pre></div>
 </div>
 </div>
 <div class="section" id="try-it-out">
@@ -494,32 +472,41 @@ on your PATH&#8217;</p>
           </div>
         </div>
       </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><h3>Page Contents</h3>
+<ul>
+<li><a class="reference internal" href="#">Sherpa Installation</a><ul>
+<li><a class="reference internal" href="#sherpa-downloads">Sherpa downloads</a></li>
+<li><a class="reference internal" href="#mac-epd">Mac EPD</a></li>
+<li><a class="reference internal" href="#ubuntu-root">Ubuntu (root)</a></li>
+<li><a class="reference internal" href="#epd-linux">EPD Linux</a></li>
+<li><a class="reference internal" href="#try-it-out">Try It Out</a></li>
+</ul>
+</li>
+</ul>
+
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="fitting.html"
+                        title="previous chapter">Fitting and Modeling 1-D and 2-D Data</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="sherpa.html"
+                        title="next chapter">Sherpa Overview</a></p>
+        </div>
+      </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="sherpa.html" title="Sherpa Overview"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="fitting.html" title="Fitting and Modeling 1-D and 2-D Data"
-             >previous</a> |</li>
-        <li><a href="../index.html">Python4Astronomers 1.1 documentation</a> &raquo;</li>
-          <li><a href="fitting.html" >Fitting and Modeling 1-D and 2-D Data</a> &raquo;</li> 
-      </ul>
-    </div>
- <small>Copyright:
- Smithsonian Astrophysical Observatory under terms of
- <a rel="license"
- href="http://creativecommons.org/licenses/by/3.0/">CC
- Attribution 3.0</a></small> <a rel="license"
- href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons
- License" style="border-width:0"
- src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
-
+<footer class="footer">
+  <p class="pull-right">
+    <a href="../_sources/fitting/installation.txt"
+       rel="nofollow">Page Source</a> &nbsp;
+    <a href="#">Back to Top</a></p>
+  <p>
+    &copy; Copyright 2011-2015, Smithsonian Astrophysical Observatory under
+    terms of <a rel="license"
+                href="http://creativecommons.org/licenses/by/3.0/">CC
+      Attribution 3.0</a>.<br/>
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.3. &nbsp;
+</footer>
   </body>
 </html>
