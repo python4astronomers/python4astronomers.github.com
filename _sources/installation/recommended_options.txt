@@ -92,7 +92,7 @@ Ureka                     Y         Y         --       [11]_
    (astrophysical simulation analysis).  See `Installing yt
    <http://yt-project.org/doc/orientation/installing.html>`_.
 
-.. [11] Ureka is a collection of useful astronomy software that is generally
+.. [11] **Ureka** is a collection of useful astronomy software that is generally
         centered around Python and IRAF. The software provides everything you
         need to run the data reduction packages provided by STScI and Gemini.
         See `<http://ssb.stsci.edu/ureka/>`_.
