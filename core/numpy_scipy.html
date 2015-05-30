@@ -352,16 +352,18 @@ workshop, but on its own it&#8217;s a bit dry for the impatient astronomer.</p>
 <div class="section" id="setup">
 <h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
 <p>Before going further you need to get the example data and script files for
-the workshop.  Now that you have a working Python installation we can do this
-without worrying about details of the platform (e.g. linux has wget,
-Mac has curl, Windows might not have tar, etc etc).</p>
+the workshop.  From your browser download the <a class="reference download internal" href="../_downloads/core_examples.tar"><tt class="xref download docutils literal"><span class="pre">core</span> <span class="pre">examples</span> <span class="pre">tar</span> <span class="pre">file</span></tt></a>.  Then expand it and change directory to the
+<tt class="docutils literal"><span class="pre">py4ast/core</span></tt> directory.</p>
 <p>Now start IPython (&#8220;ipython &#8211;matplotlib&#8221;) or use your existing session and enter:</p>
-<div class="highlight-python"><div class="highlight"><pre>import numpy as np
-import matplotlib.pyplot as plt
-
-from astropy.extern.six.moves.urllib import request
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+<p>An alternate way of downloading the core examples tar file within your
+IPython session would be:</p>
+<div class="highlight-python"><div class="highlight"><pre>from astropy.extern.six.moves.urllib import request
 import tarfile
-url = &#39;http://python4astronomers.github.com/core/core_examples.tar&#39;
+url = &#39;http://python4astronomers.github.io/_downloads/core_examples.tar&#39;
 tarfile.open(fileobj=request.urlopen(url), mode=&#39;r|&#39;).extractall()
 cd py4ast/core
 ls
