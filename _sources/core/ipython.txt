@@ -127,11 +127,11 @@ Try::
 Further resources
 ^^^^^^^^^^^^^^^^^^
 
-- `IPython docs page <http://ipython.github.com/ipython-doc/stable/html/index.html>`_
+- `IPython docs page <https://jupyter.readthedocs.org/en/latest/>`_
 - `IPython customization
-  <http://ipython.scipy.org/doc/rel-0.9.1/html/config/customization.html>`_ :
+  <https://ipython.org/ipython-doc/rel-0.9.1/html/config/index.html>`_ :
   E.g. to always import certain modules read `The ipythonrc approach
-  <http://ipython.scipy.org/doc/rel-0.9.1/html/config/customization.html#the-ipythonrc-approach>`_
+  <https://ipython.org/ipython-doc/rel-0.9.1/html/config/customization.html#the-ipythonrc-approach>`_
   which explains editing ``~/.ipython/ipythonrc`` and setting the
   ``import_mod`` configuration.
 
