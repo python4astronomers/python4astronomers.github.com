@@ -276,7 +276,7 @@ display:none;
 
 
   </head>
-  <body>
+  <body role="document">
 <div class="topbar">
   <a class="brand" title="Documentation Home" href="../index.html"><span id="logotext1">python</span><span id="logotext2">4</span><span id="logotext3">astronomers</span></a>
   <ul>
@@ -312,7 +312,7 @@ display:none;
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="sherpa-overview">
 <h1>Sherpa Overview<a class="headerlink" href="#sherpa-overview" title="Permalink to this headline">¶</a></h1>
@@ -359,32 +359,32 @@ threads, and AHELP pages that describe each Sherpa function:</p>
 <p>If you still have the 3C120 data from the
 <a class="reference external" href="../core/numpy_scipy.html#setup">NumPy introduction</a>
 then go to the py4ast/core directory, otherwise</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ipython --matplotlib
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ipython --matplotlib
 
 from astropy.extern.six.moves.urllib import request
 import tarfile
-url = &#39;http://python4astronomers.github.io/_downloads/core_examples.tar&#39;
+url = &#39;http://python4astronomers.github.com/core/core_examples.tar&#39;
 tarfile.open(fileobj=request.urlopen(url), mode=&#39;r|&#39;).extractall()
 cd py4ast/core
 </pre></div>
 </div>
 <p>Now we load the Sherpa UI module and other requirements:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">sherpa.astro.ui</span> <span class="kn">as</span> <span class="nn">ui</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sherpa.astro.ui</span> <span class="kn">as</span> <span class="nn">ui</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">astropy.io</span> <span class="kn">import</span> <span class="n">fits</span>
-<span class="c"># import pycrates</span>
-<span class="c"># import pychips</span>
+<span class="c1"># import pycrates</span>
+<span class="c1"># import pychips</span>
 </pre></div>
 </div>
-<p>and then the data, using the <tt class="docutils literal"><span class="pre">load_arrays</span></tt> command</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">img</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;3c120_stis.fits.gz&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
-<span class="c"># cr = pycrates.read_file(&#39;3c120_stis.fits.gz&#39;)</span>
-<span class="c"># img = pycrates.get_piximgvals(cr)</span>
+<p>and then the data, using the <code class="docutils literal"><span class="pre">load_arrays</span></code> command</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">img</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;3c120_stis.fits.gz&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+<span class="c1"># cr = pycrates.read_file(&#39;3c120_stis.fits.gz&#39;)</span>
+<span class="c1"># img = pycrates.get_piximgvals(cr)</span>
 <span class="n">profile</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">xaxis</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">profile</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
 <span class="n">ui</span><span class="o">.</span><span class="n">load_arrays</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">xaxis</span><span class="p">,</span> <span class="n">profile</span><span class="p">)</span>
 <span class="n">ui</span><span class="o">.</span><span class="n">plot_data</span><span class="p">()</span>
-<span class="c"># pychips.log_scale(pychips.Y_AXIS)</span>
+<span class="c1"># pychips.log_scale(pychips.Y_AXIS)</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../_images/3c120_data.png"><img alt="../_images/3c120_data.png" src="../_images/3c120_data.png" style="width: 432.0px; height: 324.0px;" /></a>
@@ -392,22 +392,22 @@ cd py4ast/core
 <p class="first admonition-title">Note</p>
 <p class="last">I will be using the CIAO version of Sherpa for the demonstation, but
 feel free to use the standalone version. Here we load the data into
-dataset number <tt class="docutils literal"><span class="pre">1</span></tt> (which is the default); data set ids can be
+dataset number <code class="docutils literal"><span class="pre">1</span></code> (which is the default); data set ids can be
 integers or strings (for example &#8220;src&#8221; and &#8220;bgnd&#8221;). Some routines
 work on a single dataset and some on all; for some commands
-the id value can be left out to use the default (<tt class="docutils literal"><span class="pre">plot_data</span></tt>
-is and <tt class="docutils literal"><span class="pre">load_arrays</span></tt> isn&#8217;t).</p>
+the id value can be left out to use the default (<code class="docutils literal"><span class="pre">plot_data</span></code>
+is and <code class="docutils literal"><span class="pre">load_arrays</span></code> isn&#8217;t).</p>
 </div>
 <div class="admonition hint">
 <p class="first admonition-title">Hint</p>
-<p class="last">Try out <tt class="docutils literal"><span class="pre">d1</span> <span class="pre">=</span> <span class="pre">ui.get_data()</span></tt> and <tt class="docutils literal"><span class="pre">dir(d1)</span></tt>.</p>
+<p class="last">Try out <code class="docutils literal"><span class="pre">d1</span> <span class="pre">=</span> <span class="pre">ui.get_data()</span></code> and <code class="docutils literal"><span class="pre">dir(d1)</span></code>.</p>
 </div>
 </div>
 <div class="section" id="set-up-the-model">
 <h2>Set up the model<a class="headerlink" href="#set-up-the-model" title="Permalink to this headline">¶</a></h2>
 <p>The aim is to determine the approximate spatial extent of the profile,
 so we start with a gaussian:</p>
-<div class="highlight-python"><div class="highlight"><pre>ui.set_source(ui.gauss1d.g1)
+<div class="highlight-python"><div class="highlight"><pre><span></span>ui.set_source(ui.gauss1d.g1)
 print(g1)
 gauss1d.g1
    Param        Type          Value          Min          Max      Units
@@ -420,24 +420,24 @@ gauss1d.g1
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">The Sherpa UI uses fancy Python magic to create a variable with
-the name of the model component - in this case <tt class="docutils literal"><span class="pre">g1</span></tt> - which is
+the name of the model component - in this case <code class="docutils literal"><span class="pre">g1</span></code> - which is
 then used to read and modify the model parameters. Parameters
 have a value, range, and can be thawed (can be adjusted during
 a fit) or frozen (will not be fixed).</p>
 </div>
 <div class="admonition hint">
 <p class="first admonition-title">Hint</p>
-<p class="last">Try out <tt class="docutils literal"><span class="pre">dir(g1)</span></tt>. As shown below, the source expression
-can be retrieved with <tt class="docutils literal"><span class="pre">ui.get_source</span></tt>.</p>
+<p class="last">Try out <code class="docutils literal"><span class="pre">dir(g1)</span></code>. As shown below, the source expression
+can be retrieved with <code class="docutils literal"><span class="pre">ui.get_source</span></code>.</p>
 </div>
 <p>It would be nice if the optimizer were guaranteed to find the
 best fit no matter where you start (and the quality of the data),
 but it often helps to try and give the system a helping hand.
-One way to do this is via the <tt class="docutils literal"><span class="pre">guess</span></tt> command, which
+One way to do this is via the <code class="docutils literal"><span class="pre">guess</span></code> command, which
 uses simple heuristics to initialize some of the
 parameter values and ranges (the algorithm used depends on
 the model).</p>
-<div class="highlight-python"><div class="highlight"><pre>ui.freeze(g1.fwhm)
+<div class="highlight-python"><div class="highlight"><pre><span></span>ui.freeze(g1.fwhm)
 ui.guess(g1)
 ui.thaw(g1.fwhm)
 print(g1)
@@ -451,11 +451,11 @@ gauss1d.g1
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">The reason for freezing the <tt class="docutils literal"><span class="pre">fwhm</span></tt> parameter before the <tt class="docutils literal"><span class="pre">guess</span></tt>
+<p class="last">The reason for freezing the <code class="docutils literal"><span class="pre">fwhm</span></code> parameter before the <code class="docutils literal"><span class="pre">guess</span></code>
 is to avoid a strange error message
-(<tt class="docutils literal"><span class="pre">ParameterErr:</span> <span class="pre">parameter</span> <span class="pre">g1.fwhm</span>
-<span class="pre">has</span> <span class="pre">a</span> <span class="pre">hard</span> <span class="pre">minimum</span> <span class="pre">of</span> <span class="pre">1.17549e-38</span></tt>) that is specific to the
-<tt class="docutils literal"><span class="pre">gauss1d</span></tt> model.</p>
+(<code class="docutils literal"><span class="pre">ParameterErr:</span> <span class="pre">parameter</span> <span class="pre">g1.fwhm</span>
+<span class="pre">has</span> <span class="pre">a</span> <span class="pre">hard</span> <span class="pre">minimum</span> <span class="pre">of</span> <span class="pre">1.17549e-38</span></code>) that is specific to the
+<code class="docutils literal"><span class="pre">gauss1d</span></code> model.</p>
 </div>
 </div>
 <div class="section" id="selecting-a-statistic-and-optimizer">
@@ -468,7 +468,7 @@ based method. Some situations require a particular choice, but
 it can be useful to change values to check that you
 are at the best-fit location (or, to avoid the wrath of any
 Statistician, the local minimum).</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">ui</span><span class="o">.</span><span class="n">set_stat</span><span class="p">(</span><span class="s">&#39;leastsq&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">ui</span><span class="o">.</span><span class="n">set_stat</span><span class="p">(</span><span class="s1">&#39;leastsq&#39;</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">ui</span><span class="o">.</span><span class="n">get_method</span><span class="p">())</span>
 <span class="n">name</span>    <span class="o">=</span> <span class="n">levmar</span>
 <span class="n">ftol</span>    <span class="o">=</span> <span class="mf">1.19209289551e-07</span>
@@ -482,7 +482,7 @@ Statistician, the local minimum).</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">The parameters for the optimizers (e.g. <tt class="docutils literal"><span class="pre">ftol</span></tt> for <tt class="docutils literal"><span class="pre">levmar</span></tt>)
+<p class="last">The parameters for the optimizers (e.g. <code class="docutils literal"><span class="pre">ftol</span></code> for <code class="docutils literal"><span class="pre">levmar</span></code>)
 should be left alone unless you get <em>really</em> stuck <strong>and</strong> know
 what you are doing.</p>
 </div>
@@ -490,7 +490,7 @@ what you are doing.</p>
 <div class="section" id="now-the-fit">
 <h2>Now the fit<a class="headerlink" href="#now-the-fit" title="Permalink to this headline">¶</a></h2>
 <p>For this example, the fit is quick (it does not take many iterations):</p>
-<div class="highlight-python"><div class="highlight"><pre>ui.fit()
+<div class="highlight-python"><div class="highlight"><pre><span></span>ui.fit()
 Dataset               = 1
 Method                = levmar
 Statistic             = leastsq
@@ -505,7 +505,7 @@ Change in statistic   = 5.4574e+13
 </pre></div>
 </div>
 <p>and we repeat just to make sure:</p>
-<div class="highlight-python"><div class="highlight"><pre>ui.fit()
+<div class="highlight-python"><div class="highlight"><pre><span></span>ui.fit()
 Dataset               = 1
 Method                = levmar
 Statistic             = leastsq
@@ -526,17 +526,17 @@ Change in statistic   = 0
 </div>
 <div class="admonition hint">
 <p class="first admonition-title">Hint</p>
-<p class="last">The <tt class="docutils literal"><span class="pre">fit</span></tt> command will fit all loaded datasets when called
-with no id; use <tt class="docutils literal"><span class="pre">fit(1)</span></tt> to fit a single dataset.
-The screen output from the <tt class="docutils literal"><span class="pre">fit</span></tt> command can also be
+<p class="last">The <code class="docutils literal"><span class="pre">fit</span></code> command will fit all loaded datasets when called
+with no id; use <code class="docutils literal"><span class="pre">fit(1)</span></code> to fit a single dataset.
+The screen output from the <code class="docutils literal"><span class="pre">fit</span></code> command can also be
 retrieved as a structure (a Python object) using the
-<tt class="docutils literal"><span class="pre">ui.get_fit_results()</span></tt> command.</p>
+<code class="docutils literal"><span class="pre">ui.get_fit_results()</span></code> command.</p>
 </div>
 </div>
 <div class="section" id="view-the-fit">
 <h2>View the fit<a class="headerlink" href="#view-the-fit" title="Permalink to this headline">¶</a></h2>
 <p>The fit can be viewed graphically (the warnings can be ignored):</p>
-<div class="highlight-python"><div class="highlight"><pre>ui.plot_fit()
+<div class="highlight-python"><div class="highlight"><pre><span></span>ui.plot_fit()
 WARNING: unable to calculate errors using current statistic: leastsq
 ui.plot_fit_resid()
 WARNING: unable to calculate errors using current statistic: leastsq
@@ -557,7 +557,7 @@ needlessly complex (as it does a lot) and we unfortunately don&#8217;t have time
 <div class="section" id="adding-a-component">
 <h2>Adding a component<a class="headerlink" href="#adding-a-component" title="Permalink to this headline">¶</a></h2>
 <p>We can re-use existing components in a source expression:</p>
-<div class="highlight-python"><div class="highlight"><pre>ui.set_source(g1 + ui.const1d.bgnd)
+<div class="highlight-python"><div class="highlight"><pre><span></span>ui.set_source(g1 + ui.const1d.bgnd)
 print(ui.get_source())
 (gauss1d.g1 + const1d.bgnd)
    Param        Type          Value          Min          Max      Units
@@ -568,8 +568,8 @@ print(ui.get_source())
    bgnd.c0      thawed            1            0  3.40282e+38
 </pre></div>
 </div>
-<p>Rather than using <tt class="docutils literal"><span class="pre">guess</span></tt>, let&#8217;s see how well the optimizer does:</p>
-<div class="highlight-python"><div class="highlight"><pre>ui.fit()
+<p>Rather than using <code class="docutils literal"><span class="pre">guess</span></code>, let&#8217;s see how well the optimizer does:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>ui.fit()
 Dataset               = 1
 Method                = levmar
 Statistic             = leastsq
@@ -607,10 +607,10 @@ ui.plot_fit_resid()
 <h2>Evaluating the model expression directly<a class="headerlink" href="#evaluating-the-model-expression-directly" title="Permalink to this headline">¶</a></h2>
 <p>Model components and source expressions can be evaluated directly,
 although this approach only works for simple models; that is those
-without convolution (either explicitly via <tt class="docutils literal"><span class="pre">ui.set_psf</span></tt> or implictly
+without convolution (either explicitly via <code class="docutils literal"><span class="pre">ui.set_psf</span></code> or implictly
 as happens with the handling of the response information in X-ray
 data).:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">xi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">250</span><span class="p">,</span> <span class="mi">260</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">xi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">250</span><span class="p">,</span> <span class="mi">260</span><span class="p">)</span>
 <span class="n">src</span> <span class="o">=</span> <span class="n">ui</span><span class="o">.</span><span class="n">get_source</span><span class="p">()</span>
 <span class="n">yi</span> <span class="o">=</span> <span class="n">src</span><span class="p">(</span><span class="n">xi</span><span class="p">)</span>
 
@@ -629,25 +629,25 @@ data).:</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">The <tt class="docutils literal"><span class="pre">zip</span></tt> command is one of those utility functions that
+<p class="last">The <code class="docutils literal"><span class="pre">zip</span></code> command is one of those utility functions that
 comes in really handy.</p>
 </div>
 <div class="admonition hint">
 <p class="first admonition-title">Hint</p>
-<p class="last">There are a family of commands, such as <tt class="docutils literal"><span class="pre">ui.get_data_plot</span></tt>,
-<tt class="docutils literal"><span class="pre">ui.get_model_plot</span></tt>, and <tt class="docutils literal"><span class="pre">ui.get_fit_plot</span></tt> which provide
+<p class="last">There are a family of commands, such as <code class="docutils literal"><span class="pre">ui.get_data_plot</span></code>,
+<code class="docutils literal"><span class="pre">ui.get_model_plot</span></code>, and <code class="docutils literal"><span class="pre">ui.get_fit_plot</span></code> which provide
 access to the data used to create the corresponding plot command.
 This is one way to handle those models which include a convolution
 component.</p>
 </div>
 <p>I want to find those columns that are significantly higher than
-the background, so let&#8217;s try <tt class="docutils literal"><span class="pre">bgnd.c0</span> <span class="pre">+</span> <span class="pre">5</span></tt>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">xi</span><span class="p">[</span><span class="n">yi</span> <span class="o">&gt;</span> <span class="n">bgnd</span><span class="o">.</span><span class="n">c0</span> <span class="o">+</span> <span class="mi">5</span><span class="p">])</span>
+the background, so let&#8217;s try <code class="docutils literal"><span class="pre">bgnd.c0</span> <span class="pre">+</span> <span class="pre">5</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">xi</span><span class="p">[</span><span class="n">yi</span> <span class="o">&gt;</span> <span class="n">bgnd</span><span class="o">.</span><span class="n">c0</span> <span class="o">+</span> <span class="mi">5</span><span class="p">])</span>
 <span class="p">[]</span>
 </pre></div>
 </div>
 <p>Well, that was unexpected! So what went wrong?:</p>
-<div class="highlight-python"><div class="highlight"><pre>bgnd.c0 + 5
+<div class="highlight-python"><div class="highlight"><pre><span></span>bgnd.c0 + 5
 &lt;BinaryOpParameter &#39;(bgnd.c0 + 5)&#39;&gt;
 </pre></div>
 </div>
@@ -655,8 +655,8 @@ the background, so let&#8217;s try <tt class="docutils literal"><span class="pre
 (demonstrated in the <cite>next section &lt;spectrum.html&gt;</cite>), and a
 bunch of other sparkly goodness, the
 value <cite>bgnd.c0</cite> is actually a Python object. To get at its value
-you have to use the <tt class="docutils literal"><span class="pre">val</span></tt> field:</p>
-<div class="highlight-python"><div class="highlight"><pre>bgnd.c0
+you have to use the <code class="docutils literal"><span class="pre">val</span></code> field:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>bgnd.c0
 &lt;Parameter &#39;c0&#39; of model &#39;bgnd&#39;&gt;
 bgnd.c0.val
 9497.6705097123631
@@ -669,14 +669,14 @@ print(xi[yi&gt;bgnd.c0.val + 5])
 </div>
 <div class="section" id="saving-the-session">
 <h2>Saving the session<a class="headerlink" href="#saving-the-session" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="docutils literal"><span class="pre">save</span></tt> command can be used to store the
+<p>The <code class="docutils literal"><span class="pre">save</span></code> command can be used to store the
 current session as a single file.:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">ui</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">&quot;3c120.sherpa&quot;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">ui</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;3c120.sherpa&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This file can then be
-loaded into a new session with the <tt class="docutils literal"><span class="pre">restore</span></tt> command.:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ipython --matplotlib
+loaded into a new session with the <code class="docutils literal"><span class="pre">restore</span></code> command.:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ipython --matplotlib
 
 In [1]: import sherpa.astro.ui as ui
 
@@ -731,7 +731,7 @@ Change in statistic   = 0
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">The <tt class="docutils literal"><span class="pre">save</span></tt> command takes advantage of Python&#8217;s pickling
+<p class="last">The <code class="docutils literal"><span class="pre">save</span></code> command takes advantage of Python&#8217;s pickling
 capabilities. The result is a binary file that can be shared between
 machines, even on a different OS or - I believe - 32 and 64 bit
 variants. This makes sharing fits with colleagues very easy
@@ -740,9 +740,9 @@ that the files can be used with different versions of Sherpa;
 you can&#8217;t manually inspect the file to see what was done;
 and those people implementing advanced features
 (e.g. user models or statistics) may not
-support this functionality. The <tt class="docutils literal"><span class="pre">ui.save_all</span></tt> command
+support this functionality. The <code class="docutils literal"><span class="pre">ui.save_all</span></code> command
 writes out a Python script, but it is aimed mainly at users who
-load in data from files rather than with the <tt class="docutils literal"><span class="pre">load_arrays</span></tt>
+load in data from files rather than with the <code class="docutils literal"><span class="pre">load_arrays</span></code>
 command.</p>
 </div>
 </div>
@@ -752,7 +752,7 @@ command.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper"><h3>Page Contents</h3>
 <ul>
 <li><a class="reference internal" href="#">Sherpa Overview</a><ul>
@@ -790,7 +790,7 @@ command.</p>
     terms of <a rel="license"
                 href="http://creativecommons.org/licenses/by/3.0/">CC
       Attribution 3.0</a>.<br/>
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.3. &nbsp;
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3.1. &nbsp;
 </footer>
   </body>
 </html>

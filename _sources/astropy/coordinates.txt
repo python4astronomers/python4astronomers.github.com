@@ -5,54 +5,51 @@ Documentation
 -------------
 
 For more information about the features presented below, you can read the
-`astropy.coordinates <http://docs.astropy.org/en/v0.2/coordinates/index.html>`_ docs.
+`astropy.coordinates <http://docs.astropy.org/en/stable/coordinates/index.html>`_ docs.
 
 Representing and converting coordinates
 ---------------------------------------
 
 Astropy includes a framework to represent celestial coordinates and transform
-between them. Astropy 0.2 only includes a few common coordinate systems (ICRS,
-FK4, FK5, and Galactic), but future versions will include more built-in
-coordinate systems, and users can already define their own systems. In addition,
-while the current version only supports transformation of individual scalar
-coordinates, arrays will be supported in future.
+between them. Astropy most of the common coordinate systems (ICRS, FK4, FK5,
+and Galactic, AltAz) and users can define their own systems if needed.
+Transformation of both individual scalar coordinates and arrays of coordinates
+is supported.
 
 Coordinate objects are instantiated with a flexible and natural approach that
 supports both numeric angle values and (limited) string parsing::
 
-    >>> from astropy import coordinates as coord
+    >>> from astropy.coordinates import SkyCoord
     >>> from astropy import units as u
-    >>> coord.ICRSCoordinates(ra=10.68458, dec=41.26917, unit=(u.degree, u.degree))
-    <ICRSCoordinates RA=10.68458 deg, Dec=41.26917 deg>
-    >>> coord.ICRSCoordinates('00h42m44.3s +41d16m9s')
-    <ICRSCoordinates RA=10.68458 deg, Dec=41.26917 deg>
+    >>> SkyCoord(ra=10.68458, dec=41.26917, unit=(u.degree, u.degree))
+    <SkyCoord (ICRS): (ra, dec) in deg 
+        (10.68458, 41.26917)>
+    >>> SkyCoord('00h42m44.3s +41d16m9s')
+    <SkyCoord (ICRS): (ra, dec) in deg
+        (10.68458333, 41.26916667)>
+
 
 The individual components of a coordinate are ``Angle`` objects, and their
 values are accessed using special attributes::
 
-    >>> c = coord.ICRSCoordinates(ra=10.68458, dec=41.26917, unit=(u.degree, u.degree))
+    >>> c = SkyCoord(ra=10.68458, dec=41.26917, unit=(u.degree, u.degree))
     >>> c.ra
-    <RA 10.68458 deg>
-    >>> c.ra.hours
-    0.7123053333333333
+    <<Longitude 10.68458 deg>
+    >>> c.ra.to('hourangle')
+    <Longitude 0.7123053333333335 hourangle>
     >>> c.ra.hms
-    (0.0, 42, 44.2992000000001)
+    hms_tuple(h=0.0, m=42.0, s=44.299200000000525)
     >>> c.dec
-    <Dec 41.26917 deg>
-    >>> c.dec.radians
-    0.7202828960652683
+    <<Latitude 41.26917 deg>
+    >>> c.dec.to('radian')
+    <Latitude 0.7202828960652683 rad>
 
 To convert to some other coordinate system, the easiest method is to use
 attribute-style access with short names for the built-in systems::
 
     >>> c.galactic
-    <GalacticCoordinates l=121.17422 deg, b=-21.57283 deg>
-
-but explicit transformations via the ``transform_to`` method are also
-available::
-
-    >>> c.transform_to(coord.GalacticCoordinates)
-    <GalacticCoordinates l=121.17422 deg, b=-21.57283 deg>
+    <SkyCoord (Galactic): (l, b) in deg
+        (121.17424181, -21.57288557)>
 
 The `astropy.coordinates` subpackage also provides a quick way to get coordinates for
 named objects (with an internet connection). All coordinate classes have a
@@ -60,15 +57,10 @@ special class method, `from_name()`, that accepts a string and queries `Sesame
 <http://cds.u-strasbg.fr/cgi-bin/Sesame>`_ to retrieve coordinates for that
 object::
 
-    >>> c_eq = coord.ICRSCoordinates.from_name("M16")
+    >>> c_eq = SkyCoord.from_name("M16")
     >>> c_eq
-    <ICRSCoordinates RA=274.70000 deg, Dec=-13.80670 deg>
-
-This works for any coordinate class::
-
-    >>> c_gal = coord.GalacticCoordinates.from_name("M16")
-    >>> c_gal
-    <GalacticCoordinates l=16.95408 deg, b=0.79335 deg>
+    <SkyCoord (ICRS): (ra, dec) in deg
+        (274.7, -13.8067)>
 
 .. note::
 
@@ -91,12 +83,14 @@ Practical Exercises
 ::
 
     >>> from astropy import coordinates as coord
-    >>> crab = coord.ICRSCoordinates.from_name('M1')
+    >>> crab = SkyCoord.from_name('M1')
     >>> print(crab)
-    <ICRSCoordinates RA=83.63308 deg, Dec=22.01450 deg>
-    >>> crab_gal = crab.transform_to(coord.GalacticCoordinates)
+    <SkyCoord (ICRS): (ra, dec) in deg
+        (83.633083, 22.0145)>
+    >>> crab_gal = crab.galactic
     >>> print(crab_gal)
-    <GalacticCoordinates l=-175.44248 deg, b=-5.78434 deg>
+    <SkyCoord (Galactic): (l, b) in deg
+        (184.55745771, -5.78435696)>
 
 .. raw:: html
 
@@ -115,24 +109,19 @@ Practical Exercises
 ::
 
     from astropy import units as u
-    from astropy import coordinates as coord
-    from astropy.table import Table
+    from astropy.coordinates import SkyCoord
+    from astropy.table import QTable
     from matplotlib import pyplot as plt
 
-    t = Table.read('rosat.vot', format='votable')
+    t = QTable.read('rosat.vot', format='votable')
 
-    l = []
-    b = []
-    for row in t:
-        eq = coord.FK5Coordinates(row['RAJ2000'], row['DEJ2000'], unit=(u.degree, u.degree))
-        gal = eq.transform_to(coord.GalacticCoordinates)
-        l.append(gal.l.degrees)
-        b.append(gal.b.degrees)
+    eq = SkyCoord(t['RAJ2000'], t['DEJ2000'])
+    gal = eq.galactic
 
     fig = plt.figure()
     ax = fig.add_subplot(1,1,1, aspect='equal')
-    ax.scatter(l, b, s=1, color='black')
-    ax.set_xlim(180., -180.)
+    ax.scatter(gal.l, gal.b, s=1, color='black')
+    ax.set_xlim(0., 360.)
     ax.set_ylim(-90., 90.)
     ax.set_xlabel("Galactic Longitude")
     ax.set_ylabel("Galactic Latitude")

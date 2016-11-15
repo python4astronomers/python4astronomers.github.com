@@ -276,7 +276,7 @@ display:none;
 
 
   </head>
-  <body>
+  <body role="document">
 <div class="topbar">
   <a class="brand" title="Documentation Home" href="../index.html"><span id="logotext1">python</span><span id="logotext2">4</span><span id="logotext3">astronomers</span></a>
   <ul>
@@ -312,73 +312,64 @@ display:none;
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="celestial-coordinates">
 <h1>Celestial Coordinates<a class="headerlink" href="#celestial-coordinates" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="documentation">
 <h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
 <p>For more information about the features presented below, you can read the
-<a class="reference external" href="http://docs.astropy.org/en/v0.2/coordinates/index.html">astropy.coordinates</a> docs.</p>
+<a class="reference external" href="http://docs.astropy.org/en/stable/coordinates/index.html">astropy.coordinates</a> docs.</p>
 </div>
 <div class="section" id="representing-and-converting-coordinates">
 <h2>Representing and converting coordinates<a class="headerlink" href="#representing-and-converting-coordinates" title="Permalink to this headline">¶</a></h2>
 <p>Astropy includes a framework to represent celestial coordinates and transform
-between them. Astropy 0.2 only includes a few common coordinate systems (ICRS,
-FK4, FK5, and Galactic), but future versions will include more built-in
-coordinate systems, and users can already define their own systems. In addition,
-while the current version only supports transformation of individual scalar
-coordinates, arrays will be supported in future.</p>
+between them. Astropy most of the common coordinate systems (ICRS, FK4, FK5,
+and Galactic, AltAz) and users can define their own systems if needed.
+Transformation of both individual scalar coordinates and arrays of coordinates
+is supported.</p>
 <p>Coordinate objects are instantiated with a flexible and natural approach that
 supports both numeric angle values and (limited) string parsing:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">astropy</span> <span class="kn">import</span> <span class="n">coordinates</span> <span class="k">as</span> <span class="n">coord</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">astropy.coordinates</span> <span class="kn">import</span> <span class="n">SkyCoord</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">astropy</span> <span class="kn">import</span> <span class="n">units</span> <span class="k">as</span> <span class="n">u</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">coord</span><span class="o">.</span><span class="n">ICRSCoordinates</span><span class="p">(</span><span class="n">ra</span><span class="o">=</span><span class="mf">10.68458</span><span class="p">,</span> <span class="n">dec</span><span class="o">=</span><span class="mf">41.26917</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">degree</span><span class="p">,</span> <span class="n">u</span><span class="o">.</span><span class="n">degree</span><span class="p">))</span>
-<span class="go">&lt;ICRSCoordinates RA=10.68458 deg, Dec=41.26917 deg&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">coord</span><span class="o">.</span><span class="n">ICRSCoordinates</span><span class="p">(</span><span class="s">&#39;00h42m44.3s +41d16m9s&#39;</span><span class="p">)</span>
-<span class="go">&lt;ICRSCoordinates RA=10.68458 deg, Dec=41.26917 deg&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">SkyCoord</span><span class="p">(</span><span class="n">ra</span><span class="o">=</span><span class="mf">10.68458</span><span class="p">,</span> <span class="n">dec</span><span class="o">=</span><span class="mf">41.26917</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">degree</span><span class="p">,</span> <span class="n">u</span><span class="o">.</span><span class="n">degree</span><span class="p">))</span>
+<span class="go">&lt;SkyCoord (ICRS): (ra, dec) in deg</span>
+<span class="go">    (10.68458, 41.26917)&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">SkyCoord</span><span class="p">(</span><span class="s1">&#39;00h42m44.3s +41d16m9s&#39;</span><span class="p">)</span>
+<span class="go">&lt;SkyCoord (ICRS): (ra, dec) in deg</span>
+<span class="go">    (10.68458333, 41.26916667)&gt;</span>
 </pre></div>
 </div>
-<p>The individual components of a coordinate are <tt class="docutils literal"><span class="pre">Angle</span></tt> objects, and their
+<p>The individual components of a coordinate are <code class="docutils literal"><span class="pre">Angle</span></code> objects, and their
 values are accessed using special attributes:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">coord</span><span class="o">.</span><span class="n">ICRSCoordinates</span><span class="p">(</span><span class="n">ra</span><span class="o">=</span><span class="mf">10.68458</span><span class="p">,</span> <span class="n">dec</span><span class="o">=</span><span class="mf">41.26917</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">degree</span><span class="p">,</span> <span class="n">u</span><span class="o">.</span><span class="n">degree</span><span class="p">))</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">SkyCoord</span><span class="p">(</span><span class="n">ra</span><span class="o">=</span><span class="mf">10.68458</span><span class="p">,</span> <span class="n">dec</span><span class="o">=</span><span class="mf">41.26917</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">degree</span><span class="p">,</span> <span class="n">u</span><span class="o">.</span><span class="n">degree</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">ra</span>
-<span class="go">&lt;RA 10.68458 deg&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">ra</span><span class="o">.</span><span class="n">hours</span>
-<span class="go">0.7123053333333333</span>
+<span class="go">&lt;&lt;Longitude 10.68458 deg&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">ra</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s1">&#39;hourangle&#39;</span><span class="p">)</span>
+<span class="go">&lt;Longitude 0.7123053333333335 hourangle&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">ra</span><span class="o">.</span><span class="n">hms</span>
-<span class="go">(0.0, 42, 44.2992000000001)</span>
+<span class="go">hms_tuple(h=0.0, m=42.0, s=44.299200000000525)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">dec</span>
-<span class="go">&lt;Dec 41.26917 deg&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">dec</span><span class="o">.</span><span class="n">radians</span>
-<span class="go">0.7202828960652683</span>
+<span class="go">&lt;&lt;Latitude 41.26917 deg&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">dec</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s1">&#39;radian&#39;</span><span class="p">)</span>
+<span class="go">&lt;Latitude 0.7202828960652683 rad&gt;</span>
 </pre></div>
 </div>
 <p>To convert to some other coordinate system, the easiest method is to use
 attribute-style access with short names for the built-in systems:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">galactic</span>
-<span class="go">&lt;GalacticCoordinates l=121.17422 deg, b=-21.57283 deg&gt;</span>
-</pre></div>
-</div>
-<p>but explicit transformations via the <tt class="docutils literal"><span class="pre">transform_to</span></tt> method are also
-available:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">transform_to</span><span class="p">(</span><span class="n">coord</span><span class="o">.</span><span class="n">GalacticCoordinates</span><span class="p">)</span>
-<span class="go">&lt;GalacticCoordinates l=121.17422 deg, b=-21.57283 deg&gt;</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">galactic</span>
+<span class="go">&lt;SkyCoord (Galactic): (l, b) in deg</span>
+<span class="go">    (121.17424181, -21.57288557)&gt;</span>
 </pre></div>
 </div>
 <p>The <cite>astropy.coordinates</cite> subpackage also provides a quick way to get coordinates for
 named objects (with an internet connection). All coordinate classes have a
 special class method, <cite>from_name()</cite>, that accepts a string and queries <a class="reference external" href="http://cds.u-strasbg.fr/cgi-bin/Sesame">Sesame</a> to retrieve coordinates for that
 object:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">c_eq</span> <span class="o">=</span> <span class="n">coord</span><span class="o">.</span><span class="n">ICRSCoordinates</span><span class="o">.</span><span class="n">from_name</span><span class="p">(</span><span class="s">&quot;M16&quot;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c_eq</span> <span class="o">=</span> <span class="n">SkyCoord</span><span class="o">.</span><span class="n">from_name</span><span class="p">(</span><span class="s2">&quot;M16&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">c_eq</span>
-<span class="go">&lt;ICRSCoordinates RA=274.70000 deg, Dec=-13.80670 deg&gt;</span>
-</pre></div>
-</div>
-<p>This works for any coordinate class:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">c_gal</span> <span class="o">=</span> <span class="n">coord</span><span class="o">.</span><span class="n">GalacticCoordinates</span><span class="o">.</span><span class="n">from_name</span><span class="p">(</span><span class="s">&quot;M16&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">c_gal</span>
-<span class="go">&lt;GalacticCoordinates l=16.95408 deg, b=0.79335 deg&gt;</span>
+<span class="go">&lt;SkyCoord (ICRS): (ra, dec) in deg</span>
+<span class="go">    (274.7, -13.8067)&gt;</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -395,13 +386,15 @@ reference for that measurement and input the coordinates manually.</p>
 <p class="last">Find the coordinates of the Crab Nebula in ICRS coordinates, and convert
 them to Galactic Coordinates</p>
 </div>
-<p class="flip1">Click to Show/Hide Solution</p> <div class="panel1"><div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">astropy</span> <span class="kn">import</span> <span class="n">coordinates</span> <span class="k">as</span> <span class="n">coord</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">crab</span> <span class="o">=</span> <span class="n">coord</span><span class="o">.</span><span class="n">ICRSCoordinates</span><span class="o">.</span><span class="n">from_name</span><span class="p">(</span><span class="s">&#39;M1&#39;</span><span class="p">)</span>
+<p class="flip1">Click to Show/Hide Solution</p> <div class="panel1"><div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">astropy</span> <span class="kn">import</span> <span class="n">coordinates</span> <span class="k">as</span> <span class="n">coord</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">crab</span> <span class="o">=</span> <span class="n">SkyCoord</span><span class="o">.</span><span class="n">from_name</span><span class="p">(</span><span class="s1">&#39;M1&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">crab</span><span class="p">)</span>
-<span class="go">&lt;ICRSCoordinates RA=83.63308 deg, Dec=22.01450 deg&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">crab_gal</span> <span class="o">=</span> <span class="n">crab</span><span class="o">.</span><span class="n">transform_to</span><span class="p">(</span><span class="n">coord</span><span class="o">.</span><span class="n">GalacticCoordinates</span><span class="p">)</span>
+<span class="go">&lt;SkyCoord (ICRS): (ra, dec) in deg</span>
+<span class="go">    (83.633083, 22.0145)&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">crab_gal</span> <span class="o">=</span> <span class="n">crab</span><span class="o">.</span><span class="n">galactic</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">crab_gal</span><span class="p">)</span>
-<span class="go">&lt;GalacticCoordinates l=-175.44248 deg, b=-5.78434 deg&gt;</span>
+<span class="go">&lt;SkyCoord (Galactic): (l, b) in deg</span>
+<span class="go">    (184.55745771, -5.78435696)&gt;</span>
 </pre></div>
 </div>
 </div><div class="admonition-excercise-2 admonition">
@@ -410,30 +403,25 @@ them to Galactic Coordinates</p>
 equatorial coordinates to Galactic coordinates, and make a new plot (but
 don&#8217;t worry about the bright sources).</p>
 </div>
-<p class="flip2">Click to Show/Hide Solution</p> <div class="panel2"><div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">astropy</span> <span class="kn">import</span> <span class="n">units</span> <span class="k">as</span> <span class="n">u</span>
-<span class="kn">from</span> <span class="nn">astropy</span> <span class="kn">import</span> <span class="n">coordinates</span> <span class="k">as</span> <span class="n">coord</span>
-<span class="kn">from</span> <span class="nn">astropy.table</span> <span class="kn">import</span> <span class="n">Table</span>
+<p class="flip2">Click to Show/Hide Solution</p> <div class="panel2"><div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">astropy</span> <span class="kn">import</span> <span class="n">units</span> <span class="k">as</span> <span class="n">u</span>
+<span class="kn">from</span> <span class="nn">astropy.coordinates</span> <span class="kn">import</span> <span class="n">SkyCoord</span>
+<span class="kn">from</span> <span class="nn">astropy.table</span> <span class="kn">import</span> <span class="n">QTable</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 
-<span class="n">t</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s">&#39;rosat.vot&#39;</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s">&#39;votable&#39;</span><span class="p">)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">QTable</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;rosat.vot&#39;</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s1">&#39;votable&#39;</span><span class="p">)</span>
 
-<span class="n">l</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">b</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">t</span><span class="p">:</span>
-    <span class="n">eq</span> <span class="o">=</span> <span class="n">coord</span><span class="o">.</span><span class="n">FK5Coordinates</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s">&#39;RAJ2000&#39;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s">&#39;DEJ2000&#39;</span><span class="p">],</span> <span class="n">unit</span><span class="o">=</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">degree</span><span class="p">,</span> <span class="n">u</span><span class="o">.</span><span class="n">degree</span><span class="p">))</span>
-    <span class="n">gal</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">transform_to</span><span class="p">(</span><span class="n">coord</span><span class="o">.</span><span class="n">GalacticCoordinates</span><span class="p">)</span>
-    <span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gal</span><span class="o">.</span><span class="n">l</span><span class="o">.</span><span class="n">degrees</span><span class="p">)</span>
-    <span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gal</span><span class="o">.</span><span class="n">b</span><span class="o">.</span><span class="n">degrees</span><span class="p">)</span>
+<span class="n">eq</span> <span class="o">=</span> <span class="n">SkyCoord</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="s1">&#39;RAJ2000&#39;</span><span class="p">],</span> <span class="n">t</span><span class="p">[</span><span class="s1">&#39;DEJ2000&#39;</span><span class="p">])</span>
+<span class="n">gal</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">galactic</span>
 
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s">&#39;equal&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mf">180.</span><span class="p">,</span> <span class="o">-</span><span class="mf">180.</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">gal</span><span class="o">.</span><span class="n">l</span><span class="p">,</span> <span class="n">gal</span><span class="o">.</span><span class="n">b</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">360.</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">90.</span><span class="p">,</span> <span class="mf">90.</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s">&quot;Galactic Longitude&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s">&quot;Galactic Latitude&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Galactic Longitude&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Galactic Latitude&quot;</span><span class="p">)</span>
 
-<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">&#39;coord_level2.png&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s">&#39;tight&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;coord_level2.png&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <img alt="../_images/coord_level2.png" src="../_images/coord_level2.png" />
@@ -444,7 +432,7 @@ don&#8217;t worry about the bright sources).</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper"><h3>Page Contents</h3>
 <ul>
 <li><a class="reference internal" href="#">Celestial Coordinates</a><ul>
@@ -476,7 +464,7 @@ don&#8217;t worry about the bright sources).</p>
     terms of <a rel="license"
                 href="http://creativecommons.org/licenses/by/3.0/">CC
       Attribution 3.0</a>.<br/>
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.3. &nbsp;
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3.1. &nbsp;
 </footer>
   </body>
 </html>

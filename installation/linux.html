@@ -276,7 +276,7 @@ display:none;
 
 
   </head>
-  <body>
+  <body role="document">
 <div class="topbar">
   <a class="brand" title="Documentation Home" href="../index.html"><span id="logotext1">python</span><span id="logotext2">4</span><span id="logotext3">astronomers</span></a>
   <ul>
@@ -312,7 +312,7 @@ display:none;
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="linux">
 <span id="linux-install"></span><h1>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h1>
@@ -338,7 +338,7 @@ code development.  In Ubuntu 10 the core packages (NumPy, Matplotlib) are a
 year or so out of date.  Unless you are really pushing for the latest features,
 the older stable versions will work perfectly well.</p>
 <p>Install the core packages for analysis with the following:</p>
-<div class="highlight-python"><div class="highlight"><pre>sudo apt-get install python-dev
+<div class="highlight-python"><div class="highlight"><pre><span></span>sudo apt-get install python-dev
 sudo apt-get install ipython
 sudo apt-get install python-numpy
 sudo apt-get install python-scipy
@@ -349,11 +349,11 @@ sudo apt-get install python-setuptools
 <div class="section" id="quick-installation-check">
 <h3>Quick installation check<a class="headerlink" href="#quick-installation-check" title="Permalink to this headline">¶</a></h3>
 <p>Open a new terminal window and type:</p>
-<div class="highlight-python"><div class="highlight"><pre>which ipython
+<div class="highlight-python"><div class="highlight"><pre><span></span>which ipython
 </pre></div>
 </div>
 <p>You should see:</p>
-<div class="highlight-python"><div class="highlight"><pre>/usr/bin/ipython
+<div class="highlight-python"><div class="highlight"><pre><span></span>/usr/bin/ipython
 </pre></div>
 </div>
 </div>
@@ -367,18 +367,18 @@ privilege and takes advantage of the <a class="reference external" href="http://
 package.  This allows you to install new and updated packages to a virtual
 clone of this Python installation without having root.</p>
 <p>Assume that the system Python installation is installed in the root directory
-<tt class="docutils literal"><span class="pre">$PYTHONROOT</span></tt>, so that you find <tt class="docutils literal"><span class="pre">python</span></tt> and <tt class="docutils literal"><span class="pre">easy_install</span></tt> in
-<tt class="docutils literal"><span class="pre">$PYTHONROOT/bin</span></tt>.  Now install <tt class="docutils literal"><span class="pre">pip</span></tt>, <tt class="docutils literal"><span class="pre">distribute</span></tt>, and <tt class="docutils literal"><span class="pre">virtualenv</span></tt>:</p>
-<div class="highlight-python"><div class="highlight"><pre>$PYTHONROOT/bin/easy_install --user --upgrade virtualenv
+<code class="docutils literal"><span class="pre">$PYTHONROOT</span></code>, so that you find <code class="docutils literal"><span class="pre">python</span></code> and <code class="docutils literal"><span class="pre">easy_install</span></code> in
+<code class="docutils literal"><span class="pre">$PYTHONROOT/bin</span></code>.  Now install <code class="docutils literal"><span class="pre">pip</span></code>, <code class="docutils literal"><span class="pre">distribute</span></code>, and <code class="docutils literal"><span class="pre">virtualenv</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>$PYTHONROOT/bin/easy_install --user --upgrade virtualenv
 </pre></div>
 </div>
-<p>Now use <tt class="docutils literal"><span class="pre">virtualenv</span></tt> to make a local virtual Python which is a clone of the
-system Python but resides in a directory (e.g. <tt class="docutils literal"><span class="pre">~/py27</span></tt>) where you have write
+<p>Now use <code class="docutils literal"><span class="pre">virtualenv</span></code> to make a local virtual Python which is a clone of the
+system Python but resides in a directory (e.g. <code class="docutils literal"><span class="pre">~/py27</span></code>) where you have write
 access:</p>
-<div class="highlight-python"><div class="highlight"><pre>~/.local/bin/virtualenv --system-site-packages ~/py27
+<div class="highlight-python"><div class="highlight"><pre><span></span>~/.local/bin/virtualenv --system-site-packages ~/py27
 </pre></div>
 </div>
-<p>The <tt class="docutils literal"><span class="pre">--system-site-packages</span></tt> option tells <tt class="docutils literal"><span class="pre">virtualenv</span></tt> to make links to all of the
+<p>The <code class="docutils literal"><span class="pre">--system-site-packages</span></code> option tells <code class="docutils literal"><span class="pre">virtualenv</span></code> to make links to all of the
 packages that are already installed in the system Python.  In general this is convenient,
 but you may want to start with a clean Python installation by leaving out that option.</p>
 <p>To use this virtual Python just do:</p>
@@ -394,20 +394,20 @@ but you may want to start with a clean Python installation by leaving out that o
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>csh</td>
-<td><tt class="docutils literal"><span class="pre">source</span> <span class="pre">~/py27/bin/activate.csh</span></tt></td>
+<td><code class="docutils literal"><span class="pre">source</span> <span class="pre">~/py27/bin/activate.csh</span></code></td>
 </tr>
 <tr class="row-odd"><td>bash</td>
-<td><tt class="docutils literal"><span class="pre">.</span> <span class="pre">~/py27/bin/activate</span></tt></td>
+<td><code class="docutils literal"><span class="pre">.</span> <span class="pre">~/py27/bin/activate</span></code></td>
 </tr>
 </tbody>
 </table>
 <p>For convience you might make an alias for these startup commands in your csh or
 bash startup file.  Once you&#8217;ve activated the virtual Python environment then
-you <em>do not</em> use the <tt class="docutils literal"><span class="pre">--user</span></tt> option in <tt class="docutils literal"><span class="pre">easy_install</span></tt> or <tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span></tt>.
+you <em>do not</em> use the <code class="docutils literal"><span class="pre">--user</span></code> option in <code class="docutils literal"><span class="pre">easy_install</span></code> or <code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span></code>.
 All installs will be made in your local environment.</p>
-<p>To finish up you need to install <tt class="docutils literal"><span class="pre">ipython</span></tt> in this virtual environment, even
+<p>To finish up you need to install <code class="docutils literal"><span class="pre">ipython</span></code> in this virtual environment, even
 if it already exists in the system python:</p>
-<div class="highlight-python"><div class="highlight"><pre>pip install --upgrade ipython
+<div class="highlight-python"><div class="highlight"><pre><span></span>pip install --upgrade ipython
 </pre></div>
 </div>
 <div class="admonition note">
@@ -419,11 +419,11 @@ package.</p>
 <div class="section" id="id1">
 <h3>Quick installation check<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>Open a new terminal window and type:</p>
-<div class="highlight-python"><div class="highlight"><pre>which ipython
+<div class="highlight-python"><div class="highlight"><pre><span></span>which ipython
 </pre></div>
 </div>
 <p>You should see something like the following:</p>
-<div class="highlight-python"><div class="highlight"><pre>~/py27/bin/ipython
+<div class="highlight-python"><div class="highlight"><pre><span></span>~/py27/bin/ipython
 </pre></div>
 </div>
 </div>
@@ -434,7 +434,7 @@ package.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper"><h3>Page Contents</h3>
 <ul>
 <li><a class="reference internal" href="#">Linux</a><ul>
@@ -471,7 +471,7 @@ package.</p>
     terms of <a rel="license"
                 href="http://creativecommons.org/licenses/by/3.0/">CC
       Attribution 3.0</a>.<br/>
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.3. &nbsp;
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3.1. &nbsp;
 </footer>
   </body>
 </html>

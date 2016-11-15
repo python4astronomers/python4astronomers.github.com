@@ -276,7 +276,7 @@ display:none;
 
 
   </head>
-  <body>
+  <body role="document">
 <div class="topbar">
   <a class="brand" title="Documentation Home" href="../index.html"><span id="logotext1">python</span><span id="logotext2">4</span><span id="logotext3">astronomers</span></a>
   <ul>
@@ -312,7 +312,7 @@ display:none;
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="modules-packages-and-all-that">
 <h1>Modules, Packages, and all that<a class="headerlink" href="#modules-packages-and-all-that" title="Permalink to this headline">¶</a></h1>
@@ -326,12 +326,12 @@ with useful modules for science analysis.</p>
 containing Python definitions, functions, and statements.  Putting code into
 modules is useful because of the ability to <a class="reference external" href="http://docs.python.org/reference/simple_stmts.html#import">import</a> the module
 functionality into your script or IPython session, for instance:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">astropy</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">astropy</span>
 <span class="kn">import</span> <span class="nn">astropy.table</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">astropy</span><span class="o">.</span><span class="n">table</span><span class="o">.</span><span class="n">Table</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s">&#39;my_table.fits&#39;</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">astropy</span><span class="o">.</span><span class="n">table</span><span class="o">.</span><span class="n">Table</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;my_table.fits&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>You&#8217;ll see <tt class="docutils literal"><span class="pre">import</span></tt> in virtually every Python script and soon it will be
+<p>You&#8217;ll see <code class="docutils literal"><span class="pre">import</span></code> in virtually every Python script and soon it will be
 second nature.</p>
 <dl class="docutils">
 <dt><em>Question</em>:</dt>
@@ -339,29 +339,29 @@ second nature.</p>
 why do I need to do this?</dd>
 <dt><em>Answer</em>:</dt>
 <dd>It keeps everything modular and separate.  For instance many modules have a
-<tt class="docutils literal"><span class="pre">read()</span></tt> function since this is a common thing to do.  Without using the
-<tt class="docutils literal"><span class="pre">&lt;module&gt;.&lt;function&gt;(...)</span></tt> syntax there would be no way to know which one
+<code class="docutils literal"><span class="pre">read()</span></code> function since this is a common thing to do.  Without using the
+<code class="docutils literal"><span class="pre">&lt;module&gt;.&lt;function&gt;(...)</span></code> syntax there would be no way to know which one
 to call.</dd>
 </dl>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
-<p>Sometimes it is convenient to make an end-run around the <tt class="docutils literal"><span class="pre">&lt;module&gt;.</span></tt>
-prefixing.  For instance when you run <tt class="docutils literal"><span class="pre">ipython</span> <span class="pre">--pylab</span></tt> the interpreter
+<p>Sometimes it is convenient to make an end-run around the <code class="docutils literal"><span class="pre">&lt;module&gt;.</span></code>
+prefixing.  For instance when you run <code class="docutils literal"><span class="pre">ipython</span> <span class="pre">--pylab</span></code> the interpreter
 does some startup processing so that a number of functions
 from the <a class="reference external" href="http://numpy.org/">numpy</a> and <a class="reference external" href="http://matplotlib.org/">matplotlib</a> modules are available <em>without</em>
 using the prefix.</p>
 <p>Python allows this with this syntax:</p>
-<div class="highlight-python"><div class="highlight"><pre>from &lt;module&gt; import *
+<div class="highlight-python"><div class="highlight"><pre><span></span>from &lt;module&gt; import *
 </pre></div>
 </div>
 <p>That means to import every function and definition from the module into the
 current namespace (in other words make them available without prefixing).
 For instance you could do:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">astropy.table</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="s">&#39;my_table.fits&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">astropy.table</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="s1">&#39;my_table.fits&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p class="last">A general rule of thumb is that <tt class="docutils literal"><span class="pre">from</span> <span class="pre">&lt;module&gt;</span> <span class="pre">import</span> <span class="pre">*</span></tt> is OK for
+<p class="last">A general rule of thumb is that <code class="docutils literal"><span class="pre">from</span> <span class="pre">&lt;module&gt;</span> <span class="pre">import</span> <span class="pre">*</span></code> is OK for
 interactive analysis within IPython but you should avoid using it within
 scripts.</p>
 </div>
@@ -459,7 +459,7 @@ repository for 3rd party Python packages (about 14000 packages and growing).
 An increasing number of <a class="reference external" href="http://pypi.python.org/pypi?:action=browse&amp;show=all&amp;c=385&amp;c=387">astronomy related packages</a>
 are available on PyPI, but this list misses a lot of available options.</p>
 <p>The advantage of being on PyPI is the ease of installation using
-<tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">&lt;package_name&gt;</span></tt>.</p>
+<code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">&lt;package_name&gt;</span></code>.</p>
 <div class="admonition-exercise-find-packages-for-coordinate-manipulations admonition">
 <p class="first admonition-title">Exercise: Find packages for coordinate manipulations</p>
 <p>Find one or more Python packages that will transform coordinates from Galactic to FK5 ecliptic.</p>
@@ -472,26 +472,26 @@ the bottom.</p>
 <h3>Package installation<a class="headerlink" href="#package-installation" title="Permalink to this headline">¶</a></h3>
 <p>There are two standard methods for installing a package.</p>
 <p><strong>pip install</strong></p>
-<p>The <tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span></tt> script is available within our scientific Python
+<p>The <code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span></code> script is available within our scientific Python
 installation and is very easy to use (when it works).  During the installation
-process you already saw many examples of <tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span></tt> in action.  Features include:</p>
+process you already saw many examples of <code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span></code> in action.  Features include:</p>
 <blockquote>
 <div><ul class="simple">
 <li>If supplied with a package name then it will query the PyPI site to find out about
-that package.  Assuming the package is there then <tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span></tt> will
+that package.  Assuming the package is there then <code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span></code> will
 automatically download and install the package.</li>
 <li>Will accept a local tar file (assuming it contains an installable Python package) or a URL
 pointing to a tar file.</li>
-<li>Can install in the user package area via <tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">&lt;package</span> <span class="pre">or</span> <span class="pre">URL&gt;</span>
-<span class="pre">--user</span></tt> (but see discussion further down)</li>
+<li>Can install in the user package area via <code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">&lt;package</span> <span class="pre">or</span> <span class="pre">URL&gt;</span>
+<span class="pre">--user</span></code> (but see discussion further down)</li>
 </ul>
 </div></blockquote>
 <p><strong>python setup.py install</strong></p>
-<p>Some packages may fail to install via <tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span></tt>.  Most often there will
+<p>Some packages may fail to install via <code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span></code>.  Most often there will
 be some obvious (or not) error message about compilation or missing
 dependency.  In this case the likely next step is to download the installation tar
 file and untar it.  Go into the package directory and look for files like:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">INSTALL</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">INSTALL</span>
 <span class="n">README</span>
 <span class="n">setup</span><span class="o">.</span><span class="n">py</span>
 <span class="n">setup</span><span class="o">.</span><span class="n">cfg</span>
@@ -499,8 +499,8 @@ file and untar it.  Go into the package directory and look for files like:</p>
 </div>
 <p>If there is an INSTALL or README file then hopefully you will find useful
 installation instructions.  Most well-behaved python packages do the
-installation via a standard <tt class="docutils literal"><span class="pre">setup.py</span></tt> script.  This is used as follows:</p>
-<div class="highlight-python"><div class="highlight"><pre>python setup.py --help  # get options
+installation via a standard <code class="docutils literal"><span class="pre">setup.py</span></code> script.  This is used as follows:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>python setup.py --help  # get options
 python setup.py install # install in the python area (root / admin req&#39;d)
 python setup.py install --user # install to user&#39;s package area
 </pre></div>
@@ -510,14 +510,14 @@ python setup.py install --user # install to user&#39;s package area
 <div class="section" id="where-do-packages-get-installed">
 <h3>Where do packages get installed?<a class="headerlink" href="#where-do-packages-get-installed" title="Permalink to this headline">¶</a></h3>
 <p>An important option in the installation process is where to put the package
-files.  We&#8217;ve seen the <tt class="docutils literal"><span class="pre">--user</span></tt> option in <tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span></tt> and <tt class="docutils literal"><span class="pre">python</span>
-<span class="pre">setup.py</span> <span class="pre">install</span></tt>.  What&#8217;s up with that?  In the section below we document
+files.  We&#8217;ve seen the <code class="docutils literal"><span class="pre">--user</span></code> option in <code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span></code> and <code class="docutils literal"><span class="pre">python</span>
+<span class="pre">setup.py</span> <span class="pre">install</span></code>.  What&#8217;s up with that?  In the section below we document
 how this works.  See the discussion in <a class="reference internal" href="#multiple-pythons-on-your-computer">Multiple Pythons on
 your computer</a> for a reason you might want to do this, but first please read
 this warning:</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
-<p class="last">We strongly recommend against installing packages with <tt class="docutils literal"><span class="pre">--user</span></tt> unless you
+<p class="last">We strongly recommend against installing packages with <code class="docutils literal"><span class="pre">--user</span></code> unless you
 are an expert and really understand what you are doing, .  This is because
 the local user version will always take precedence and can thus potentially
 disrupt other Python installations and cause hard-to-understand problems.
@@ -526,10 +526,10 @@ assuming the integrated environment they provide.  If you start mucking this
 up then all bets are off.</p>
 </div>
 <div class="section" id="with-user">
-<h4>WITH <tt class="docutils literal"><span class="pre">--user</span></tt><a class="headerlink" href="#with-user" title="Permalink to this headline">¶</a></h4>
+<h4>WITH <code class="docutils literal"><span class="pre">--user</span></code><a class="headerlink" href="#with-user" title="Permalink to this headline">¶</a></h4>
 <p>Packages get installed in a local user-owned directory when you do something
 like either of the following:</p>
-<div class="highlight-python"><div class="highlight"><pre>pip install --user aplpy
+<div class="highlight-python"><div class="highlight"><pre><span></span>pip install --user aplpy
 python setup.py install --user
 </pre></div>
 </div>
@@ -554,12 +554,12 @@ python setup.py install --user
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">On Mac if you did not use Anaconda or the EPD Python Framework then you may see user
-packages within <tt class="docutils literal"><span class="pre">~/.local/lib</span></tt> as for linux.  This depends on whether Python
+packages within <code class="docutils literal"><span class="pre">~/.local/lib</span></code> as for linux.  This depends on whether Python
 is installed as a MacOS Framework or not.</p>
 </div>
 </div>
 <div class="section" id="without-user">
-<h4>WITHOUT <tt class="docutils literal"><span class="pre">--user</span></tt><a class="headerlink" href="#without-user" title="Permalink to this headline">¶</a></h4>
+<h4>WITHOUT <code class="docutils literal"><span class="pre">--user</span></code><a class="headerlink" href="#without-user" title="Permalink to this headline">¶</a></h4>
 <p>If you use Anaconda or a non-root Python installation then there is no issue
 with permissions on any platform since the entire installation is local to a
 directory you own.</p>
@@ -567,20 +567,20 @@ directory you own.</p>
 admin privilege.  Installing this way has the benefit of making the package
 available for all users of the Python installation, but has the downside that
 it is more difficult to back out changes if required.  In general we recommend
-using <em>only</em> the system package manager (e.g. <tt class="docutils literal"><span class="pre">yum</span></tt>) to install packages to
+using <em>only</em> the system package manager (e.g. <code class="docutils literal"><span class="pre">yum</span></code>) to install packages to
 the system Python.  This will ensure integrity of your system Python, which is
 important even if you are the only user.</p>
 </div>
 <div class="section" id="how-do-i-find-a-package-once-installed">
 <h4>How do I find a package once installed?<a class="headerlink" href="#how-do-i-find-a-package-once-installed" title="Permalink to this headline">¶</a></h4>
-<p>Finding the file associated with a package or module is simple, just use the <tt class="docutils literal"><span class="pre">help</span></tt>
+<p>Finding the file associated with a package or module is simple, just use the <code class="docutils literal"><span class="pre">help</span></code>
 command in IPython:</p>
-<div class="highlight-python"><div class="highlight"><pre>import scipy
+<div class="highlight-python"><div class="highlight"><pre><span></span>import scipy
 help scipy
 </pre></div>
 </div>
 <p>This gives something like:</p>
-<div class="highlight-python"><div class="highlight"><pre>NAME
+<div class="highlight-python"><div class="highlight"><pre><span></span>NAME
     scipy
 
 FILE
@@ -621,7 +621,7 @@ googling by pasting in the relevant parts of the message.</p>
 <li>URL for downloading the package tar file</li>
 <li>Your platform (machine architecture and exact OS version)</li>
 <li>Exactly what you typed</li>
-<li>Entire output from the <tt class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">install</span></tt> process</li>
+<li>Entire output from the <code class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">install</span></code> process</li>
 </ul>
 </div></blockquote>
 <p>Do NOT just write and say &#8220;I tried to install BLAH and it failed, can
@@ -639,8 +639,8 @@ gives all the details.  In summary:</p>
 on a search path. A default value for the path is configured into the Python
 binary when the interpreter is built. You can determine the path by importing
 the <a class="reference external" href="http://docs.python.org/library/sys.html#module-sys">sys</a> module and
-printing the value of <tt class="docutils literal"><span class="pre">sys.path</span></tt>:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ python
+printing the value of <code class="docutils literal"><span class="pre">sys.path</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ python
 Python 2.2 (#11, Oct  3 2002, 13:31:27)
 [GCC 2.96 20000731 (Red Hat Linux 7.3 2.96-112)] on linux2
 Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
@@ -652,11 +652,11 @@ Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;licen
 &gt;&gt;&gt;
 </pre></div>
 </div>
-<p>Within a script it is possible to adjust the search path by modify <tt class="docutils literal"><span class="pre">sys.path</span></tt>
+<p>Within a script it is possible to adjust the search path by modify <code class="docutils literal"><span class="pre">sys.path</span></code>
 which is just a Python list.  Generally speaking you will want to put your path
 at the front of the list using insert:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">sys</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&#39;/my/path/python/packages&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;/my/path/python/packages&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>You can also add paths to the search path using the <a class="reference external" href="http://docs.python.org/using/cmdline.html#envvar-PYTHONPATH">PYTHONPATH</a> environment variable.</p>
@@ -676,10 +676,10 @@ as its own local Python universe.</p>
 installation, you might want to start using them in your PyRAF or CASA
 or CIAO analysis.</p>
 <p>If you start digging into Python you will likely come across the technique of
-setting the <tt class="docutils literal"><span class="pre">PYTHONPATH</span></tt> environment variable to extend the list of search
+setting the <code class="docutils literal"><span class="pre">PYTHONPATH</span></code> environment variable to extend the list of search
 paths that Python uses to look for a module.  Let&#8217;s say you are using CIAO
 Python and want to use SciPy functions.  You might be tempted to set
-<tt class="docutils literal"><span class="pre">PYTHONPATH</span></tt> to point to the directory in EPD where the SciPy modules live.
+<code class="docutils literal"><span class="pre">PYTHONPATH</span></code> to point to the directory in EPD where the SciPy modules live.
 This will fail because the EPD Python modules were compiled and linked assuming
 they&#8217;ll be run with EPD Python.  With effort you might find a way to make this
 work, but in general it&#8217;s not a workable solution.</p>
@@ -689,24 +689,24 @@ have write permission into the directories where the analysis package files
 live.  Simply enter the appropriate analysis environment, then do then
 following:</p>
 <ul class="simple">
-<li>At the command line do <tt class="docutils literal"><span class="pre">which</span> <span class="pre">python</span></tt> to verify that <tt class="docutils literal"><span class="pre">python</span></tt> is
+<li>At the command line do <code class="docutils literal"><span class="pre">which</span> <span class="pre">python</span></code> to verify that <code class="docutils literal"><span class="pre">python</span></code> is
 the correct one from the analysis environment.</li>
 <li>Navigate to <a class="reference external" href="http://pypi.python.org/pypi/pip#downloads">http://pypi.python.org/pypi/pip#downloads</a></li>
 <li>Download the latest version of pip (<cite>pip-X.Y.tar.gz</cite>)</li>
-<li>Untar that file, go in the tar directory, and do <tt class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">install</span></tt></li>
-<li>Do <tt class="docutils literal"><span class="pre">rehash</span></tt> (for csh) then  <tt class="docutils literal"><span class="pre">which</span> <span class="pre">pip</span></tt> to make sure the new
-<tt class="docutils literal"><span class="pre">pip</span></tt> got installed into your analysis environment path.</li>
-<li>Now you can do <tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">&lt;package&gt;</span></tt> or <tt class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">install</span></tt>
+<li>Untar that file, go in the tar directory, and do <code class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">install</span></code></li>
+<li>Do <code class="docutils literal"><span class="pre">rehash</span></code> (for csh) then  <code class="docutils literal"><span class="pre">which</span> <span class="pre">pip</span></code> to make sure the new
+<code class="docutils literal"><span class="pre">pip</span></code> got installed into your analysis environment path.</li>
+<li>Now you can do <code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">&lt;package&gt;</span></code> or <code class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">install</span></code>
 for each desired package within
 that analysis environment.</li>
 </ul>
 <p>It&#8217;s worth noting that the original example of SciPy will not install with
-<tt class="docutils literal"><span class="pre">pip</span></tt>.  It requires a very tricky installation from source, so unless SciPy
+<code class="docutils literal"><span class="pre">pip</span></code>.  It requires a very tricky installation from source, so unless SciPy
 ships with your favorite analysis environment you are out of luck with that
 one.</p>
 <p>If you do <em>not</em> have write access to the analysis package directories, then you
-need to use the <tt class="docutils literal"><span class="pre">--prefix</span></tt> option in <tt class="docutils literal"><span class="pre">pip</span></tt> to install in a local area and
-then set a corresponding <tt class="docutils literal"><span class="pre">PYTHONPATH</span></tt>.</p>
+need to use the <code class="docutils literal"><span class="pre">--prefix</span></code> option in <code class="docutils literal"><span class="pre">pip</span></code> to install in a local area and
+then set a corresponding <code class="docutils literal"><span class="pre">PYTHONPATH</span></code>.</p>
 </div>
 <div class="section" id="can-we-share-packages">
 <h3>Can we share packages?<a class="headerlink" href="#can-we-share-packages" title="Permalink to this headline">¶</a></h3>
@@ -719,9 +719,9 @@ recommend it.</p>
 </div>
 <p>The first rule is that they need to be the same major version, i.e. all 2.6 or
 2.7.  This is because Python always includes a major version like
-<tt class="docutils literal"><span class="pre">python2.6/</span></tt> in the default search path so Python 2.7 will never find 2.6
-packages.  The second rule is to install packages using the <tt class="docutils literal"><span class="pre">--user</span></tt> option
-in <tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span></tt> or <tt class="docutils literal"><span class="pre">setup.py</span> <span class="pre">install</span></tt>.  This results in the situation
+<code class="docutils literal"><span class="pre">python2.6/</span></code> in the default search path so Python 2.7 will never find 2.6
+packages.  The second rule is to install packages using the <code class="docutils literal"><span class="pre">--user</span></code> option
+in <code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span></code> or <code class="docutils literal"><span class="pre">setup.py</span> <span class="pre">install</span></code>.  This results in the situation
 shown below where each Python can find common packages in the local user area:</p>
 <a class="reference internal image-reference" href="../_images/antisocial_pythons_trans.png"><img alt="../_images/antisocial_pythons_trans.png" src="../_images/antisocial_pythons_trans.png" style="width: 650px;" /></a>
 <p>Be sure to test that the package you installed works within the other Python
@@ -741,7 +741,7 @@ without overwriting the existing production version in your baseline environment
 </div>
 <div class="section" id="anaconda-environments">
 <h2>Anaconda environments<a class="headerlink" href="#anaconda-environments" title="Permalink to this headline">¶</a></h2>
-<p>The Anaconda Python distribution, in conjunction with the <tt class="docutils literal"><span class="pre">conda</span></tt> package
+<p>The Anaconda Python distribution, in conjunction with the <code class="docutils literal"><span class="pre">conda</span></code> package
 manager, makes it easy maintain multiple Python environments under one tree.
 This is extremely useful if you need to install different versions of
 packages, perhaps for testing or for running a particular application which
@@ -754,11 +754,11 @@ conda</a> for an introduction.</p>
 <p class="first admonition-title">Exercise [intermediate]: Fully install APLpy</p>
 <p>Go to the <a class="reference external" href="http://aplpy.github.com/install.html">APLpy install page</a> and
 read the instructions.  Manually install all of the Python package dependencies with the
-<tt class="docutils literal"><span class="pre">--user</span></tt> option or try the auto-install script available there.</p>
+<code class="docutils literal"><span class="pre">--user</span></code> option or try the auto-install script available there.</p>
 <p class="last">For extra credit install the <a class="reference external" href="http://montage.ipac.caltech.edu/">Montage</a> C library as discussed on the APLpy
 install page.  Then try to run the example <a class="reference external" href="../intro/quick-tour.html#making-a-publication-quality-image">Making a publication quality plot</a> that was shown
 in the introductory talk.  The necessary input files are in the
-<tt class="docutils literal"><span class="pre">install_examples.tar</span></tt> file.</p>
+<code class="docutils literal"><span class="pre">install_examples.tar</span></code> file.</p>
 </div>
 <div class="admonition-exercise-intermediate-install-hdf5-and-pytables admonition">
 <p class="first admonition-title">Exercise [intermediate]: Install HDF5 and PyTables</p>
@@ -784,7 +784,7 @@ numerical libraries are the fastest possible.  For most people this is not neede
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper"><h3>Page Contents</h3>
 <ul>
 <li><a class="reference internal" href="#">Modules, Packages, and all that</a><ul>
@@ -819,7 +819,7 @@ numerical libraries are the fastest possible.  For most people this is not neede
     terms of <a rel="license"
                 href="http://creativecommons.org/licenses/by/3.0/">CC
       Attribution 3.0</a>.<br/>
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.3. &nbsp;
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3.1. &nbsp;
 </footer>
   </body>
 </html>

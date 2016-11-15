@@ -276,7 +276,7 @@ display:none;
 
 
   </head>
-  <body>
+  <body role="document">
 <div class="topbar">
   <a class="brand" title="Documentation Home" href="../index.html"><span id="logotext1">python</span><span id="logotext2">4</span><span id="logotext3">astronomers</span></a>
   <ul>
@@ -312,7 +312,7 @@ display:none;
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="python-built-in-types-and-operations">
 <span id="id1"></span><h1>Python Built-in Types and Operations<a class="headerlink" href="#python-built-in-types-and-operations" title="Permalink to this headline">¶</a></h1>
@@ -321,72 +321,72 @@ display:none;
 <h2>Basic numeric types<a class="headerlink" href="#basic-numeric-types" title="Permalink to this headline">¶</a></h2>
 <p>The basic data numeric types are similar to those found in other languages, including:</p>
 <ul>
-<li><p class="first">Integers (<tt class="docutils literal"><span class="pre">int</span></tt>):</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<li><p class="first">Integers (<code class="docutils literal"><span class="pre">int</span></code>):</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Floating point values (<tt class="docutils literal"><span class="pre">float</span></tt>):</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="mf">4.3</span>
+<li><p class="first">Floating point values (<code class="docutils literal"><span class="pre">float</span></code>):</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="mf">4.3</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Complex values (<tt class="docutils literal"><span class="pre">complex</span></tt>):</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">(</span><span class="mf">4.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">)</span>
+<li><p class="first">Complex values (<code class="docutils literal"><span class="pre">complex</span></code>):</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">(</span><span class="mf">4.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">)</span>
 </pre></div>
 </div>
 </li>
 </ul>
-<p>Manipulating these behaves the way you would expect, so an operation (<tt class="docutils literal"><span class="pre">+</span></tt>, <tt class="docutils literal"><span class="pre">-</span></tt>, <tt class="docutils literal"><span class="pre">/</span></tt>, <tt class="docutils literal"><span class="pre">*</span></tt>, <tt class="docutils literal"><span class="pre">**</span></tt>, etc.) on two values of the same type produces another value of the same type, while an operation on two values with different types produces a value of the more &#8216;advanced&#8217; type:</p>
+<p>Manipulating these behaves the way you would expect, so an operation (<code class="docutils literal"><span class="pre">+</span></code>, <code class="docutils literal"><span class="pre">-</span></code>, <code class="docutils literal"><span class="pre">/</span></code>, <code class="docutils literal"><span class="pre">*</span></code>, <code class="docutils literal"><span class="pre">**</span></code>, etc.) on two values of the same type produces another value of the same type, while an operation on two values with different types produces a value of the more &#8216;advanced&#8217; type:</p>
 <ul>
 <li><p class="first">Adding two integers gives an integer:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">+</span> <span class="mi">3</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">+</span> <span class="mi">3</span>
 <span class="go">4</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">Multiplying two floats gives a float:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mf">3.</span> <span class="o">*</span> <span class="mf">2.</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mf">3.</span> <span class="o">*</span> <span class="mf">2.</span>
 <span class="go">6.0</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">Subtracting two complex numbers gives a complex number:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">complex</span><span class="p">(</span><span class="mf">2.</span><span class="p">,</span><span class="mf">4.</span><span class="p">)</span> <span class="o">-</span> <span class="nb">complex</span><span class="p">(</span><span class="mf">1.</span><span class="p">,</span><span class="mf">6.</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">complex</span><span class="p">(</span><span class="mf">2.</span><span class="p">,</span><span class="mf">4.</span><span class="p">)</span> <span class="o">-</span> <span class="nb">complex</span><span class="p">(</span><span class="mf">1.</span><span class="p">,</span><span class="mf">6.</span><span class="p">)</span>
 <span class="go">(1-2j)</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">Multiplying an integer with a float gives a float:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span> <span class="o">*</span> <span class="mf">9.2</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span> <span class="o">*</span> <span class="mf">9.2</span>
 <span class="go">27.599999999999998  # int * float = float</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">Multiplying a float with a complex number gives a complex number:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mf">2.</span> <span class="o">*</span> <span class="nb">complex</span><span class="p">(</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span><span class="mf">3.</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mf">2.</span> <span class="o">*</span> <span class="nb">complex</span><span class="p">(</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span><span class="mf">3.</span><span class="p">)</span>
 <span class="go">(-2+6j)  # float * complex = complex</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">Multiplying an integer and a complex number gives a complex number:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mi">8</span> <span class="o">*</span> <span class="nb">complex</span><span class="p">(</span><span class="o">-</span><span class="mf">3.3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">8</span> <span class="o">*</span> <span class="nb">complex</span><span class="p">(</span><span class="o">-</span><span class="mf">3.3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="go">(-26.4+8j)  # int * complex = complex</span>
 </pre></div>
 </div>
 </li>
 </ul>
 <p>However, there is one case in Python 2 where this happens but is not desirable, and that you should be aware of, which is the division of two integer numbers:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span> <span class="o">/</span> <span class="mi">2</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span> <span class="o">/</span> <span class="mi">2</span>
 <span class="go">1</span>
 </pre></div>
 </div>
 <p>This is behavior is widely regarded as a huge design mistake and Python 3.x has been fixed to behave like you would expect. To see how Python 3.x behaves, we can use:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
 </pre></div>
 </div>
 <p>After typing this, we can use the Python 3.x syntax:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span> <span class="o">/</span> <span class="mi">2</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span> <span class="o">/</span> <span class="mi">2</span>
 <span class="go">1.5</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span> <span class="o">//</span> <span class="mi">2</span>
@@ -394,9 +394,9 @@ display:none;
 </pre></div>
 </div>
 <p>If you are writing new code in Python 2 then it&#8217;s a fine idea to start each
-file with <tt class="docutils literal"><span class="pre">from</span> <span class="pre">__future__</span> <span class="pre">import</span> <span class="pre">division</span></tt> at the top.</p>
-<p>Another way to prevent this is to cast at least one of the integers in the division to a <tt class="docutils literal"><span class="pre">float</span></tt>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+file with <code class="docutils literal"><span class="pre">from</span> <span class="pre">__future__</span> <span class="pre">import</span> <span class="pre">division</span></code> at the top.</p>
+<p>Another way to prevent this is to cast at least one of the integers in the division to a <code class="docutils literal"><span class="pre">float</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="go">1.5</span>
 </pre></div>
 </div>
@@ -405,8 +405,8 @@ file with <tt class="docutils literal"><span class="pre">from</span> <span class
 <h2>Lists, tuples, and sets<a class="headerlink" href="#lists-tuples-and-sets" title="Permalink to this headline">¶</a></h2>
 <p>There are two types of sequences that appear similar at first glance, both of which can contain inhomogeneous data types:</p>
 <ul>
-<li><p class="first">Lists (<tt class="docutils literal"><span class="pre">list</span></tt>):</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">,</span> <span class="s">&quot;spam&quot;</span><span class="p">]</span>
+<li><p class="first">Lists (<code class="docutils literal"><span class="pre">list</span></code>):</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">,</span> <span class="s2">&quot;spam&quot;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="go">4</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">l</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -416,8 +416,8 @@ file with <tt class="docutils literal"><span class="pre">from</span> <span class
 </pre></div>
 </div>
 </li>
-<li><p class="first">Tuples (<tt class="docutils literal"><span class="pre">tuple</span></tt>):</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">,</span> <span class="s">&quot;spam&quot;</span><span class="p">)</span>
+<li><p class="first">Tuples (<code class="docutils literal"><span class="pre">tuple</span></code>):</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">,</span> <span class="s2">&quot;spam&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="go">4</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -429,9 +429,9 @@ file with <tt class="docutils literal"><span class="pre">from</span> <span class
 </li>
 </ul>
 <p>The difference between these two types is that lists are mutable, and tuples are immutable:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;egg&#39;</span><span class="p">)</span>  <span class="c"># For a full list of methods, type l. then press TAB!</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">l</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="s">&#39;spam&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;egg&#39;</span><span class="p">)</span>  <span class="c1"># For a full list of methods, type l. then press TAB!</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">l</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="s1">&#39;spam&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">l</span>
 <span class="go">[3, 5.5, &#39;spam&#39;, &#39;spam&#39;, &#39;egg&#39;]</span>
 
@@ -442,11 +442,11 @@ file with <tt class="docutils literal"><span class="pre">from</span> <span class
 </pre></div>
 </div>
 <p>There are reasons why tuples are a useful feature (faster and <a class="reference external" href="http://docs.python.org/glossary.html#term-hashable">hashable</a> are the two main ones), but for now, it&#8217;s enough for you to know there is such a difference.</p>
-<p>One useful operation with lists and tuples is <tt class="docutils literal"><span class="pre">+</span></tt>, which can be used for concatenation:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+<p>One useful operation with lists and tuples is <code class="docutils literal"><span class="pre">+</span></code>, which can be used for concatenation:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
 <span class="go">[1, 2, 3, 4, 5, 6]</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="s">&#39;spam&#39;</span><span class="p">,</span> <span class="s">&#39;egg&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="s">&#39;more spam&#39;</span><span class="p">,</span><span class="s">&#39;!&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="s1">&#39;spam&#39;</span><span class="p">,</span> <span class="s1">&#39;egg&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="s1">&#39;more spam&#39;</span><span class="p">,</span><span class="s1">&#39;!&#39;</span><span class="p">)</span>
 <span class="go">(&#39;spam&#39;, &#39;egg&#39;, &#39;more spam&#39;, &#39;!&#39;)</span>
 </pre></div>
 </div>
@@ -461,7 +461,7 @@ file with <tt class="docutils literal"><span class="pre">from</span> <span class
 <li><dl class="first docutils">
 <dt>Vector math does not work on lists</dt>
 <dd><ul class="first last simple">
-<li>Multiplying a list by an int <tt class="docutils literal"><span class="pre">n</span></tt> gives <tt class="docutils literal"><span class="pre">n</span></tt> copies of the list.</li>
+<li>Multiplying a list by an int <code class="docutils literal"><span class="pre">n</span></code> gives <code class="docutils literal"><span class="pre">n</span></code> copies of the list.</li>
 <li>Adding another list concatentates.</li>
 <li>Multiplying by a float gives an error.</li>
 </ul>
@@ -470,13 +470,13 @@ file with <tt class="docutils literal"><span class="pre">from</span> <span class
 </li>
 </ul>
 </div>
-<p>Sets (<tt class="docutils literal"><span class="pre">set</span></tt>) are a third type of sequence which you can make from a tuple or a list:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&#39;spam&#39;</span><span class="p">,</span> <span class="s">&#39;egg&#39;</span><span class="p">,</span> <span class="s">&#39;spam&#39;</span><span class="p">])</span>
+<p>Sets (<code class="docutils literal"><span class="pre">set</span></code>) are a third type of sequence which you can make from a tuple or a list:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;spam&#39;</span><span class="p">,</span> <span class="s1">&#39;egg&#39;</span><span class="p">,</span> <span class="s1">&#39;spam&#39;</span><span class="p">])</span>
 <span class="go">set([1, 2, 3, &#39;egg&#39;, &#39;spam&#39;])</span>
 </pre></div>
 </div>
 <p>Note that duplicate items have been removed. This is the mathematical definition of a set, i.e. a collection of <em>distinct</em> objects. The order of the objects is arbitrary (order is not preserved). Various operators can be used to represent set operations:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span> <span class="o">-</span> <span class="nb">set</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span> <span class="o">-</span> <span class="nb">set</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
 <span class="go">set([1, 2])</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span> <span class="o">&amp;</span> <span class="nb">set</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
@@ -489,28 +489,28 @@ file with <tt class="docutils literal"><span class="pre">from</span> <span class
 </div>
 <div class="section" id="strings">
 <h2>Strings<a class="headerlink" href="#strings" title="Permalink to this headline">¶</a></h2>
-<p>Strings (<tt class="docutils literal"><span class="pre">str</span></tt>) will be familiar from other programming languages:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s">&quot;Spam egg spam spam&quot;</span>
+<p>Strings (<code class="docutils literal"><span class="pre">str</span></code>) will be familiar from other programming languages:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;Spam egg spam spam&quot;</span>
 </pre></div>
 </div>
-<p>You can use either single quotes (<tt class="docutils literal"><span class="pre">'</span></tt>), double quotes (<tt class="docutils literal"><span class="pre">&quot;</span></tt>), or triple quotes (<tt class="docutils literal"><span class="pre">'''</span></tt>) to enclose a string (the last one is used for multi-line strings). To include single or double quotes inside a string, you can either use the opposite quote to enclose the string:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="s">&quot;I&#39;m&quot;</span>
+<p>You can use either single quotes (<code class="docutils literal"><span class="pre">'</span></code>), double quotes (<code class="docutils literal"><span class="pre">&quot;</span></code>), or triple quotes (<code class="docutils literal"><span class="pre">'''</span></code>) to enclose a string (the last one is used for multi-line strings). To include single or double quotes inside a string, you can either use the opposite quote to enclose the string:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;I&#39;m&quot;</span>
 <span class="go">&quot;I&#39;m&quot;</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="s">&#39;&quot;hello&quot;&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;&quot;hello&quot;&#39;</span>
 <span class="go">&#39;&quot;hello&quot;&#39;</span>
 </pre></div>
 </div>
 <p>or you can <em>escape</em> them:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="s">&#39;I</span><span class="se">\&#39;</span><span class="s">m&#39;</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;I</span><span class="se">\&#39;</span><span class="s1">m&#39;</span>
 <span class="go">&quot;I&#39;m&quot;</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="s">&quot;</span><span class="se">\&quot;</span><span class="s">hello</span><span class="se">\&quot;</span><span class="s">&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">hello</span><span class="se">\&quot;</span><span class="s2">&quot;</span>
 <span class="go">&#39;&quot;hello&quot;&#39;</span>
 </pre></div>
 </div>
 <p>You can access individual characters or chunks of characters:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
 <span class="go">&#39;e&#39;</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">[</span><span class="mi">9</span><span class="p">:</span><span class="mi">13</span><span class="p">]</span>
@@ -518,22 +518,22 @@ file with <tt class="docutils literal"><span class="pre">from</span> <span class
 </pre></div>
 </div>
 <p>Note that strings are immutable (like tuples), that is you cannot change the value of certain characters without creating a new string:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;r&#39;</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;r&#39;</span>
 <span class="gt">Traceback (most recent call last):</span>
   File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
 <span class="gr">TypeError</span>: <span class="n">&#39;str&#39; object does not support item assignment</span>
 </pre></div>
 </div>
-<p>As for lists, and tuples, concatenation is done with <tt class="docutils literal"><span class="pre">+</span></tt>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="s">&quot;hello,&quot;</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="s">&quot;world!&quot;</span>
+<p>As for lists, and tuples, concatenation is done with <code class="docutils literal"><span class="pre">+</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;hello,&quot;</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="s2">&quot;world!&quot;</span>
 <span class="go">&#39;hello, world!&#39;</span>
 </pre></div>
 </div>
 <p>Finally, strings have many methods associated with them, here are a few examples:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
 <span class="go">&#39;SPAM EGG SPAM SPAM&#39;  # An uppercase version of the string</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s">&#39;egg&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;egg&#39;</span><span class="p">)</span>
 <span class="go">5  # An integer giving the position of the sub-string</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
@@ -543,12 +543,12 @@ file with <tt class="docutils literal"><span class="pre">from</span> <span class
 </div>
 <div class="section" id="dictionaries">
 <h2>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this headline">¶</a></h2>
-<p>One of the remaining types are dictionaries (<tt class="docutils literal"><span class="pre">dict</span></tt>) which you can think of
+<p>One of the remaining types are dictionaries (<code class="docutils literal"><span class="pre">dict</span></code>) which you can think of
 as look-up tables:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;name&#39;</span><span class="p">:</span><span class="s">&#39;m31&#39;</span><span class="p">,</span> <span class="s">&#39;ra&#39;</span><span class="p">:</span><span class="mf">10.68</span><span class="p">,</span> <span class="s">&#39;dec&#39;</span><span class="p">:</span><span class="mf">41.27</span><span class="p">}</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="p">[</span><span class="s">&#39;name&#39;</span><span class="p">]</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="s1">&#39;m31&#39;</span><span class="p">,</span> <span class="s1">&#39;ra&#39;</span><span class="p">:</span><span class="mf">10.68</span><span class="p">,</span> <span class="s1">&#39;dec&#39;</span><span class="p">:</span><span class="mf">41.27</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
 <span class="go">&#39;m31&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="p">[</span><span class="s">&#39;flux&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">4.5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;flux&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">4.5</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">d</span>
 <span class="go">{&#39;flux&#39;: 4.5, &#39;dec&#39;: 41.27, &#39;name&#39;: &#39;m31&#39;, &#39;ra&#39;: 10.68}</span>
 </pre></div>
@@ -560,27 +560,27 @@ as look-up tables:</p>
 <p>Every constant, variable, or function in Python is actually a object with a
 type and associated attributes and methods. An <em>attribute</em> a property of the
 object that you get or set by giving the &lt;object_name&gt; + dot +
-&lt;attribute_name&gt;, for example <tt class="docutils literal"><span class="pre">img.shape</span></tt>. A <em>method</em> is a function that the
-object provides, for example <tt class="docutils literal"><span class="pre">img.argmax(axis=0)</span></tt> or <tt class="docutils literal"><span class="pre">img.min()</span></tt>.</p>
+&lt;attribute_name&gt;, for example <code class="docutils literal"><span class="pre">img.shape</span></code>. A <em>method</em> is a function that the
+object provides, for example <code class="docutils literal"><span class="pre">img.argmax(axis=0)</span></code> or <code class="docutils literal"><span class="pre">img.min()</span></code>.</p>
 <p>Use tab completion in IPython to inspect objects and start to understand
 attributes and methods. To start off create a list of 4 numbers:</p>
-<div class="highlight-python"><div class="highlight"><pre>l = [3, 1, 2, 1]
+<div class="highlight-python"><div class="highlight"><pre><span></span>l = [3, 1, 2, 1]
 l.&lt;TAB&gt;
 </pre></div>
 </div>
 <p>This will show the available attributes and methods for the Python list
-<tt class="docutils literal"><span class="pre">a</span></tt>.  <strong>Using &lt;TAB&gt;-completion and help is a very efficient way to learn and later
+<code class="docutils literal"><span class="pre">a</span></code>.  <strong>Using &lt;TAB&gt;-completion and help is a very efficient way to learn and later
 remember object methods!</strong></p>
-<div class="highlight-python"><div class="highlight"><pre>::
+<div class="highlight-python"><div class="highlight"><pre><span></span>::
 </pre></div>
 </div>
 <blockquote>
 <div>In [17]: a.&lt;TAB&gt;
 a.append   a.extend   a.insert   a.remove   a.sort
 a.count    a.index    a.pop      a.reverse</div></blockquote>
-<p>Here you see useful looking functions like <tt class="docutils literal"><span class="pre">append</span></tt> or <tt class="docutils literal"><span class="pre">sort</span></tt> which
+<p>Here you see useful looking functions like <code class="docutils literal"><span class="pre">append</span></code> or <code class="docutils literal"><span class="pre">sort</span></code> which
 you can get help for and use:</p>
-<div class="highlight-python"><div class="highlight"><pre>a.sort
+<div class="highlight-python"><div class="highlight"><pre><span></span>a.sort
 a.sort?
 a.sort()
 a
@@ -593,7 +593,7 @@ a
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper"><h3>Page Contents</h3>
 <ul>
 <li><a class="reference internal" href="#">Python Built-in Types and Operations</a><ul>
@@ -627,7 +627,7 @@ a
     terms of <a rel="license"
                 href="http://creativecommons.org/licenses/by/3.0/">CC
       Attribution 3.0</a>.<br/>
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.3. &nbsp;
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3.1. &nbsp;
 </footer>
   </body>
 </html>

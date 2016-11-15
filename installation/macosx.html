@@ -276,7 +276,7 @@ display:none;
 
 
   </head>
-  <body>
+  <body role="document">
 <div class="topbar">
   <a class="brand" title="Documentation Home" href="../index.html"><span id="logotext1">python</span><span id="logotext2">4</span><span id="logotext3">astronomers</span></a>
   <ul>
@@ -312,7 +312,7 @@ display:none;
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="macports">
 <span id="mac-osx"></span><h1>MacPorts<a class="headerlink" href="#macports" title="Permalink to this headline">¶</a></h1>
@@ -325,7 +325,7 @@ on MacPorts for Python which is well-written and helpful is
 <div class="section" id="quick-installation-check">
 <h2>Quick installation check<a class="headerlink" href="#quick-installation-check" title="Permalink to this headline">¶</a></h2>
 <p>Open a new terminal window and type:</p>
-<div class="highlight-python"><div class="highlight"><pre>which ipython
+<div class="highlight-python"><div class="highlight"><pre><span></span>which ipython
 </pre></div>
 </div>
 <p>You should see one of the following:</p>
@@ -341,7 +341,7 @@ on MacPorts for Python which is well-written and helpful is
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>MacPorts</td>
-<td><tt class="docutils literal"><span class="pre">/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin/ipython</span></tt></td>
+<td><code class="docutils literal"><span class="pre">/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin/ipython</span></code></td>
 </tr>
 </tbody>
 </table>
@@ -350,14 +350,14 @@ on MacPorts for Python which is well-written and helpful is
 <div class="section" id="macos-x-developer-tools">
 <h2>MacOS X Developer Tools<a class="headerlink" href="#macos-x-developer-tools" title="Permalink to this headline">¶</a></h2>
 <p>Before you install additional packages, you will need to make sure that you
-have installed the MacOS X Developer Tools (XCode) so that the <tt class="docutils literal"><span class="pre">gcc</span></tt>
+have installed the MacOS X Developer Tools (XCode) so that the <code class="docutils literal"><span class="pre">gcc</span></code>
 compiler is available. If you are not sure if you have the developer tools
-installed, try typing <tt class="docutils literal"><span class="pre">gcc</span></tt> in a Terminal. You should see something like this:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ gcc
+installed, try typing <code class="docutils literal"><span class="pre">gcc</span></code> in a Terminal. You should see something like this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ gcc
 i686-apple-darwin10-gcc-4.2.1: no input files
 </pre></div>
 </div>
-<p>If you get <tt class="docutils literal"><span class="pre">gcc:</span> <span class="pre">command</span> <span class="pre">not</span> <span class="pre">found</span></tt> then you need to install the
+<p>If you get <code class="docutils literal"><span class="pre">gcc:</span> <span class="pre">command</span> <span class="pre">not</span> <span class="pre">found</span></code> then you need to install the
 developer tools. <strong>If you already have the developer tools installed, you can
 proceed to the next section</strong>.</p>
 <p>There are several ways to install XCode:</p>
@@ -369,20 +369,20 @@ the main DVD.</li>
 Developer, which will give you access to XCode 2 or 3:<ul>
 <li>If you are using MacOS 10.6 you should be able to download XCode 3.2.6
 once you are logged in to the <a class="reference external" href="http://developer.apple.com/devcenter/mac/index.action">Mac Dev Center</a>. Then, run
-the installer (<tt class="docutils literal"><span class="pre">Xcode</span> <span class="pre">and</span> <span class="pre">iOS</span> <span class="pre">SDK</span></tt>).</li>
+the installer (<code class="docutils literal"><span class="pre">Xcode</span> <span class="pre">and</span> <span class="pre">iOS</span> <span class="pre">SDK</span></code>).</li>
 <li>If you are using MacOS 10.5, first log in to the <a class="reference external" href="http://developer.apple.com/devcenter/mac/index.action">Mac Dev Center</a>, then go
 <a class="reference external" href="http://connect.apple.com/cgi-bin/WebObjects/MemberSite.woa/wa/downloads">here</a>.
 Click on <cite>Developer Tools</cite>, and download <cite>Xcode 3.1.4 Developer DVD
-(Disk Image)</cite>, then run the installer (<tt class="docutils literal"><span class="pre">XcodeTools.mpkg</span></tt>).</li>
+(Disk Image)</cite>, then run the installer (<code class="docutils literal"><span class="pre">XcodeTools.mpkg</span></code>).</li>
 <li>If you are using MacOS 10.4, first log in to the <a class="reference external" href="http://developer.apple.com/devcenter/mac/index.action">Mac Dev Center</a>, then go
 <a class="reference external" href="http://connect.apple.com/cgi-bin/WebObjects/MemberSite.woa/wa/downloads">here</a>.
 Click on <cite>Developer Tools</cite>, and download <cite>Xcode 2.5 Developer Tools
-(Disk Image)</cite>, then run the installer (<tt class="docutils literal"><span class="pre">XcodeTools.mpkg</span></tt>).</li>
+(Disk Image)</cite>, then run the installer (<code class="docutils literal"><span class="pre">XcodeTools.mpkg</span></code>).</li>
 </ul>
 </li>
 <li>If you like to live on the bleeding edge, have MacOS X 10.6.6, and don&#8217;t
-mind shelling out $4.99, go to the App Store (<tt class="docutils literal"><span class="pre">/Applications/App</span>
-<span class="pre">Store.app</span></tt>) and buy XCode 4. Note that while this should work, we have
+mind shelling out $4.99, go to the App Store (<code class="docutils literal"><span class="pre">/Applications/App</span>
+<span class="pre">Store.app</span></code>) and buy XCode 4. Note that while this should work, we have
 not tested it so we can&#8217;t guarantee that everything will go smoothly with
 the Enthought Python Distribution.</li>
 </ul>
@@ -391,21 +391,21 @@ the Enthought Python Distribution.</li>
 <h2>Fortran<a class="headerlink" href="#fortran" title="Permalink to this headline">¶</a></h2>
 <p>Many of the Python scientific packages use Fortran libraries internally. To
 avoid getting obscure errors, it is highly recommended to install the latest
-<tt class="docutils literal"><span class="pre">gfortran</span></tt> from <a class="reference external" href="http://r.research.att.com/tools/">http://r.research.att.com/tools/</a>.  Once you have
-installed it, make sure that typing <tt class="docutils literal"><span class="pre">gfortran</span></tt> gives something like this:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ gfortran
+<code class="docutils literal"><span class="pre">gfortran</span></code> from <a class="reference external" href="http://r.research.att.com/tools/">http://r.research.att.com/tools/</a>.  Once you have
+installed it, make sure that typing <code class="docutils literal"><span class="pre">gfortran</span></code> gives something like this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ gfortran
 i686-apple-darwin8-gfortran-4.2: no input files
 </pre></div>
 </div>
-<p>If you get <tt class="docutils literal"><span class="pre">gfortran:</span> <span class="pre">command</span> <span class="pre">not</span> <span class="pre">found</span></tt>, then <tt class="docutils literal"><span class="pre">gfortran</span></tt> did not
+<p>If you get <code class="docutils literal"><span class="pre">gfortran:</span> <span class="pre">command</span> <span class="pre">not</span> <span class="pre">found</span></code>, then <code class="docutils literal"><span class="pre">gfortran</span></code> did not
 install correctly.</p>
 </div>
 <div class="section" id="troubleshooting">
 <h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="path">
 <h3>Path<a class="headerlink" href="#path" title="Permalink to this headline">¶</a></h3>
-<p>If the Python distribution installed successfully and you can start <tt class="docutils literal"><span class="pre">python</span></tt> but not <tt class="docutils literal"><span class="pre">ipython</span></tt>
-(error message like <tt class="docutils literal"><span class="pre">ipython:</span> <span class="pre">command</span> <span class="pre">not</span> <span class="pre">found</span></tt>) then there is likely a
+<p>If the Python distribution installed successfully and you can start <code class="docutils literal"><span class="pre">python</span></code> but not <code class="docutils literal"><span class="pre">ipython</span></code>
+(error message like <code class="docutils literal"><span class="pre">ipython:</span> <span class="pre">command</span> <span class="pre">not</span> <span class="pre">found</span></code>) then there is likely a
 problem with your PATH.  In the instructions below use the correct PATH for your distribution:</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -419,7 +419,7 @@ problem with your PATH.  In the instructions below use the correct PATH for your
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>MacPorts</td>
-<td><tt class="docutils literal"><span class="pre">/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin/</span></tt></td>
+<td><code class="docutils literal"><span class="pre">/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin/</span></code></td>
 </tr>
 </tbody>
 </table>
@@ -430,24 +430,24 @@ problem with your PATH.  In the instructions below use the correct PATH for your
 <div class="section" id="step-2">
 <h4>Step 2<a class="headerlink" href="#step-2" title="Permalink to this headline">¶</a></h4>
 <p>Try this in a new terminal window:</p>
-<div class="highlight-python"><div class="highlight"><pre>echo $PATH
+<div class="highlight-python"><div class="highlight"><pre><span></span>echo $PATH
 </pre></div>
 </div>
 <p>If you do not see something like
-<tt class="docutils literal"><span class="pre">/Library/Frameworks/EPD64.framework/Versions/Current/bin</span></tt> in your path then go
+<code class="docutils literal"><span class="pre">/Library/Frameworks/EPD64.framework/Versions/Current/bin</span></code> in your path then go
 to step 3.</p>
 </div>
 <div class="section" id="step-3">
 <h4>Step 3<a class="headerlink" href="#step-3" title="Permalink to this headline">¶</a></h4>
 <p>Determine if you are running csh/tcsh or bash by entering the command
-<tt class="docutils literal"><span class="pre">echo</span> <span class="pre">$0</span></tt> in a terminal window.  For <tt class="docutils literal"><span class="pre">csh</span></tt> or <tt class="docutils literal"><span class="pre">tcsh</span></tt> you should edit the file
-<tt class="docutils literal"><span class="pre">~/.cshrc</span></tt> and add the following lines at the end:</p>
-<div class="highlight-python"><div class="highlight"><pre># Setting PATH for Enthough Python Distribution
+<code class="docutils literal"><span class="pre">echo</span> <span class="pre">$0</span></code> in a terminal window.  For <code class="docutils literal"><span class="pre">csh</span></code> or <code class="docutils literal"><span class="pre">tcsh</span></code> you should edit the file
+<code class="docutils literal"><span class="pre">~/.cshrc</span></code> and add the following lines at the end:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span># Setting PATH for Enthough Python Distribution
 set path=(/Library/Frameworks/EPD64.framework/Versions/Current/bin $path)
 </pre></div>
 </div>
-<p>For <tt class="docutils literal"><span class="pre">bash</span></tt> you should edit the file <tt class="docutils literal"><span class="pre">~/.bash_profile</span></tt> and add the following lines at the end:</p>
-<div class="highlight-python"><div class="highlight"><pre># Setting PATH for Enthough Python Distribution
+<p>For <code class="docutils literal"><span class="pre">bash</span></code> you should edit the file <code class="docutils literal"><span class="pre">~/.bash_profile</span></code> and add the following lines at the end:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span># Setting PATH for Enthough Python Distribution
 export PATH=/Library/Frameworks/EPD64.framework/Versions/Current/bin:$PATH
 </pre></div>
 </div>
@@ -455,14 +455,14 @@ export PATH=/Library/Frameworks/EPD64.framework/Versions/Current/bin:$PATH
 </div>
 <div class="section" id="vs-64-bit">
 <h3>32 vs. 64 bit<a class="headerlink" href="#vs-64-bit" title="Permalink to this headline">¶</a></h3>
-<p>If you get the following error when attempting to start up <tt class="docutils literal"><span class="pre">python</span></tt>:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ python
+<p>If you get the following error when attempting to start up <code class="docutils literal"><span class="pre">python</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ python
 -bash: /Library/Frameworks/EPD64.framework/Versions/Current/bin/python: Bad CPU type in executable
 </pre></div>
 </div>
 <p>then this means that your processor does not support 64-bit binaries. Start
 by uninstalling EPD:</p>
-<div class="highlight-python"><div class="highlight"><pre>cd /Library/Frameworks/EPD64.framework/Versions
+<div class="highlight-python"><div class="highlight"><pre><span></span>cd /Library/Frameworks/EPD64.framework/Versions
 sudo rm -rf 7.0
 cd /Applications
 sudo rm -rf Enthought
@@ -477,7 +477,7 @@ sudo rm -rf Enthought
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper"><h3>Page Contents</h3>
 <ul>
 <li><a class="reference internal" href="#">MacPorts</a><ul>
@@ -519,7 +519,7 @@ sudo rm -rf Enthought
     terms of <a rel="license"
                 href="http://creativecommons.org/licenses/by/3.0/">CC
       Attribution 3.0</a>.<br/>
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.3. &nbsp;
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3.1. &nbsp;
 </footer>
   </body>
 </html>

@@ -275,7 +275,7 @@ display:none;
 
 
   </head>
-  <body>
+  <body role="document">
 <div class="topbar">
   <a class="brand" title="Documentation Home" href="../index.html"><span id="logotext1">python</span><span id="logotext2">4</span><span id="logotext3">astronomers</span></a>
   <ul>
@@ -310,61 +310,61 @@ display:none;
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="python-classes">
 <h1>Python Classes<a class="headerlink" href="#python-classes" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="basics">
 <h2>Basics<a class="headerlink" href="#basics" title="Permalink to this headline">¶</a></h2>
 <p>Begin by starting IPython and importing numpy and matplotlib:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ipython --matplotlib
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ipython --matplotlib
 
 import numpy as np
 import matplotlib.pyplot as plt
 </pre></div>
 </div>
-<p>Classes definitions include the <tt class="docutils literal"><span class="pre">class</span></tt> declaration, an identifier, and a
+<p>Classes definitions include the <code class="docutils literal"><span class="pre">class</span></code> declaration, an identifier, and a
 colon:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
     <span class="k">pass</span>
 
 <span class="n">h</span> <span class="o">=</span> <span class="n">MyClass</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>This class <tt class="docutils literal"><span class="pre">MyClass</span></tt> isn&#8217;t very interesting since it does not contain any
-methods or attributes.  The <tt class="docutils literal"><span class="pre">pass</span></tt> is simply a placeholder in the class
+<p>This class <code class="docutils literal"><span class="pre">MyClass</span></code> isn&#8217;t very interesting since it does not contain any
+methods or attributes.  The <code class="docutils literal"><span class="pre">pass</span></code> is simply a placeholder in the class
 declaration indicating a no-op.</p>
 <p>Class instances are mutable, meaning that attributes and functions can be added
 after instantiation:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">msg</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">msg</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>There is no attribute <tt class="docutils literal"><span class="pre">msg</span></tt>, so add one:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">h</span><span class="o">.</span><span class="n">msg</span> <span class="o">=</span> <span class="s">&quot;Hello World!&quot;</span>
+<p>There is no attribute <code class="docutils literal"><span class="pre">msg</span></code>, so add one:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">h</span><span class="o">.</span><span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Hello World!&quot;</span>
 <span class="k">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">msg</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Create a class with a static string attribute <tt class="docutils literal"><span class="pre">msg1</span></tt> and a class method
-<tt class="docutils literal"><span class="pre">echo</span></tt> to print the attribute.  Comments begin with a <tt class="docutils literal"><span class="pre">#</span></tt> and extend to the
+<p>Create a class with a static string attribute <code class="docutils literal"><span class="pre">msg1</span></code> and a class method
+<code class="docutils literal"><span class="pre">echo</span></code> to print the attribute.  Comments begin with a <code class="docutils literal"><span class="pre">#</span></code> and extend to the
 end of the line:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Hello</span><span class="p">:</span>
-    <span class="c"># static attribute string &quot;msg1&quot;</span>
-    <span class="n">msg1</span> <span class="o">=</span> <span class="s">&quot;Hello&quot;</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Hello</span><span class="p">:</span>
+    <span class="c1"># static attribute string &quot;msg1&quot;</span>
+    <span class="n">msg1</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span>
     <span class="k">def</span> <span class="nf">echo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">msg1</span><span class="p">)</span>
 
-<span class="k">print</span><span class="p">(</span><span class="s">&quot;Hello&#39;s msg1: {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Hello</span><span class="o">.</span><span class="n">msg1</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Hello&#39;s msg1: {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Hello</span><span class="o">.</span><span class="n">msg1</span><span class="p">))</span>
 <span class="n">h</span> <span class="o">=</span> <span class="n">Hello</span><span class="p">()</span>
 <span class="n">h</span><span class="o">.</span><span class="n">echo</span><span class="p">()</span>
 <span class="k">print</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Create a class with a constructor definition.  Initialize an attribute <tt class="docutils literal"><span class="pre">msg2</span></tt>
+<p>Create a class with a constructor definition.  Initialize an attribute <code class="docutils literal"><span class="pre">msg2</span></code>
 at class instance creation time:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">World</span><span class="p">:</span>
-    <span class="c"># class constructor</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg2</span><span class="o">=</span><span class="s">&quot;World&quot;</span><span class="p">):</span>
-        <span class="c"># attribute &quot;msg2&quot; initialized in constructor</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">World</span><span class="p">:</span>
+    <span class="c1"># class constructor</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg2</span><span class="o">=</span><span class="s2">&quot;World&quot;</span><span class="p">):</span>
+        <span class="c1"># attribute &quot;msg2&quot; initialized in constructor</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">msg2</span> <span class="o">=</span> <span class="n">msg2</span>
     <span class="k">def</span> <span class="nf">echo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">msg2</span><span class="p">)</span>
@@ -377,18 +377,18 @@ at class instance creation time:</p>
 </div>
 <div class="section" id="multiple-inheritance">
 <h2>Multiple Inheritance<a class="headerlink" href="#multiple-inheritance" title="Permalink to this headline">¶</a></h2>
-<p>Create a class that inherits from <tt class="docutils literal"><span class="pre">Hello</span></tt> and <tt class="docutils literal"><span class="pre">World</span></tt>.  Initialize an
-attribute <tt class="docutils literal"><span class="pre">msg3</span></tt> using attributes from inherited classes.  Override the method
-<tt class="docutils literal"><span class="pre">echo</span></tt> to call methods from inherited classes.  Define the <tt class="docutils literal"><span class="pre">__str__</span></tt> to
-return the attribute <tt class="docutils literal"><span class="pre">msg3</span></tt> when the class instance is printed with
-<tt class="docutils literal"><span class="pre">print</span></tt>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">HelloWorld</span><span class="p">(</span><span class="n">Hello</span><span class="p">,</span> <span class="n">World</span><span class="p">):</span>
+<p>Create a class that inherits from <code class="docutils literal"><span class="pre">Hello</span></code> and <code class="docutils literal"><span class="pre">World</span></code>.  Initialize an
+attribute <code class="docutils literal"><span class="pre">msg3</span></code> using attributes from inherited classes.  Override the method
+<code class="docutils literal"><span class="pre">echo</span></code> to call methods from inherited classes.  Define the <code class="docutils literal"><span class="pre">__str__</span></code> to
+return the attribute <code class="docutils literal"><span class="pre">msg3</span></code> when the class instance is printed with
+<code class="docutils literal"><span class="pre">print</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">HelloWorld</span><span class="p">(</span><span class="n">Hello</span><span class="p">,</span> <span class="n">World</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c"># self.msg1 is from Hello</span>
-        <span class="c"># self.msg2 is from World</span>
-        <span class="c"># World constructor is needed since msg2 is not static!</span>
+        <span class="c1"># self.msg1 is from Hello</span>
+        <span class="c1"># self.msg2 is from World</span>
+        <span class="c1"># World constructor is needed since msg2 is not static!</span>
         <span class="n">World</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">msg3</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">msg1</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">msg2</span> <span class="o">+</span> <span class="s">&quot;!&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">msg3</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">msg1</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">msg2</span> <span class="o">+</span> <span class="s2">&quot;!&quot;</span>
     <span class="k">def</span> <span class="nf">echo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">Hello</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="n">World</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
@@ -400,8 +400,8 @@ return the attribute <tt class="docutils literal"><span class="pre">msg3</span><
 <span class="k">print</span><span class="p">(</span><span class="n">hw</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Class <tt class="docutils literal"><span class="pre">HelloWorld</span></tt> is of type <tt class="docutils literal"><span class="pre">Hello</span></tt>, <tt class="docutils literal"><span class="pre">World</span></tt>, and <tt class="docutils literal"><span class="pre">HelloWorld</span></tt>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="nb">isinstance</span><span class="p">(</span><span class="n">hw</span><span class="p">,</span> <span class="n">Hello</span><span class="p">)</span>
+<p>Class <code class="docutils literal"><span class="pre">HelloWorld</span></code> is of type <code class="docutils literal"><span class="pre">Hello</span></code>, <code class="docutils literal"><span class="pre">World</span></code>, and <code class="docutils literal"><span class="pre">HelloWorld</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="nb">isinstance</span><span class="p">(</span><span class="n">hw</span><span class="p">,</span> <span class="n">Hello</span><span class="p">)</span>
 <span class="nb">isinstance</span><span class="p">(</span><span class="n">hw</span><span class="p">,</span> <span class="n">World</span><span class="p">)</span>
 <span class="nb">isinstance</span><span class="p">(</span><span class="n">hw</span><span class="p">,</span> <span class="n">HelloWorld</span><span class="p">)</span>
 <span class="nb">isinstance</span><span class="p">(</span><span class="n">hw</span><span class="p">,</span> <span class="n">MyClass</span><span class="p">)</span>
@@ -411,13 +411,13 @@ return the attribute <tt class="docutils literal"><span class="pre">msg3</span><
 <div class="section" id="additional-notes-on-classes">
 <h2>Additional Notes on Classes<a class="headerlink" href="#additional-notes-on-classes" title="Permalink to this headline">¶</a></h2>
 <p>Classes can contain other classes as attributes:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">HelloWorld</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s">&quot;World World&quot;</span><span class="p">):</span>
-        <span class="c"># create Hello and World objects as attributes</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">HelloWorld</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;World World&quot;</span><span class="p">):</span>
+        <span class="c1"># create Hello and World objects as attributes</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">h</span> <span class="o">=</span> <span class="n">Hello</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">w</span> <span class="o">=</span> <span class="n">World</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">echo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c"># call their echo methods</span>
+        <span class="c1"># call their echo methods</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="o">.</span><span class="n">echo</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">w</span><span class="o">.</span><span class="n">echo</span><span class="p">()</span>
 
@@ -430,13 +430,13 @@ return the attribute <tt class="docutils literal"><span class="pre">msg3</span><
 </div>
 <p>Classes have special methods that can be defined to correspond to certain
 language operators.  Define how a class behaves using the &#8216;+&#8217; operator:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Hello</span><span class="p">:</span>
-    <span class="n">msg</span> <span class="o">=</span> <span class="s">&quot;Hello&quot;</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Hello</span><span class="p">:</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span>
     <span class="k">def</span> <span class="nf">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lhs</span><span class="p">):</span>
         <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">msg</span> <span class="o">+</span> <span class="n">lhs</span><span class="o">.</span><span class="n">msg</span><span class="p">)</span>
 
 <span class="k">class</span> <span class="nc">World</span><span class="p">:</span>
-    <span class="n">msg</span> <span class="o">=</span> <span class="s">&quot;World&quot;</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;World&quot;</span>
     <span class="k">def</span> <span class="nf">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rhs</span><span class="p">):</span>
         <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">msg</span> <span class="o">+</span> <span class="n">rhs</span><span class="o">.</span><span class="n">msg</span><span class="p">)</span>
 
@@ -446,16 +446,16 @@ language operators.  Define how a class behaves using the &#8216;+&#8217; operat
 </div>
 <div class="admonition-exercise-for-the-interested-reader admonition">
 <p class="first admonition-title">Exercise (for the interested reader):</p>
-<p class="last">Define a class <tt class="docutils literal"><span class="pre">Powlaw</span></tt> that accepts two keyword arguments in its
-constructor: <tt class="docutils literal"><span class="pre">index</span></tt> and <tt class="docutils literal"><span class="pre">norm</span></tt>.  The keyword arguments are initialized
-as <tt class="docutils literal"><span class="pre">index=2.0</span></tt> and <tt class="docutils literal"><span class="pre">norm=0.01</span></tt>.  In the class constructor definition, set
-<tt class="docutils literal"><span class="pre">index</span></tt> and <tt class="docutils literal"><span class="pre">norm</span></tt> as class attributes.  Define a class method <tt class="docutils literal"><span class="pre">calc</span></tt>
-which takes an argument <tt class="docutils literal"><span class="pre">wave</span></tt> and computes a power-law on <tt class="docutils literal"><span class="pre">wave</span></tt> using
-<tt class="docutils literal"><span class="pre">index</span></tt> and <tt class="docutils literal"><span class="pre">norm</span></tt>.  The <tt class="docutils literal"><span class="pre">wave</span></tt> argument can be assumed to be a 1-D
-NumPy array object.  <tt class="docutils literal"><span class="pre">calc</span></tt> should return the calculated result.</p>
+<p class="last">Define a class <code class="docutils literal"><span class="pre">Powlaw</span></code> that accepts two keyword arguments in its
+constructor: <code class="docutils literal"><span class="pre">index</span></code> and <code class="docutils literal"><span class="pre">norm</span></code>.  The keyword arguments are initialized
+as <code class="docutils literal"><span class="pre">index=2.0</span></code> and <code class="docutils literal"><span class="pre">norm=0.01</span></code>.  In the class constructor definition, set
+<code class="docutils literal"><span class="pre">index</span></code> and <code class="docutils literal"><span class="pre">norm</span></code> as class attributes.  Define a class method <code class="docutils literal"><span class="pre">calc</span></code>
+which takes an argument <code class="docutils literal"><span class="pre">wave</span></code> and computes a power-law on <code class="docutils literal"><span class="pre">wave</span></code> using
+<code class="docutils literal"><span class="pre">index</span></code> and <code class="docutils literal"><span class="pre">norm</span></code>.  The <code class="docutils literal"><span class="pre">wave</span></code> argument can be assumed to be a 1-D
+NumPy array object.  <code class="docutils literal"><span class="pre">calc</span></code> should return the calculated result.</p>
 </div>
 <p class="flip0">Click to Show/Hide Solution</p> <div class="panel0"><p>Answer:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Powlaw</span><span class="p">:</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Powlaw</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">norm</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">):</span>
          <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">index</span>
          <span class="bp">self</span><span class="o">.</span><span class="n">norm</span> <span class="o">=</span> <span class="n">norm</span>
@@ -473,7 +473,7 @@ NumPy array object.  <tt class="docutils literal"><span class="pre">calc</span><
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper"><h3>Page Contents</h3>
 <ul>
 <li><a class="reference internal" href="#">Python Classes</a><ul>
@@ -505,7 +505,7 @@ NumPy array object.  <tt class="docutils literal"><span class="pre">calc</span><
     terms of <a rel="license"
                 href="http://creativecommons.org/licenses/by/3.0/">CC
       Attribution 3.0</a>.<br/>
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.3. &nbsp;
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3.1. &nbsp;
 </footer>
   </body>
 </html>
