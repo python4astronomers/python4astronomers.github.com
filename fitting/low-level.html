@@ -276,7 +276,7 @@ display:none;
 
 
   </head>
-  <body>
+  <body role="document">
 <div class="topbar">
   <a class="brand" title="Documentation Home" href="../index.html"><span id="logotext1">python</span><span id="logotext2">4</span><span id="logotext3">astronomers</span></a>
   <ul>
@@ -312,7 +312,7 @@ display:none;
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="the-low-level-sherpa-api">
 <h1>The low-level Sherpa API<a class="headerlink" href="#the-low-level-sherpa-api" title="Permalink to this headline">¶</a></h1>
@@ -320,9 +320,9 @@ display:none;
 with the low-level API (and without going quite as far in the analysis).</p>
 <div class="section" id="explore-the-sherpa-object-model">
 <h2>Explore the Sherpa Object Model<a class="headerlink" href="#explore-the-sherpa-object-model" title="Permalink to this headline">¶</a></h2>
-<p>In a new working directory, download a MAST spectrum of <a class="reference download internal" href="../_downloads/3c273.fits"><tt class="xref download docutils literal"><span class="pre">3C</span> <span class="pre">273</span></tt></a>
+<p>In a new working directory, download a MAST spectrum of <a class="reference download internal" href="../_downloads/3c273.fits"><code class="xref download docutils literal"><span class="pre">3C</span> <span class="pre">273</span></code></a>
 and start IPython along with the standard imports:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ipython --matplotlib
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ipython --matplotlib
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -330,14 +330,14 @@ import matplotlib.pyplot as plt
 </div>
 <p>If you have trouble accessing the spectrum you can download it straight away
 using Python:</p>
-<div class="highlight-python"><div class="highlight"><pre>from astropy.extern.six.moves.urllib import request
+<div class="highlight-python"><div class="highlight"><pre><span></span>from astropy.extern.six.moves.urllib import request
 url = &#39;http://python4astronomers.github.com/_downloads/3c273.fits&#39;
 open(&#39;3c273.fits&#39;, &#39;wb&#39;).write(request.urlopen(url).read())
 %ls
 </pre></div>
 </div>
 <p>Import a few Sherpa classes needed to characterize a fit:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">sherpa.data</span> <span class="kn">import</span> <span class="n">Data1D</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sherpa.data</span> <span class="kn">import</span> <span class="n">Data1D</span>
 <span class="kn">from</span> <span class="nn">sherpa.models</span> <span class="kn">import</span> <span class="n">PowLaw1D</span>
 <span class="kn">from</span> <span class="nn">sherpa.stats</span> <span class="kn">import</span> <span class="n">Chi2DataVar</span>
 <span class="kn">from</span> <span class="nn">sherpa.optmethods</span> <span class="kn">import</span> <span class="n">LevMar</span>
@@ -345,88 +345,88 @@ open(&#39;3c273.fits&#39;, &#39;wb&#39;).write(request.urlopen(url).read())
 </pre></div>
 </div>
 <p>Import the Python FITS reader <a class="reference external" href="http://docs.astropy.org/en/stable/io/fits/">astropy.io.fits</a> and open the spectrum as a table:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">astropy.io</span> <span class="kn">import</span> <span class="n">fits</span>
-<span class="n">dat</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;3c273.fits&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">astropy.io</span> <span class="kn">import</span> <span class="n">fits</span>
+<span class="n">dat</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;3c273.fits&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
 </pre></div>
 </div>
-<p>Access the <cite>WAVELENGTH</cite> and <cite>FLUX</cite> columns from the pyFITS <tt class="docutils literal"><span class="pre">RecArray</span></tt>.  Populate
-variables represented as <tt class="docutils literal"><span class="pre">wave</span></tt>, <tt class="docutils literal"><span class="pre">flux</span></tt>, and <tt class="docutils literal"><span class="pre">err</span></tt>.  Normalize the flux and assume
+<p>Access the <cite>WAVELENGTH</cite> and <cite>FLUX</cite> columns from the pyFITS <code class="docutils literal"><span class="pre">RecArray</span></code>.  Populate
+variables represented as <code class="docutils literal"><span class="pre">wave</span></code>, <code class="docutils literal"><span class="pre">flux</span></code>, and <code class="docutils literal"><span class="pre">err</span></code>.  Normalize the flux and assume
 uncertainties of 2% of the flux:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">wave</span> <span class="o">=</span> <span class="n">dat</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="s">&#39;WAVELENGTH&#39;</span><span class="p">)</span>
-<span class="n">flux</span> <span class="o">=</span> <span class="n">dat</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="s">&#39;FLUX&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1e14</span>
-<span class="n">err</span>  <span class="o">=</span> <span class="n">dat</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="s">&#39;FLUX&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.02e14</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">wave</span> <span class="o">=</span> <span class="n">dat</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="s1">&#39;WAVELENGTH&#39;</span><span class="p">)</span>
+<span class="n">flux</span> <span class="o">=</span> <span class="n">dat</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="s1">&#39;FLUX&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1e14</span>
+<span class="n">err</span>  <span class="o">=</span> <span class="n">dat</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="s1">&#39;FLUX&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.02e14</span>
 </pre></div>
 </div>
-<p>Create a Sherpa <tt class="docutils literal"><span class="pre">Data1D</span></tt> data set from the NumPy arrays <tt class="docutils literal"><span class="pre">wave</span></tt>, <tt class="docutils literal"><span class="pre">flux</span></tt>, and
-<tt class="docutils literal"><span class="pre">err</span></tt>.  The data arrays are accessible from the <tt class="docutils literal"><span class="pre">data</span></tt> object as the attributes
-<tt class="docutils literal"><span class="pre">x</span></tt>, <tt class="docutils literal"><span class="pre">y</span></tt>, and <tt class="docutils literal"><span class="pre">staterror</span></tt>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">data</span> <span class="o">=</span> <span class="n">Data1D</span><span class="p">(</span><span class="s">&#39;3C 273&#39;</span><span class="p">,</span> <span class="n">wave</span><span class="p">,</span> <span class="n">flux</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+<p>Create a Sherpa <code class="docutils literal"><span class="pre">Data1D</span></code> data set from the NumPy arrays <code class="docutils literal"><span class="pre">wave</span></code>, <code class="docutils literal"><span class="pre">flux</span></code>, and
+<code class="docutils literal"><span class="pre">err</span></code>.  The data arrays are accessible from the <code class="docutils literal"><span class="pre">data</span></code> object as the attributes
+<code class="docutils literal"><span class="pre">x</span></code>, <code class="docutils literal"><span class="pre">y</span></code>, and <code class="docutils literal"><span class="pre">staterror</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">Data1D</span><span class="p">(</span><span class="s1">&#39;3C 273&#39;</span><span class="p">,</span> <span class="n">wave</span><span class="p">,</span> <span class="n">flux</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Array access:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="s">&#39;x {0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">x</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="s">&#39;y {0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">y</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="s">&#39;err {0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">staterror</span><span class="p">))</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;x {0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">x</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;y {0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">y</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;err {0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">staterror</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>Define a convenience function <tt class="docutils literal"><span class="pre">plot_data</span></tt> that calls the matplotlib functions
-<tt class="docutils literal"><span class="pre">plot</span></tt> and <tt class="docutils literal"><span class="pre">errorbar</span></tt> according to certain criteria.  Plot the <tt class="docutils literal"><span class="pre">x</span></tt> and
-<tt class="docutils literal"><span class="pre">y</span></tt> arrays using the format specified in the optional argument, <tt class="docutils literal"><span class="pre">fmt</span></tt>.
-Clear the plot if the <tt class="docutils literal"><span class="pre">clear</span></tt> argument is <tt class="docutils literal"><span class="pre">True</span></tt>.  Add the plot errorbars if
-the <tt class="docutils literal"><span class="pre">err</span></tt> array is present.  Plot the spectrum by accessing the NumPy arrays
+<p>Define a convenience function <code class="docutils literal"><span class="pre">plot_data</span></code> that calls the matplotlib functions
+<code class="docutils literal"><span class="pre">plot</span></code> and <code class="docutils literal"><span class="pre">errorbar</span></code> according to certain criteria.  Plot the <code class="docutils literal"><span class="pre">x</span></code> and
+<code class="docutils literal"><span class="pre">y</span></code> arrays using the format specified in the optional argument, <code class="docutils literal"><span class="pre">fmt</span></code>.
+Clear the plot if the <code class="docutils literal"><span class="pre">clear</span></code> argument is <code class="docutils literal"><span class="pre">True</span></code>.  Add the plot errorbars if
+the <code class="docutils literal"><span class="pre">err</span></code> array is present.  Plot the spectrum by accessing the NumPy arrays
 in the Sherpa data set using our new function and its default arguments:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">plot_data</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">err</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s">&#39;.&#39;</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_data</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">err</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">clear</span><span class="p">:</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">fmt</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">err</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">err</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ecolor</span><span class="o">=</span><span class="s">&#39;b&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">err</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ecolor</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
 
 <span class="n">plot_data</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">staterror</span><span class="p">)</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../_images/3c273_data_mast.png"><img alt="../_images/3c273_data_mast.png" src="../_images/3c273_data_mast.png" style="width: 609.0px; height: 459.0px;" /></a>
-<p>Create a Sherpa power-law model <tt class="docutils literal"><span class="pre">pl</span></tt>.  All Sherpa models maintain a tuple of
-parameters in <tt class="docutils literal"><span class="pre">pars</span></tt>.  Access each of the model&#8217;s parameter objects and print
-the <tt class="docutils literal"><span class="pre">name</span></tt> and <tt class="docutils literal"><span class="pre">val</span></tt> attributes:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">pl</span> <span class="o">=</span> <span class="n">PowLaw1D</span><span class="p">(</span><span class="s">&#39;pl&#39;</span><span class="p">)</span>
+<p>Create a Sherpa power-law model <code class="docutils literal"><span class="pre">pl</span></code>.  All Sherpa models maintain a tuple of
+parameters in <code class="docutils literal"><span class="pre">pars</span></code>.  Access each of the model&#8217;s parameter objects and print
+the <code class="docutils literal"><span class="pre">name</span></code> and <code class="docutils literal"><span class="pre">val</span></code> attributes:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">pl</span> <span class="o">=</span> <span class="n">PowLaw1D</span><span class="p">(</span><span class="s1">&#39;pl&#39;</span><span class="p">)</span>
 <span class="n">pl</span><span class="o">.</span><span class="n">pars</span>
 <span class="k">for</span> <span class="n">par</span> <span class="ow">in</span> <span class="n">pl</span><span class="o">.</span><span class="n">pars</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">&#39;{0} {1}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">par</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">par</span><span class="o">.</span><span class="n">val</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;{0} {1}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">par</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">par</span><span class="o">.</span><span class="n">val</span><span class="p">))</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">pl</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Set the power-law reference to be 4000 Angstroms and print out the <tt class="docutils literal"><span class="pre">PowLaw1D</span></tt>
+<p>Set the power-law reference to be 4000 Angstroms and print out the <code class="docutils literal"><span class="pre">PowLaw1D</span></code>
 object and its parameter information.  Each model parameter is accessible as an
 attribute its model.  For example, the power-law amplitude is referenced with
-<tt class="docutils literal"><span class="pre">pl.ampl</span></tt>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">pl</span><span class="o">.</span><span class="n">ref</span> <span class="o">=</span> <span class="mf">4000.</span>
+<code class="docutils literal"><span class="pre">pl.ampl</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">pl</span><span class="o">.</span><span class="n">ref</span> <span class="o">=</span> <span class="mf">4000.</span>
 <span class="k">print</span><span class="p">(</span><span class="n">pl</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Model parameters are themselves class objects:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">ampl</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">ampl</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition-exercise-for-the-interested-reader-special-methods-and-properties admonition">
 <p class="first admonition-title">Exercise (for the interested reader): Special methods and properties</p>
-<p class="last">Wait. Didn&#8217;t we just set <tt class="docutils literal"><span class="pre">pl.ref</span></tt> to be an float?  How can <tt class="docutils literal"><span class="pre">pl.ref</span></tt> be an
-float and a <tt class="docutils literal"><span class="pre">Parameter</span></tt> object?</p>
+<p class="last">Wait. Didn&#8217;t we just set <code class="docutils literal"><span class="pre">pl.ref</span></code> to be an float?  How can <code class="docutils literal"><span class="pre">pl.ref</span></code> be an
+float and a <code class="docutils literal"><span class="pre">Parameter</span></code> object?</p>
 </div>
 <p class="flip0">Click to Show/Hide Solution</p> <div class="panel0"><p>The answer is that pl.ref is in fact an object, but its model class supports a
-special setter method <tt class="docutils literal"><span class="pre">__setattr__()</span></tt> that updates the pl.ref.val attribute
-underneath.  The <tt class="docutils literal"><span class="pre">property</span></tt> function defines custom getter and setter
+special setter method <code class="docutils literal"><span class="pre">__setattr__()</span></code> that updates the pl.ref.val attribute
+underneath.  The <code class="docutils literal"><span class="pre">property</span></code> function defines custom getter and setter
 functions for a particular class attribute:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Parameter</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Parameter</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c"># private attribute intended to be reference as &#39;val&#39;.</span>
+        <span class="c1"># private attribute intended to be reference as &#39;val&#39;.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_value</span> <span class="o">=</span> <span class="mf">1.0</span>
 
     <span class="k">def</span> <span class="nf">_get_val</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span>
     <span class="k">def</span> <span class="nf">_set_val</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span> <span class="o">=</span> <span class="n">value</span>
-    <span class="c"># setup a &#39;val&#39; attribute</span>
+    <span class="c1"># setup a &#39;val&#39; attribute</span>
     <span class="n">val</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">_get_val</span><span class="p">,</span> <span class="n">_set_val</span><span class="p">)</span>
 
 <span class="k">class</span> <span class="nc">Model</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -445,21 +445,21 @@ functions for a particular class attribute:</p>
 <span class="n">m</span><span class="o">.</span><span class="n">ref</span><span class="o">.</span><span class="n">val</span>
 </pre></div>
 </div>
-</div><p>Create a <tt class="docutils literal"><span class="pre">Fit</span></tt> object made up of a Sherpa data set, model, fit statistic, and
+</div><p>Create a <code class="docutils literal"><span class="pre">Fit</span></code> object made up of a Sherpa data set, model, fit statistic, and
 optimization method.  Fit the spectrum to a power-law with least squares
 (Levenberg-Marquardt) using the chi-squared statistic with data variance:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">f</span> <span class="o">=</span> <span class="n">Fit</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">pl</span><span class="p">,</span> <span class="n">Chi2DataVar</span><span class="p">(),</span> <span class="n">LevMar</span><span class="p">())</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">Fit</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">pl</span><span class="p">,</span> <span class="n">Chi2DataVar</span><span class="p">(),</span> <span class="n">LevMar</span><span class="p">())</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-<span class="c"># or alternatively</span>
+<span class="c1"># or alternatively</span>
 <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">format</span><span class="p">())</span>
 </pre></div>
 </div>
 <p>Over-plot the fitted model atop the data points using our convenience function
-<tt class="docutils literal"><span class="pre">plot_data</span></tt>.  This time calculate the model using the best-fit parameter
-values over the <tt class="docutils literal"><span class="pre">data.x</span></tt> and plot using a custom format and indicate
-<tt class="docutils literal"><span class="pre">clear=False</span></tt>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">plot_data</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">pl</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">x</span><span class="p">),</span> <span class="n">fmt</span><span class="o">=</span><span class="s">&quot;-&quot;</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<code class="docutils literal"><span class="pre">plot_data</span></code>.  This time calculate the model using the best-fit parameter
+values over the <code class="docutils literal"><span class="pre">data.x</span></code> and plot using a custom format and indicate
+<code class="docutils literal"><span class="pre">clear=False</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">plot_data</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">pl</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">x</span><span class="p">),</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../_images/3c273_fit_mast.png"><img alt="../_images/3c273_fit_mast.png" src="../_images/3c273_fit_mast.png" style="width: 609.0px; height: 459.0px;" /></a>
@@ -470,7 +470,7 @@ values over the <tt class="docutils literal"><span class="pre">data.x</span></tt
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper"><h3>Page Contents</h3>
 <ul>
 <li><a class="reference internal" href="#">The low-level Sherpa API</a><ul>
@@ -500,7 +500,7 @@ values over the <tt class="docutils literal"><span class="pre">data.x</span></tt
     terms of <a rel="license"
                 href="http://creativecommons.org/licenses/by/3.0/">CC
       Attribution 3.0</a>.<br/>
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.3. &nbsp;
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3.1. &nbsp;
 </footer>
   </body>
 </html>

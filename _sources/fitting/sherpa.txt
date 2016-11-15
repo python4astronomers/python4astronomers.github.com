@@ -62,7 +62,7 @@ then go to the py4ast/core directory, otherwise ::
 
   from astropy.extern.six.moves.urllib import request
   import tarfile
-  url = 'http://python4astronomers.github.io/_downloads/core_examples.tar'
+  url = 'http://python4astronomers.github.com/core/core_examples.tar'
   tarfile.open(fileobj=request.urlopen(url), mode='r|').extractall()
   cd py4ast/core
 

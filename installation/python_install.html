@@ -276,7 +276,7 @@ display:none;
 
 
   </head>
-  <body>
+  <body role="document">
 <div class="topbar">
   <a class="brand" title="Documentation Home" href="../index.html"><span id="logotext1">python</span><span id="logotext2">4</span><span id="logotext3">astronomers</span></a>
   <ul>
@@ -312,12 +312,12 @@ display:none;
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="installing-scientific-python">
 <span id="id1"></span><h1>Installing Scientific Python<a class="headerlink" href="#installing-scientific-python" title="Permalink to this headline">¶</a></h1>
 <p>The aim of this workshop is to get you set up with a working scientific Python
-installation which meets the <a class="reference internal" href="requirements.html#python-pkg-requirements"><em>Python requirements</em></a>.  This will proceed
+installation which meets the <a class="reference internal" href="requirements.html#python-pkg-requirements"><span>Python requirements</span></a>.  This will proceed
 in four steps:</p>
 <ul class="simple">
 <li><a class="reference internal" href="#install-core-python">Install core Python</a></li>
@@ -345,7 +345,7 @@ distribution.</p>
 <p>On of the fastest way to get a basic Python installation up and running is
 <a class="reference external" href="http://continuum.io/downloads">Anaconda</a>.
 Click on that link and download the installer (using the button marked
-<tt class="docutils literal"><span class="pre">free</span></tt> on the top right of the page). It will ask you for your email
+<code class="docutils literal"><span class="pre">free</span></code> on the top right of the page). It will ask you for your email
 and then you get an installer for your OS (Mac, Linux, or Windows).
 Read <a class="reference internal" href="#versus-32-bit">64 versus 32 bit</a> if you aren&#8217;t sure if your CPU is 64-bit.</p>
 <p>By default Anaconda is installed into your home directory (no root access
@@ -358,10 +358,10 @@ path, following the instructions on the Anaconda page.</p>
 <p class="last">After installing Anaconda, you will probably have more than one Python
 installation on your computer, e.g. a Python included in the OS,
 Anaconda plus possible CASA or CIAO/Sherpa. In general that is not a problem,
-but see <a class="reference internal" href="packages.html#multiple-pythons"><em>Multiple Pythons on your computer</em></a> for more information on managing this situation.</p>
+but see <a class="reference internal" href="packages.html#multiple-pythons"><span>Multiple Pythons on your computer</span></a> for more information on managing this situation.</p>
 </div>
 <p><strong>Alternate options</strong></p>
-<p>There are a number of <a class="reference internal" href="recommended_options.html#recommended-options"><em>Recommended installation options</em></a> besides Anaconda, and you are
+<p>There are a number of <a class="reference internal" href="recommended_options.html#recommended-options"><span>Recommended installation options</span></a> besides Anaconda, and you are
 encouraged to explore these options and decide what might be right for you.
 This includes the use of system package managers like MacPorts or linux RPM.
 Each of the other options has different features and strengths, and no single
@@ -374,16 +374,16 @@ packages that are used in the tutorials.  Copy and paste the lines below one at
 a time, checking that each one works.  The program outputs may contain various
 &#8220;warnings&#8221;, but watch for &#8220;errors&#8221; and look at the end to see if a successful
 installation was reported.</p>
-<div class="highlight-python"><div class="highlight"><pre>pip install --upgrade astropy  # NOT required for Anaconda
+<div class="highlight-python"><div class="highlight"><pre><span></span>pip install --upgrade astropy  # NOT required for Anaconda
 pip install --upgrade aplpy
 pip install --upgrade pyregion
 pip install --upgrade pyparsing
 </pre></div>
 </div>
 <p>Note that if you have used a root-installation option like MacPorts or a linux
-package manager to install Python, then you will need to use the <tt class="docutils literal"><span class="pre">sudo</span></tt> prefix
+package manager to install Python, then you will need to use the <code class="docutils literal"><span class="pre">sudo</span></code> prefix
 in each of these commands, e.g.:</p>
-<div class="highlight-python"><div class="highlight"><pre>sudo pip install --upgrade aplpy
+<div class="highlight-python"><div class="highlight"><pre><span></span>sudo pip install --upgrade aplpy
 </pre></div>
 </div>
 <p>If you experience problems with installation for any of these packages you can
@@ -393,7 +393,7 @@ send an email to the <a class="reference external" href="http://mail.scipy.org/m
 <span id="installation-test"></span><h2>Test the installation<a class="headerlink" href="#test-the-installation" title="Permalink to this headline">¶</a></h2>
 <p>To do a very basic test whether you meet the requirements and have a functioning
 core scientific Python installation, do the following and check version numbers:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ python -V
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ python -V
 $ ipython -V
 $ ipython --matplotlib
 import numpy
@@ -413,7 +413,7 @@ print(scipy.linalg.eig([[1,2],[3,4]]))
 <p>The commands above should succeed with no errors.  The version numbers should
 meet the requirements, and finally you should see a plot of a sine wave.</p>
 <p>To check the other required packages, do the following from within ipython:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">astropy</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">astropy</span>
 <span class="kn">import</span> <span class="nn">aplpy</span>
 <span class="kn">import</span> <span class="nn">pyregion</span>
 <span class="kn">import</span> <span class="nn">pyparsing</span>
@@ -424,10 +424,10 @@ meet the requirements, and finally you should see a plot of a sine wave.</p>
 <h2>Take your Python for a spin!<a class="headerlink" href="#take-your-python-for-a-spin" title="Permalink to this headline">¶</a></h2>
 <p>If you are following along with the Python for Astronomers tutorial and have
 finished installing Python, you can give a real test drive now.</p>
-<p>First download the <a class="reference download internal" href="../_downloads/install_examples.tar"><tt class="xref download docutils literal"><span class="pre">install_examples.tar</span></tt></a> file which has example data
+<p>First download the <a class="reference download internal" href="../_downloads/install_examples.tar"><code class="xref download docutils literal"><span class="pre">install_examples.tar</span></code></a> file which has example data
 files that will be used in subsequent exercises.
 Then change to a working directory, untar the file, and start up IPython:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ tar xvf ~/Downloads/install_examples.tar   # or wherever your browser puts downloads
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ tar xvf ~/Downloads/install_examples.tar   # or wherever your browser puts downloads
 $ cd py4ast/install
 $ ls
 $ ipython --matplotlib
@@ -436,11 +436,11 @@ $ ipython --matplotlib
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
 <p>For all of the workshops you should always start Python using the shell command:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ipython --matplotlib  # (for Windows start the Pylab application)
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ ipython --matplotlib  # (for Windows start the Pylab application)
 </pre></div>
 </div>
 <p>Once IPython has started, make numpy and matplotlib available with:</p>
-<div class="last highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<div class="last highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 </pre></div>
 </div>
@@ -448,43 +448,43 @@ $ ipython --matplotlib
 <div class="admonition-exercise-read-a-table-and-examine-it admonition">
 <p class="first admonition-title">Exercise: Read a table and examine it</p>
 <p>Look at the documentation for the <a class="reference external" href="http://docs.astropy.org/en/stable/io/ascii/index.html">astropy.Table.read()</a> function in
-<a class="reference external" href="http://astropy.org">astropy</a>.  Follow the very first example and use the <tt class="docutils literal"><span class="pre">read()</span></tt> function
-to read the data in the file <tt class="docutils literal"><span class="pre">table1.dat</span></tt> into the variable named <tt class="docutils literal"><span class="pre">data</span></tt>.</p>
+<a class="reference external" href="http://astropy.org">astropy</a>.  Follow the very first example and use the <code class="docutils literal"><span class="pre">read()</span></code> function
+to read the data in the file <code class="docutils literal"><span class="pre">table1.dat</span></code> into the variable named <code class="docutils literal"><span class="pre">data</span></code>.</p>
 <p>This table is in the &#8220;ApJ machine-readable format&#8221; (which is actually a bit
 tricky for machines to read).  This is very similar to the table format used
 by CDS / Vizier for input and storage of tables in astronomy.</p>
-<p>Once you have read the table into the variable <tt class="docutils literal"><span class="pre">data</span></tt> then print the table,
-print the column <tt class="docutils literal"><span class="pre">RAdeg</span></tt>, and print the 3rd row.</p>
+<p>Once you have read the table into the variable <code class="docutils literal"><span class="pre">data</span></code> then print the table,
+print the column <code class="docutils literal"><span class="pre">RAdeg</span></code>, and print the 3rd row.</p>
 <p>Hints:</p>
 <blockquote>
 <div><ul>
-<li><p class="first">You can print a <tt class="docutils literal"><span class="pre">&lt;variable&gt;</span></tt> by just typing <tt class="docutils literal"><span class="pre">print</span> <span class="pre">&lt;variable&gt;</span></tt> at the command line, for example <tt class="docutils literal"><span class="pre">print</span> <span class="pre">data</span></tt>.</p>
+<li><p class="first">You can print a <code class="docutils literal"><span class="pre">&lt;variable&gt;</span></code> by just typing <code class="docutils literal"><span class="pre">print</span> <span class="pre">&lt;variable&gt;</span></code> at the command line, for example <code class="docutils literal"><span class="pre">print</span> <span class="pre">data</span></code>.</p>
 </li>
-<li><p class="first">You can get tons of useful information about a variable with <tt class="docutils literal"><span class="pre">help</span></tt> or <tt class="docutils literal"><span class="pre">?</span></tt>:</p>
+<li><p class="first">You can get tons of useful information about a variable with <code class="docutils literal"><span class="pre">help</span></code> or <code class="docutils literal"><span class="pre">?</span></code>:</p>
 <blockquote>
 <div><ul class="simple">
-<li><tt class="docutils literal"><span class="pre">help</span> <span class="pre">&lt;variable&gt;</span></tt></li>
-<li><tt class="docutils literal"><span class="pre">?</span> <span class="pre">&lt;variable&gt;</span></tt></li>
+<li><code class="docutils literal"><span class="pre">help</span> <span class="pre">&lt;variable&gt;</span></code></li>
+<li><code class="docutils literal"><span class="pre">?</span> <span class="pre">&lt;variable&gt;</span></code></li>
 </ul>
 </div></blockquote>
-<p>These two commands are pretty similar except that <tt class="docutils literal"><span class="pre">?</span></tt> gives a little bit more information
+<p>These two commands are pretty similar except that <code class="docutils literal"><span class="pre">?</span></code> gives a little bit more information
 and in a more raw form.</p>
 </li>
-<li><p class="first">The object returned by <tt class="docutils literal"><span class="pre">asciitable.read()</span></tt> is a NumPy record array,
+<li><p class="first">The object returned by <code class="docutils literal"><span class="pre">asciitable.read()</span></code> is a NumPy record array,
 which is just a fancy way of saying a table where you can access rows or columns of data.</p>
 </li>
-<li><p class="first">You can get the column names and types with <tt class="docutils literal"><span class="pre">print</span> <span class="pre">data.dtype</span></tt></p>
+<li><p class="first">You can get the column names and types with <code class="docutils literal"><span class="pre">print</span> <span class="pre">data.dtype</span></code></p>
 </li>
-<li><p class="first">To print a column of data use <tt class="docutils literal"><span class="pre">print</span> <span class="pre">data[&quot;&lt;column_name&gt;&quot;]</span></tt>, for example <tt class="docutils literal"><span class="pre">print</span> <span class="pre">data[&quot;Name&quot;]</span></tt></p>
+<li><p class="first">To print a column of data use <code class="docutils literal"><span class="pre">print</span> <span class="pre">data[&quot;&lt;column_name&gt;&quot;]</span></code>, for example <code class="docutils literal"><span class="pre">print</span> <span class="pre">data[&quot;Name&quot;]</span></code></p>
 </li>
-<li><p class="first">To print a row of data use <tt class="docutils literal"><span class="pre">print</span> <span class="pre">data[&lt;row_number&gt;]</span></tt></p>
+<li><p class="first">To print a row of data use <code class="docutils literal"><span class="pre">print</span> <span class="pre">data[&lt;row_number&gt;]</span></code></p>
 </li>
 </ul>
 </div></blockquote>
 <p class="last">Optional: use the <a class="reference external" href="http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.plot">plot</a>
 and <a class="reference external" href="http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.hist">hist</a>
 functions to examine the data graphically.  For instance plot RAdeg versus
-DEdeg.  Look at the <tt class="docutils literal"><span class="pre">table1.dat</span></tt> file itself for detailed column
+DEdeg.  Look at the <code class="docutils literal"><span class="pre">table1.dat</span></code> file itself for detailed column
 descriptions.</p>
 </div>
 </div>
@@ -499,9 +499,9 @@ is easy (32-bit) but if you have a 64-bit processor then either 32 or 64 will
 work.  See below if you don&#8217;t know your processor architecture:</p>
 <ul class="simple">
 <li>MacOSX: Follow <a class="reference external" href="http://support.apple.com/kb/ht3696">the MacOS instructions</a></li>
-<li>Linux: Type <tt class="docutils literal"><span class="pre">uname</span> <span class="pre">-mpi</span></tt> at the command line.  If you see <tt class="docutils literal"><span class="pre">x86_64</span> <span class="pre">x86_64</span>
-<span class="pre">x86_64</span></tt> you have a 64-bit machine and OS.  If you see one or more <tt class="docutils literal"><span class="pre">i686</span></tt>
-or <tt class="docutils literal"><span class="pre">i386</span></tt> you are running a 32-bit OS.</li>
+<li>Linux: Type <code class="docutils literal"><span class="pre">uname</span> <span class="pre">-mpi</span></code> at the command line.  If you see <code class="docutils literal"><span class="pre">x86_64</span> <span class="pre">x86_64</span>
+<span class="pre">x86_64</span></code> you have a 64-bit machine and OS.  If you see one or more <code class="docutils literal"><span class="pre">i686</span></code>
+or <code class="docutils literal"><span class="pre">i386</span></code> you are running a 32-bit OS.</li>
 <li>Windows:  Follow <a class="reference external" href="http://windows.microsoft.com/en-US/windows-vista/32-bit-and-64-bit-Windows-frequently-asked-questions">the Windows instructions</a>.</li>
 </ul>
 </div>
@@ -523,7 +523,7 @@ do not use a standalone Python distribution installer:</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper"><h3>Page Contents</h3>
 <ul>
 <li><a class="reference internal" href="#">Installing Scientific Python</a><ul>
@@ -557,7 +557,7 @@ do not use a standalone Python distribution installer:</p>
     terms of <a rel="license"
                 href="http://creativecommons.org/licenses/by/3.0/">CC
       Attribution 3.0</a>.<br/>
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.3. &nbsp;
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3.1. &nbsp;
 </footer>
   </body>
 </html>

@@ -276,7 +276,7 @@ display:none;
 
 
   </head>
-  <body>
+  <body role="document">
 <div class="topbar">
   <a class="brand" title="Documentation Home" href="../index.html"><span id="logotext1">python</span><span id="logotext2">4</span><span id="logotext3">astronomers</span></a>
   <ul>
@@ -312,7 +312,7 @@ display:none;
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="contest-make-a-fun-bouncing-balls-demo">
 <span id="contest-bouncing-balls"></span><h1>CONTEST: Make a fun bouncing balls demo<a class="headerlink" href="#contest-make-a-fun-bouncing-balls-demo" title="Permalink to this headline">¶</a></h1>
@@ -335,53 +335,53 @@ attaching.</dd>
 <p>The script below shows a simple example of making an animation using
 matplotlib.  The key feature is the <a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html?highlight=pyplot.draw#matplotlib.pyplot.draw">draw()</a> command which re-draws the plot
 window.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
 
-<span class="c"># Define properties of the &quot;bouncing balls&quot;</span>
+<span class="c1"># Define properties of the &quot;bouncing balls&quot;</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="mi">20</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">vel</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.3</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="o">*</span><span class="mi">2</span><span class="p">))</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">sizes</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="mi">100</span>
 
-<span class="c"># Colors where each row is (Red, Green, Blue, Alpha).  Each can go</span>
-<span class="c"># from 0 to 1.  Alpha is the transparency.</span>
+<span class="c1"># Colors where each row is (Red, Green, Blue, Alpha).  Each can go</span>
+<span class="c1"># from 0 to 1.  Alpha is the transparency.</span>
 <span class="n">colors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">([</span><span class="n">n</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
 
-<span class="c"># Draw all the circles and return an object ``circles`` that allows</span>
-<span class="c"># manipulation of the plotted circles.</span>
-<span class="n">circles</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">pos</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">pos</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s">&#39;o&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">sizes</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colors</span><span class="p">)</span>
+<span class="c1"># Draw all the circles and return an object ``circles`` that allows</span>
+<span class="c1"># manipulation of the plotted circles.</span>
+<span class="n">circles</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">pos</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">pos</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">sizes</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colors</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
     <span class="n">pos</span> <span class="o">=</span> <span class="n">pos</span> <span class="o">+</span> <span class="n">vel</span>
-    <span class="n">bounce</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">10</span>      <span class="c"># Find balls that are outside walls</span>
-    <span class="n">vel</span><span class="p">[</span><span class="n">bounce</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">vel</span><span class="p">[</span><span class="n">bounce</span><span class="p">]</span>  <span class="c"># Bounce if outside the walls</span>
-    <span class="n">circles</span><span class="o">.</span><span class="n">set_offsets</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span>    <span class="c"># Change the positions</span>
+    <span class="n">bounce</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">10</span>      <span class="c1"># Find balls that are outside walls</span>
+    <span class="n">vel</span><span class="p">[</span><span class="n">bounce</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">vel</span><span class="p">[</span><span class="n">bounce</span><span class="p">]</span>  <span class="c1"># Bounce if outside the walls</span>
+    <span class="n">circles</span><span class="o">.</span><span class="n">set_offsets</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span>    <span class="c1"># Change the positions</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../_images/bounce.png"><img alt="../_images/bounce.png" src="../_images/bounce.png" style="width: 406.0px; height: 306.0px;" /></a>
 <p>In order to run this you should copy the lines above into a file
-called <tt class="docutils literal"><span class="pre">bounce.py</span></tt> in your working directory.  Then start IPython as usual
-with <tt class="docutils literal"><span class="pre">ipython</span> <span class="pre">--matplotlib</span></tt> or with the Pylab application on Windows and enter the following:</p>
-<div class="highlight-python"><div class="highlight"><pre>run -i bounce.py
+called <code class="docutils literal"><span class="pre">bounce.py</span></code> in your working directory.  Then start IPython as usual
+with <code class="docutils literal"><span class="pre">ipython</span> <span class="pre">--matplotlib</span></code> or with the Pylab application on Windows and enter the following:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>run -i bounce.py
 </pre></div>
 </div>
 <p>This command essentially runs the lines of the file as if you had entered them
 by hand, but this now allows for longer scripts.  This has the convenient
 property that all the variables defined within the script are available at the
 command line once the script finishes execution.  Use this to examine key
-variables like <tt class="docutils literal"><span class="pre">pos</span></tt>, <tt class="docutils literal"><span class="pre">sizes</span></tt>, <tt class="docutils literal"><span class="pre">colors</span></tt> to understand how the script is
+variables like <code class="docutils literal"><span class="pre">pos</span></code>, <code class="docutils literal"><span class="pre">sizes</span></code>, <code class="docutils literal"><span class="pre">colors</span></code> to understand how the script is
 working.</p>
 <p>The key plot routine being called is <a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html?highlight=pyplot.scatter#matplotlib.pyplot.scatter">scatter()</a>.
 Read the documentation and understand how it is called.</p>
-<p>Examine the <tt class="docutils literal"><span class="pre">circles</span></tt> object with <tt class="docutils literal"><span class="pre">help</span></tt> and <tt class="docutils literal"><span class="pre">?</span></tt>.  Look for &#8220;set_*&#8221;
-methods (<tt class="docutils literal"><span class="pre">circles.set_&lt;TAB&gt;</span></tt>) that will let you set something and then get
+<p>Examine the <code class="docutils literal"><span class="pre">circles</span></code> object with <code class="docutils literal"><span class="pre">help</span></code> and <code class="docutils literal"><span class="pre">?</span></code>.  Look for &#8220;set_*&#8221;
+methods (<code class="docutils literal"><span class="pre">circles.set_&lt;TAB&gt;</span></code>) that will let you set something and then get
 help on those as well to learn how to use them.  There are corresponding &#8220;get_*&#8221;
 methods that let you examine the existing values.</p>
 </div>
@@ -395,8 +395,8 @@ Possibilities include:</p>
 <li>Add a lot more balls (at what point do things break?)</li>
 <li>Put in animated text with the <a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html?highlight=pyplot.scatter#matplotlib.pyplot.text">text()</a>
 command.  You&#8217;ll need to do something like
-<tt class="docutils literal"><span class="pre">mytext</span> <span class="pre">=</span> <span class="pre">text(...)</span></tt> and then figure out how to change the properties of
-the text (e.g. rotation angle) using <tt class="docutils literal"><span class="pre">mytext.get_&lt;TAB&gt;</span></tt> and <tt class="docutils literal"><span class="pre">mytext.set_&lt;TAB&gt;</span></tt> and <tt class="docutils literal"><span class="pre">help</span> <span class="pre">mytext</span></tt>.</li>
+<code class="docutils literal"><span class="pre">mytext</span> <span class="pre">=</span> <span class="pre">text(...)</span></code> and then figure out how to change the properties of
+the text (e.g. rotation angle) using <code class="docutils literal"><span class="pre">mytext.get_&lt;TAB&gt;</span></code> and <code class="docutils literal"><span class="pre">mytext.set_&lt;TAB&gt;</span></code> and <code class="docutils literal"><span class="pre">help</span> <span class="pre">mytext</span></code>.</li>
 <li>Do silly things like make the tick labels change colors and/or spin following the
 example code at the end of the <a class="reference external" href="http://matplotlib.sourceforge.net/users/artists.html#axis-containers">Axis containers</a> documentation.</li>
 <li>Put in physics, like making the balls bounce off each other, including gravity, or ???</li>
@@ -411,28 +411,28 @@ example code at the end of the <a class="reference external" href="http://matplo
 <col width="53%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference download internal" href="../_downloads/bounce_fprimini.py"><tt class="xref download docutils literal"><span class="pre">bounce_fprimini.py</span></tt></a></td>
+<tr class="row-odd"><td><a class="reference download internal" href="../_downloads/bounce_fprimini.py"><code class="xref download docutils literal"><span class="pre">bounce_fprimini.py</span></code></a></td>
 <td>Spinning pentagons</td>
 </tr>
-<tr class="row-even"><td><a class="reference download internal" href="../_downloads/bounce_jconnelly.py"><tt class="xref download docutils literal"><span class="pre">bounce_jconnelly.py</span></tt></a></td>
+<tr class="row-even"><td><a class="reference download internal" href="../_downloads/bounce_jconnelly.py"><code class="xref download docutils literal"><span class="pre">bounce_jconnelly.py</span></code></a></td>
 <td>Order from chaos [*]</td>
 </tr>
-<tr class="row-odd"><td><a class="reference download internal" href="../_downloads/bounce_jslavin.py"><tt class="xref download docutils literal"><span class="pre">bounce_jslavin.py</span></tt></a></td>
+<tr class="row-odd"><td><a class="reference download internal" href="../_downloads/bounce_jslavin.py"><code class="xref download docutils literal"><span class="pre">bounce_jslavin.py</span></code></a></td>
 <td>1-d gravity [*]</td>
 </tr>
-<tr class="row-even"><td><a class="reference download internal" href="../_downloads/bounce_kkratter.py"><tt class="xref download docutils literal"><span class="pre">bounce_kkratter.py</span></tt></a></td>
+<tr class="row-even"><td><a class="reference download internal" href="../_downloads/bounce_kkratter.py"><code class="xref download docutils literal"><span class="pre">bounce_kkratter.py</span></code></a></td>
 <td>Growing rings</td>
 </tr>
-<tr class="row-odd"><td><a class="reference download internal" href="../_downloads/bounce_mswanson.py"><tt class="xref download docutils literal"><span class="pre">bounce_mswanson.py</span></tt></a></td>
+<tr class="row-odd"><td><a class="reference download internal" href="../_downloads/bounce_mswanson.py"><code class="xref download docutils literal"><span class="pre">bounce_mswanson.py</span></code></a></td>
 <td>Whirling stars</td>
 </tr>
-<tr class="row-even"><td><a class="reference download internal" href="../_downloads/bounce_pgrigis.py"><tt class="xref download docutils literal"><span class="pre">bounce_pgrigis.py</span></tt></a></td>
+<tr class="row-even"><td><a class="reference download internal" href="../_downloads/bounce_pgrigis.py"><code class="xref download docutils literal"><span class="pre">bounce_pgrigis.py</span></code></a></td>
 <td>Diffusion: <strong>contest winner</strong></td>
 </tr>
-<tr class="row-odd"><td><a class="reference download internal" href="../_downloads/bounce_trobitaille1.py"><tt class="xref download docutils literal"><span class="pre">bounce_trobitaille1.py</span></tt></a></td>
+<tr class="row-odd"><td><a class="reference download internal" href="../_downloads/bounce_trobitaille1.py"><code class="xref download docutils literal"><span class="pre">bounce_trobitaille1.py</span></code></a></td>
 <td>Gravitational well [*]</td>
 </tr>
-<tr class="row-even"><td><a class="reference download internal" href="../_downloads/bounce_trobitaille2.py"><tt class="xref download docutils literal"><span class="pre">bounce_trobitaille2.py</span></tt></a></td>
+<tr class="row-even"><td><a class="reference download internal" href="../_downloads/bounce_trobitaille2.py"><code class="xref download docutils literal"><span class="pre">bounce_trobitaille2.py</span></code></a></td>
 <td>Trailing images [*]</td>
 </tr>
 </tbody>
@@ -448,16 +448,16 @@ example code at the end of the <a class="reference external" href="http://matplo
 <col width="53%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference download internal" href="../_downloads/bounce_kpoppenhaeger.py"><tt class="xref download docutils literal"><span class="pre">bounce_kpoppenhaeger.py</span></tt></a></td>
+<tr class="row-odd"><td><a class="reference download internal" href="../_downloads/bounce_kpoppenhaeger.py"><code class="xref download docutils literal"><span class="pre">bounce_kpoppenhaeger.py</span></code></a></td>
 <td>balls and thorns</td>
 </tr>
-<tr class="row-even"><td><a class="reference download internal" href="../_downloads/bounce_krosenfeld.py"><tt class="xref download docutils literal"><span class="pre">bounce_krosenfeld.py</span></tt></a></td>
+<tr class="row-even"><td><a class="reference download internal" href="../_downloads/bounce_krosenfeld.py"><code class="xref download docutils literal"><span class="pre">bounce_krosenfeld.py</span></code></a></td>
 <td>2d Metropolis-Hastings algorithm</td>
 </tr>
-<tr class="row-odd"><td><a class="reference download internal" href="../_downloads/bounce_xlu_just4fun.py"><tt class="xref download docutils literal"><span class="pre">bounce_xlu_just4fun.py</span></tt></a></td>
+<tr class="row-odd"><td><a class="reference download internal" href="../_downloads/bounce_xlu_just4fun.py"><code class="xref download docutils literal"><span class="pre">bounce_xlu_just4fun.py</span></code></a></td>
 <td>a flying dolphin</td>
 </tr>
-<tr class="row-even"><td><a class="reference download internal" href="../_downloads/bounce_xlu.py"><tt class="xref download docutils literal"><span class="pre">bounce_xlu.py</span></tt></a></td>
+<tr class="row-even"><td><a class="reference download internal" href="../_downloads/bounce_xlu.py"><code class="xref download docutils literal"><span class="pre">bounce_xlu.py</span></code></a></td>
 <td>balls with gravity and elastic force</td>
 </tr>
 </tbody>
@@ -469,7 +469,7 @@ example code at the end of the <a class="reference external" href="http://matplo
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper"><h3>Page Contents</h3>
 <ul>
 <li><a class="reference internal" href="#">CONTEST: Make a fun bouncing balls demo</a><ul>
@@ -502,7 +502,7 @@ example code at the end of the <a class="reference external" href="http://matplo
     terms of <a rel="license"
                 href="http://creativecommons.org/licenses/by/3.0/">CC
       Attribution 3.0</a>.<br/>
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.3. &nbsp;
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3.1. &nbsp;
 </footer>
   </body>
 </html>

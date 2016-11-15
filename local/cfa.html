@@ -276,7 +276,7 @@ display:none;
 
 
   </head>
-  <body>
+  <body role="document">
 <div class="topbar">
   <a class="brand" title="Documentation Home" href="../index.html"><span id="logotext1">python</span><span id="logotext2">4</span><span id="logotext3">astronomers</span></a>
   <ul>
@@ -312,7 +312,7 @@ display:none;
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="python-information-for-cfa">
 <h1>Python information for CfA<a class="headerlink" href="#python-information-for-cfa" title="Permalink to this headline">¶</a></h1>
@@ -326,13 +326,13 @@ display:none;
 <div class="section" id="scipy-matplotlib-and-the-rest-in-ciao-on-head">
 <h2>SciPy, matplotlib (and the rest) in CIAO on HEAD<a class="headerlink" href="#scipy-matplotlib-and-the-rest-in-ciao-on-head" title="Permalink to this headline">¶</a></h2>
 <p>First get into CIAO in the usual way:</p>
-<div class="highlight-python"><div class="highlight"><pre>source /soft/ciao/bin/ciao.csh         # tcsh
+<div class="highlight-python"><div class="highlight"><pre><span></span>source /soft/ciao/bin/ciao.csh         # tcsh
 . /soft/ciao/bin/ciao.sh               # bash
 </pre></div>
 </div>
 <p>Now set your local installation prefix to a directory of your choosing where
 you have write permission and make some directories:</p>
-<div class="highlight-python"><div class="highlight"><pre>set prefix=$HOME/ciaopy  # tcsh
+<div class="highlight-python"><div class="highlight"><pre><span></span>set prefix=$HOME/ciaopy  # tcsh
 prefix=$HOME/ciaopy      # bash
 
 mkdir -p $prefix/bin
@@ -343,7 +343,7 @@ mkdir -p $prefix/lib
 </div>
 <p>Set up a couple of paths.  You&#8217;ll probably want to do something similar to this
 path setup in your shell startup file:</p>
-<div class="highlight-python"><div class="highlight"><pre># tcsh
+<div class="highlight-python"><div class="highlight"><pre><span></span># tcsh
 setenv PATH $prefix/bin:$PATH  # tcsh
 setenv PYTHONPATH $prefix/lib/python2.7/site-packages
 
@@ -356,25 +356,25 @@ mkdir -p $PYTHONPATH
 </div>
 <p>Now copy binary versions of the numerical libraries that are needed by SciPy.
 These have only been verified to work on CentOS-5 on the HEAD network:</p>
-<div class="highlight-python"><div class="highlight"><pre>cd $prefix/lib
+<div class="highlight-python"><div class="highlight"><pre><span></span>cd $prefix/lib
 tar xf /proj/sot/ska/export/lapack_blas_atlas_x86-64.tar.gz
 </pre></div>
 </div>
 <p>Now go to the build directory and untar the source distributions for the SciPy and distribute packages:</p>
-<div class="highlight-python"><div class="highlight"><pre>cd $prefix/build
+<div class="highlight-python"><div class="highlight"><pre><span></span>cd $prefix/build
 tar xf /proj/sot/ska/pkgs/scipy-0.10.0.tar.gz
 tar xf /proj/sot/ska/pkgs/distribute-0.6.19.tar.gz
 </pre></div>
 </div>
-<p>First build and install <tt class="docutils literal"><span class="pre">distribute</span></tt>.  This provides <tt class="docutils literal"><span class="pre">setuptools</span></tt> and
-<tt class="docutils literal"><span class="pre">easy_install</span></tt>.  It turns out that in this exercise <tt class="docutils literal"><span class="pre">easy_install</span></tt> works
-better than <tt class="docutils literal"><span class="pre">pip</span></tt> because it provides a <tt class="docutils literal"><span class="pre">--prefix</span></tt> option that works.</p>
-<div class="highlight-python"><div class="highlight"><pre>cd $prefix/build/distribute-0.6.19
+<p>First build and install <code class="docutils literal"><span class="pre">distribute</span></code>.  This provides <code class="docutils literal"><span class="pre">setuptools</span></code> and
+<code class="docutils literal"><span class="pre">easy_install</span></code>.  It turns out that in this exercise <code class="docutils literal"><span class="pre">easy_install</span></code> works
+better than <code class="docutils literal"><span class="pre">pip</span></code> because it provides a <code class="docutils literal"><span class="pre">--prefix</span></code> option that works.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>cd $prefix/build/distribute-0.6.19
 ciaorun python setup.py install --prefix=$prefix
 </pre></div>
 </div>
 <p>Now set up the configuration file to build SciPy from source:</p>
-<div class="highlight-python"><div class="highlight"><pre>cd $prefix/build/scipy-0.10.0
+<div class="highlight-python"><div class="highlight"><pre><span></span>cd $prefix/build/scipy-0.10.0
 
 rm -f site.cfg
 echo &quot;[DEFAULT]&quot; &gt; site.cfg
@@ -387,27 +387,27 @@ echo &quot;libraries = fftw3&quot; &gt;&gt; site.cfg
 </pre></div>
 </div>
 <p>Start building and go get a coffee or read a paper for a little while, hopefully less than a half hour:</p>
-<div class="highlight-python"><div class="highlight"><pre>rm -f build.log install.log
+<div class="highlight-python"><div class="highlight"><pre><span></span>rm -f build.log install.log
 ciaorun python setup.py build --fcompiler=gnu95 &gt;&amp; build.log
 ciaorun python setup.py install --prefix=$prefix &gt;&amp; install.log
 </pre></div>
 </div>
-<p>Inspect <tt class="docutils literal"><span class="pre">build.log</span></tt> and <tt class="docutils literal"><span class="pre">install.log</span></tt> for errors (e.g.
-<tt class="docutils literal"><span class="pre">grep</span> <span class="pre">-i</span> <span class="pre">error</span> <span class="pre">build.log</span></tt>).  If this looks OK then change to
-a different directory and start up <tt class="docutils literal"><span class="pre">sherpa</span></tt> or <tt class="docutils literal"><span class="pre">chips</span></tt>:</p>
-<div class="highlight-python"><div class="highlight"><pre>cd $prefix/build
+<p>Inspect <code class="docutils literal"><span class="pre">build.log</span></code> and <code class="docutils literal"><span class="pre">install.log</span></code> for errors (e.g.
+<code class="docutils literal"><span class="pre">grep</span> <span class="pre">-i</span> <span class="pre">error</span> <span class="pre">build.log</span></code>).  If this looks OK then change to
+a different directory and start up <code class="docutils literal"><span class="pre">sherpa</span></code> or <code class="docutils literal"><span class="pre">chips</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>cd $prefix/build
 sherpa
 </pre></div>
 </div>
-<p>Now within <tt class="docutils literal"><span class="pre">sherpa</span></tt> do:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">scipy</span>
+<p>Now within <code class="docutils literal"><span class="pre">sherpa</span></code> do:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy</span>
 <span class="kn">import</span> <span class="nn">scipy.linalg</span>
 <span class="k">print</span><span class="p">(</span><span class="n">scipy</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]]))</span>
 </pre></div>
 </div>
 <p>Now quit and install the rest:</p>
-<div class="highlight-python"><div class="highlight"><pre>ciaorun easy_install --verbose --prefix=$prefix matplotlib
+<div class="highlight-python"><div class="highlight"><pre><span></span>ciaorun easy_install --verbose --prefix=$prefix matplotlib
 ciaorun easy_install --verbose --prefix=$prefix asciitable
 ciaorun easy_install --verbose --prefix=$prefix pywcs
 ciaorun easy_install --verbose --prefix=$prefix pyfits
@@ -416,10 +416,10 @@ ciaorun easy_install --verbose --prefix=$prefix aplpy
 ciaorun easy_install --verbose --prefix=$prefix nose
 </pre></div>
 </div>
-<p>Once again fire up <tt class="docutils literal"><span class="pre">sherpa</span></tt> or <tt class="docutils literal"><span class="pre">chips</span></tt> and do:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<p>Once again fire up <code class="docutils literal"><span class="pre">sherpa</span></code> or <code class="docutils literal"><span class="pre">chips</span></code> and do:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib</span>
-<span class="n">matplotlib</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s">&#39;TkAgg&#39;</span><span class="p">)</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;TkAgg&#39;</span><span class="p">)</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">asciitable</span>
 <span class="kn">import</span> <span class="nn">pyfits</span>
@@ -441,7 +441,7 @@ ciaorun easy_install --verbose --prefix=$prefix nose
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper"><h3>Page Contents</h3>
 <ul>
 <li><a class="reference internal" href="#">Python information for CfA</a><ul>
@@ -473,7 +473,7 @@ ciaorun easy_install --verbose --prefix=$prefix nose
     terms of <a rel="license"
                 href="http://creativecommons.org/licenses/by/3.0/">CC
       Attribution 3.0</a>.<br/>
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.3. &nbsp;
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3.1. &nbsp;
 </footer>
   </body>
 </html>
